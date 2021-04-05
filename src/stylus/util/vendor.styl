@@ -1,0 +1,25 @@
+grad-background(g)
+    background linear-gradient(convert(g))
+    background -o-linear-gradient(convert(g))
+    background -moz-linear-gradient(convert(g))
+    background -webkit-linear-gradient(convert(g))
+    background -ms-linear-gradient(convert(g))
+
+grad-background-image(g, image)
+    background url(image), linear-gradient(convert(g))
+    background url(image), -o-linear-gradient(convert(g))
+    background url(image), -moz-linear-gradient(convert(g))
+    background url(image), -webkit-linear-gradient(convert(g))
+    background url(image), -ms-linear-gradient(convert(g))
+
+grad-border(g)
+    border-image linear-gradient(convert(g))
+    border-image -o-linear-gradient(convert(g))
+    border-image -moz-linear-gradient(convert(g))
+    border-image -webkit-linear-gradient(convert(g))
+    border-image -ms-linear-gradient(convert(g))
+    border-image-slice 1
+
+mask-image(value)
+    mask-image value
+    -webkit-mask-image value

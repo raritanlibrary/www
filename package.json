@@ -1,0 +1,18 @@
+{
+  "name": "rpl",
+  "version": "1.0.0",
+  "description": "A website for Raritan Public Library.",
+  "main": "index.js",
+  "dependencies": {
+    "parcel": "^1.12.4",
+    "pug": "^3.0.2",
+    "stylus": "^0.54.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "parcel src/index.pug",
+    "build": "parcel build src/index.pug"
+  },
+  "author": "Spencer Gunning <swcgunning@gmail.com> (https://github.com/aemx)",
+  "license": "MIT"
+}

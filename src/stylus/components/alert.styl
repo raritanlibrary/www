@@ -1,0 +1,38 @@
+alert(type)
+    background-color er(type)
+    border 2px solid er-alt(type)
+    padding 16px
+    overflow auto
+    spacer()
+    display flex
+    flex-flow row nowrap
+    align-items center
+    justify-self center
+    justify-content center
+    &-logo
+        min-width 96px
+        fill er-text(type)
+        margin-right 16px
+        @media screen and (min-width 450px) and (max-width 749px)
+            min-width 72px
+        @media screen and (max-width 449px)
+            min-width 16.9vw
+    &-title
+        lexend(32px, er-text(type))
+        margin-bottom 4px
+        @media screen and (min-width 450px) and (max-width 749px)
+            lexend(24px, er-text(type))
+        @media screen and (max-width 449px)
+            lexend(5.6vw, er-text(type))
+    &-desc
+        perpetua(20px, er-text(type))
+        @media screen and (min-width 450px) and (max-width 749px)
+            perpetua(16px, er-text(type))
+        @media screen and (max-width 449px)
+            perpetua(15px, er-text(type))
+.alert-info
+    alert(info)
+.alert-attention
+    alert(attention)
+.alert-critical
+    alert(critical)

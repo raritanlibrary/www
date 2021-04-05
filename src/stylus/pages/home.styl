@@ -1,0 +1,47 @@
+.welcome
+    @media screen and (min-width 1380px)
+        display block
+    @media screen and (min-width 950px) and (max-width 1379px)
+        display block
+    @media screen and (max-width 875px)
+        display block
+.slideshow
+    position relative
+    bx-shadow()
+    border 2px solid alt('dd')
+    overflow hidden
+    @media screen and (min-width 1380px)
+        display inline
+        float right
+        margin 0 0 5px 22px
+        width w = calc(100vw - 880px)
+        height 'calc(%s * (480/920))' % w
+        max-width mw = 720px
+        max-height 'calc(%s * (480/920))' % mw
+    @media screen and (min-width 950px) and (max-width 1379px)
+        display block
+        margin 0 0 16px 0
+        width w = 100%
+        height 'calc((100vw - 540px) * (480/920))' % w
+    @media screen and (min-width 875px) and (max-width 949px)
+        display inline
+        float right
+        margin 0 0 5px 22px
+        width w = calc(100vw - 420px)
+        height 'calc(%s * (480/920))' % w
+    @media screen and (min-width 425px) and (max-width 874px)
+        display block
+        margin 0 0 16px 0
+        width w = 100%
+        height 'calc((100vw - 65px) * (480/920))' % w
+    @media screen and (max-width 424px)
+        display block
+        margin 0 0 16px 0
+        width w = 100%
+        height 'calc((100vw - 50px) * (480/920))' % w
+    &-img
+        position absolute
+        max-width 100%
+        for i in (1..5)
+            &:nth-child({i})
+                animation slideshow-fade+i ease 40s infinite

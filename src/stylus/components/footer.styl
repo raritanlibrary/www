@@ -1,0 +1,49 @@
+.footer
+    background-color alt()
+    padding 24px
+    grid-area f
+    &-responsive
+        display none
+        @media screen and (max-width 949px)
+            display block
+.socials
+    display flex
+    flex-flow row wrap
+    justify-self center
+    justify-content space-around
+    max-width 175px
+    margin 0 auto 8px
+    &-link
+        width 26px
+        fill main('d9')
+        transition fill 0.2s ease-in-out
+        transition all 0.4s ease-out
+        &:hover, &:focus
+            transform scale(1.2)
+            fill saturate(main('ff'), 50%)
+.hours-footer
+    text-align center
+    &-main
+        lexend(16px,  main('cc'), normal)
+        text-transform none
+        @media screen and (max-width 349px)
+            lexend(12px,  main('cc'), normal)
+            text-transform none
+    &-other
+        lexend(13px,  main('88'), normal)
+        text-transform none
+        spacer(0.3)
+        @media screen and (max-width 349px)
+            lexend(9.75px,  main(), normal)
+            text-transform none
+.hr-footer
+    background main('44')
+    border 0
+    margin 8px auto
+    height 1px
+    max-width 300px
+.copyright
+    lexend(13.5px, main(), normal)
+    text-align center
+    @media screen and (max-width 349px)
+        lexend(10.4px, main(), normal)

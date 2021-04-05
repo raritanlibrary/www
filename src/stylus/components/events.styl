@@ -1,0 +1,111 @@
+event-template(type)
+    spacer(0.25)
+    border 2px solid ev-alt(type)
+    background-color ev(type)
+    background-position 50% 5%
+    background-blend-mode overlay
+    transition all 0.2s ease-in-out
+    &:hover, &:focus
+        background-color ev-hover(type)
+        border 2px solid type
+    @media screen and (max-width 949px)
+        spacer(0)
+    &-cover
+        background-color rgba(ev(type) 0.7)
+        padding 8px
+    &-title
+        minion(21.2px, main-text(), bold)
+    &-subtitle
+        perpetua(17px, main-text(), bold, italic)
+        line-height 10px
+    &-hr
+        background main-text('aa')
+        border 0
+        margin 8px auto
+        height 1px
+        max-width 300px
+        @media screen and (max-width 949px)
+            margin 4px auto
+            height 0px
+    &-time
+        perpetua(18px, ev-text(type), bold)
+        @media screen and (max-width 949px)
+            display none
+        &-mobile
+            display none
+            @media screen and (max-width 949px)
+                display block
+                perpetua(16px, ev-text(type), bold)
+    &-date
+        perpetua(16px, ev-text(type), bold)
+        margin-bottom 8px
+        @media screen and (max-width 949px)
+            display none
+    &-desc
+        perpetua(16px, ev-text(type))
+        @media screen and (max-width 949px)
+            display none
+        &-filler
+            display none
+            @media screen and (max-width 949px)
+                display block
+                perpetua(16px, ev-text(type))
+                margin-top 16px;
+    text-align justify
+    text-align-last center
+    @media screen and (max-width 949px)
+        width 215px
+.calendar-events
+    display flex
+    flex-flow column wrap
+    align-items center
+    @media screen and (min-width 425px) and (max-width 949px)
+        width calc(100% - 250px)
+        flex-flow row nowrap
+        justify-content flex-end
+        gap 40px
+.event
+    @media screen and (min-width 750px) and (max-width 949px)
+        &:nth-child(n+3)
+            display none
+    @media screen and (max-width 749px)
+        &:nth-child(n+2)
+            display none
+    &-zoom
+        spacer()
+        border-radius 12px
+        background-color event-zoom
+        text-align center
+        padding 6px 8px
+        transition all 0.2s ease-in-out
+        &:hover, &:focus
+            background-color event-zoom-hover
+            border 2px solid type
+        @media screen and (max-width 949px)
+            spacer(0)
+            padding 4px 8px
+            margin-top 6px
+        &-link
+            lato(16px, white, bold)
+        svg
+            position inline
+            fill white
+            width 48px
+            margin-left 2px
+            margin-bottom -1px
+    &-spacer
+        spacer()
+        @media screen and (max-width 949px)
+            spacer(0)
+    &-pink, &-yoga
+        event-template(event-pink)
+    &-purple
+        event-template(event-purple)
+    &-blue
+        event-template(event-blue)
+    &-green
+        event-template(event-green)
+    &-orange
+        event-template(event-orange)
+    &-yoga
+        background-image url('/img/events/yoga.png')

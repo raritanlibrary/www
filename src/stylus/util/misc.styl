@@ -1,0 +1,42 @@
+txt-shadow()
+    text-shadow 3px 2px 5px rgba(0, 0, 0, 0.15)
+
+bx-shadow()
+    box-shadow 6px 4px 15px rgba(0, 0, 0, 0.2)
+
+spacer(m=1)
+    margin-bottom (24*m)px
+
+center-underline(h, b, w=100%)
+    &:hover, &:focus
+        &::after
+            visibility visible
+            width w
+            left 0
+            right 50%
+    &::after
+        content ''
+        position absolute
+        width 0%
+        height h
+        bottom b
+        left 50%
+        background-color link-text-hover
+        visibility hidden
+        transition all 0.2s ease-in-out
+
+lr-underline(h, b, w=100%)
+    &:hover, &:focus
+        &::after
+            visibility visible
+            width w
+    &::after
+        content ''
+        position absolute
+        width 0%
+        height h
+        bottom b
+        left 0
+        background-color link-text-hover
+        visibility hidden
+        transition all 0.2s ease-in-out

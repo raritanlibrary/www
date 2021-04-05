@@ -1,0 +1,47 @@
+main(o='ff')
+    convert('#fff8e3' + o)
+main2 = #e3dcc7
+
+alt(o='ff')
+    convert('#4b0c10' + o)
+alt2(o='ff')
+    convert('#c00000' + o)
+alt3(o='ff')
+    convert('#2e0405' + o)
+
+main-text(o='ff')
+    convert('#000000' + o)
+alt-text = white
+
+link-text = #1f53a6
+link-text-hover = shade(link-text, 15%)
+
+er(c)
+    tint(c, 30%)
+er-alt(c)
+    tint(c, 10%)
+er-text(c)
+    shade(c, 70%)
+
+info = #5db0e1
+attention = #fde74c
+critical = #fe654f
+
+ev(c)
+    tint(c, 60%)
+ev-alt(c)
+    tint(c, 40%)
+ev-hover(c)
+    tint(saturate(c, 300%), 40%)
+ev-text(c)
+    shade(saturate(c, 300%), 70%)
+
+//#FF7F50, #8FBC8F
+event-pink = #e15dc9
+event-purple = #b176e8
+event-blue = #5db0e1
+event-green = #6ab046
+event-orange = #f57c00
+
+event-zoom = #2d8cff
+event-zoom-hover = shade(saturate(event-zoom, 150%), 15%)

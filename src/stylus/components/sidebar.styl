@@ -1,0 +1,62 @@
+.sidebar
+    &-left, &-right
+        background-color main2
+        min-width 235px
+        padding 24px 12px
+        text-align center
+        @media screen and (min-width 1600px)
+            min-width calc((100vw/6 - (1600px/6 - 235px))) // 1/6
+    &-left
+        @media screen and (min-width 425px) and (max-width 949px)
+            display flex
+            flex-flow row wrap
+            justify-content space-between
+            align-content center
+            padding 24px
+            max-height 130px
+    &-right
+        @media screen and (max-width 949px)
+            display none
+.hsidebar
+    spacer(0.5)
+    &-event
+        spacer(0.5)
+        @media screen and (min-width 425px) and (max-width 949px)
+            text-align left
+            width 200px
+            align-self center
+            spacer(0)
+        @media screen and (min-width 425px) and (max-width 550px)
+            minion(7.27vw, alt(), bold)
+.address
+    spacer(1.5)
+    &-main
+        perpetua(22px,  main-text(), bold)
+        spacer()
+    &-map
+        perpetua(18px, link-text, bold, italic)
+        position relative
+        transition all 0.4s ease-out
+        center-underline(1px, 4px)
+        &:hover, &:focus
+            perpetua(20px, link-text-hover, bold, italic, 0)
+    &-other
+        perpetua(22px,  main-text())
+    &-email
+        perpetua(18px, link-text, bold)
+        position relative
+        transition all 0.4s ease-out
+        center-underline(1px, 4px)
+        &:hover, &:focus
+            perpetua(20px, link-text-hover, bold,, 0)
+.hours
+    margin auto
+    spacer(1.5)
+    text-align justify
+    width max-content
+    &-day
+        perpetua(18px,  main-text(), bold)
+        display inline-block
+        width 114px
+    &-detail
+        perpetua(18px,  main-text())

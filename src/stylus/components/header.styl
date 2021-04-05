@@ -1,0 +1,185 @@
+.nav
+    position relative
+    grad-background-image("left, alt2() -40%, alt() 50%, alt2() 140%", '/img/banner.png')
+    background-position 0% 0%
+    background-blend-mode multiply
+    padding 4px 22px 12px
+    grid-area h
+    user-select none
+    @media screen and (max-width 749px)
+        grad-background-image("left, alt2() -40%, alt() 50%, alt2() 140%", '/img/banner-1000.png')
+    &-check
+        display none
+    &-toggle
+        cursor pointer
+        fill main('d9')
+        svg
+            position absolute
+            width 50px
+            top 22px
+            right 20px
+            transition color 0.2s ease-in-out, transform 0.4s ease-out
+            &:hover
+                transform scale(1.2)
+            @media screen and (max-width 424px)
+                width 35px
+                top 21px
+        @media screen and (min-width 750px)
+            display none
+.logo
+    display block
+    lexend(50px, main('d9'))
+    text-align center
+    margin 4px 0 8px
+    transition color 0.2s ease-in-out, transform 0.4s ease-out
+    &:hover, &:focus
+        color saturate(main('ff'), 50%)
+        transform scale(1.02)
+    &-alt
+        display none
+    @media screen and (min-width 750px) and (max-width 949px)
+        lexend(38px, main('d9'))
+        margin 4px 0 0
+    @media screen and (min-width 425px) and (max-width 749px)
+        display none
+        &-alt
+            &-large
+                display inline-block
+                lexend(43px, main('d9'))
+                margin -4px 0 0 -3.25px
+            lexend(22px, main('d9'))
+            line-height 16px
+            text-align left
+            margin 4px 0 0
+            display inline-block
+            max-width 300px
+    @media screen and (max-width 424px)
+        display none
+        &-alt
+            &-large
+                display inline-block
+                lexend(30px, main('d9'))
+                margin 0 0 0 -2px
+            lexend(15.4px, main('d9'))
+            line-height 12px
+            text-align left
+            margin 4px 0 0
+            display inline-block
+            max-width 200px
+.links
+    display flex
+    flex-flow row wrap
+    justify-self center
+    justify-content space-around
+    min-width 860px
+    max-width 1280px
+    margin -4px auto
+    padding 0 20px
+    svg
+        transition transform 0.4s cubic-bezier(0, 0.55, 0.45, 1)
+        display inline
+        width 14px
+        fill alt-text
+        margin-left 6px
+        @media screen and (min-width 750px) and (max-width 949px)
+            width 11px
+            margin-left 4px
+    &-item, &-item-hidden
+        max-width 150px
+        minion(20px, alt-text)
+        list-style none
+        text-align center
+        position relative
+        padding 6px 12px
+        border-radius 12px
+        transition background 0.2s ease-in-out
+        &:hover, &:focus
+            background main('33')
+        &-hidden
+            display none
+            @media screen and (max-width 749px)
+                display inline
+        @media screen and (min-width 750px) and (max-width 949px)
+            minion(17px, alt-text)
+            max-width 120px
+        @media screen and (max-width 749px)
+            text-align right
+            minion(18px, alt-text)
+            padding calc((2 * 100vh - 751px) / 61) 20px
+            max-width unset
+            border-radius 0
+    &-dropdown
+        cursor pointer
+        @media screen and (max-width 749px)
+            display none
+    @media screen and (min-width 750px) and (max-width 949px)
+        min-width auto
+        max-width 860px
+        margin 8px auto -4px
+        padding 0 3px
+    @media screen and (max-width 749px)
+        padding 0
+        margin 0 auto
+        display flex
+        position absolute
+        z-index 1
+        background-color alt3('ff')
+        height calc(100vh - 90px)
+        bottom calc(-100vh + 90px)
+        text-align right
+        right -240px
+        flex-flow column
+        justify-content space-around
+        align-items stretch
+        min-width auto
+        width 240px
+        max-width auto
+        transition right 0.4s cubic-bezier(0.33, 1, 0.68, 1)
+    @media screen and (max-width 424px)
+        height calc(100vh - 73px)
+        bottom calc(-100vh + 73px)
+.sublinks
+    z-index 1
+    position absolute
+    top 40px
+    display flex
+    flex-flow column wrap
+    justify-self center
+    justify-content space-around
+    width 150px
+    left 50%
+    background-color alt3()
+    bx-shadow()
+    transform translate(-50%) scaleY(0)
+    transform-origin top left;
+    transition transform 0.2s ease-out
+    &-item
+        minion(18px, alt-text)
+        list-style none
+        text-align center
+        padding 12px 12px
+        transition background 0.2s ease-in-out
+        &:hover, &:focus
+            background main('33')
+        &:first-child
+            padding 16px 12px 12px
+            @media screen and (max-width 749px)
+                padding 0 0
+        @media screen and (min-width 750px) and (max-width 949px)
+            minion(15px, alt-text)
+    @media screen and (min-width 750px) and (max-width 949px)
+        top 37px
+        width 120px
+    @media screen and (max-width 749px)
+        visibility hidden
+.links-open
+    display flex
+    right 0
+.sublinks-down
+    transform translate(-50%) scaleY(1)
+    @media screen and (max-width 749px)
+        transform translate(0) scaleY(1)
+.rotate180
+    transform rotate(-180deg)
+.enlarge
+    transform scale(1.2)
