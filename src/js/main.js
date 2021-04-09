@@ -1,3 +1,6 @@
+const fs = require('fs');;
+const yaml = require('js-yaml');
+
 // Time
 const now = new Date();
 const dotw = now.getDay();
@@ -82,43 +85,9 @@ if (dotw == 6) {
 const spehours = ""
 const spehoursPorch = ""
 
-/* Events
-    0   Type (for styling)
-    1   Title
-    2   Subtitle
-    3   Short desc.
-    4   Long desc.
-    5   Datetime
-    6   Length of program in hours
-    7   Display end time 
-    8   More information
-    9   Zoom link
-*/
-const events = [
-    [
-        "yoga",
-        "Virtual Chair Yoga",
-        "with Breda",
-        "Join our popular \"Chair Yoga\" instructor, Breda, for a virtual yoga session via the Zoom app. No experience necessary.",
-        "Join our popular \"Chair Yoga\" instructor, Breda, for a virtual yoga session via the Zoom app. Session will last approximately 45 mins, and there's no experience necessary. We recommend you provide your email address to us so we can send you the Zoom link in advance.",
-        new Date("2021-03-27T10:00-04:00"),
-        1,
-        true,
-        "##",
-        "#",
-    ], [
-        "orange",
-        "Flower Trellis Wreath",
-        "with Michele Liana",
-        "Join Michele Liana in creating this beautiful flower and moss-covered Trellis Wreath. Class will be held on Zoom. A $15 fee applies for materials only and is due at time of registration.",
-        "Join Michele Liana in creating this beautiful flower and moss-covered Trellis Wreath. Class will be held on Zoom. A $15 fee applies for materials only and is due at time of registration. Sign up early as class size is limited. Please note that flowers may vary from photo.",
-        new Date("2021-04-29T18:30-04:00"),
-        1.5,
-        false,
-        "##",
-        "#",
-    ],
-];
+// Events
+let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
+let events = yaml.load(eventData);
 
 // shorthand funcs
 const checkClass = (c) => document.getElementsByClassName(c).length > 0;

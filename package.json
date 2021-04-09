@@ -4,6 +4,7 @@
   "description": "A website for Raritan Public Library.",
   "main": "index.js",
   "dependencies": {
+    "js-yaml": "^4.0.0",
     "parcel": "^1.12.4",
     "pug": "^3.0.2",
     "stylus": "^0.54.8"
