@@ -56,13 +56,11 @@ if (dotw == 6) {
 let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
 let events = yaml.load(eventData);
 
-// Favicon
-if (window.matchMedia('(prefers-color-scheme:light)')) {
+// Favicon mode
+if (window.matchMedia('(prefers-color-scheme:light)').matches) {
     document.getElementById('fav-dark').remove();
-    console.log('I should be crimson');
 } else {
     document.getElementById('fav-light').remove();
-    console.log('I should be light beige');
 }
 
 // Shorthand funcs
