@@ -1,47 +1,54 @@
 @font-face
-    font-family: "Lexend Mega"
+    font-family "Lexend Mega"
     font-style normal
     font-weight normal
     src url("/fonts/lexend-mega.woff")
+    font-display swap
 @font-face
-    font-family: "Minion Pro"
+    font-family "Minion Pro"
     font-style normal
     font-weight normal
-    src: url("/fonts/minion-pro.woff")
+    src url("/fonts/minion-pro.woff")
+    font-display swap
 @font-face
-    font-family: "Minion Pro"
+    font-family "Minion Pro"
     font-style normal
     font-weight bold
-    src: url("/fonts/minion-pro_bold.woff")
+    src url("/fonts/minion-pro_bold.woff")
+    font-display swap
 @font-face
-    font-family: "Perpetua"
+    font-family "Perpetua"
     font-style normal
     font-weight normal
-    src: url("/fonts/perpetua.woff")
+    src url("/fonts/perpetua.woff")
+    font-display swap
 @font-face
-    font-family: "Perpetua"
+    font-family "Perpetua"
     font-style normal
     font-weight bold
-    src: url("/fonts/perpetua_bold.woff")
+    src url("/fonts/perpetua_bold.woff")
+    font-display swap
 @font-face
-    font-family: "Perpetua"
+    font-family "Perpetua"
     font-style italic
     font-weight normal
-    src: url("/fonts/perpetua_italic.woff")
+    src url("/fonts/perpetua_italic.woff")
+    font-display swap
 @font-face
-    font-family: "Perpetua"
+    font-family "Perpetua"
     font-style italic
     font-weight bold
-    src: url("/fonts/perpetua_bold-italic.woff")
+    src url("/fonts/perpetua_bold-italic.woff")
+    font-display swap
 @font-face
-    font-family: "Lato"
+    font-family "Lato"
     font-style normal
     font-weight bold
-    src: url("/fonts/lato_bold.woff")
-
+    src url("/fonts/lato_bold.woff")
+    font-display swap
 
 lexend(sz, c=black, w=bold)
-    font sz "Lexend Mega", sans-serif
+    font sz "Lexend Mega", Arial, sans-serif
     text-transform uppercase
     color c
     font-weight w
@@ -58,5 +65,5 @@ perpetua(sz, c=black, w=normal, st=normal, h=1.1)
     font-style st
     line-height sz*h
 lato(sz, c=black)
-    font sz "Lato", sans-serif
+    font sz "Lato", Arial, sans-serif
     color c
