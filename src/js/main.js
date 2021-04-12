@@ -56,16 +56,18 @@ if (dotw == 6) {
 let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
 let events = yaml.load(eventData);
 
-// Shorthand funcs
-const checkClass = (c) => document.getElementsByClassName(c).length > 0;
-const setClass = (c, str, n=0) => document.getElementsByClassName(c)[n].innerHTML = str;
-
 // Favicon
 if (window.matchMedia('(prefers-color-scheme:light)')) {
     document.getElementById('fav-dark').remove();
+    console.log('I should be crimson');
 } else {
     document.getElementById('fav-light').remove();
+    console.log('I should be light beige');
 }
+
+// Shorthand funcs
+const checkClass = (c) => document.getElementsByClassName(c).length > 0;
+const setClass = (c, str, n=0) => document.getElementsByClassName(c)[n].innerHTML = str;
 
 window.onload = function() {
     // hours.pug
