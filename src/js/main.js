@@ -4,34 +4,16 @@ const yaml = require('js-yaml');
 // Time
 const now = new Date();
 const dotw = now.getDay();
-const weekday = [
-    "Sunday"
-    ,"Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
-];
-const month = ["January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-];
+const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 const formatDate = (n) => {
     return (n % 10 == 1 && n % 100 != 11) ? `${n}st`
     : (n % 10 == 2 && n % 100 != 12) ? `${n}nd`
     : (n % 10 == 3 && n % 100 != 13) ? `${n}rd`
     : `${n}th`
 }
+
 const formatTime = (d) => {
     hh = d.getHours();
     m = d.getMinutes().toString().padStart(2, 0);
@@ -46,30 +28,19 @@ const formatTime = (d) => {
     }
     return `${h}:${m} ${dd}`;
 }
+
 const addHours = (d, h) => {
     dNew = new Date(d.getTime() + h*60*60*1000);
     return dNew;
 }
 
-// List of hours
-const hours = [
-    "CLOSED",
-    "10 AM - 5 PM",
-    "10 AM - 5 PM",
-    "10 AM - 5 PM",
-    "10 AM - 8 PM",
-    "10 AM - 5 PM",
-    "10 AM - 3 PM"
-];
-const hoursPorch = [
-    "CLOSED",
-    "10 AM - 8 PM",
-    "10 AM - 8 PM",
-    "10 AM - 8 PM",
-    "10 AM - 8 PM",
-    "10 AM - 5 PM",
-    "10 AM - 3 PM"
-];
+// Hours data 
+let hoursData = fs.readFileSync('src/data/hours.yaml', 'utf8');
+let hoursYaml = yaml.load(hoursData);
+const hours = hoursYaml['hours'];
+const hoursPorch = hoursYaml['porch'];
+const spehours = hours[7];
+const spehoursPorch = hoursPorch[7];
 
 // Single-display calculation
 const curhours = hours[dotw];
@@ -81,19 +52,34 @@ if (dotw == 6) {
     nexhours = hours[1];
 }
 
-// Special hours (early closings)
-const spehours = ""
-const spehoursPorch = ""
-
-// Events
+// Events data
 let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
 let events = yaml.load(eventData);
 
-// shorthand funcs
+// Shorthand funcs
 const checkClass = (c) => document.getElementsByClassName(c).length > 0;
 const setClass = (c, str, n=0) => document.getElementsByClassName(c)[n].innerHTML = str;
 
+// Favicon setup
+const setFavicon = (src) => {
+    var link = document.createElement('link');
+    link.id = 'favicon';
+    link.rel = 'shortcut icon';
+    link.type = 'image/png';
+    link.href = `/img/favicon/${src}.png`;
+    document.head.appendChild(link);
+}
+
+// Browser dark mode detection
+
+
 window.onload = function() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        setFavicon('light')
+    } else {
+        setFavicon('dark')
+    }
+
     // hours.pug
     if (checkClass(`hours-detail`)) {
         for (let i = 0; i < 6; i++) {
@@ -174,3 +160,4 @@ window.onload = function() {
         setClass(`calendar-events`, eventList)
     }
 };
+
