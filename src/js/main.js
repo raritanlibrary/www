@@ -60,26 +60,14 @@ let events = yaml.load(eventData);
 const checkClass = (c) => document.getElementsByClassName(c).length > 0;
 const setClass = (c, str, n=0) => document.getElementsByClassName(c)[n].innerHTML = str;
 
-// Favicon setup
-const setFavicon = (src) => {
-    var link = document.createElement('link');
-    link.id = 'favicon';
-    link.rel = 'shortcut icon';
-    link.type = 'image/png';
-    link.href = `/img/favicon/${src}.png`;
-    document.head.appendChild(link);
+// Favicon
+if (window.matchMedia('(prefers-color-scheme:light)')) {
+    document.getElementById('fav-dark').remove();
+} else {
+    document.getElementById('fav-light').remove();
 }
 
-// Browser dark mode detection
-
-
 window.onload = function() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        setFavicon('light')
-    } else {
-        setFavicon('dark')
-    }
-
     // hours.pug
     if (checkClass(`hours-detail`)) {
         for (let i = 0; i < 6; i++) {
@@ -160,4 +148,3 @@ window.onload = function() {
         setClass(`calendar-events`, eventList)
     }
 };
-
