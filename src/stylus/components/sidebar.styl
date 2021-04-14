@@ -2,6 +2,7 @@
     &-left, &-right
         background-color main2
         min-width 235px
+        max-width 270px
         padding 24px 12px
         text-align center
         @media screen and (min-width 1600px)
@@ -14,6 +15,8 @@
             align-content center
             padding 24px
             max-height 130px
+        @media screen and (max-width 949px)
+            max-width unset
     &-right
         @media screen and (max-width 949px)
             display none

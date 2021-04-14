@@ -9,6 +9,7 @@
 @require '/components/header'
 @require '/components/footer'
 @require '/components/sidebar'
+@require '/pages/404'
 @require '/pages/home'
 
 html
@@ -20,7 +21,6 @@ h1
     minion(84px, alt(), bold)
     txt-shadow()
     text-align center
-    display inline
     @media screen and (max-width 424px)
         minion(19.7vw, alt(), bold)
 h2
@@ -46,6 +46,11 @@ h4
     @media screen and (max-width 424px)
         minion(6.6vw, alt(), bold)
         spacer(0.25)
+.h
+    &-nospacer
+        spacer(0)
+    &-left
+        text-align left
 hr.hr
     grad-background("left, alt('00') 2%, alt('ff') 50%, alt('00') 98%")
     border 0
@@ -67,7 +72,6 @@ hr.hr
     background-color main()
     display flex
     flex-flow row nowrap
-    margin auto
     min-height: calc(100vh - 120px)
     grid-area m
     transition 0.2s filter ease-in-out
@@ -77,6 +81,7 @@ hr.hr
         &-darken
             filter brightness(40%)
 .center
+    flex-grow 1
     margin 24px 24px
     text-align justify
     @media screen and (min-width 1600px)
@@ -84,6 +89,11 @@ hr.hr
         margin 24px m-calc // 1/6
 .text
     perpetua(22px,  main-text(),,, 1.25)
+    &-center
+        text-align justify
+        text-align-last center
+    &-bold
+        perpetua(22px,  main-text(), bold,, 1.25)
 .link
     color link-text
     font-weight bold
@@ -94,6 +104,17 @@ hr.hr
         perpetua(24px, link-text-hover, bold,, 0)
 .comment
     perpetua(18px,  main-text('aa'),, italic)
+    &-date
+        perpetua(20px,  main-text('bb'), bold, italic)
+    &-big
+        perpetua(22px,  main-text('dd'), bold, italic)
+        &-link
+            perpetua(22px, link-text, bold, italic)
+            position relative
+            transition 0.4s all
+            center-underline(1px, 5px, 97%)
+            &:hover, &:focus
+                perpetua(24px, link-text-hover, bold, italic, 0)
     &-link
         perpetua(18px, link-text, bold, italic)
         position relative

@@ -4,6 +4,7 @@
   "description": "A website for Raritan Public Library.",
   "main": "index.js",
   "dependencies": {
+    "img": "^3.0.3",
     "js-yaml": "^4.0.0",
     "parcel": "^1.12.4",
     "pug": "^3.0.2",
@@ -11,8 +12,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "parcel src/index.pug",
-    "build": "parcel build src/index.pug"
+    "dev": "parcel src/*.pug",
+    "build": "parcel build src/*.pug"
   },
   "author": "Spencer Gunning <swcgunning@gmail.com> (https://github.com/aemx)",
   "license": "MIT"

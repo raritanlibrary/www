@@ -1,4 +1,4 @@
-const fs = require('fs');;
+const fs = require('fs');
 const yaml = require('js-yaml');
 
 // Time
@@ -55,6 +55,12 @@ if (dotw == 6) {
 // Events data
 let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
 let events = yaml.load(eventData);
+events = events.sort((a, b) => a[5] - b[5])
+
+// News data
+let newsData = fs.readFileSync('src/data/news.yaml', 'utf8');
+let news = yaml.load(newsData);
+news = news.sort((a, b) => b[1] - a[1])
 
 // Favicon mode
 if (window.matchMedia('(prefers-color-scheme:light)').matches) {
@@ -119,7 +125,7 @@ window.onload = function() {
                 `
             } else {
                 eventFiller = ` event-filler`
-                eventFillerDesc = `<p class="event-${event[0]}-desc-filler">Click here to learn more!</p>`
+                eventFillerDesc = `<p class="event-${event[0]}-desc-filler">Learn more about this event</p>`
                 zoomLink = `<div class="event-spacer"></div>`
             }
             if (addHours(event[5], event[6]) >= now) {
@@ -147,4 +153,26 @@ window.onload = function() {
         }
         setClass(`calendar-events`, eventList)
     }
+    // news
+    if (checkClass(`news`)) {
+        let displayed = 0;
+        let newsList = ``;
+        for (const post of news) {
+            if (displayed === 3 ) { break };
+            newsList += `
+            <div class="snippet">
+                <img class="snippet-img" src="" alt="">
+                <div class="snippet-body">
+                    <h4 class="h-left">${post[0]}</h4>
+                    <p class="comment-date">${weekday[post[1].getDay()]}, ${month[post[1].getMonth()]} ${formatDate(post[1].getDate())}</p>
+                    <br>
+                    <p class="text">${post[3]}</p>
+                </div>
+            </div>
+            `
+            displayed++;
+        }
+        setClass(`news`, newsList)
+    }
+
 };
