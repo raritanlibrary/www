@@ -11,8 +11,10 @@
 @require '/components/sidebar'
 @require '/pages/404'
 @require '/pages/home'
+@require '/pages/news'
 
 html
+    scroll-behavior smooth
     @media screen and (max-width 749px)
         overflow-x hidden
 a
@@ -47,12 +49,22 @@ h4
         minion(6.6vw, alt(), bold)
         spacer(0.25)
 .h
+    &-spacer-plus
+        spacer(1)
+    &-spacer-minus
+        spacer(-1)
     &-nospacer
         spacer(0)
     &-left
         text-align left
+    &4-link
+        minion(28px, alt(), bold)
+        txt-shadow()
+        @media screen and (max-width 424px)
+            minion(6.6vw, alt(), bold)
+            spacer(0.25)
 hr.hr
-    grad-background("left, alt('00') 2%, alt('ff') 50%, alt('00') 98%")
+    grad-background("left, alt('00') 2%, alt() 50%, alt('00') 98%")
     border 0
     margin 24px auto
     height 2px
@@ -101,7 +113,7 @@ hr.hr
     transition 0.4s all
     lr-underline(2px, 4px)
     &:hover, &:focus
-        perpetua(24px, link-text-hover, bold,, 0)
+        perpetua(22px, link-text-hover, bold,, 0)
 .comment
     perpetua(18px,  main-text('aa'),, italic)
     &-date
@@ -114,7 +126,7 @@ hr.hr
             transition 0.4s all
             center-underline(1px, 5px, 97%)
             &:hover, &:focus
-                perpetua(24px, link-text-hover, bold, italic, 0)
+                perpetua(22px, link-text-hover, bold, italic, 0)
     &-link
         perpetua(18px, link-text, bold, italic)
         position relative

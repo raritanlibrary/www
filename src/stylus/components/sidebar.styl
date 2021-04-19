@@ -5,8 +5,10 @@
         max-width 270px
         padding 24px 12px
         text-align center
+        flex-basis 235px
         @media screen and (min-width 1600px)
             min-width calc((100vw/6 - (1600px/6 - 235px))) // 1/6
+            flex-basis calc((100vw/6 - (1600px/6 - 235px))) // 1/6
     &-left
         @media screen and (min-width 425px) and (max-width 949px)
             display flex

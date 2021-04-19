@@ -1,23 +1,40 @@
 # 0 Title
 # 1 Date posted
-# 2 Short desc.
-# 3 Long desc.
-# 4 Picture
+# 2 Long desc.
+# 3 Picture
+# 4 Picture alt
+# 5 Buttons (name, link, external)
 -
   - "Announcing: Axis 360 Access"
   - 2021-02-17
-  - Axis 360 is now available for all library card holders and patrons.
-  - Raritan Public Library is pleased to announce that the Axis 360 app is now available for all library card holders and patrons. Use your Raritan Library Online Catalog login to access over 1,500 online ebooks and audio books anywhere you go. Axis 360 is free and accessible from your browser, phone, tablet, or Kindle device. 
-  - 0
+  - Raritan Public Library is pleased to announce that the <a class="link" href="https://raritan.axis360.baker-taylor.com/" target="_blank">Axis 360</a> app is now available for all library card holders and patrons. Use your Raritan Library Online Catalog login to access over 1,500 online ebooks and audio books anywhere you go. Axis 360 is free and accessible from your browser, phone, tablet, or Kindle device. 
+  - axis.png
+  - Axis 360
+  -
+    -
+      - iPhone/iPad
+      - https://apps.apple.com/us/app/axis-360/id903001147
+      - true
+    -
+      - Android
+      - https://play.google.com/store/apps/details?id=com.bt.mdd
+      - true
+    -
+      - Amazon Kindle
+      - https://www.amazon.com/Baker-Taylor-Inc-Axis-360/dp/B00N59G3ZE
+      - true
 -
-  - "Important \"Good News\""
+  - "Important &ldquo;Good News&rdquo;"
   - 2021-02-19
-  - The Library will be expanding its inside hours on March 1st.
   - Beginning Monday, March 1st, the Library will be expanding its inside hours to 5:00pm on Monday, Tuesday, Wednesday, and Friday. Please be aware that, for everyone's protection, COVID-19 protocols will still be in place. We look forward to seeing more of our special patrons in person!
-  - 0
 -
   - "Upcoming: Town-Wide Yard Sale"
-  - 2021-03-22
-  - On Saturday, June 5th, Raritan will be holding its 2nd Annual Town-Wide Yard Sale.
-  - On Saturday, June 5th, Raritan will be holding its 2nd annual town-wide yard sale. Please click on the link below for a registration form and instructions. This spring will be a perfect time to sell unused items. Rain date - June 19th.
-  - 0
+  - 2021-03-29
+  - On Saturday, June 5th, Raritan will be holding its 2nd Annual Town-Wide Yard Sale. Please click on the link below for a registration form and instructions. This spring will be a perfect time to sell unused items. Rain date June 19th.
+  - yardsale.png
+  - Yard Sale
+  -
+    -
+      - Registration form
+      - docs/YardSaleRegistrationForm.pdf
+      - true

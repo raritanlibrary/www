@@ -2,12 +2,12 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 
 // Time
-const now = new Date();
+export const now = new Date();
 const dotw = now.getDay();
-const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+export const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+export const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-const formatDate = (n) => {
+export const formatDate = (n) => {
     return (n % 10 == 1 && n % 100 != 11) ? `${n}st`
     : (n % 10 == 2 && n % 100 != 12) ? `${n}nd`
     : (n % 10 == 3 && n % 100 != 13) ? `${n}rd`
@@ -15,10 +15,10 @@ const formatDate = (n) => {
 }
 
 const formatTime = (d) => {
-    hh = d.getHours();
-    m = d.getMinutes().toString().padStart(2, 0);
-    dd = "AM";
-    h = hh;
+    const hh = d.getHours();
+    const m = d.getMinutes().toString().padStart(2, 0);
+    let dd = "AM";
+    let h = hh;
     if (h >= 12) {
         h = hh - 12;
         dd = "PM";
@@ -29,8 +29,8 @@ const formatTime = (d) => {
     return `${h}:${m} ${dd}`;
 }
 
-const addHours = (d, h) => {
-    dNew = new Date(d.getTime() + h*60*60*1000);
+export const addHours = (d, h) => {
+    const dNew = new Date(d.getTime() + h*60*60*1000);
     return dNew;
 }
 
@@ -52,16 +52,6 @@ if (dotw == 6) {
     nexhours = hours[1];
 }
 
-// Events data
-let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
-let events = yaml.load(eventData);
-events = events.sort((a, b) => a[5] - b[5])
-
-// News data
-let newsData = fs.readFileSync('src/data/news.yaml', 'utf8');
-let news = yaml.load(newsData);
-news = news.sort((a, b) => b[1] - a[1])
-
 // Favicon mode
 if (window.matchMedia('(prefers-color-scheme:light)').matches) {
     document.getElementById('fav-dark').remove();
@@ -69,11 +59,16 @@ if (window.matchMedia('(prefers-color-scheme:light)').matches) {
     document.getElementById('fav-light').remove();
 }
 
-// Shorthand funcs
-const checkClass = (c) => document.getElementsByClassName(c).length > 0;
-const setClass = (c, str, n=0) => document.getElementsByClassName(c)[n].innerHTML = str;
+// Events data
+let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
+let events = yaml.load(eventData);
+events = events.sort((a, b) => a[5] - b[5]);
 
-window.onload = function() {
+// Shorthand funcs
+export const checkClass = (c) => document.getElementsByClassName(c).length > 0;
+export const setClass = (c, str, n=0) => document.getElementsByClassName(c)[n].innerHTML = str;
+
+export const loader = () => {
     // hours.pug
     if (checkClass(`hours-detail`)) {
         for (let i = 0; i < 6; i++) {
@@ -157,22 +152,5 @@ window.onload = function() {
     if (checkClass(`news`)) {
         let displayed = 0;
         let newsList = ``;
-        for (const post of news) {
-            if (displayed === 3 ) { break };
-            newsList += `
-            <div class="snippet">
-                <img class="snippet-img" src="" alt="">
-                <div class="snippet-body">
-                    <h4 class="h-left">${post[0]}</h4>
-                    <p class="comment-date">${weekday[post[1].getDay()]}, ${month[post[1].getMonth()]} ${formatDate(post[1].getDate())}</p>
-                    <br>
-                    <p class="text">${post[3]}</p>
-                </div>
-            </div>
-            `
-            displayed++;
-        }
-        setClass(`news`, newsList)
     }
-
 };

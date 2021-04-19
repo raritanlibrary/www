@@ -8,7 +8,7 @@
         display block
 .slideshow
     position relative
-    bx-shadow()
+    //bx-shadow()
     border 2px solid alt('dd')
     overflow hidden
     @media screen and (min-width 1380px)
@@ -50,8 +50,37 @@
 .snippet
     margin-top 36px
     &-img
-        max-height 190px
-        float left
-        margin-right 20px
+        border 2px solid alt('dd')
+        max-height 168px
+        float right
+        margin-left 20px
+        @media screen and (max-width 424px)
+            float none
+            margin-left 0
+            spacer(0.5)
+            width 100%
+            object-fit cover
     &-body
         display inline
+        @media screen and (max-width 424px)
+            display block
+    &-link
+        display inline-block
+        margin-top 8px
+        margin-right 8px
+        border-radius 99px
+        background-color alt()
+        text-align center
+        padding 4px 12px
+        transition all 0.3s ease-in-out
+        transform translateZ(0)
+        @media screen and (min-width 425px) and (max-width 749px)
+            margin-right 4px
+        @media screen and (max-width 424px)
+            display block
+            margin 8px auto 0
+            max-width 162px
+        &:hover, &:focus
+            background-color alt-lighten()
+        &-inner
+            perpetua(18px, alt-text, bold)

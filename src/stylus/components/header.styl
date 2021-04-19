@@ -33,7 +33,7 @@
     margin 4px 0 8px
     transition color 0.2s ease-in-out, transform 0.4s ease-out
     &:hover, &:focus
-        color saturate(main('ff'), 50%)
+        color saturate(main(), 50%)
         transform scale(1.02)
     &-alt
         display none
@@ -123,7 +123,7 @@
         display flex
         position absolute
         z-index 1
-        background-color alt3('ff')
+        background-color alt3()
         height calc(100vh - 90px)
         bottom calc(-100vh + 90px)
         text-align right

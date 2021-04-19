@@ -6,22 +6,16 @@ html(lang="en")
         link#fav-light(rel="icon" href="/img/favicon/light.png" type="image/png")
         link#fav-dark(rel="icon" href="/img/favicon/dark.png" type="image/png")
         link(rel="stylesheet", href="/stylus/main.styl")
-        script(src="/js/lite.js")
-        title Page not found &ndash; Raritan Public Library
+        script(src="/js/news.js")
+        title News &ndash; Raritan Public Library
     body.body
         include /includes/header.pug
         main.main
             .sidebar-left
                 include /includes/calendar.pug
-            .center.four04-center
-                h1.four04-h1 404
-                h3.four04-h3 Page not found
-                <br><br>
-                p.text.text-center.text-bold We didn't find anything on this part of the website.
-                <br>
-                p.text.text-center The page you are looking for may have been moved, or may not exist.
-                <br>
-                p.text.text-center If you feel something is missing, or need assistance navigating this website, please #[a.link(href="/contact") contact us].
+            .center
+                h1.h-spacer-minus News
+                .news
             .sidebar-right
                 include /includes/contact.pug
                 include /includes/hours.pug

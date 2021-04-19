@@ -4,17 +4,37 @@
   "description": "A website for Raritan Public Library.",
   "main": "index.js",
   "dependencies": {
-    "img": "^3.0.3",
     "js-yaml": "^4.0.0",
     "parcel": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.6.0",
     "pug": "^3.0.2",
     "stylus": "^0.54.8"
   },
-  "devDependencies": {},
+  "devDependencies": {
+  },
   "scripts": {
     "dev": "parcel src/*.pug",
     "build": "parcel build src/*.pug"
   },
   "author": "Spencer Gunning <swcgunning@gmail.com> (https://github.com/aemx)",
-  "license": "MIT"
+  "license": "MIT",
+  "staticFiles": {
+    "staticPath": [
+      {
+        "staticPath": "src/docs",
+        "staticOutDir": "docs",
+        "watcherGlob": "**"
+      },
+      {
+        "staticPath": "src/img/events",
+        "staticOutDir": "img/events",
+        "watcherGlob": "**"
+      },
+      {
+        "staticPath": "src/img/news",
+        "staticOutDir": "img/news",
+        "watcherGlob": "**"
+      }
+    ]
+  }
 }
