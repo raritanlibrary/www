@@ -1,45 +1,44 @@
-script(src="js/nav.js")
 header.nav
-    a.logo(href="/") Raritan Public Library
-    a.logo-alt(href="/") #[span.logo-alt-large Raritan] Public Library
+    a.logo(href="/index.pug") Raritan Public Library
+    a.logo-alt(href="/index.pug") #[span.logo-alt-large Raritan] Public Library
     div.nav-toggle
         include /img/icons/list.svg
     ul.links
-        a.links-item(href="/catalog"): li Catalog
-        a.links-item(href="/news"): li Programs
-        a.links-item(href="/news"): li News
+        a.links-item(href="http://173.70.152.20/common/servlet/presenthomeform.do?l2m=Home&tm=Home&l2m=Home" target="_blank"): li Catalog
+        a.links-item(href="/programs.pug"): li Programs
+        a.links-item(href="/news.pug"): li News
         li.links-item.links-dropdown#dropdown-books
             div.sublinks-main Book Clubs
                 include /img/icons/dropdown.svg
             ul.sublinks#sublinks-books
-                a.sublinks-item(href="/bookclub"): li Book Club
-                a.sublinks-item(href="/books"): li Books Blog
+                a.sublinks-item(href="/bookclub.pug"): li Book Club
+                a.sublinks-item(href="/books.pug"): li Books Blog
                 a.sublinks-item(href="http://raritanlibraryteenblog.blogspot.com/" target="_blank"): li YA/Teen Blog
                 a.sublinks-item(href="https://sites.google.com/view/childrensroom/home" target="_blank"): li Children's Room
         ////-------------------------------------------------------------------
-        a.links-item-hidden(href="/bookclub"): li Book Club
-        a.links-item-hidden(href="/books"): li Books Blog
+        a.links-item-hidden(href="/bookclub.pug"): li Book Club
+        a.links-item-hidden(href="/books.pug"): li Books Blog
         a.links-item-hidden(href="http://raritanlibraryteenblog.blogspot.com/" target="_blank"): li YA/Teen Blog
         a.links-item-hidden(href="https://sites.google.com/view/childrensroom/home" target="_blank"): li Children's Room
         ////===================================================================
-        a.links-item-hidden(href="/history"): li Library History
-        a.links-item-hidden(href="/gallery"): li The Gallery
+        a.links-item-hidden(href="/history.pug"): li Library History
+        a.links-item-hidden(href="/gallery.pug"): li The Gallery
         a.links-item-hidden(href="http://www.raritan-online.com/jb-online-menu.htm" target="_blank"): li Basilone Archives
-        a.links-item-hidden(href="/databases"): li Databases
-        a.links-item-hidden(href="/passes"): li Museum Passes
-        a.links-item-hidden(href="/board"): li Board of Trustees
-        //a.links-item-hidden(href="/links"): li External Links
+        a.links-item-hidden(href="/databases.pug"): li Databases
+        a.links-item-hidden(href="/passes.pug"): li Museum Passes
+        a.links-item-hidden(href="/board.pug"): li Board of Trustees
+        //a.links-item-hidden(href="/links.pug"): li External Links
         ////-------------------------------------------------------------------
-        a.links-item(href="/policies"): li Policies
-        a.links-item(href="/contact"): li Contact
+        a.links-item(href="/policies.pug"): li Policies
+        a.links-item(href="/contact.pug"): li Contact
         li.links-item.links-dropdown#dropdown-more
             div.sublinks-main More
                 include /img/icons/dropdown.svg
             ul.sublinks#sublinks-more
-                a.sublinks-item(href="/history"): li Library History
-                a.sublinks-item(href="/gallery"): li The Gallery
+                a.sublinks-item(href="/history.pug"): li Library History
+                a.sublinks-item(href="/gallery.pug"): li The Gallery
                 a.sublinks-item(href="http://www.raritan-online.com/jb-online-menu.htm" target="_blank"): li Basilone Archives
-                a.sublinks-item(href="/databases"): li Databases
-                a.sublinks-item(href="/passes"): li Museum Passes
-                a.sublinks-item(href="/board"): li Board of Trustees
-                //a.sublinks-item(href="/links"): li External Links
+                a.sublinks-item(href="/databases.pug"): li Databases
+                a.sublinks-item(href="/passes.pug"): li Museum Passes
+                a.sublinks-item(href="/board.pug"): li Board of Trustees
+                //a.sublinks-item(href="/links.pug"): li External Links

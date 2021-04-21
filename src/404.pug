@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 html(lang="en")
     head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link#fav-light(rel="icon" href="/img/favicon/light.png" type="image/png")
-        link#fav-dark(rel="icon" href="/img/favicon/dark.png" type="image/png")
-        link(rel="stylesheet", href="/stylus/main.styl")
-        script(src="/js/lite.js")
+        include /includes/_head.pug
         title Page not found &ndash; Raritan Public Library
     body.body
         include /includes/header.pug
@@ -21,7 +16,7 @@ html(lang="en")
                 <br>
                 p.text.text-center The page you are looking for may have been moved, or may not exist.
                 <br>
-                p.text.text-center If you feel something is missing, or need assistance navigating this website, please #[a.link(href="/contact") contact us].
+                p.text.text-center If you feel something is missing, or need assistance navigating this website, please #[a.link(href="/contact.pug") contact us].
             .sidebar-right
                 include /includes/contact.pug
                 include /includes/hours.pug
