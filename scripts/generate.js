@@ -13,7 +13,7 @@ source.forEach(item => {
     }
 });
 
-fs.writeFile('_redirects', redata, function(e){});
+fs.writeFile('dist/_redirects', redata, function(e){});
 
 /*
 // Generate static stuff

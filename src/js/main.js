@@ -20,7 +20,7 @@ try {
 }
 
 const pageInjector = (p) => {
-    if (p.includes('index')) {
+    if (p.includes('index') || p === '') {
         if (fx.checkClass(`news`)) {
             let displayed = 0;
             let newsList = ``;
