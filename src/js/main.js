@@ -20,7 +20,7 @@ try {
 }
 
 const pageInjector = (p) => {
-    if (p === '' || p === 'index') {
+    if (p.includes('index')) {
         if (fx.checkClass(`news`)) {
             let displayed = 0;
             let newsList = ``;
@@ -58,7 +58,7 @@ const pageInjector = (p) => {
             }
             fx.setClass(`news`, newsList)
         }
-    } else if (p === 'news') {
+    } else if (p.includes('news')) {
         if (fx.checkClass(`news`)) {
             let curYear, nextYear;
             let newsIndex = 0;
@@ -141,8 +141,9 @@ const pageInjector = (p) => {
     }
 }
 
-if (page === '' || page === 'index') {
-} else if (page === 'news') {
+if (page.includes('index')) {
+    //
+} else if (page.includes('news')) {
     const lastYear = Data.news[0][1].getYear() + 1900;
     const firstYear = Data.news[Data.news.length-1][1].getYear() + 1900;
     for (let i = firstYear; i <= lastYear; i++) {

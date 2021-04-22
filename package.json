@@ -6,12 +6,12 @@
   "dependencies": {
     "js-yaml": "^4.0.0",
     "parcel": "^1.12.4",
+    "parcel-plugin-remove-index-html": "^0.1.0",
     "parcel-plugin-static-files-copy": "^2.6.0",
     "pug": "^3.0.2",
     "stylus": "^0.54.8"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "scripts": {
     "dev": "parcel src/*.pug",
     "build": "parcel build src/*.pug"
