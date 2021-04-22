@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 html(lang="en")
     head
-        include /includes/_head.pug
+        include ./includes/_head.pug
         title Raritan Public Library
     body.body
-        include /includes/header.pug
+        include ./includes/header.pug
         main.main
             .sidebar-left
-                include /includes/calendar.pug
+                include ./includes/calendar.pug
             .center
-                //include /includes/alert.pug
+                //include ./includes/alert.pug
                 .slideshow
                     each img in [1, 2, 3, 4, 5]
                         picture
-                            source.slideshow-img(media="(min-width:500px)" srcset="/img/slideshow/"+ img +".png")
-                            img.slideshow-img(src="/img/slideshow/480/"+ img +".png" alt="Slideshow image " + img)
+                            source.slideshow-img(media="(min-width:500px)" srcset="./img/slideshow/"+ img +".png")
+                            img.slideshow-img(src="./img/slideshow/480/"+ img +".png" alt="Slideshow image " + img)
                 h1.welcome Welcome
                 p.text Welcome to the Raritan Public Library! Explore our website to find out information on our books, graphic novels, e-books and other digital resources, magazines, videos, DVDs, recorded books, CDs, museum pass programs, and our policies. For books not available in our library we also offer an inter-library loan service. In addition, we sponsor many activities such as book clubs for adults and teens, story times for children, movie nights and many educational and entertaining programs. We encourage you to visit our library to see its rustic and historical features. The Raritan Public Library, once the Frelinghuysen Homestead, is registered as a historic site. The carpeting and window treatments are designed to match the time period in which the structure was built. We also feature a museum dedicated to the Raritan WWII Marine war hero Sgt. John Basilone. So come curl up with a good book in our cozy library. We look forward to seeing you!
                 hr.hr
                 h2.h-nospacer Latest News
-                p.comment-big.text-center Please visit our #[a.comment-big-link(href="/news.pug") News page] for a list of all previous news posts.
+                p.comment-big.text-center Please visit our #[a.comment-big-link(href="./news.pug") News page] for a list of all previous news posts.
                 .news
                 //hr.hr
                 //h2 Our History
-                //p.text The General John Frelinghuysen House, which currently accommodates the Raritan Public Library, belonged to one of the most prominent families of New Jersey and has its historical origins in the early eighteenth century. The land upon which the house stands was a section of a large tract of land purchased by Dutch settlers in 1683 from a Native American tribe for a paltry sum. Cornelius Middaugh was one of the earliest owners of the Frelinghuysen property and it is believed that he may have constructed what is now the west wing of the house. Built in the early 1700's, the west wing is identified as the oldest section of the house and is presumed to have been used as a tavern, as well as a public meeting hall and jail for the then governing Township of Bridgewater. The solid, unfinished style of this low structure reflects the economical nature of the early Dutch settlers who utilized the home in its totality. The small wooden structure faces north to what was known as the Old York Road, once a wilderness trail that grew into a major artery connecting New York and Philadelphia. During the pre-revolutionary era, the New World saw many New Jersey towns, such as Raritan, develop along the Old York Road. #[a.link(href="/history.pug") Learn more...]
+                //p.text The General John Frelinghuysen House, which currently accommodates the Raritan Public Library, belonged to one of the most prominent families of New Jersey and has its historical origins in the early eighteenth century. The land upon which the house stands was a section of a large tract of land purchased by Dutch settlers in 1683 from a Native American tribe for a paltry sum. Cornelius Middaugh was one of the earliest owners of the Frelinghuysen property and it is believed that he may have constructed what is now the west wing of the house. Built in the early 1700's, the west wing is identified as the oldest section of the house and is presumed to have been used as a tavern, as well as a public meeting hall and jail for the then governing Township of Bridgewater. The solid, unfinished style of this low structure reflects the economical nature of the early Dutch settlers who utilized the home in its totality. The small wooden structure faces north to what was known as the Old York Road, once a wilderness trail that grew into a major artery connecting New York and Philadelphia. During the pre-revolutionary era, the New World saw many New Jersey towns, such as Raritan, develop along the Old York Road. #[a.link(href="./history.pug") Learn more...]
             .sidebar-right
-                include /includes/contact.pug
-                include /includes/hours.pug
-        include /includes/footer.pug
+                include ./includes/contact.pug
+                include ./includes/hours.pug
+        include ./includes/footer.pug
