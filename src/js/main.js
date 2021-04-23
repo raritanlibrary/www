@@ -138,6 +138,44 @@ const pageInjector = (p) => {
             arrowById.classList.remove("newsarrow-collapsed");
             scrollId.scrollIntoView();
         }
+    } else if (p.includes('programs')) {
+        if (fx.checkClass(`programs`)) {
+            let eventList = ``;
+            let eventFiller = ``;
+            let eventFillerDesc = ``;
+            let endTime, zoomLink;
+            for (const event of Data.events) {
+                if (event[7]) {
+                    endTime = ` - ${Time.formatTime(Time.addHours(event[5], event[6]))}`
+                } else {
+                    endTime = ``
+                }
+                if (Time.addHours(event[5], event[6]) >= Time.now) {
+                    eventList += `
+                    <div class="snippet">
+                        <div class="snippet-body" id="${Data.events.length-Data.events.indexOf(event)}">
+                            <p class="h4-link" >${event[1]} ${event[2]}</p>
+                            <p class="comment-big">${Time.weekday[event[5].getDay()]}, ${Time.month[event[5].getMonth()]} ${Time.formatDate(event[5].getDate())}</p>
+                            <p class="comment-date">${Time.formatTime(event[5])}${endTime}</p>
+                            <br>
+                            <p class="text">${event[4]}</p>
+                        </div>
+                    </div>
+                    `
+                }
+            }
+            fx.setClass(`programs`, eventList)
+        }
+        // Autoscroll if linked
+        const urlClean = url.split("#")[1];
+        if (urlClean) {
+            const scrollId = document.getElementById(urlClean);
+            const yearById = scrollId.parentElement.parentElement;
+            const arrowById = yearById.parentElement.children[1];
+            yearById.classList.remove("newsyear-collapsed");
+            arrowById.classList.remove("newsarrow-collapsed");
+            scrollId.scrollIntoView();
+        }
     }
 }
 
