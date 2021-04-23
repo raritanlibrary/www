@@ -33,7 +33,7 @@ const pageInjector = (p) => {
                 }
                 if (post[5]) {
                     for (const postLink of post[5]) {
-                        postLink[2] = postLink[2] ? "target =\"_blank\"" : '';
+                        postLink[2] = postLink[2] ? `target ="_blank" rel="noopener"` : '';
                         newsLinks += `
                         <a class="snippet-link" href="${postLink[1]}" ${postLink[2]}">
                             <div class="snippet-link-inner">${postLink[0]}</div>
@@ -78,7 +78,7 @@ const pageInjector = (p) => {
                 }
                 if (post[5]) {
                     for (const postLink of post[5]) {
-                        postLink[2] = postLink[2] ? "target =\"_blank\"" : '';
+                        postLink[2] = postLink[2] ? `target ="_blank" rel="noopener"` : '';
                         newsLinks += `
                         <a class="snippet-link" href="${postLink[1]}" ${postLink[2]}">
                             <div class="snippet-link-inner">${postLink[0]}</div>
