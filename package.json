@@ -12,12 +12,12 @@
     "@parcel/config-default": "^2.0.0-beta.2",
     "@parcel/transformer-pug": "^2.0.0-beta.2",
     "@parcel/transformer-stylus": "^2.0.0-beta.2",
-    "parcel": "^2.0.0-beta.2",
-    "parcel-reporter-static-files-copy": "^1.2.2"
+    "parcel": "^2.0.0-beta.2"
   },
   "scripts": {
     "dev": "parcel src/*.pug",
-    "build": "parcel build src/*.pug && node scripts/generate.js"
+    "pre": "rm -rf dist && parcel build src/*.pug && node scripts/generate.js && netlify deploy",
+    "build": "rm -rf dist && parcel build src/*.pug && node scripts/generate.js"
   },
   "author": "Spencer Gunning <swcgunning@gmail.com> (https://github.com/aemx)",
   "license": "MIT"

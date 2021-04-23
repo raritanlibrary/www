@@ -195,3 +195,5 @@ $RECYCLE.BIN/
 
 # Private development folder
 .dev
+# Local Netlify folder
+.netlify
