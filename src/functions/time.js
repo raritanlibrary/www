@@ -57,8 +57,8 @@ export const addHours = (d, h) => {
 
 export let hoursData = fs.readFileSync('src/data/hours.yaml', 'utf8');
 export let hoursYaml = yaml.load(hoursData);
-export const hours = hoursYaml['hours'];
-export const hoursPorch = hoursYaml['porch'];
+export const hours = hoursYaml.hours;
+export const hoursPorch = hoursYaml.porch;
 export const spehours = hours[7];
 export const spehoursPorch = hoursPorch[7];
 

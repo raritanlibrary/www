@@ -72,8 +72,8 @@
         background-color alt()
         text-align center
         padding 4px 12px
+        user-select none
         transition all 0.3s ease-in-out
-        transform translateZ(0)
         @media screen and (min-width 425px) and (max-width 749px)
             margin-right 4px
         @media screen and (max-width 424px)
@@ -84,3 +84,29 @@
             background-color alt-lighten()
         &-inner
             perpetua(18px, alt-text, bold)
+    &-zoom
+        display inline-block
+        margin-top 8px
+        margin-right 8px
+        border-radius 12px
+        background-color event-zoom
+        text-align center
+        padding 6px 8px
+        width 200px
+        user-select none
+        transition all 0.3s ease-in-out
+        &:hover, &:focus
+            background-color event-zoom-hover
+        @media screen and (min-width 425px) and (max-width 749px)
+            margin-right 4px
+        @media screen and (max-width 424px)
+            display block
+            margin 8px auto 0
+        &-inner
+            lato(16px, alt-text, bold)
+        svg
+            position inline
+            fill alt-text
+            width 48px
+            margin-left 2px
+            margin-bottom -1px

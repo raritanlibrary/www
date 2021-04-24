@@ -28,28 +28,28 @@ const pageInjector = (p) => {
                 let newsLinks = ``;
                 let newsImg = ``;
                 if (displayed === 3 ) { break };
-                if (post[3] && post[4]) {
-                    newsImg = `<img class="snippet-img" src="img/news/${post[3]}" alt="${post[4]}">`
+                if (post.img && post.imgalt) {
+                    newsImg = `<img class="snippet-img" src="img/news/${post.img}" alt="${post.imgalt}">`
                 }
-                if (post[5]) {
-                    for (const postLink of post[5]) {
-                        postLink[2] = postLink[2] ? `target ="_blank" rel="noopener"` : '';
+                if (post.buttons) {
+                    for (const button of post.buttons) {
+                        button.external = button.external ? `target ="_blank" rel="noopener"` : '';
                         newsLinks += `
-                        <a class="snippet-link" href="${postLink[1]}" ${postLink[2]}">
-                            <div class="snippet-link-inner">${postLink[0]}</div>
+                        <a class="snippet-link" href="${button.link}" ${button.external}">
+                            <div class="snippet-link-inner">${button.name}</div>
                         </a>
                         `
                     }
                 }
-                post[1] = Time.addHours(post[1], 5);
+                post.date = Time.addHours(post.date, 5);
                 newsList += `
                 <div class="snippet">
                 ${newsImg}
                     <div class="snippet-body">
-                        <a class="h4-link" href="news#${Data.news.length-displayed}">${post[0]}</a>
-                        <p class="comment-date">${Time.weekday[post[1].getDay()]}, ${Time.month[post[1].getMonth()]} ${Time.formatDate(post[1].getDate())}, ${post[1].getYear()+1900}</p>
+                        <a class="h4-link" href="news#${Data.news.length-displayed}">${post.name}</a>
+                        <p class="comment-date">${Time.weekday[post.date.getDay()]}, ${Time.month[post.date.getMonth()]} ${Time.formatDate(post.date.getDate())}, ${post.date.getYear()+1900}</p>
                         <br>
-                        <p class="text">${post[2]}</p>
+                        <p class="text">${post.desc}</p>
                         ${newsLinks}
                     </div>
                 </div>
@@ -65,36 +65,36 @@ const pageInjector = (p) => {
             let newsList = [];
             newsList[newsIndex] = ``;
             for (const post of Data.news) {
-                curYear = post[1].getYear() + 1900;
+                curYear = post.date.getYear() + 1900;
                 try {
-                    nextYear = Data.news[Data.news.indexOf(post) + 1][1].getYear() + 1900;
+                    nextYear = Data.news[Data.news.indexOf(post) + 1].date.getYear() + 1900;
                 } catch(e) {
                     //
                 }
                 let newsLinks = ``;
                 let newsImg = ``;
-                if (post[3] && post[4]) {
-                    newsImg = `<img class="snippet-img" src="img/news/${post[3]}" alt="${post[4]}">`
+                if (post.img && post.imgalt) {
+                    newsImg = `<img class="snippet-img" src="img/news/${post.img}" alt="${post.imgalt}">`
                 }
-                if (post[5]) {
-                    for (const postLink of post[5]) {
-                        postLink[2] = postLink[2] ? `target ="_blank" rel="noopener"` : '';
+                if (post.buttons) {
+                    for (const button of post.buttons) {
+                        button.external = button.external ? `target ="_blank" rel="noopener"` : '';
                         newsLinks += `
-                        <a class="snippet-link" href="${postLink[1]}" ${postLink[2]}">
-                            <div class="snippet-link-inner">${postLink[0]}</div>
+                        <a class="snippet-link" href="${button.link}" ${button.external}">
+                            <div class="snippet-link-inner">${button.name}</div>
                         </a>
                         `
                     }
                 }
-                post[1] = Time.addHours(post[1], 5);
+                post.date = Time.addHours(post.date, 5);
                 newsList[newsIndex] += `
                 <div class="snippet">
                 ${newsImg}
                     <div class="snippet-body" id="${Data.news.length-Data.news.indexOf(post)}">
-                        <p class="h4-link" >${post[0]}</p>
-                        <p class="comment-date">${Time.weekday[post[1].getDay()]}, ${Time.month[post[1].getMonth()]} ${Time.formatDate(post[1].getDate())}, ${curYear}</p>
+                        <p class="h4-link" >${post.name}</p>
+                        <p class="comment-date">${Time.weekday[post.date.getDay()]}, ${Time.month[post.date.getMonth()]} ${Time.formatDate(post.date.getDate())}, ${curYear}</p>
                         <br>
-                        <p class="text">${post[2]}</p>
+                        <p class="text">${post.desc}</p>
                         ${newsLinks}
                     </div>
                 </div>
@@ -141,26 +141,41 @@ const pageInjector = (p) => {
     } else if (p.includes('programs')) {
         if (fx.checkClass(`programs`)) {
             let eventList = ``;
-            let eventFiller = ``;
-            let eventFillerDesc = ``;
-            let endTime, zoomLink;
+            let endTime;
             for (const event of Data.events) {
-                if (event[7]) {
-                    endTime = ` - ${Time.formatTime(Time.addHours(event[5], event[6]))}`
+                let eventImg = ``;
+                let zoomLink = ``;
+                if (event.endtime) {
+                    endTime = ` - ${Time.formatTime(Time.addHours(event.date, event.length))}`
                 } else {
                     endTime = ``
                 }
-                if (Time.addHours(event[5], event[6]) >= Time.now) {
+                if ((Time.addHours(event.date, -0.25) <= Time.now) && (Time.addHours(event.date, event.length) >= Time.now)) {
+                    zoomLink = `
+                    <a class="snippet-zoom" href="${event.zoom}" target="_blank" rel="noopener">
+                        <div class="snippet-zoom-inner"> Join now on
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 7 24 8">
+                                <path d="M4.585 13.607l-.27-.012H1.886l3.236-3.237-.013-.27a.815.815 0 00-.796-.796l-.27-.013H0l.014.27c.034.438.353.77.794.796l.27.013h2.43L.268 13.595l.014.269c.015.433.362.78.795.796l.27.013h4.046l-.014-.27c-.036-.443-.35-.767-.795-.795zm3.238-4.328h-.004a2.696 2.697 0 10.003 0zm1.141 3.841a1.619 1.619 0 11-2.289-2.288 1.619 1.619 0 012.289 2.288zM21.84 9.28a2.158 2.158 0 00-1.615.73 2.153 2.153 0 00-1.619-.732 2.148 2.148 0 00-1.208.37c-.21-.233-.68-.37-.949-.37v5.395l.27-.013c.45-.03.778-.349.796-.796l.013-.27v-1.889l.014-.27c.01-.202.04-.382.132-.54a1.078 1.079 0 011.473-.393 1.078 1.079 0 01.393.392c.093.16.12.34.132.54l.014.271v1.889l.013.269a.83.83 0 00.795.796l.27.013v-2.967l.012-.27c.01-.2.04-.384.134-.543.3-.514.96-.69 1.473-.39a1.078 1.079 0 01.393.393c.092.16.12.343.13.54l.015.27v1.889l.013.269c.028.443.35.77.796.796l.27.013v-3.237a2.158 2.158 0 00-2.16-2.156zm-10.263.788a2.697 2.698 0 103.811 3.816 2.697 2.698 0 00-3.811-3.816zm3.05 3.052a1.619 1.619 0 11-2.289-2.29 1.619 1.619 0 012.289 2.29z"/>
+                            </svg>
+                        </div>
+                    </a>
+                    `
+                }
+                if (event.img && event.imgalt) {
+                    eventImg = `<img class="snippet-img" src="img/events/${event.img}" alt="${event.imgalt}">`
+                }
+                if (Time.addHours(event.date, event.length) >= Time.now) {
                     eventList += `
                     <div class="snippet">
-                        <div class="snippet-body" id="${Data.events.length-Data.events.indexOf(event)}">
-                            <p class="h4-link" >${event[1]} ${event[2]}</p>
-                            <p class="comment-big">${Time.weekday[event[5].getDay()]}, ${Time.month[event[5].getMonth()]} ${Time.formatDate(event[5].getDate())}</p>
-                            <p class="comment-date">${Time.formatTime(event[5])}${endTime}</p>
+                        ${eventImg}
+                        <div class="snippet-body" id="${(event.date.getTime()/100000).toString(36).slice(1)}">
+                            <p class="h4-link" >${event.name}</p>
+                            <p class="comment-date">${Time.weekday[event.date.getDay()]}, ${Time.month[event.date.getMonth()]} ${Time.formatDate(event.date.getDate())}, ${Time.formatTime(event.date)}${endTime}</p>
                             <br>
-                            <p class="text">${event[4]}</p>
+                            <p class="text">${event.desc}</p>
                         </div>
                     </div>
+                    ${zoomLink}
                     `
                 }
             }
@@ -182,8 +197,8 @@ const pageInjector = (p) => {
 if (page.includes('index')) {
     //
 } else if (page.includes('news')) {
-    const lastYear = Data.news[0][1].getYear() + 1900;
-    const firstYear = Data.news[Data.news.length-1][1].getYear() + 1900;
+    const lastYear = Data.news[0].date.getYear() + 1900;
+    const firstYear = Data.news[Data.news.length-1].date.getYear() + 1900;
     for (let i = firstYear; i <= lastYear; i++) {
         window.addEventListener('click', function(e) {   
             const header = document.getElementById(`newsheader-${i}`);

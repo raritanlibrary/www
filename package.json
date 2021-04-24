@@ -19,8 +19,8 @@
   "scripts": {
     "push": "node scripts/generate.js",
     "dev": "node scripts/htmlhack.js && parcel src/*.pug",
-    "pre": "rm -rf dist && node scripts/generate.js && parcel build src/*.pug  && netlify deploy",
-    "build": "rm -rf dist && node scripts/generate.js && parcel build src/*.pug "
+    "pre": "rm -rf dist && node scripts/generate.js && parcel build src/*.pug && netlify deploy",
+    "build": "rm -rf dist && node scripts/generate.js && parcel build src/*.pug"
   },
   "author": "Spencer Gunning <swcgunning@gmail.com> (https://github.com/aemx)",
   "license": "MIT"
