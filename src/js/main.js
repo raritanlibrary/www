@@ -29,7 +29,7 @@ const pageInjector = (p) => {
                 let newsImg = ``;
                 if (displayed === 3 ) { break };
                 if (post.img && post.imgalt) {
-                    newsImg = `<img class="snippet-img" src="img/news/${post.img}" alt="${post.imgalt}">`
+                    newsImg = `<img class="snippet-img" src="img/news/${post.img}.png" alt="${post.imgalt}">`
                 }
                 if (post.buttons) {
                     for (const button of post.buttons) {
@@ -68,13 +68,11 @@ const pageInjector = (p) => {
                 curYear = post.date.getYear() + 1900;
                 try {
                     nextYear = Data.news[Data.news.indexOf(post) + 1].date.getYear() + 1900;
-                } catch(e) {
-                    //
-                }
+                } catch(e) {}
                 let newsLinks = ``;
                 let newsImg = ``;
                 if (post.img && post.imgalt) {
-                    newsImg = `<img class="snippet-img" src="img/news/${post.img}" alt="${post.imgalt}">`
+                    newsImg = `<img class="snippet-img" src="img/news/${post.img}.png" alt="${post.imgalt}">`
                 }
                 if (post.buttons) {
                     for (const button of post.buttons) {
@@ -150,7 +148,7 @@ const pageInjector = (p) => {
                 } else {
                     endTime = ``
                 }
-                if ((Time.addHours(event.date, -0.25) <= Time.now) && (Time.addHours(event.date, event.length) >= Time.now)) {
+                if ((event.date.getTime() - 24*60*60*1000 <= Time.now) && (Time.addHours(event.date, event.length) >= Time.now)) {
                     zoomLink = `
                     <a class="snippet-zoom" href="${event.zoom}" target="_blank" rel="noopener">
                         <div class="snippet-zoom-inner"> Join now on
@@ -162,7 +160,7 @@ const pageInjector = (p) => {
                     `
                 }
                 if (event.img && event.imgalt) {
-                    eventImg = `<img class="snippet-img" src="img/events/${event.img}" alt="${event.imgalt}">`
+                    eventImg = `<a href="img/events/${event.img}_.png" target="_blank"><img class="snippet-img" src="img/events/${event.img}.png" alt="${event.imgalt}"></a>`
                 }
                 if (Time.addHours(event.date, event.length) >= Time.now) {
                     eventList += `
@@ -185,10 +183,17 @@ const pageInjector = (p) => {
         const urlClean = url.split("#")[1];
         if (urlClean) {
             const scrollId = document.getElementById(urlClean);
+            scrollId.scrollIntoView();
+        }
+    } else if (p.includes('board')) {
+        // Autoscroll if linked
+        const urlClean = url.split("#")[1];
+        if (urlClean) {
+            const scrollId = document.getElementById(urlClean);
             const yearById = scrollId.parentElement.parentElement;
             const arrowById = yearById.parentElement.children[1];
-            yearById.classList.remove("newsyear-collapsed");
-            arrowById.classList.remove("newsarrow-collapsed");
+            yearById.classList.remove("board-year-collapsed");
+            arrowById.classList.remove("board-arrow-collapsed");
             scrollId.scrollIntoView();
         }
     }
@@ -210,6 +215,23 @@ if (page.includes('index')) {
             } else if ((header.contains(e.target) || arrow.contains(e.target)) && content.classList.contains("newsyear-collapsed")) {
                 content.classList.remove("newsyear-collapsed");
                 arrow.classList.remove("newsarrow-collapsed");
+            }
+        });
+    }
+} else if (page.includes('board')) {
+    const lastYear = Data.news[0].date.getYear() + 1900;
+    const firstYear = 2018;
+    for (let i = firstYear; i <= lastYear; i++) {
+        window.addEventListener('click', function(e) {   
+            const header = document.getElementById(`${i}`);
+            const arrow = document.getElementById(`meeting-arrow-${i}`);
+            const content = document.getElementById(`meeting-year-${i}`);
+            if ((header.contains(e.target) || arrow.contains(e.target)) && !content.classList.contains("meeting-year-collapsed")) {
+                content.classList.add("meeting-year-collapsed");
+                arrow.classList.add("meeting-arrow-collapsed");
+            } else if ((header.contains(e.target) || arrow.contains(e.target)) && content.classList.contains("meeting-year-collapsed")) {
+                content.classList.remove("meeting-year-collapsed");
+                arrow.classList.remove("meeting-arrow-collapsed");
             }
         });
     }

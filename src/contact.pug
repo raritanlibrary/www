@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include ./includes/_head.pug
+        title Contact Us &ndash; Raritan Public Library
+    body.body
+        include ./includes/header.pug
+        main.main
+            .sidebar-left
+                include ./includes/calendar.pug
+            .center
+                h1 Contact
+                br
+                p.text.text-center If you need assistance from Raritan Public Library, our staff is available at #[b (908) 725-0413] during all open hours.
+                p.text.text-center.spacer-plus Our fax line is also open at #[b (908) 725-1832].
+                p.text.text-center To contact us via email, please send all general inquiries to #[a.link(href="mailto:raritanl@yahoo.com") raritanl@yahoo.com].
+                p.text.text-center.spacer-plus For any IT-related inquiries, including questions about this website, please email #[a.link(href="mailto:raritanlibrary54@aol.com") raritanlibrary54@aol.com].
+                h3#map Directions
+                iframe.map(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3030.7647943225948!2d-74.63127868431503!3d40.56887105429572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3952d67d747f5%3A0x1a32742982bb460d!2sRaritan%20Public%20Library!5e0!3m2!1sen!2sus!4v1619455338683!5m2!1sen!2sus" allowfullscreen="" loading="lazy")
+            .sidebar-right
+                include ./includes/contact.pug
+                include ./includes/hours.pug
+        include ./includes/footer.pug

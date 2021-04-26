@@ -1,7 +1,7 @@
 - name: "Announcing: Axis 360 Access"
   date: 2021-02-17
   desc: Raritan Public Library is pleased to announce that the <a class="link" href="https://raritan.axis360.baker-taylor.com/"target="_blank rel="noopener"">Axis 360</a> app is now available for all library card holders and patrons. Use your Raritan Library Online Catalog login to access over 1,500 online ebooks and audio books anywhere you go. Axis 360 is free and accessible from your browser, phone, tablet, or Kindle device. 
-  img: axis.png
+  img: axis
   imgalt: Axis 360
   buttons:
     - name: iPhone/iPad
@@ -21,9 +21,19 @@
 - name: "Upcoming: Town-Wide Yard Sale"
   date: 2021-03-29
   desc: On Saturday, June 5th, Raritan will be holding its 2nd Annual Town-Wide Yard Sale. Please click on the link below for a registration form and instructions. This spring will be a perfect time to sell unused items. Rain date June 19th.
-  img: yardsale.png
-  imgalt: Yard Sale
+  img: yardsale
+  imgalt: Yard sale
   buttons:
     - name: Registration form
       link: docs/events/YardSaleRegistrationForm.pdf
       external: true
+
+- name: Our New Website
+  date: 2021-05-03
+  desc: After months of hard work and development, Raritan Public Library is excited to announce the launch of our new website. We have designed this website with the needs of our patrons in mind, with features such as faster loading times, mobile accessibility, and high-fidelity website security. We encourage all users of our website to contact our website administrator for any questions, concerns, or feature requests regarding this website.
+  img: webupdate
+  imgalt: Website transition
+  buttons:
+    - name: Contact our webmaster
+      link: mailto:raritanlibrary54@aol.com 
+      external: false

@@ -17,17 +17,16 @@ export const eventInjector = () => {
     if (fx.checkClass(`calendar-events`)) {
         let displayed = 0;
         let eventList = ``;
-        let endTime, zoomLink;
+        let endTime;
         for (const event of events) {
-            let eventFiller = ``;
-            let eventFillerDesc = ``;
+            let zoomLink = ``;
             if (displayed === 3 ) { break };
             if (event.endtime) {
                 endTime = ` - ${Time.formatTime(Time.addHours(event.date, event.length))}`
             } else {
                 endTime = ``
             }
-            if ((Time.addHours(event.date, -0.25) <= Time.now) && (Time.addHours(event.date, event.length) >= Time.now)) {
+            if ((event.date.getTime() - 24*60*60*1000 <= Time.now) && (Time.addHours(event.date, event.length) >= Time.now)) {
                 zoomLink = `
                 <a class="event-zoom-link" href="${event.zoom}" target="_blank" rel="noopener">
                     <div class="event-zoom"> Join now on
@@ -38,14 +37,17 @@ export const eventInjector = () => {
                 </a>
                 `
             } else {
-                eventFiller = ` event-filler`
-                eventFillerDesc = `<p class="event-${event.style}-desc-filler">Learn more about this event</p>`
-                zoomLink = `<div class="event-spacer"></div>`
+                zoomLink = `
+                <a class="event-more" href="programs#${(event.date.getTime()/100000).toString(36).slice(1)}">
+                    <div class="event-more-inner">Learn more</div>
+                </a>
+                <div class="event-spacer"></div>
+                `
             }
             if (Time.addHours(event.date, event.length) >= Time.now) {
                 eventList += `
                 <div class="event">
-                    <div class="event-${event.style}" style="background-image: url(./img/events/${event.img};")>
+                    <div class="event-${event.style}" style="background-image: url(./img/events/${event.img}.png")>
                         <a class="event-${event.style}-link" href="programs#${(event.date.getTime()/100000).toString(36).slice(1)}">
                             <div class="event-${event.style}-cover">
                                 <p class="event-${event.style}-title">${event.title}</p>
@@ -55,7 +57,6 @@ export const eventInjector = () => {
                                 <p class="event-${event.style}-date">${Time.formatTime(event.date)}${endTime}</p>
                                 <p class="event-${event.style}-time-mobile">${Time.month[event.date.getMonth()]} ${Time.formatDate(event.date.getDate())} at ${Time.formatTime(event.date)}</p>
                                 <p class="event-${event.style}-desc">${event.blurb}</p>
-                                ${eventFillerDesc}
                             </div>
                         </a>
                     </div>

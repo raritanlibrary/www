@@ -73,6 +73,7 @@ event-template(type)
         &:nth-child(n+2)
             display none
     &-zoom
+        display block
         spacer()
         border-radius 12px
         background-color event-zoom
@@ -93,15 +94,31 @@ event-template(type)
             width 48px
             margin-left 2px
             margin-bottom -1px
+    &-more
+        display block
+        visibility hidden
+        border-radius 12px
+        background-color alt()
+        text-align center
+        padding 6px 8px
+        transition all 0.2s ease-in-out
+        &:hover, &:focus
+            background-color alt-lighten()
+        @media screen and (max-width 949px)
+            visibility visible
+            padding 4px 8px
+            margin-top 6px
+        &-inner
+            perpetua(18px, alt-text, bold)
     &-spacer
-        spacer()
+        spacer(-0.5)
         @media screen and (max-width 949px)
             spacer(0)
     &-pink, &-yoga
         event-template(event-pink)
     &-purple
         event-template(event-purple)
-    &-blue
+    &-blue, &-meeting
         event-template(event-blue)
     &-green
         event-template(event-green)

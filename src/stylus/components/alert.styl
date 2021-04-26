@@ -30,6 +30,17 @@ alert(type)
             perpetua(16px, er-text(type))
         @media screen and (max-width 449px)
             perpetua(15px, er-text(type))
+    &-link
+        perpetua(20px, er-text(type), bold)
+        position relative
+        transition 0.4s all
+        lr-underline(1px, 5px)
+        @media screen and (min-width 450px) and (max-width 749px)
+            perpetua(16px, er-text(type), bold)
+            lr-underline(1px, 3px)
+        @media screen and (max-width 449px)
+            perpetua(15px, er-text(type), bold)
+            lr-underline(1px, 3px)
 .alert-info
     alert(info)
 .alert-attention
