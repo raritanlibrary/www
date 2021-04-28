@@ -17,6 +17,7 @@
     "sharp": "^0.28.1"
   },
   "scripts": {
+    "clear": "rm -rf dist && rm -rf .parcel-cache",
     "push": "node scripts/generate.js",
     "dev": "node scripts/htmlhack.js && parcel src/*.pug",
     "pre": "rm -rf dist && node scripts/generate.js && parcel build src/*.pug && netlify deploy",

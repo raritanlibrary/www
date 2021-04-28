@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include ./includes/_head.pug
+        title Resources &ndash; Raritan Public Library
+    body.body
+        include ./includes/header.pug
+        main.main
+            .sidebar-left
+                include ./includes/calendar.pug
+            .center
+                h1 Resources
+                p.text.spacer-plus Resources made avalible by the Raritan Public Library require a library card. If you are a library card holder, patron of the Library, or are looking to register for a library card, please #[a.link(href="./contact") contact us] for more information on how to access these resources.
+                h2.spacer-plus.left eBooks
+                .snippet: .snippet-body
+                    a(href="https://raritan.axis360.baker-taylor.com/" target="_blank" rel="noopener"): img.snippet-img(src="./img/resources/axis.png?as=webp" alt="Axis 360")
+                    h3.spacer-plus.left Axis360
+                    p.text Use your Raritan Library Online Catalog login to access over 1,500 eBooks and eAudiobooks on #[b Axis 360] for free. Accessible from your browser, #[a.link(href="https://apps.apple.com/us/app/axis-360/id903001147" target="_blank" rel="noopener") phone], #[a.link(href="https://apps.apple.com/us/app/axis-360/id903001147" target="_blank" rel="noopener") tablet], or #[a.link(href="https://www.amazon.com/Baker-Taylor-Inc-Axis-360/dp/B00N59G3ZE" target="_blank" rel="noopener") Kindle device].
+                    p.text.spacer-resources
+                .snippet: .snippet-body
+                    a(href="https://ebook.yourcloudlibrary.com/library/raritanpl/Featured" target="_blank" rel="noopener"): img.snippet-img(src="./img/resources/cloudlibrary.png?as=webp" alt="cloudLibrary")
+                    h3.spacer-plus.left.crunch cloudLibrary
+                    p.text The #[b cloudLibrary ] book service includes all of the books available in our current eBook collection, new ones purchased directly for our own Cloud Library, and existing eBooks inventories from various libraries throughout New Jersey. Check out up to 5 titles, and keep them all for up to 21 days!
+                    p.text.spacer-resources-alt
+                .snippet: .snippet-body
+                    a(href="https://www.hoopladigital.com/" target="_blank" rel="noopener"): img.snippet-img(src="./img/resources/hoopla.png?as=webp" alt="hoopla")
+                    h3.spacer-plus.left hoopla
+                    p.text #[b hoopla] digital services include over 500,000 eBooks, Audiobooks, Movies, TV shows, CDs, Comics, and Graphic novels. Accessible from your browser or Smart device.
+                    <br>
+                    p.comment Please note our library is not part of the Somerset County Library system.
+                    p.text.spacer-resources-end
+                h2.spacer-plus.left Education
+                .snippet: .snippet-body
+                    a(href="https://landing.brainfuse.com/authenticate.asp?u=main.raritan.hn.nj.brainfuse.com" target="_blank" rel="noopener"): img.snippet-img(src="./img/resources/brainfuse.png?as=webp" alt="Brainfuse")
+                    h3.h-nospacer.left Brainfuse
+                    p.comment-date.spacer-plus This service is made possible through the CARES Act and will be available until June 15th, 2021.
+                    p.text #[b Brainfuse] is a web-based tutoring service for children of all ages. Live tutoring engages patrons through online homework help, writing lab assistance, test prep and more.
+                    p.text.spacer-resources-sm
+                .snippet: .snippet-body
+                    a(href="https://www.abcmouse.com" target="_blank" rel="noopener"): img.snippet-img(src="./img/resources/abcmouse.png?as=webp" alt="ABCmouse.com")
+                    h3.spacer-plus.left.crunch-more ABCMouse.com
+                    p.text #[b ABCmouse.com] is an award winning learning academy, helping children ages 2 through 7 learn to learn lessons in phonics, math, social studies, art, music, and much more. If you are interested in logging on to ABC Mouse at the library, please ask at the circulation desk or the Children's Librarian to assist you.
+                    p.text.spacer-resources-end
+                h2.spacer-plus.left Databases
+                .snippet: .snippet-body
+                    a(href="http://www.njstatelib.org/services_for_libraries/statewide_services/jerseyclicks/" target="_blank" rel="noopener"): img.snippet-img(src="./img/resources/njclicks.png?as=webp" alt="JerseyClicks")
+                    h3.spacer-plus.left.crunch-mini JerseyClicks
+                    p.text #[b JerseyClicks] is provided via the #[a.link(href="https://www.njstatelib.org/" target="_blank" rel="noopener") New Jersey State Library] and provides a wide variety of databases and resources for use in personal projects and academic papers.
+                    p.text.spacer-resources
+                .snippet: .snippet-body
+                    a(href="https://www.ancestryheritagequest.com/HQA" target="_blank" rel="noopener"): img.snippet-img(src="./img/resources/heritagequest.png?as=webp" alt="HeritageQuest")
+                    h3.spacer-plus.left.crunch-some HeritageQuest
+                    p.text Discover your amazing  family history with #[b HeritageQuest], powered by #[a.link(href="https://www.ancestry.com/" target="_blank" rel="noopener") Ancestry.com]. Access an essential collection of genealogical and historical sources with coverage dating back to the 1700s.
+                    p.text.spacer-resources-end
+                h2.spacer-plus.left Newspapers
+                .snippet: .snippet-body
+                    a(href="https://www.usatoday.com/" target="_blank" rel="noopener"): img.snippet-img(src="./img/resources/usatoday.png?as=webp" alt="USA TODAY")
+                    h3.spacer-plus.left USA TODAY
+                    p.text Visit #[a.link(href="https://www.usatoday.com/") usatoday.com] and #[a.link(href="./contact") call the Library] for the email and password to sign in for #[b USA TODAY] Digital Access.
+                    p.text.spacer-resources <br>
+                .snippet: .snippet-body
+                    a(href="https://myaccount.nj.com/index.aspx?sitecode=NJ" target="_blank" rel="noopener"): img.snippet-img(src="./img/resources/starledger.png?as=webp" alt="Star-Ledger")
+                    h3.spacer-plus.left The Star-Ledger
+                    p.text #[b The Star Ledger] is available digitally for patrons of the Library only. #[a.link(href="./contact") Call the Library] for the email and password to sign in.
+                    p.text.spacer-resources-end
+                h2.spacer-plus.left Language
+                .snippet: .snippet-body
+                    a(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank" rel="noopener"): img.snippet-img(src="./img/resources/pronunciator.png?as=webp" alt="Pronunciator")
+                    h3.spacer-plus.left.crunch-mini Pronunciator
+                    p.text #[b Pronunciator] is an online language-learning system free to our library patrons. With 80 of the world's most popular languages and ESL courses in 50 languages, it focuses on quickly building conversational skills through a suite of interactive content. Accessible from your #[a.link(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank" rel="noopener") browser], #[a.link(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank" rel="noopener") phone], or #[a.link(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank" rel="noopener") tablet].
+                    p.text.spacer-resources-sm
+                .snippet: .snippet-body
+                    a(href="https://search.ebscohost.com/login.aspx?authtype=cpid&custid=s8971388&site=rosetstone&return=y&groupid=main" target="_blank" rel="noopener"): img.snippet-img(src="./img/resources/rosettastone.png?as=webp" alt="Rosetta Stone")
+                    h3.spacer-plus.left Rosetta Stone
+                    p.text The popular #[b Rosetta Stone] language learning software is available free for all library card holders.
+                    p.text.spacer-resources-end
+            .sidebar-right
+                include ./includes/contact.pug
+                include ./includes/hours.pug
+        include ./includes/footer.pug

@@ -108,16 +108,16 @@ const pageInjector = (p) => {
                 let collapser = ""
                 let collapserArrow = ""
                 if (newsList.indexOf(year) !== 0) {
-                    collapser = " newsyear-collapsed"
-                    collapserArrow = " newsarrow-collapsed"
+                    collapser = " news-year-collapsed"
+                    collapserArrow = " news-arrow-collapsed"
                 }
                 newsOutput += `
                 <div class="news-wrapper">
-                    <h3 class="news-h3" id="newsheader-${curYear}">${curYear}</h3>
-                    <svg class="newsarrow${collapserArrow}" id="newsarrow-${curYear}" xmlns="http://www.w3.org/2000/svg" viewBox="0 -1.5 16 16">
+                    <h3 class="news-h3" id="news-header-${curYear}">${curYear}</h3>
+                    <svg class="news-arrow${collapserArrow}" id="news-arrow-${curYear}" xmlns="http://www.w3.org/2000/svg" viewBox="0 -1.5 16 16">
                         <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                     </svg>
-                    <div class="newsyear${collapser}" id="newsyear-${curYear}">
+                    <div class="news-year${collapser}" id="news-year-${curYear}">
                         ${year}
                     </div>
                 </div>
@@ -132,8 +132,8 @@ const pageInjector = (p) => {
             const scrollId = document.getElementById(urlClean);
             const yearById = scrollId.parentElement.parentElement;
             const arrowById = yearById.parentElement.children[1];
-            yearById.classList.remove("newsyear-collapsed");
-            arrowById.classList.remove("newsarrow-collapsed");
+            yearById.classList.remove("news-year-collapsed");
+            arrowById.classList.remove("news-arrow-collapsed");
             scrollId.scrollIntoView();
         }
     } else if (p.includes('programs')) {
@@ -190,10 +190,6 @@ const pageInjector = (p) => {
         const urlClean = url.split("#")[1];
         if (urlClean) {
             const scrollId = document.getElementById(urlClean);
-            const yearById = scrollId.parentElement.parentElement;
-            const arrowById = yearById.parentElement.children[1];
-            yearById.classList.remove("board-year-collapsed");
-            arrowById.classList.remove("board-arrow-collapsed");
             scrollId.scrollIntoView();
         }
     }
@@ -206,32 +202,15 @@ if (page.includes('index')) {
     const firstYear = Data.news[Data.news.length-1].date.getYear() + 1900;
     for (let i = firstYear; i <= lastYear; i++) {
         window.addEventListener('click', function(e) {   
-            const header = document.getElementById(`newsheader-${i}`);
-            const arrow = document.getElementById(`newsarrow-${i}`);
-            const content = document.getElementById(`newsyear-${i}`);
-            if ((header.contains(e.target) || arrow.contains(e.target)) && !content.classList.contains("newsyear-collapsed")) {
-                content.classList.add("newsyear-collapsed");
-                arrow.classList.add("newsarrow-collapsed");
-            } else if ((header.contains(e.target) || arrow.contains(e.target)) && content.classList.contains("newsyear-collapsed")) {
-                content.classList.remove("newsyear-collapsed");
-                arrow.classList.remove("newsarrow-collapsed");
-            }
-        });
-    }
-} else if (page.includes('board')) {
-    const lastYear = Data.news[0].date.getYear() + 1900;
-    const firstYear = 2018;
-    for (let i = firstYear; i <= lastYear; i++) {
-        window.addEventListener('click', function(e) {   
-            const header = document.getElementById(`${i}`);
-            const arrow = document.getElementById(`meeting-arrow-${i}`);
-            const content = document.getElementById(`meeting-year-${i}`);
-            if ((header.contains(e.target) || arrow.contains(e.target)) && !content.classList.contains("meeting-year-collapsed")) {
-                content.classList.add("meeting-year-collapsed");
-                arrow.classList.add("meeting-arrow-collapsed");
-            } else if ((header.contains(e.target) || arrow.contains(e.target)) && content.classList.contains("meeting-year-collapsed")) {
-                content.classList.remove("meeting-year-collapsed");
-                arrow.classList.remove("meeting-arrow-collapsed");
+            const header = document.getElementById(`news-header-${i}`);
+            const arrow = document.getElementById(`news-arrow-${i}`);
+            const content = document.getElementById(`news-year-${i}`);
+            if ((header.contains(e.target) || arrow.contains(e.target)) && !content.classList.contains("news-year-collapsed")) {
+                content.classList.add("news-year-collapsed");
+                arrow.classList.add("news-arrow-collapsed");
+            } else if ((header.contains(e.target) || arrow.contains(e.target)) && content.classList.contains("news-year-collapsed")) {
+                content.classList.remove("news-year-collapsed");
+                arrow.classList.remove("news-arrow-collapsed");
             }
         });
     }
