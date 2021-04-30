@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include ./includes/_head.pug
+        title COVID-19 Information &ndash; Raritan Public Library
+    body.body
+        include ./includes/header.pug
+        main.main
+            .sidebar-left
+                include ./includes/calendar.pug
+            .center
+                h1.h1-sm.spacer-plus COVID-19 Information
+                p.text.spacer-plus Until Raritan Public Library can fully reopen under normal conditions, the Library will offer limited services during limited hours of operation while keeping safe and hygienic protocols for its patrons and staff. For the safety of all, we expect and greatly appreciate all people that enter our facility to adhere to the following guidelines.
+                p.text.spacer-plus The Board of Trustees and Library staff appreciates everyone's cooperation during these unprecedented times, and we look forward to reopening fully and serving our friendly community as we did before.
+                hr.hr
+                h2 Protocols
+                p.comment-big.text-center These guidelines may be subject to change by the Library Board as circumstances require.
+                .spacer-plus
+                p.text.spacer-plus Patrons will enter the Library through the front door. #[b No patron will be admitted unless wearing a mask.] They will be greeted and directed by a staff member (also wearing a mask) to walk through the Reading Room and on to the back rooms and children's area to retrieve their books/materials and lastly to check out at the circulation desk. There will be arrows on the floor showing the path to follow. All patrons will exit through the back door
+                p.text.spacer-plus There will be a limit of 4 patrons in the building at the same time and are expected to keep a distance of at least 6 feet from one another. The entrance number may increase depending on the flow of patrons and will be up to the Director's or Staff's discretion.
+                p.text.spacer-plus Patrons are encouraged to visit our #[a.link(href="http://173.70.152.20/" target="_blank" rel="noopener") catalog] and call ahead for quicker service. Items will be ready for them at the circulation desk. 
+                p.text.spacer-plus Patrons are expected not to linger long, and sections of the Library will be closed off. These areas include all rooms upstairs, the bathrooms and the Community Room. If a patron needs a material from the second floor, a staff member will retrieve it.
+                p.text.spacer-plus Returned items are to be left in the drop box at the front door before entering.
+                p.text.spacer-plus Computers usage is available by appointment during the hours the library is opened to the public. Time limit is 30 minutes, and staff cannot extend the timer on our PCs or laptop. You may bring in your own laptop, but you are still limited to 30 minutes of usage in the building and will not be able to print. Printing may only be done from our devices.
+                p.text.spacer-plus Photocopying is available during the hours we are open to the public. Staff will do the photocopying for you; patrons will not be allowed to use the copier themselves.
+            .sidebar-right
+                include ./includes/contact.pug
+                include ./includes/hours.pug
+        include ./includes/footer.pug

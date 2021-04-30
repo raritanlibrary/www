@@ -47,7 +47,7 @@ export const eventInjector = () => {
             if (Time.addHours(event.date, event.length) >= Time.now) {
                 eventList += `
                 <div class="event">
-                    <div class="event-${event.style}" style="background-image: url(./img/events/${event.img}.png")>
+                    <div class="event-${event.style}" style="background-image: url(./img/events/_${event.img}.png")>
                         <a class="event-${event.style}-link" href="programs#${(event.date.getTime()/100000).toString(36).slice(1)}">
                             <div class="event-${event.style}-cover">
                                 <p class="event-${event.style}-title">${event.title}</p>

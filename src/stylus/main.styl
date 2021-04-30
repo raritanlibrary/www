@@ -12,6 +12,7 @@
 @require './pages/404'
 @require './pages/board'
 @require './pages/books'
+@require './pages/history'
 @require './pages/home'
 @require './pages/news'
 
@@ -27,6 +28,14 @@ h1
     text-align center
     @media screen and (max-width 424px)
         minion(19.7vw, alt(), bold)
+.h1-sm
+    minion(84*0.8px, alt(), bold)
+    txt-shadow()
+    text-align center
+    spacer(0.7)
+    @media screen and (max-width 424px)
+        minion(19.7*0.8vw, alt(), bold)
+        spacer(0.4)
 h2
     minion(56px, alt(), bold)
     txt-shadow()
@@ -69,6 +78,12 @@ hr.hr
     max-width 500px
     @media screen and (max-width 424px)
         max-width 100%
+ol
+    list-style none
+    counter-reset olcount
+    margin 12px 12px
+    @media screen and (min-width 1600px)
+        margin 12px m-calc // 1/6
 .left
     text-align left
 .inline
@@ -125,6 +140,18 @@ hr.hr
         text-align-last center
     &-bold
         perpetua(22px,  main-text(), bold,, 1.25)
+    &-list
+        counter-increment olcount
+        perpetua(22px,  main-text(),,, 1.25)
+        spacer()
+        &:before
+            content "(" counter(olcount) ")"
+            margin-right 8px
+            display inline
+            minion(28px, alt(), bold)
+            txt-shadow()
+            @media screen and (max-width 424px)
+                minion(6.6vw, alt(), bold)
 .link
     color link-text
     font-weight bold
@@ -153,6 +180,42 @@ hr.hr
         center-underline(1px, 3px, 97%)
         &:hover, &:focus
             perpetua(20px, link-text-hover, bold, italic, 0)
+.image
+    position relative
+    border 2px solid alt('dd')
+    overflow hidden
+    @media screen and (min-width 1380px)
+        display inline
+        float right
+        margin 0 0 5px 22px
+        width w = calc(100vw - 880px)
+        height 'calc(%s * (480/920))' % w
+        max-width mw = 720px
+        max-height 'calc(%s * (480/920))' % mw
+    @media screen and (min-width 950px) and (max-width 1379px)
+        display block
+        margin 0 0 16px 0
+        width w = 100%
+        height 'calc((100vw - 540px) * (480/920))' % w
+    @media screen and (min-width 875px) and (max-width 949px)
+        display inline
+        float right
+        margin 0 0 5px 22px
+        width w = calc(100vw - 420px)
+        height 'calc(%s * (480/920))' % w
+    @media screen and (min-width 425px) and (max-width 874px)
+        display block
+        margin 0 0 16px 0
+        width w = 100%
+        height 'calc((100vw - 65px) * (480/920))' % w
+    @media screen and (max-width 424px)
+        display block
+        margin 0 0 16px 0
+        width w = 100%
+        height 'calc((100vw - 50px) * (480/920))' % w
+    &-inner
+        position absolute
+        max-width 100%
 .freeze
     @media screen and (max-width 749px)
         overflow-y hidden

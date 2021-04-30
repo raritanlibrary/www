@@ -50,6 +50,19 @@
   # imgalt: Board Meeting
   # zoom: https://zoom.us/j/94624501181
 
+- name: "Out of Rushmore's Shadow"
+  title: Mount Rushmore &#38;
+  subtitle: the Luigi Del Bianco Story
+  date: 2021-05-27 18:30:00 -4
+  length: 2.5
+  endtime: false
+  blurb: Join author Lou Del Bianco as he presents the story of his grandfather, Italian immigrant, Luigi Del Bianco, the chief carver of Mount Rushmore.
+  desc: Author, actor, singer, and storyteller, <b>Lou Del Bianco</b>, will present a fascinating story about his grandfather, Italian immigrant, <b>Luigi Del Bianco</b>, who was the chief carver of Mount Rushmore and who finally received well-deserved recognition for his invaluable contribution to our beloved National Monument. Call the Library at (908) 725-0413 to learn more details about the special program and to register.
+  style: yellow
+  img: rushmore
+  imgalt: Out of Rushmore's Shadow
+  zoom:
+
 - name: Patriotic Grapevine Wreath with Birdhouse
   title: Flag Day Craft
   subtitle: with Irene Mortko

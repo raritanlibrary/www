@@ -15,17 +15,30 @@ statics.forEach(static => {
 });
 
 // Populate _redirects
-let redata = `/                      /index.html               200`;
-redata += `\n/*                     /404.html                 404`;
+let redata = `/                                                 /index.html                           200`;
+redata += `\n/*                                                /404.html                             404`;
 const source = fs.readdirSync('src');
 source.forEach(item => {
     if (item.includes('.pug') && !item.includes('index')) {
         let name = item.slice(0, -4);
         let len = name.length;
-        let ws = Array(20-len).fill(' ').join('');
-        redata += `\n/${name}/*${ws}/${name}.html${ws}200`;
+        let ws = Array(47-len).fill(' ').join('');
+        let ws2 = Array(32-len).fill(' ').join('');
+        redata += `\n/${name}/*${ws}/${name}.html${ws2}200`;
     }
 });
+redata += `\n/board                                            /2016LibraryBoardMinutes.html         301
+/board                                            /2017BoardMinutes.html                301
+/board                                            /2018BoardMeetingMinutes.html         301
+/board                                            /2019BoardofTrusteesMinutes.html      301
+/porchside-pickup                                 /CurbsidePickUpInstructions.html      301
+/passes                                           /databases.html                       301
+/gallery                                          /inside.html                          301
+/tree                                             /links.html                           301
+/resources                                        /NewE-BooksApp.html                   301
+http://raritanpubliclibrarybooks.blogspot.com/    /NoteworthyReads.htm                  301
+/resources                                        /Pronunciator.html                    301
+/resources                                        /StarLedgerLoginInstructions.html     301`
 
 fs.writeFile('dist/_redirects', redata, function(e){});
 

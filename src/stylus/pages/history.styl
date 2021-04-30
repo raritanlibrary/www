@@ -1,0 +1,29 @@
+.timeline
+    list-style none
+    margin 12px 12px
+    @media screen and (min-width 1600px)
+        margin 12px m-calc // 1/6
+    &-entry
+        padding-bottom 24px
+        border-left 3px solid alt('55')
+        position relative
+        padding-left 20px
+        margin-left 10px
+        &:before
+            content ''
+            width 25px
+            height 25px
+            background alt()
+            border-radius 50%
+            position absolute
+            left -14px
+        &:last-child
+            border 0px
+            padding-bottom 0
+            position relative
+            left 2px
+            bottom 2px
+    &-title
+        perpetua(26px,  main-text(), bold,, 1.25)
+        position relative
+        bottom 2px

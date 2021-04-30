@@ -160,7 +160,7 @@ const pageInjector = (p) => {
                     `
                 }
                 if (event.img && event.imgalt) {
-                    eventImg = `<a href="img/events/${event.img}_.png" target="_blank"><img class="snippet-img" src="img/events/${event.img}.png" alt="${event.imgalt}"></a>`
+                    eventImg = `<a href="img/events/${event.img}.png" target="_blank"><img class="snippet-img" src="img/events/_${event.img}.png" alt="${event.imgalt}"></a>`
                 }
                 if (Time.addHours(event.date, event.length) >= Time.now) {
                     eventList += `
