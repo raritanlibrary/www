@@ -15,6 +15,7 @@
 @require './pages/history'
 @require './pages/home'
 @require './pages/news'
+@require './pages/sitemap'
 
 html
     scroll-behavior smooth
@@ -91,20 +92,6 @@ ol
 .spacer
     &-plus
         spacer(1)
-    &-resources
-        spacer(3)
-        @media screen and (max-width 424px)
-            display none
-        &-alt
-            spacer(1.875)
-            @media screen and (max-width 424px)
-                display none
-        &-sm
-            spacer(2.125)
-            @media screen and (max-width 424px)
-                display none
-        &-end
-            spacer(1.875)
 .body
     display grid
     grid-template-areas "h" "m" "f"

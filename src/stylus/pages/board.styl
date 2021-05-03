@@ -4,6 +4,8 @@
     flex-flow row wrap
     justify-content space-evenly
     gap 32px 96px
+    @media screen and (min-width 749px) and (max-width 949px)
+        gap 32px 48px
     text-align center
 .member
     width 155px
@@ -12,9 +14,7 @@
     flex-flow row wrap
     justify-content space-around
     gap 32px 96px
-    //height 550px
     &-year
-        //max-height 600px
         overflow hidden
         transition max-height 0.3s ease-in-out
         p
@@ -23,3 +23,50 @@
             padding 4px
 .greyout
     perpetua(22px,  main-text('77'), bold,, 1.25)
+.board
+    &-img
+        position relative
+        border 2px solid alt('dd')
+        overflow hidden
+        display inline
+        float right
+        margin 0 0 5px 22px
+        height h = 550px
+        width w = 18vw
+        &-inner
+            height h
+            width w
+            position absolute
+            object-fit cover
+            object-position 50% 10%
+        @media screen and (min-width 1313px) and (max-width 1459px)
+            height h = 600px
+            &-inner
+                height h
+        @media screen and (min-width 1083px) and (max-width 1312px)
+            height h = calc(360px - 12.195vw)
+            &-inner
+                height h
+        @media screen and (min-width 950px) and (max-width 1082px)
+            height h = calc(400px - 12.195vw)
+            width w = 17vw
+            &-inner
+                height h
+                width w
+        @media screen and (min-width 750px) and (max-width 949px)
+            height h = 700px
+            width w = 42vw
+            &-inner
+                height h
+                width w
+        @media screen and (max-width 749px)
+            display block
+            float unset
+            margin 0 0 16px 0
+            width w = 100%
+            height 'calc((100vw - 68px) * (480/920))' % w
+            &-inner
+                width w
+                height 'calc((100vw - 68px) * (480/920))' % w
+                object-fit cover
+                object-position 50% 9%

@@ -44,14 +44,14 @@
   # length: 1
   # endtime: false
   # blurb: The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually via Zoom.
-  # desc: The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually via <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom app</a>.<br>
+  # desc: The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually via <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom app</a>.
   # style: meeting
   # img: meeting
   # imgalt: Board Meeting
   # zoom: https://zoom.us/j/94624501181
 
 - name: "Out of Rushmore's Shadow"
-  title: Mount Rushmore &#38;
+  title: Mount Rushmore &amp;
   subtitle: the Luigi Del Bianco Story
   date: 2021-05-27 18:30:00 -4
   length: 2.5

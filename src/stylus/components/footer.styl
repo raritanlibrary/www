@@ -45,5 +45,20 @@
 .copyright
     lexend(13.5px, main(), normal)
     text-align center
+    spacer(0.1)
     @media screen and (max-width 349px)
         lexend(10.4px, main(), normal)
+.version
+    lexend(10px,  main('88'), normal)
+    text-transform none
+    text-align center
+    spacer(0.3)
+    @media screen and (max-width 349px)
+        lexend(9.75px,  main(), normal)
+    a
+        color inherit
+        transition color 0.2s ease-in-out
+        letter-spacing 0
+        &:hover, &:focus
+            lexend(10px,  main(), normal)
+            text-transform none
