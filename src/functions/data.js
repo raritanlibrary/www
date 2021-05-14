@@ -6,7 +6,33 @@ const yaml = require('js-yaml');
 // Events data
 let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
 export let events = yaml.load(eventData);
-events = events.sort((a, b) => a.date - b.date);
+events.forEach(event => {
+    if (event.date === 'TBD') {
+        event.datenominal = Time.now;
+    } else if (event.length === 'daterange') {
+        event.length = 1;
+        if (event.date[0] < Time.now) {
+            event.datenominal = Time.now;
+        } else {
+            event.datenominal = event.date[0];
+        }
+    } else if (Array.isArray(event.date)) {
+        for (let i = 0; i < event.date.length; i++) {
+            let day = event.date[i]
+            if (Time.addHours(day, event.length) < Time.now) {
+                event.date.shift();
+                event.zoom.shift();
+                i--;
+            } else {
+                event.datenominal = day;
+                break;
+            } 
+        }
+    } else {
+        event.datenominal = event.date;
+    }
+});
+events = events.sort((a, b) => a.datenominal - b.datenominal);
 
 // News data
 let newsData = fs.readFileSync('src/data/news.yaml', 'utf8');
@@ -21,12 +47,12 @@ export const eventInjector = () => {
         for (const event of events) {
             let zoomLink = ``;
             if (displayed === 3 ) { break };
-            if (event.endtime) {
+            if (!event.noendtime) {
                 endTime = ` - ${Time.formatTime(Time.addHours(event.date, event.length))}`
             } else {
                 endTime = ``
             }
-            if ((event.date.getTime() - 24*60*60*1000 <= Time.now) && (Time.addHours(event.date, event.length) >= Time.now)) {
+            if (event.zoom && (event.date.getTime() - 24*60*60*1000 <= Time.now) && (Time.addHours(event.date, event.length) >= Time.now)) {
                 zoomLink = `
                 <a class="event-zoom-link" href="${event.zoom}" target="_blank" rel="noopener">
                     <div class="event-zoom"> Join now on

@@ -144,12 +144,12 @@ const pageInjector = (p) => {
             for (const event of Data.events) {
                 let eventImg = ``;
                 let zoomLink = ``;
-                if (event.endtime) {
+                if (!event.noendtime) {
                     endTime = ` - ${Time.formatTime(Time.addHours(event.date, event.length))}`
                 } else {
                     endTime = ``
                 }
-                if ((event.date.getTime() - 24*60*60*1000 <= Time.now) && (Time.addHours(event.date, event.length) >= Time.now)) {
+                if (event.zoom && (event.date.getTime() - 24*60*60*1000 <= Time.now) && (Time.addHours(event.date, event.length) >= Time.now)) {
                     zoomLink = `
                     <a class="snippet-zoom" href="${event.zoom}" target="_blank" rel="noopener">
                         <div class="snippet-zoom-inner"> Join now on
@@ -226,6 +226,18 @@ window.onload = function() {
     pageInjector(page);
     Git.version();
 };
+
+if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
+    window.location.href = url + '.html'
+} else if (!url.includes('.html') && url.includes('#')) {
+    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
+}
+
+if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
+    window.location.href = url + '.html'
+} else if (!url.includes('.html') && url.includes('#')) {
+    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
+}
 
 if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
     window.location.href = url + '.html'
