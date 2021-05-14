@@ -37,18 +37,18 @@
   imgalt: Chair Yoga
   zoom: https://zoom.us/j/97974057584
 
-# - name: RPL Board of Trustees Meeting
-  # title: Board Meeting
-  # subtitle: Board of Trustees
-  # date: 2021-05-20 19:00:00 -4
-  # length: 1
-  # endtime: false
-  # blurb: The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually via Zoom.
-  # desc: The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually via <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom app</a>.
-  # style: meeting
-  # img: meeting
-  # imgalt: Board Meeting
-  # zoom: https://zoom.us/j/94624501181
+- name: RPL Board of Trustees Meeting
+  title: Board Meeting
+  subtitle: Board of Trustees
+  date: 2021-05-20 19:00:00 -4
+  length: 1
+  endtime: false
+  blurb: The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually via Zoom.
+  desc: The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually via the <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom app</a>.
+  style: meeting
+  img: meeting
+  imgalt: Board Meeting
+  zoom: https://zoom.us/j/94624501181
 
 - name: "Out of Rushmore's Shadow"
   title: Mount Rushmore &amp;
@@ -61,7 +61,6 @@
   style: yellow
   img: rushmore
   imgalt: Out of Rushmore's Shadow
-  zoom:
 
 - name: Patriotic Grapevine Wreath with Birdhouse
   title: Flag Day Craft
@@ -71,7 +70,33 @@
   endtime: true
   blurb: Join Irene Mortko in making this beautiful floral patriotic wreath (12 inches) just in time for you to display it for Flag Day and the 4th of July.
   desc: Join Irene Mortko in making this beautiful floral patriotic wreath (12 inches) just in time for you to display it for Flag Day and the 4th of July. A $10.00 fee is due at the time of registration for materials only. A kit will be ready for you to pick up prior to the <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom app</a> presentation. Sign up early as class size is limited.
-  style: grapevine
+  style: red
   img: grapevine
   imgalt: Grapevine Wreath and Birdhouse
   zoom: https://zoom.us/j/97210631522
+
+- name: "Bobby Darin: Beyond the Sea"
+  title: "Bobby Darin:"
+  subtitle: Beyond the Sea
+  date: 2021-06-10 15:00:00 -4
+  length: 3.5
+  endtime: true
+  blurb: Bobby Darin archivist, Jimmy Scalia, presents the life and music of Bobby Darin. Featuring multimedia and memorabilia from Jimmy's personal collection.
+  desc: Bobby Darin archivist, Jimmy Scalia, will be presenting the life and music of Bobby Darin. This journey takes you on an in-depth look at his life & career with a multimedia presentation and with memorabilia from his personal collection.
+  style: blue
+  img: beyond
+  imgalt: Bobby Darin
+  zoom:
+
+- name: BRHS Art Exhibit
+  title: BRHS Art Exhibit
+  subtitle: ""
+  date: 2021-06-01 10:00:00 -4
+  length: 111
+  endtime: true
+  blurb: Come and view art 22 various art pieces from 12 talented BRHS Honors Art III students, exclusively at Raritan Public Library.
+  desc: From June 1st to June 30th, 12 talented BRHS Honors Art III students are exhibiting their original art at the Raritan Public Library. Come and view 22 of their best pieces to support the endeavors of these local, up-and-coming artists.
+  style: red
+  img: art2021
+  imgalt: Colorful matryoshka artwork
+  zoom:
