@@ -1,12 +1,12 @@
 - name: Flower Trellis Wreath Craft
   title: Flower Trellis Wreath
   subtitle: with Michele Liana
-  date: TBD
+  date: tbd
   length: 1.5
   noendtime: true
   blurb: Join Michele Liana in creating this beautiful flower and moss-covered Trellis Wreath. Class will be held on Zoom. A $15 fee applies for materials only and is due at time of registration.
   desc: Join Michele Liana in creating this beautiful flower and moss-covered Trellis Wreath. Class will be held on <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom</a>. A $15 fee applies for materials only and is due at time of registration. Sign up early as class size is limited. Please note that flowers may vary from photo.
-  style: orange
+  style: green
   img: trellis
   imgalt: Flower Trellis Wreath
   zoom: https://zoom.us/j/94567894069
@@ -21,11 +21,11 @@
   style: yoga
   img: yoga
   imgalt: Chair Yoga
-  zoom: [https://zoom.us/j/97974057584, 0, 0]
+  zoom: [https://zoom.us/j/97974057584, z, z]
 
 - name: RPL Board of Trustees Meeting
-  title: Board Meeting
-  subtitle: Board of Trustees
+  title: Board of Trustees
+  subtitle: Meeting for May 2021
   date: 2021-05-20 19:00:00 -4
   length: 1
   noendtime: true
@@ -75,7 +75,7 @@
 - name: BRHS Art Exhibit
   title: BRHS Art Exhibit
   subtitle: ""
-  date: [2021-06-01 10:00:00 -4, 2021-06-31 17:00:00 -4]
+  date: [2021-06-01 10:00:00 -4, 2021-06-30 17:00:00 -4]
   length: daterange
   noendtime: true
   blurb: Come and view art 22 various art pieces from 12 talented BRHS Honors Art III students, exclusively at Raritan Public Library.

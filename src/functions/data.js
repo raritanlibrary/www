@@ -7,32 +7,39 @@ const yaml = require('js-yaml');
 let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
 export let events = yaml.load(eventData);
 events.forEach(event => {
-    if (event.date === 'TBD') {
-        event.datenominal = Time.now;
+    if (event.date === 'tbd') {
+        event.datesortable = Time.addHours(Time.now, event.length);
+        event.datenominal = Time.addHours(Time.now, event.length);
     } else if (event.length === 'daterange') {
         event.length = 1;
+        event.datenominal = event.date[1];
+        event.daterange = true;
         if (event.date[0] < Time.now) {
-            event.datenominal = Time.now;
+            event.datesortable = Time.now;
         } else {
-            event.datenominal = event.date[0];
+            event.datesortable = event.date[0];
         }
     } else if (Array.isArray(event.date)) {
         for (let i = 0; i < event.date.length; i++) {
-            let day = event.date[i]
+            let day = event.date[i];
             if (Time.addHours(day, event.length) < Time.now) {
                 event.date.shift();
-                event.zoom.shift();
+                if (event.zoom) {
+                    event.zoom.shift();
+                }
                 i--;
             } else {
+                event.datesortable = day;
                 event.datenominal = day;
                 break;
             } 
         }
     } else {
+        event.datesortable = event.date;
         event.datenominal = event.date;
     }
 });
-events = events.sort((a, b) => a.datenominal - b.datenominal);
+events = events.sort((a, b) => a.datesortable - b.datesortable);
 
 // News data
 let newsData = fs.readFileSync('src/data/news.yaml', 'utf8');
@@ -45,14 +52,49 @@ export const eventInjector = () => {
         let eventList = ``;
         let endTime;
         for (const event of events) {
+            let eventDate;
+            let eventTime;
+            let eventDateMobile;
             let zoomLink = ``;
             if (displayed === 3 ) { break };
             if (!event.noendtime) {
-                endTime = ` - ${Time.formatTime(Time.addHours(event.date, event.length))}`
+                endTime = ` - ${Time.formatTime(Time.addHours(event.datenominal, event.length))}`;
             } else {
-                endTime = ``
+                endTime = ``;
             }
-            if (event.zoom && (event.date.getTime() - 24*60*60*1000 <= Time.now) && (Time.addHours(event.date, event.length) >= Time.now)) {
+            if (event.date === 'tbd') {
+                eventDate = `<p class="event-${event.style}-date">Date: TBD</p>`;
+                eventTime = `<p class="event-${event.style}-time"></p>`;
+                eventDateMobile = `<p class="event-${event.style}-date-mobile">Date: TBD</p>`;
+                event.zoom = false;
+            } else if (event.daterange) {
+                eventDate = `<p class="event-${event.style}-date">Starting ${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())}</p>`;
+                eventTime = `<p class="event-${event.style}-time">through ${Time.month[event.date[1].getMonth()]} ${Time.formatDate(event.date[1].getDate())}</p>`;
+                eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())} - ${Time.month[event.date[1].getMonth()]} ${Time.formatDate(event.date[1].getDate())}</p>`;
+            } else if (Array.isArray(event.date) && event.date.length > 1) {
+                eventDate = `<p class="event-${event.style}-date">${Time.weekday[event.date[0].getDay()]}, ${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())}</p>`;
+                eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())} at ${Time.formatTime(event.date[0])}</p>`;
+                if (event.date[0].getDate() === event.date[1].getDate()) {
+                    eventTime = `<p class="event-${event.style}-time">${Time.formatTime(event.date[0])} and ${Time.formatTime(event.date[1])}</p>`;
+                } else {
+                    eventTime = `<p class="event-${event.style}-time">${Time.formatTime(event.date[0])}${endTime}</p>`;
+                }
+                if (event.zoom) {
+                    event.zoom = event.zoom[0];
+                }
+            } else if (Array.isArray(event.date) && event.date.length === 1) {
+                eventDate = `<p class="event-${event.style}-date">${Time.weekday[event.date[0].getDay()]}, ${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())}</p>`;
+                eventTime = `<p class="event-${event.style}-time">${Time.formatTime(event.date[0])}${endTime}</p>`;
+                eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())} at ${Time.formatTime(event.date[0])}</p>`;
+                if (event.zoom) {
+                    event.zoom = event.zoom[0];
+                }
+            } else {
+                eventDate = `<p class="event-${event.style}-date">${Time.weekday[event.date.getDay()]}, ${Time.month[event.date.getMonth()]} ${Time.formatDate(event.date.getDate())}</p>`;
+                eventTime = `<p class="event-${event.style}-time">${Time.formatTime(event.date)}${endTime}</p>`;
+                eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.month[event.date.getMonth()]} ${Time.formatDate(event.date.getDate())} at ${Time.formatTime(event.date)}</p>`;
+            }
+            if (event.zoom && (event.datenominal.getTime() - 24*60*60*1000 <= Time.now) && (Time.addHours(event.datenominal, event.length) >= Time.now)) {
                 zoomLink = `
                 <a class="event-zoom-link" href="${event.zoom}" target="_blank" rel="noopener">
                     <div class="event-zoom"> Join now on
@@ -64,24 +106,24 @@ export const eventInjector = () => {
                 `
             } else {
                 zoomLink = `
-                <a class="event-more" href="programs#${(event.date.getTime()/100000).toString(36).slice(1)}">
+                <a class="event-more" href="programs#${fx.eventid(event.name, event.datenominal)}">
                     <div class="event-more-inner">Learn more</div>
                 </a>
                 <div class="event-spacer"></div>
                 `
             }
-            if (Time.addHours(event.date, event.length) >= Time.now) {
+            if (Time.addHours(event.datenominal, event.length) >= Time.now) {
                 eventList += `
                 <div class="event">
                     <div class="event-${event.style}" style="background-image: url(./img/events/_${event.img}.png")>
-                        <a class="event-${event.style}-link" href="programs#${(event.date.getTime()/100000).toString(36).slice(1)}">
+                        <a class="event-${event.style}-link" href="programs#${fx.eventid(event.name, event.datenominal)}">
                             <div class="event-${event.style}-cover">
                                 <p class="event-${event.style}-title">${event.title}</p>
                                 <p class="event-${event.style}-subtitle">${event.subtitle}</p>
                                 <hr class="event-${event.style}-hr" />
-                                <p class="event-${event.style}-time">${Time.weekday[event.date.getDay()]}, ${Time.month[event.date.getMonth()]} ${Time.formatDate(event.date.getDate())}</p>
-                                <p class="event-${event.style}-date">${Time.formatTime(event.date)}${endTime}</p>
-                                <p class="event-${event.style}-time-mobile">${Time.month[event.date.getMonth()]} ${Time.formatDate(event.date.getDate())} at ${Time.formatTime(event.date)}</p>
+                                ${eventDate}
+                                ${eventTime}
+                                ${eventDateMobile}
                                 <p class="event-${event.style}-desc">${event.blurb}</p>
                             </div>
                         </a>

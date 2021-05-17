@@ -6,7 +6,7 @@ const rev = fs.readFileSync('.git/refs/heads/main', 'utf-8').slice(0,2)
 const time = fs.readFileSync('.git/logs/HEAD', 'utf-8')
 const timelines = time.trim().split('\n');
 const timeslice = timelines.slice(-1)[0].slice(139,149)
-const timeparsed = new Date (Number(timeslice * 1000));
+const timeparsed = new Date(Number(timeslice * 1000));
 
 export const version = () => {
     if (fx.checkClass('version')) {
