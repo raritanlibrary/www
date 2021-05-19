@@ -28,6 +28,22 @@ export const month = [
     "December"
 ];
 
+export const getR = (which) => {
+    const month = new Date(`${now.getFullYear()}-${(now.getMonth()+1).toString().padStart(2, 0)}-01 00:00:00 -4`);
+    let i = month.getTime();
+    let output = [];
+    while (true) {
+        let id = new Date(i);
+        if (id.getDay() == 4) {
+            output.push(new Date(`${now.getFullYear()}-${(now.getMonth()+1).toString().padStart(2, 0)}-${id.getDate()+7} 19:00:00 -4`));
+            output.push(new Date(`${now.getFullYear()}-${(now.getMonth()+1).toString().padStart(2, 0)}-${id.getDate()+14} 19:00:00 -4`));
+            break;
+        }
+        i += 86400000;
+    }
+    return output[which];
+}
+
 export const formatDate = (n) => {
     return (n % 10 == 1 && n % 100 != 11) ? `${n}st`
     : (n % 10 == 2 && n % 100 != 12) ? `${n}nd`

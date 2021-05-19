@@ -48,7 +48,7 @@ const pageInjector = (p) => {
                 ${newsImg}
                     <div class="snippet-body">
                         <a class="h4-link" href="news#${Data.news.length-displayed}">${post.name}</a>
-                        <p class="comment-date">${Time.weekday[post.date.getDay()]}, ${Time.month[post.date.getMonth()]} ${Time.formatDate(post.date.getDate())}, ${post.date.getYear()+1900}</p>
+                        <p class="comment-date">${Time.weekday[post.date.getDay()]}, ${Time.month[post.date.getMonth()]} ${Time.formatDate(post.date.getDate())}, ${post.date.getFullYear()}</p>
                         <br>
                         <p class="text">${post.desc}</p>
                         ${newsLinks}
@@ -66,9 +66,9 @@ const pageInjector = (p) => {
             let newsList = [];
             newsList[newsIndex] = ``;
             for (const post of Data.news) {
-                curYear = post.date.getYear() + 1900;
+                curYear = post.date.getFullYear();
                 try {
-                    nextYear = Data.news[Data.news.indexOf(post) + 1].date.getYear() + 1900;
+                    nextYear = Data.news[Data.news.indexOf(post) + 1].date.getFullYear();
                 } catch(e) {}
                 let newsLinks = ``;
                 let newsImg = ``;
@@ -142,14 +142,34 @@ const pageInjector = (p) => {
             let eventList = ``;
             let endTime;
             for (const event of Data.events) {
+                let eventDate;
                 let eventImg = ``;
                 let zoomLink = ``;
                 if (!event.noendtime) {
-                    endTime = ` - ${Time.formatTime(Time.addHours(event.date, event.length))}`
+                    endTime = ` - ${Time.formatTime(Time.addHours(event.datenominal, event.length))}`;
                 } else {
                     endTime = ``
                 }
-                if (event.zoom && (event.date.getTime() - 24*60*60*1000 <= Time.now) && (Time.addHours(event.date, event.length) >= Time.now)) {
+                if (event.date === 'tbd') {
+                    eventDate = `Date:&nbsp;TBD`
+                } else if (event.daterange) {
+                    eventDate = `${Time.weekday[event.date[0].getDay()]}, ${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())} - ${Time.weekday[event.date[1].getDay()]}, ${Time.month[event.date[1].getMonth()]} ${Time.formatDate(event.date[1].getDate())}`;
+                } else if (Array.isArray(event.date) && event.date.length > 1) {
+                    if (event.date[0].getDate() === event.date[1].getDate()) {
+                        eventDate = `${Time.weekday[event.date[0].getDay()]}, ${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())}, ${Time.formatTime(event.date[0])} and ${Time.formatTime(event.date[1])}`;
+                    } else {
+                        eventDate = `${Time.weekday[event.date[0].getDay()]}s at ${Time.formatTime(event.date[0])}${endTime} <br>`
+                        event.date.forEach((day, i) => {
+                            eventDate += `${Time.month[day.getMonth()]} ${Time.formatDate(day.getDate())}`
+                            if (i < event.date.length-1) { eventDate += `,&nbsp;` }
+                        });
+                    }
+                } else if (Array.isArray(event.date) && event.date.length === 1) {
+                    eventDate = `${Time.weekday[event.date[0].getDay()]}, ${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())}, ${Time.formatTime(event.date[0])}${endTime}`
+                } else {
+                    eventDate = `${Time.weekday[event.date.getDay()]}, ${Time.month[event.date.getMonth()]} ${Time.formatDate(event.date.getDate())}, ${Time.formatTime(event.date)}${endTime}`
+                }
+                if (event.zoom && (event.datenominal.getTime() - 86400000 <= Time.now) && (Time.addHours(event.datenominal, event.length) >= Time.now)) {
                     zoomLink = `
                     <a class="snippet-zoom" href="${event.zoom}" target="_blank" rel="noopener">
                         <div class="snippet-zoom-inner"> Join now on
@@ -163,13 +183,13 @@ const pageInjector = (p) => {
                 if (event.img && event.imgalt) {
                     eventImg = `<a href="img/events/${event.img}.png" target="_blank"><img class="snippet-img" src="img/events/_${event.img}.png" alt="${event.imgalt}"></a>`
                 }
-                if (Time.addHours(event.date, event.length) >= Time.now) {
+                if (Time.addHours(event.datenominal, event.length) >= Time.now) {
                     eventList += `
                     <div class="snippet">
                         ${eventImg}
-                        <div class="snippet-body" id="${(event.date.getTime()/100000).toString(36).slice(1)}">
+                        <div class="snippet-body" id="${fx.eventid(event.name, event.datenominal)}">
                             <p class="h4-link" >${event.name}</p>
-                            <p class="comment-date">${Time.weekday[event.date.getDay()]}, ${Time.month[event.date.getMonth()]} ${Time.formatDate(event.date.getDate())}, ${Time.formatTime(event.date)}${endTime}</p>
+                            <p class="comment-date">${eventDate}</p>
                             <br>
                             <p class="text">${event.desc}</p>
                         </div>
@@ -199,8 +219,8 @@ const pageInjector = (p) => {
 if (page.includes('index')) {
     //
 } else if (page.includes('news')) {
-    const lastYear = Data.news[0].date.getYear() + 1900;
-    const firstYear = Data.news[Data.news.length-1].date.getYear() + 1900;
+    const lastYear = Data.news[0].date.getFullYear();
+    const firstYear = Data.news[Data.news.length-1].date.getFullYear();
     for (let i = firstYear; i <= lastYear; i++) {
         window.addEventListener('click', function(e) {   
             const header = document.getElementById(`news-header-${i}`);
@@ -226,12 +246,6 @@ window.onload = function() {
     pageInjector(page);
     Git.version();
 };
-
-if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
-    window.location.href = url + '.html'
-} else if (!url.includes('.html') && url.includes('#')) {
-    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
-}
 
 if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
     window.location.href = url + '.html'

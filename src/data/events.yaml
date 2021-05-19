@@ -17,24 +17,11 @@
   date: [2021-05-20 14:00:00 -4, 2021-06-03 14:00:00 -4, 2021-06-17 14:00:00 -4]
   length: 1
   blurb: Join our popular "Chair Yoga" instructor, Breda, for a virtual yoga session via the Zoom app. No experience necessary.
-  desc: Join our popular "Chair Yoga" instructor, Breda, for a virtual yoga session via the <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom app</a>. Session will last approximately 45 mins, and there's no experience necessary. We recommend you provide your email address to us so we can send you the Zoom link in advance.
+  desc: Join our popular "Chair Yoga" instructor, Breda, for a virtual yoga session via the <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom app</a>. Session will last approximately one hour, and there's no experience necessary. We recommend you provide your email address to us so we can send you the Zoom link in advance.
   style: yoga
   img: yoga
   imgalt: Chair Yoga
   zoom: [https://zoom.us/j/97974057584, z, z]
-
-- name: RPL Board of Trustees Meeting
-  title: Board of Trustees
-  subtitle: Meeting for May 2021
-  date: 2021-05-20 19:00:00 -4
-  length: 1
-  noendtime: true
-  blurb: The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually via Zoom.
-  desc: The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually via the <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom app</a>.
-  style: meeting
-  img: meeting
-  imgalt: Board Meeting
-  zoom: https://zoom.us/j/94624501181
 
 - name: "Out of Rushmore's Shadow"
   title: Mount Rushmore &amp;

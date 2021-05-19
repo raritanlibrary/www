@@ -2,24 +2,53 @@ export const checkClass = (c) => document.getElementsByClassName(c).length > 0;
 export const findClass = (c, n=0) => document.getElementsByClassName(c)[n];
 export const setClass = (c, str, n=0) => document.getElementsByClassName(c)[n].innerHTML = str;
 
+const bitnot = (n) => {
+    let output =  [];
+    n = n.toString(2).padStart(3, '0').split('');
+    n.forEach(nn => {
+        output.push(nn === '1' ? '0' : '1');
+    });
+    return output.join('');
+}
+
+// 19*5 + 1 => 96bit
+// 4*8      => 32bit
+// for every three bits 1 flip number
+// 144-bit
 export const eventid = (str, date) => {
-    let tmp = ``;
-    let output = ``;
     str = str.replace(/\W+/g, '').toLowerCase();
-    str = str.substring(4, 10);
+    str = str.substring(0, 19).padEnd(19, 'a');
+
+    let strbin = [];
     str.split('').forEach(char => {
-        tmp += String(char.charCodeAt() - 97).padStart(2, '0');
+        strbin.push((char.charCodeAt() - 97).toString(2).padStart(5, '0'));
     });
-    tmp.match(/.{1,4}/g).forEach(word => {
-        let w = Number(word).toString(36);
-        if (w[0] === '1') {
-            w = w.substring(1);
+    strbin = strbin.join('') + '0';
+
+    const datestr = String(date.getTime()).substring(0,8);
+    let datebin = [];
+    datestr.split('').forEach(char => {
+        datebin.push(Number(char).toString(2).padStart(4, '0'));
+    });
+    datebin = datebin.join('');
+
+    let bin = [];
+    for (let i = 0; i < strbin.length; i += 3) {
+        let n = parseInt(strbin.substring(0+i,3+i), 2);
+        if (datebin[i/3] === '1') {
+            bin.push(bitnot(n));
+        } else {
+            bin.push(n.toString(2).padStart(3, '0'));
         }
-        output += w;
-    });
-    const y = (date.getFullYear() - 2020).toString(36) ;
-    const m = (date.getMonth()).toString(36);
-    const d = (date.getDate()).toString(36);
-    const h = (date.getHours()).toString(36);
-    return `${y}${output.substring(0,2)}${m}${output.substring(2,4)}${d}${output.substring(4,6)}${h}`;
+    }
+    bin = bin.join('');
+
+    let output = ``;
+    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_';
+    for (let i = 0; i < bin.length; i += 16) {
+        let n = parseInt(strbin.substring(0+i,6+i), 2);
+        output += chars[n];
+    }    
+
+    return output;
 }

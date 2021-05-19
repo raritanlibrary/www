@@ -6,10 +6,34 @@ const yaml = require('js-yaml');
 // Events data
 let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
 export let events = yaml.load(eventData);
+
+// Add board meeting if 2nd Thursday
+if (Time.getR(0) < Time.now) {
+    let boardData = fs.readFileSync('src/data/board.yaml', 'utf8');
+    let zoomLink = yaml.load(boardData)[Time.month[Time.now.getMonth()]];
+    let boardObj = {
+        "name": "RPL Board of Trustees Meeting",
+        "title": "Board of Trustees",
+        "subtitle": `Meeting for ${Time.month[Time.now.getMonth()]} ${Time.now.getFullYear()}`,
+        "date": Time.getR(1),
+        "length": 1,
+        "noendtime": true,
+        "blurb": "The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually via Zoom.",
+        "desc": `The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually via the <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom app</a>.`,
+        "style": "meeting",
+        "img": "meeting",
+        "imgalt": "Board Meeting",
+        "zoom": zoomLink,
+    };
+    events.push(boardObj);
+}
+
+// Parse data
 events.forEach(event => {
     if (event.date === 'tbd') {
         event.datesortable = Time.addHours(Time.now, event.length);
         event.datenominal = Time.addHours(Time.now, event.length);
+        event.zoom = false;
     } else if (event.length === 'daterange') {
         event.length = 1;
         event.datenominal = event.date[1];
@@ -31,6 +55,9 @@ events.forEach(event => {
             } else {
                 event.datesortable = day;
                 event.datenominal = day;
+                if (event.zoom) {
+                    event.zoom = event.zoom[0];
+                }
                 break;
             } 
         }
@@ -63,10 +90,9 @@ export const eventInjector = () => {
                 endTime = ``;
             }
             if (event.date === 'tbd') {
-                eventDate = `<p class="event-${event.style}-date">Date: TBD</p>`;
+                eventDate = `<p class="event-${event.style}-date">Date:&nbsp;TBD</p>`;
                 eventTime = `<p class="event-${event.style}-time"></p>`;
                 eventDateMobile = `<p class="event-${event.style}-date-mobile">Date: TBD</p>`;
-                event.zoom = false;
             } else if (event.daterange) {
                 eventDate = `<p class="event-${event.style}-date">Starting ${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())}</p>`;
                 eventTime = `<p class="event-${event.style}-time">through ${Time.month[event.date[1].getMonth()]} ${Time.formatDate(event.date[1].getDate())}</p>`;
@@ -79,22 +105,16 @@ export const eventInjector = () => {
                 } else {
                     eventTime = `<p class="event-${event.style}-time">${Time.formatTime(event.date[0])}${endTime}</p>`;
                 }
-                if (event.zoom) {
-                    event.zoom = event.zoom[0];
-                }
             } else if (Array.isArray(event.date) && event.date.length === 1) {
                 eventDate = `<p class="event-${event.style}-date">${Time.weekday[event.date[0].getDay()]}, ${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())}</p>`;
                 eventTime = `<p class="event-${event.style}-time">${Time.formatTime(event.date[0])}${endTime}</p>`;
                 eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())} at ${Time.formatTime(event.date[0])}</p>`;
-                if (event.zoom) {
-                    event.zoom = event.zoom[0];
-                }
             } else {
                 eventDate = `<p class="event-${event.style}-date">${Time.weekday[event.date.getDay()]}, ${Time.month[event.date.getMonth()]} ${Time.formatDate(event.date.getDate())}</p>`;
                 eventTime = `<p class="event-${event.style}-time">${Time.formatTime(event.date)}${endTime}</p>`;
                 eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.month[event.date.getMonth()]} ${Time.formatDate(event.date.getDate())} at ${Time.formatTime(event.date)}</p>`;
             }
-            if (event.zoom && (event.datenominal.getTime() - 24*60*60*1000 <= Time.now) && (Time.addHours(event.datenominal, event.length) >= Time.now)) {
+            if (event.zoom && (event.datenominal.getTime() - 86400000 <= Time.now) && (Time.addHours(event.datenominal, event.length) >= Time.now)) {
                 zoomLink = `
                 <a class="event-zoom-link" href="${event.zoom}" target="_blank" rel="noopener">
                     <div class="event-zoom"> Join now on
