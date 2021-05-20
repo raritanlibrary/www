@@ -30,6 +30,34 @@ export const dropdown = () => {
 
 // Icon sticks when selected on mobile, darken and freeze
 export const sticky = () => {
+    let xDown = null;
+    document.addEventListener('touchstart', function(e) {
+        const firstTouch = e.touches[0]; 
+        xDown = firstTouch.clientX;
+    });
+    document.addEventListener('touchmove', function(e) {
+        if (!xDown) { return; }
+        let xUp = e.touches[0].clientX;
+        let xDiff = xDown - xUp;
+        if (Math.abs(xDiff) > 10) {
+            const links = fx.findClass("links");
+            const menuIcon = document.querySelector(".nav-toggle > svg");
+            const main = document.querySelector(".main");
+            const page = document.querySelector("html");
+            if (!menuIcon.classList.contains("enlarge") && (xDiff > 0)) {
+                links.classList.add("links-open");
+                menuIcon.classList.add("enlarge");
+                main.classList.add("main-darken", "freeze");
+                page.classList.add("freeze");
+            } else if (menuIcon.classList.contains("enlarge") && (xDiff < 0)) {
+                links.classList.remove("links-open");
+                menuIcon.classList.remove("enlarge");
+                main.classList.remove("main-darken", "freeze");
+                page.classList.remove("freeze");
+            }                       
+        }
+        xDown = null;
+    });
     window.addEventListener('click', function(e) {
         const links = fx.findClass("links");
         const menu = fx.findClass("nav-toggle");

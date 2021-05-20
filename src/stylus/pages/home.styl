@@ -86,6 +86,23 @@
             background-color alt-lighten()
         &-inner
             perpetua(18px, alt-text, bold)
+    &-tag
+        &-virtual
+            display inline-block
+            position relative
+            left 16px
+            top -4px
+            border-radius 99px
+            background-color event-zoom
+            text-align center
+            padding 4px 12px
+            perpetua(18px, alt-text, bold)
+            @media screen and (max-width 424px)
+                display block
+                left 0
+                top 0
+                margin 8px 0
+                width 85px
     &-zoom
         display inline-block
         margin-top 8px

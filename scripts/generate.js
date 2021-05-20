@@ -34,11 +34,29 @@ redata += `\n/board                                            /2016LibraryBoard
 /porchside-pickup                                 /CurbsidePickUpInstructions.html      301
 /passes                                           /databases.html                       301
 /gallery                                          /inside.html                          301
-/tree                                             /links.html                           301
-/resources                                        /NewE-BooksApp.html                   301
+/site-map                                         /links.html                           301
+/site-map                                         /tree.html                            301
+/site-map                                         /tree                                 301
+/resources#ebooks                                 /NewE-BooksApp.html                   301
 http://raritanpubliclibrarybooks.blogspot.com/    /NoteworthyReads.htm                  301
-/resources                                        /Pronunciator.html                    301
-/resources                                        /StarLedgerLoginInstructions.html     301`
+/resources#language                               /Pronunciator.html                    301
+/resources#newspapers                             /StarLedgerLoginInstructions.html     301
+/resources#ebooks                                 /ebooks                               301
+/resources#education                              /education                            301
+/resources#databases                              /databases                            301
+/resources#newspapers                             /newspapers                           301
+/resources#language                               /language                             301
+/history#timeline                                 /timeline                             301
+/contact#map                                      /map                                  301
+/contact#map                                      /directions                           301
+/policies#standards                               /standards                            301
+/policies#computers                               /computers                            301
+/policies#dvds                                    /dvds                                 301
+/policies#printing                                /printing                             301
+/policies#ill                                     /ill                                  301
+/policies#renewals                                /renewals                             301
+/policies#holds                                   /holds                                301`
+
 
 fs.writeFile('dist/_redirects', redata, function(e){});
 

@@ -30,6 +30,9 @@ if (Time.getR(0) < Time.now) {
 
 // Parse data
 events.forEach(event => {
+    if (event.zoom) {
+        event.tag = 'zoom';
+    }
     if (event.date === 'tbd') {
         event.datesortable = Time.addHours(Time.now, event.length);
         event.datenominal = Time.addHours(Time.now, event.length);
