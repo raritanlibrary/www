@@ -11,10 +11,6 @@ const bitnot = (n) => {
     return output.join('');
 }
 
-// 19*5 + 1 => 96bit
-// 4*8      => 32bit
-// for every three bits 1 flip number
-// 144-bit
 export const eventid = (str, date) => {
     str = str.replace(/\W+/g, '').toLowerCase();
     str = str.substring(0, 19).padEnd(19, 'a');
@@ -46,7 +42,7 @@ export const eventid = (str, date) => {
     let output = ``;
     const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_';
     for (let i = 0; i < bin.length; i += 16) {
-        let n = parseInt(strbin.substring(0+i,6+i), 2);
+        let n = parseInt(bin.substring(0+i,6+i), 2);
         output += chars[n];
     }    
 

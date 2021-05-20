@@ -171,9 +171,9 @@ const pageInjector = (p) => {
                     eventDate = `${Time.weekday[event.date.getDay()]}, ${Time.month[event.date.getMonth()]} ${Time.formatDate(event.date.getDate())}, ${Time.formatTime(event.date)}${endTime}`
                 }
                 if (event.tag === 'zoom') {
-                    eventTag = `<div class="snippet-tag-virtual">Virtual</div>`;
+                    eventTag = `<div class="snippet-tag snippet-tag-virtual">Virtual</div>`;
                 }
-                if (event.form && ((event.datenominal.getTime() - 86400000 >= Time.now)) || (event.date === 'tbd')) {
+                if (event.form &&  ((event.datenominal.getTime() - 86400000 >= Time.now) || (event.date === 'tbd'))) {
                     zoomLink = `
                     <a class="snippet-link" href="${event.form}" target="_blank">
                         <div class="snippet-link-inner">Sign-up form</div>
@@ -257,33 +257,3 @@ window.onload = function() {
     pageInjector(page);
     Git.version();
 };
-
-if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
-    window.location.href = url + '.html'
-} else if (!url.includes('.html') && url.includes('#')) {
-    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
-}
-
-if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
-    window.location.href = url + '.html'
-} else if (!url.includes('.html') && url.includes('#')) {
-    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
-}
-
-if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
-    window.location.href = url + '.html'
-} else if (!url.includes('.html') && url.includes('#')) {
-    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
-}
-
-if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
-    window.location.href = url + '.html'
-} else if (!url.includes('.html') && url.includes('#')) {
-    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
-}
-
-if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
-    window.location.href = url + '.html'
-} else if (!url.includes('.html') && url.includes('#')) {
-    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
-}
