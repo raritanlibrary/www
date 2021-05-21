@@ -160,3 +160,11 @@ export const eventInjector = () => {
         fx.setClass(`calendar-events`, eventList)
     }
 }
+
+// Git data
+let rev = fs.readFileSync('src/data/_REV', 'utf8');
+export const rev = () => {
+    if (fx.checkClass('version')) {
+        fx.setClass('version', `Revision ${rev} · <a href="./site-map"> View Site Map</a>`);
+    }
+}

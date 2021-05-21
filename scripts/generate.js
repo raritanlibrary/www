@@ -1,6 +1,17 @@
 const fs = require('fs');
 const fse = require('fs-extra');
 
+// Generate git data
+const md5 = fs.readFileSync('.git/refs/heads/main', 'utf-8').slice(0,2)
+const lt = fs.readFileSync('.git/logs/HEAD', 'utf-8')
+const ltLines = lt.trim().split('\n');
+const ltSlice = ltLines.slice(-1)[0].slice(139,149)
+const ltParsed = new Date(Number(ltSlice * 1000));
+const ltY = (ltParsed.getFullYear() - 2020).toString(36) ;
+const ltM = (ltParsed.getMonth()).toString(36);
+const ltD = (ltParsed.getDate()).toString(36);
+fs.writeFile('src/data/_REV', `${ltY}${ltM}${ltD}${md5}`.toUpperCase(), function(e){});
+
 // Generate static stuff
 const statics = [
     "docs",
