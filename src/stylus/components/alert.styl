@@ -11,12 +11,15 @@ alert(type)
     justify-content center
     &-logo
         min-width 96px
+        max-width 96px
         fill er-text(type)
         margin-right 16px
         @media screen and (min-width 450px) and (max-width 749px)
             min-width 72px
+            max-width 72px
         @media screen and (max-width 449px)
             min-width 16.9vw
+            max-width 16.9vw
     &-title
         lexend(32px, er-text(type))
         margin-bottom 4px

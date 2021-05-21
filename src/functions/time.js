@@ -30,16 +30,14 @@ export const month = [
 
 export const getR = (which) => {
     const month = new Date(`${now.getFullYear()}-${(now.getMonth()+1).toString().padStart(2, 0)}-01 00:00:00 -4`);
-    let i = month.getTime();
     let output = [];
-    while (true) {
+    for (let i = month.getTime(); i < i + 2419200000; i += 86400000) {
         let id = new Date(i);
         if (id.getDay() == 4) {
             output.push(new Date(`${now.getFullYear()}-${(now.getMonth()+1).toString().padStart(2, 0)}-${id.getDate()+7} 19:00:00 -4`));
             output.push(new Date(`${now.getFullYear()}-${(now.getMonth()+1).toString().padStart(2, 0)}-${id.getDate()+14} 19:00:00 -4`));
             break;
         }
-        i += 86400000;
     }
     return output[which];
 }
