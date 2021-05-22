@@ -198,3 +198,6 @@ $RECYCLE.BIN/
 
 # Local Netlify folder
 .netlify
+
+# Sample revision tag
+src/data/_REV
