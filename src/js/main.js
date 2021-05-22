@@ -255,5 +255,5 @@ window.onload = function() {
     Time.injector();
     Data.eventInjector();
     pageInjector(page);
-    Git.version();
+    Data.rev();
 };
