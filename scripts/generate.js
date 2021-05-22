@@ -4,6 +4,15 @@ const fse = require('fs-extra');
 
 console.log('Running generate.js...');
 
+// Generate git data
+const md5 = execSync(`git rev-parse --verify HEAD`).toString().slice(0,2);
+const lt = execSync(`git reflog show main --date=iso`).toString().slice(14,39);
+const ltParsed = new Date(lt);
+const ltY = (ltParsed.getFullYear() - 2020).toString(36) ;
+const ltM = (ltParsed.getMonth()).toString(36);
+const ltD = (ltParsed.getDate()).toString(36);
+fs.writeFile('src/data/_REV', `${ltY}${ltM}${ltD}${md5}`.toUpperCase(), function(e){});
+
 // Generate static stuff
 const statics = [
     "docs",
