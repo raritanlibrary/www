@@ -6,8 +6,8 @@ console.log('Running generate.js...');
 
 // Generate git data
 const md5 = execSync(`git rev-parse --verify HEAD`).toString().slice(0,2);
-const lt = execSync(`git reflog show main --date=iso`).toString().slice(14,39);
-console.log(execSync(`git reflog show main --date=iso`).toString());
+const lt = execSync(`git show -s --format=%ci`).toString();
+console.log(lt);
 const ltParsed = new Date(lt);
 const ltY = (ltParsed.getFullYear() - 2020).toString(36) ;
 const ltM = (ltParsed.getMonth()).toString(36);
