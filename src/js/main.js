@@ -2,6 +2,7 @@ import * as Time from '../functions/time';
 import * as fx from '../functions/fx';
 import * as Nav from '../functions/nav';
 import * as Data from '../functions/data';
+import * as Git from '../functions/git';
 
 // Favicon mode
 if (window.matchMedia('(prefers-color-scheme:light)').matches) {
@@ -256,4 +257,3 @@ window.onload = function() {
     pageInjector(page);
     Data.rev();
 };
-//Testing
