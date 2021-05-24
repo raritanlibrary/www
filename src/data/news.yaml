@@ -16,17 +16,21 @@
 
 - name: Important &ldquo;Good News&rdquo;
   date: 2021-02-19
-  desc: Beginning Monday, March 1st, the Library will be expanding its inside hours to 5:00pm on Monday, Tuesday, Wednesday, and Friday. Please be aware that, for everyone's protection, COVID-19 protocols will still be in place. We look forward to seeing more of our special patrons in person!
+  desc: Beginning <b>Monday, March 1st</b>, the Library will be expanding its inside hours to 5:00pm on Monday, Tuesday, Wednesday, and Friday. Please be aware that, for everyone's protection, COVID-19 protocols will still be in place. We look forward to seeing more of our special patrons in person!
 
 - name: "Upcoming: Town-Wide Yard Sale"
   date: 2021-03-29
-  desc: On Saturday, June 5th, Raritan will be holding its 2nd Annual Town-Wide Yard Sale. Please click on the link below for a registration form and instructions. This spring will be a perfect time to sell unused items. Rain date June 19th.
+  desc: On <b>Saturday, June 5th</b>, Raritan will be holding its 2nd Annual Town-Wide Yard Sale. Please click on the link below for a registration form and instructions. This spring will be a perfect time to sell unused items. Rain date June 19th.
   img: yardsale
   imgalt: Yard sale
   buttons:
     - name: Registration form
       link: docs/events/YardSaleRegistrationForm.pdf
       external: true
+
+- name: Return to Regular Hours
+  date: 2021-05-24
+  desc: Beginning <b>Tuesday, July 6th</b>, Raritan Public Library is pleased to announce that it will be resuming its regular business hours. The library will be open Monday through Thursday from 10:00am to 8:00pm, Friday from 10:00am to 5:00pm, and Saturday from 10:00am to 3:00pm. For your convenience, we will still be offering our <a class="link" href="/porchside-pickup">Porchside Pickup</a> service.
 
 - name: Our New Website
   date: 2021-06-01
