@@ -18,6 +18,7 @@ const statics = [
     "docs",
     "img/events",
     "img/news",
+    "robots.txt"
 ]
 
 statics.forEach(static => {
