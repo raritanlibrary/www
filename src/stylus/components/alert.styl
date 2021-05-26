@@ -1,6 +1,6 @@
 alert(type)
-    background-color er(type)
-    border 2px solid er-alt(type)
+    background-color var(unquote(--er-+type))
+    border 2px solid var(unquote(--er-alt-+type))
     padding 16px
     overflow auto
     spacer()
@@ -12,7 +12,7 @@ alert(type)
     &-logo
         min-width 96px
         max-width 96px
-        fill er-text(type)
+        fill var(unquote(--er-text-+type))
         margin-right 16px
         @media screen and (min-width 450px) and (max-width 749px)
             min-width 72px
@@ -21,33 +21,33 @@ alert(type)
             min-width 16.9vw
             max-width 16.9vw
     &-title
-        lexend(32px, er-text(type))
+        lexend(32px, var(unquote(--er-text-+type)))
         margin-bottom 4px
         @media screen and (min-width 450px) and (max-width 749px)
-            lexend(24px, er-text(type))
+            lexend(24px, var(unquote(--er-text-+type)))
         @media screen and (max-width 449px)
-            lexend(5.6vw, er-text(type))
+            lexend(5.6vw, var(unquote(--er-text-+type)))
     &-desc
-        perpetua(20px, er-text(type))
+        perpetua(20px, var(unquote(--er-text-+type)))
         overflow-wrap anywhere
         @media screen and (min-width 450px) and (max-width 749px)
-            perpetua(16px, er-text(type))
+            perpetua(16px, var(unquote(--er-text-+type)))
         @media screen and (max-width 449px)
-            perpetua(15px, er-text(type))
+            perpetua(15px, var(unquote(--er-text-+type)))
     &-link
-        perpetua(20px, er-text(type), bold)
+        perpetua(20px, var(unquote(--er-text-+type)), bold)
         position relative
         transition 0.4s all
         lr-underline(1px, 5px)
         @media screen and (min-width 450px) and (max-width 749px)
-            perpetua(16px, er-text(type), bold)
+            perpetua(16px, var(unquote(--er-text-+type)), bold)
             lr-underline(1px, 3px)
         @media screen and (max-width 449px)
-            perpetua(15px, er-text(type), bold)
+            perpetua(15px, var(unquote(--er-text-+type)), bold)
             lr-underline(1px, 3px)
 .alert-info
-    alert(info)
+    alert('inf')
 .alert-attention
-    alert(attention)
+    alert('att')
 .alert-critical
-    alert(critical)
+    alert('crit')

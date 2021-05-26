@@ -1,6 +1,6 @@
 .sidebar
     &-left, &-right
-        background-color main2
+        background-color var(--main2)
         min-width 235px
         max-width 270px
         padding 24px 12px
@@ -33,36 +33,36 @@
             align-self center
             spacer(0)
         @media screen and (min-width 425px) and (max-width 550px)
-            minion(7.27vw, alt(), bold)
+            minion(7.27vw, var(--alt), bold)
 .address
     spacer(1.5)
     &-main
-        perpetua(22px,  main-text(), bold)
+        perpetua(22px,  var(--main-text), bold)
         spacer()
     &-map
-        perpetua(18px, link-text, bold, italic)
+        perpetua(18px, var(--link-text), bold, italic)
         position relative
         transition all 0.4s ease-out
         center-underline(1px, 4px)
         &:hover, &:focus
-            perpetua(20px, link-text-hover, bold, italic, 0)
+            perpetua(20px, var(--link-text-hover), bold, italic, 0)
     &-other
-        perpetua(22px,  main-text())
+        perpetua(22px,  var(--main-text))
     &-email
-        perpetua(18px, link-text, bold)
+        perpetua(18px, var(--link-text), bold)
         position relative
         transition all 0.4s ease-out
         center-underline(1px, 4px)
         &:hover, &:focus
-            perpetua(20px, link-text-hover, bold,, 0)
+            perpetua(20px, var(--link-text-hover), bold,, 0)
 .hours
     margin auto
     spacer(1.5)
     text-align justify
     width max-content
     &-day
-        perpetua(18px,  main-text(), bold)
+        perpetua(18px,  var(--main-text), bold)
         display inline-block
         width 114px
     &-detail
-        perpetua(18px,  main-text())
+        perpetua(18px,  var(--main-text))

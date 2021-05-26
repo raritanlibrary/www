@@ -1,27 +1,27 @@
 event-template(type)
     spacer(0.25)
-    border 2px solid ev-alt(type)
-    background-color ev(type)
+    border 2px solid var(unquote(--ev-alt-+type))
+    background-color var(unquote(--ev-+type))
     background-position 50% 5%
     background-blend-mode overlay
     user-select none
     transition all 0.2s ease-in-out
     &:hover, &:focus
-        background-color ev-hover(type)
-        border 2px solid type
+        background-color var(unquote(--ev-hover-+type))
+        border 2px solid lookup('event-'+type)
     @media screen and (max-width 949px)
         spacer(0)
     &-cover
-        background-color rgba(ev(type) 0.7)
+        background-color rgba(ev(lookup('event-'+type)), 0.7)
         padding 8px
     &-title
-        minion(21.2px, main-text(), bold)
+        minion(21.2px, var(--main-text), bold)
         letter-spacing -0.1px
     &-subtitle
-        perpetua(17px, main-text(), bold, italic)
+        perpetua(17px, var(--main-text), bold, italic)
         line-height 10px
     &-hr
-        background main-text('aa')
+        background var(--main-textC)
         border 0
         margin 8px auto
         height 1px
@@ -30,28 +30,28 @@ event-template(type)
             margin 4px auto
             height 0px
     &-date
-        perpetua(18px, ev-text(type), bold)
+        perpetua(18px, var(unquote(--ev-text-+type)), bold)
         @media screen and (max-width 949px)
             display none
         &-mobile
             display none
             @media screen and (max-width 949px)
                 display block
-                perpetua(16px, ev-text(type), bold)
+                perpetua(16px, var(unquote(--ev-text-+type)), bold)
     &-time
-        perpetua(16px, ev-text(type), bold)
+        perpetua(16px, var(unquote(--ev-text-+type)), bold)
         margin-bottom 8px
         @media screen and (max-width 949px)
             display none
     &-desc
-        perpetua(16px, ev-text(type))
+        perpetua(16px, var(unquote(--ev-text-+type)))
         @media screen and (max-width 949px)
             display none
         &-filler
             display none
             @media screen and (max-width 949px)
                 display block
-                perpetua(16px, ev-text(type))
+                perpetua(16px, var(unquote(--ev-text-+type)))
                 margin-top 16px;
     text-align justify
     text-align-last center
@@ -88,10 +88,10 @@ event-template(type)
             padding 4px 8px
             margin-top 6px
         &-link
-            lato(16px, alt-text, bold)
+            lato(16px, var(--alt-text), bold)
         svg
             position inline
-            fill alt-text
+            fill var(--alt-text)
             width 48px
             margin-left 2px
             margin-bottom -1px
@@ -99,33 +99,33 @@ event-template(type)
         display block
         visibility hidden
         border-radius 12px
-        background-color alt()
+        background-color var(--alt)
         text-align center
         padding 6px 8px
         transition background-color 0.2s ease-in-out
         &:hover, &:focus
-            background-color alt-lighten()
+            background-color var(--alt-lighten)
         @media screen and (max-width 949px)
             visibility visible
             padding 4px 8px
             margin-top 6px
         &-inner
-            perpetua(18px, alt-text, bold)
+            perpetua(18px, var(--alt-text), bold)
     &-spacer
         spacer(-0.5)
         @media screen and (max-width 949px)
             spacer(0)
     &-red
-        event-template(event-red)
+        event-template('red')
     &-orange
-        event-template(event-orange)
+        event-template('orange')
     &-yellow
-        event-template(event-yellow)
+        event-template('yellow')
     &-green
-        event-template(event-green)
+        event-template('green')
     &-blue, &-meeting
-        event-template(event-blue)
+        event-template('blue')
     &-purple
-        event-template(event-purple)
+        event-template('purple')
     &-pink, &-yoga
-        event-template(event-pink)
+        event-template('pink')

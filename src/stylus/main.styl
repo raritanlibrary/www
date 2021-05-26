@@ -25,41 +25,41 @@ html
 a
     text-decoration none
 h1
-    minion(84px, alt(), bold)
+    minion(84px, var(--alt), bold)
     txt-shadow()
     text-align center
     @media screen and (max-width 424px)
-        minion(19.7vw, alt(), bold)
+        minion(19.7vw, var(--alt), bold)
 .h1-sm
-    minion(84*0.8px, alt(), bold)
+    minion(84*0.8px, var(--alt), bold)
     txt-shadow()
     text-align center
     spacer(0.7)
     @media screen and (max-width 424px)
-        minion(19.7*0.8vw, alt(), bold)
+        minion(19.7*0.8vw, var(--alt), bold)
         spacer(0.4)
 h2
-    minion(56px, alt(), bold)
+    minion(56px, var(--alt), bold)
     txt-shadow()
     spacer(0.25)
     text-align center
     @media screen and (max-width 424px)
-        minion(13.2vw, alt(), bold)
+        minion(13.2vw, var(--alt), bold)
         spacer(0.5)
 h3
-    minion(40px, alt(), bold)
+    minion(40px, var(--alt), bold)
     txt-shadow()
     spacer(0.25)
     text-align center
     @media screen and (max-width 424px)
-        minion(9.4vw, alt(), bold)
+        minion(9.4vw, var(--alt), bold)
         spacer(0.25)
 h4
-    minion(28px, alt(), bold)
+    minion(28px, var(--alt), bold)
     txt-shadow()
     text-align center
     @media screen and (max-width 424px)
-        minion(6.6vw, alt(), bold)
+        minion(6.6vw, var(--alt), bold)
         spacer(0.25)
 .h
     &-spacer-minus
@@ -67,13 +67,13 @@ h4
     &-nospacer
         spacer(0)
     &4-link
-        minion(28px, alt(), bold)
+        minion(28px, var(--alt), bold)
         txt-shadow()
         @media screen and (max-width 424px)
-            minion(6.6vw, alt(), bold)
+            minion(6.6vw, var(--alt), bold)
             spacer(0.25)
 hr.hr
-    grad-background("left, alt('00') 2%, alt() 50%, alt('00') 98%")
+    grad-background("left, alt('00') 2%, var(--alt) 50%, alt('00') 98%")
     border 0
     margin 24px auto
     height 2px
@@ -103,7 +103,7 @@ ol
     @media screen and (max-width 749px)
         overflow-x hidden
 .main
-    background-color main()
+    background-color var(--main)
     display flex
     flex-flow row nowrap
     min-height: calc(100vh - 120px)
@@ -122,55 +122,55 @@ ol
         m-calc = calc((100vw*(1/12) - (1600px*(1/12) - 24px)))
         margin 24px m-calc // 1/6
 .text
-    perpetua(22px,  main-text(),,, 1.25)
+    perpetua(22px,  var(--main-text),,, 1.25)
     &-center
         text-align justify
         text-align-last center
     &-bold
-        perpetua(22px,  main-text(), bold,, 1.25)
+        perpetua(22px,  var(--main-text), bold,, 1.25)
     &-list
         counter-increment olcount
-        perpetua(22px,  main-text(),,, 1.25)
+        perpetua(22px,  var(--main-text),,, 1.25)
         spacer()
         &:before
             content "(" counter(olcount) ")"
             margin-right 8px
             display inline
-            minion(28px, alt(), bold)
+            minion(28px, var(--alt), bold)
             txt-shadow()
             @media screen and (max-width 424px)
-                minion(6.6vw, alt(), bold)
+                minion(6.6vw, var(--alt), bold)
 .link
-    color link-text
+    color var(--link-text)
     font-weight bold
     position relative
     transition 0.4s all
     lr-underline(2px, 4px)
     &:hover, &:focus
-        perpetua(22px, link-text-hover, bold,, 0)
+        perpetua(22px, var(--link-text-hover), bold,, 0)
 .comment
-    perpetua(18px,  main-text('aa'),, italic)
+    perpetua(18px,  var(--main-textC),, italic)
     &-date
-        perpetua(20px,  main-text('bb'), bold, italic)
+        perpetua(20px,  var(--main-textB), bold, italic)
     &-big
-        perpetua(22px,  main-text('dd'), bold, italic)
+        perpetua(22px,  var(--main-textA), bold, italic)
         &-link
-            perpetua(22px, link-text, bold, italic)
+            perpetua(22px, var(--link-text), bold, italic)
             position relative
             transition 0.4s all
             center-underline(1px, 5px, 97%)
             &:hover, &:focus
-                perpetua(22px, link-text-hover, bold, italic, 0)
+                perpetua(22px, var(--link-text-hover), bold, italic, 0)
     &-link
-        perpetua(18px, link-text, bold, italic)
+        perpetua(18px, var(--link-text), bold, italic)
         position relative
         transition 0.4s all
         center-underline(1px, 3px, 97%)
         &:hover, &:focus
-            perpetua(20px, link-text-hover, bold, italic, 0)
+            perpetua(20px, var(--link-text-hover), bold, italic, 0)
 .image
     position relative
-    border 2px solid alt('dd')
+    border 2px solid var(--border-c) 
     overflow hidden
     @media screen and (min-width 1380px)
         display inline
@@ -209,7 +209,7 @@ ol
         overflow-y hidden
         user-select none
 .map
-    border 2px solid alt('dd')
+    border 2px solid var(--border-c) 
     margin 16px 0
     width 100%
     height 500px
@@ -218,17 +218,17 @@ ol
         letter-spacing -3px
     &-more
         @media screen and (min-width 950px) and (max-width 980px)
-            minion(38px, alt(), bold)
+            minion(38px, var(--alt), bold)
             letter-spacing -2px         
         @media screen and (min-width 425px) and (max-width 510px)
-            minion(31px, alt(), bold)
+            minion(31px, var(--alt), bold)
             letter-spacing -2px
     &-some
         @media screen and (min-width 950px) and (max-width 980px)
-            minion(40px, alt(), bold)
+            minion(40px, var(--alt), bold)
             letter-spacing -1px
         @media screen and (min-width 425px) and (max-width 510px)
-            minion(35px, alt(), bold)
+            minion(35px, var(--alt), bold)
             letter-spacing -2px
     &-mini
         @media screen and (min-width 425px) and (max-width 460px)

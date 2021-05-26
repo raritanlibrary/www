@@ -6,7 +6,7 @@
     &-img
         width w=250px
         height w*(65/43)
-        border 2px solid alt('dd')
+        border 2px solid var(--border-c) 
     &-wrapper
         width 250px
     &-text
@@ -16,15 +16,15 @@
         height 80px
         spacer(0.25)
     &-date
-        minion(28px, alt(), bold)
+        minion(28px, var(--alt), bold)
         txt-shadow()
         text-align center
         @media screen and (max-width 424px)
-            minion(6.6vw, alt(), bold)
+            minion(6.6vw, var(--alt), bold)
     &-title
-        perpetua(20px,  main-text(), bold, italic)
+        perpetua(20px,  var(--main-text), bold, italic)
         text-align center
     &-sub
-        perpetua(16px,  main-text('dd'), bold, italic)
+        perpetua(16px,  var(--main-textA), bold, italic)
         margin-top -4px
         text-align center

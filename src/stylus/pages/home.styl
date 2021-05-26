@@ -9,7 +9,7 @@
 .slideshow
     position relative
     //bx-shadow()
-    border 2px solid alt('dd')
+    border 2px solid var(--border-c) 
     overflow hidden
     @media screen and (min-width 1380px)
         display inline
@@ -51,7 +51,7 @@
     margin-top 36px
     min-height 200px
     &-img
-        border 2px solid alt('dd')
+        border 2px solid var(--border-c) 
         width 168px
         float right
         margin-left 20px
@@ -71,7 +71,7 @@
         margin-top 8px
         margin-right 8px
         border-radius 99px
-        background-color alt()
+        background-color var(--alt)
         text-align center
         padding 4px 12px
         user-select none
@@ -83,9 +83,9 @@
             margin 8px auto 0
             max-width 162px
         &:hover, &:focus
-            background-color alt-lighten()
+            background-color var(--alt-lighten)
         &-inner
-            perpetua(18px, alt-text, bold)
+            perpetua(18px, var(--alt-text), bold)
     &-tag
         display inline-block
         position relative
@@ -102,7 +102,7 @@
             width 85px
         &-virtual
             background-color event-zoom
-            perpetua(18px, alt-text, bold)
+            perpetua(18px, var(--alt-text), bold)
     &-zoom
         display inline-block
         margin-top 8px
@@ -122,10 +122,10 @@
             display block
             margin 8px auto 0
         &-inner
-            lato(16px, alt-text, bold)
+            lato(16px, var(--alt-text), bold)
         svg
             position inline
-            fill alt-text
+            fill var(--alt-text)
             width 48px
             margin-left 2px
             margin-bottom -1px

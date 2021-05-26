@@ -1,5 +1,5 @@
 .footer
-    background-color alt()
+    background-color var(--header-footer)
     padding 24px
     grid-area f
     &-responsive
@@ -15,49 +15,49 @@
     margin 0 auto 8px
     &-link
         width 26px
-        fill main('d9')
+        fill foot-mainA
         transition fill 0.2s ease-in-out
         transition all 0.4s ease-out
         &:hover, &:focus
             transform scale(1.2)
-            fill saturate(main(), 50%)
+            fill saturate(foot-main, 50%)
 .hours-footer
     text-align center
     &-main
-        lexend(16px,  main('cc'), normal)
+        lexend(16px,  #fff8e3d9, normal)
         text-transform none
         @media screen and (max-width 349px)
-            lexend(12px,  main('cc'), normal)
+            lexend(12px,  #fff8e3d9, normal)
             text-transform none
     &-other
-        lexend(13px,  main('88'), normal)
+        lexend(13px,  foot-mainC, normal)
         text-transform none
         spacer(0.3)
         @media screen and (max-width 349px)
-            lexend(9.75px,  main(), normal)
+            lexend(9.75px,  foot-main, normal)
             text-transform none
 .hr-footer
-    background main('44')
+    background foot-mainD
     border 0
     margin 8px auto
     height 1px
     max-width 300px
 .copyright
-    lexend(13.5px, main(), normal)
+    lexend(13.5px, foot-main, normal)
     text-align center
     spacer(0.1)
     @media screen and (max-width 349px)
-        lexend(10.4px, main(), normal)
+        lexend(10.4px, foot-main, normal)
 .version
-    lexend(10px,  main('88'), normal)
+    lexend(10px,  foot-mainC, normal)
     text-transform none
     text-align center
     spacer(0.3)
     @media screen and (max-width 349px)
-        lexend(9.75px,  main(), normal)
+        lexend(9.75px,  foot-main, normal)
     a
         color inherit
         transition color 0.2s ease-in-out
         &:hover, &:focus
-            lexend(10px,  main(), normal)
+            lexend(10px,  foot-main, normal)
             text-transform none
