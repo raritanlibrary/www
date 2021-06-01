@@ -35,14 +35,15 @@ h1
     text-align center
     @media screen and (max-width 424px)
         minion(19.7vw, var(--alt), bold)
-.h1-sm
-    minion(84*0.8px, var(--alt), bold)
-    txt-shadow()
-    text-align center
-    spacer(0.7)
-    @media screen and (max-width 424px)
-        minion(19.7*0.8vw, var(--alt), bold)
-        spacer(0.4)
+.h1
+    &-sm
+        minion(84*0.8px, var(--alt), bold)
+        txt-shadow()
+        text-align center
+        spacer(0.7)
+        @media screen and (max-width 424px)
+            minion(19.7*0.8vw, var(--alt), bold)
+            spacer(0.4)
 h2
     minion(56px, var(--alt), bold)
     txt-shadow()
@@ -51,6 +52,21 @@ h2
     @media screen and (max-width 424px)
         minion(13.2vw, var(--alt), bold)
         spacer(0.5)
+.h2
+    &-fo
+        minion(84px, var(--alt), bold)
+        txt-shadow()
+        text-align center
+        @media screen and (max-width 424px)
+            minion(19.7vw, var(--alt), bold)
+    &-sm
+        minion(40px, var(--alt), bold)
+        txt-shadow()
+        spacer(0.25)
+        text-align center
+        @media screen and (max-width 424px)
+            minion(9.4vw, var(--alt), bold)
+            spacer(0.25)
 h3
     minion(40px, var(--alt), bold)
     txt-shadow()
@@ -59,6 +75,14 @@ h3
     @media screen and (max-width 424px)
         minion(9.4vw, var(--alt), bold)
         spacer(0.25)
+.h3
+    &-sm
+        minion(28px, var(--alt), bold)
+        txt-shadow()
+        text-align center
+        @media screen and (max-width 424px)
+            minion(6.6vw, var(--alt), bold)
+            spacer(0.25)
 h4
     minion(28px, var(--alt), bold)
     txt-shadow()
@@ -66,17 +90,18 @@ h4
     @media screen and (max-width 424px)
         minion(6.6vw, var(--alt), bold)
         spacer(0.25)
-.h
-    &-spacer-minus
-        spacer(-1)
-    &-nospacer
-        spacer(0)
-    &4-link
+.h4
+    &-link
         minion(28px, var(--alt), bold)
         txt-shadow()
         @media screen and (max-width 424px)
             minion(6.6vw, var(--alt), bold)
             spacer(0.25)
+.h
+    &-spacer-minus
+        spacer(-1)
+    &-nospacer
+        spacer(0)
 hr.hr
     grad-background("left, alt('00') 2%, var(--alt) 50%, alt('00') 98%")
     border 0

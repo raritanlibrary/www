@@ -114,7 +114,7 @@ const pageInjector = (p) => {
                 }
                 newsOutput += `
                 <div class="news-wrapper">
-                    <h3 class="news-h3" id="news-header-${curYear}">${curYear}</h3>
+                    <h2 class="news-h2" id="news-header-${curYear}">${curYear}</h2>
                     <svg class="news-arrow${collapserArrow}" id="news-arrow-${curYear}" xmlns="http://www.w3.org/2000/svg" viewBox="0 -1.5 16 16">
                         <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                     </svg>
@@ -263,6 +263,12 @@ window.onload = function() {
     Access.hicontrast();
     Data.rev();
 };
+
+if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
+    window.location.href = url + '.html'
+} else if (!url.includes('.html') && url.includes('#')) {
+    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
+}
 
 if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
     window.location.href = url + '.html'

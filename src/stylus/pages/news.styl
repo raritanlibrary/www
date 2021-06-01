@@ -1,9 +1,14 @@
 .news
-    &-h3
+    &-h2
+        minion(40px, var(--alt), bold)
+        txt-shadow()
         display inline-block
-        margin 32px 0 -8px
+        margin-top 32px
+        margin-bottom -8px
         text-align left
         cursor pointer
+        @media screen and (max-width 424px)
+            minion(9.4vw, var(--alt), bold)
     &-year
         max-height 10000px
         overflow hidden

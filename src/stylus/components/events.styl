@@ -1,9 +1,10 @@
 event-template(type)
     spacer(0.25)
-    border 2px solid rgba(lookup('event-'+type), 0.3)
+    border 2px solid rgba(lookup('event-'+type), 0.4)
     background-color var(unquote(--ev-+type))
     background-position 50% 5%
     background-blend-mode overlay
+    background-size cover
     user-select none
     transition all 0.2s ease-in-out
     &:hover, &:focus
@@ -77,12 +78,12 @@ event-template(type)
         display block
         spacer()
         border-radius 12px
-        background-color event-zoom
+        background-color var(--event-zoom)
         text-align center
         padding 6px 8px
         transition background-color 0.2s ease-in-out
         &:hover, &:focus
-            background-color event-zoom-hover
+            background-color var(--var(--event-zoom)-hover)
         @media screen and (max-width 949px)
             spacer(0)
             padding 4px 8px

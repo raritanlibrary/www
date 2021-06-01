@@ -101,21 +101,21 @@
             margin 8px 0
             width 85px
         &-virtual
-            background-color event-zoom
+            background-color var(--event-zoom)
             perpetua(18px, var(--alt-text), bold)
     &-zoom
         display inline-block
         margin-top 8px
         margin-right 8px
         border-radius 12px
-        background-color event-zoom
+        background-color var(--event-zoom)
         text-align center
         padding 6px 8px
         width 200px
         user-select none
         transition all 0.3s ease-in-out
         &:hover, &:focus
-            background-color event-zoom-hover
+            background-color var(--var(--event-zoom)-hover)
         @media screen and (min-width 425px) and (max-width 749px)
             margin-right 4px
         @media screen and (max-width 424px)
