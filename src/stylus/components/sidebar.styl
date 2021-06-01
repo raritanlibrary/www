@@ -20,7 +20,7 @@
         @media screen and (max-width 949px)
             flex-basis unset
             max-width unset
-    &-right
+    &-craft, &-right
         @media screen and (max-width 949px)
             display none
 .hsidebar
@@ -66,3 +66,18 @@
         width 114px
     &-detail
         perpetua(18px,  var(--main-text))
+.crafts
+    display flex
+    flex-flow column wrap
+    gap 16px 0
+    &-img
+        border 2px solid var(--border-c) 
+        overflow hidden
+        display inline
+        height 108px
+        width 100%
+        user-select none
+        &-inner
+            object-fit cover
+            height 108px
+            width 100%
