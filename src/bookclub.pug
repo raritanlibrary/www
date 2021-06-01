@@ -1,36 +1,38 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang="en" color-mode="lite")
     head
         - var title = "Book Club"
         - var desc = "Discover the Raritan Public Library Book Club and explore the wonderful world of literature."
         include ./includes/_head.pug
-    body.body
-        include ./includes/header.pug
-        main.main
-            .sidebar-left
-                include ./includes/calendar.pug
-            .center
-                h1 Book Club
-                p.text-bold.text-center.spacer-plus Book Club meetings are held on the fourth Monday of each month at 1:30 PM.
-                hr.hr
-                .books
-                    .books-wrapper
-                        .books-text
-                            p.books-date March 22#[sup nd]
-                            p.books-title The Lions of Fifth Avenue
-                        img.books-img(src="./img/books/lions.png?as=webp" alt="The Lions of Fifth Avenue")
-                    .books-wrapper
-                        .books-text
-                            p.books-date April 26#[sup th]
-                            p.books-title Out of Rushmore's Shadow:
-                            p.books-sub The Luigi Del Bianco Story
-                        img.books-img(src="./img/books/rushmore.png?as=webp" alt="Out of Rushmore's Shadow")
-                    .books-wrapper
-                        .books-text
-                            p.books-date May 24#[sup th]
-                            p.books-title Lady in the Lake
-                        img.books-img(src="./img/books/lake.png?as=webp" alt="Lady in the Lake")
-            .sidebar-right
-                include ./includes/contact.pug
-                include ./includes/hours.pug
-        include ./includes/footer.pug
+    body
+        include ./includes/access.pug
+        div.body
+            include ./includes/header.pug
+            main.main
+                .sidebar-left
+                    include ./includes/calendar.pug
+                .center
+                    h1 Book Club
+                    p.text-bold.text-center.spacer-plus Book Club meetings are held on the fourth Monday of each month at 1:30 PM.
+                    hr.hr
+                    .books
+                        .books-wrapper
+                            .books-text
+                                p.books-date March 22#[sup nd]
+                                p.books-title The Lions of Fifth Avenue
+                            img.books-img(src="./img/books/lions.png?as=webp" alt="The Lions of Fifth Avenue")
+                        .books-wrapper
+                            .books-text
+                                p.books-date April 26#[sup th]
+                                p.books-title Out of Rushmore's Shadow:
+                                p.books-sub The Luigi Del Bianco Story
+                            img.books-img(src="./img/books/rushmore.png?as=webp" alt="Out of Rushmore's Shadow")
+                        .books-wrapper
+                            .books-text
+                                p.books-date May 24#[sup th]
+                                p.books-title Lady in the Lake
+                            img.books-img(src="./img/books/lake.png?as=webp" alt="Lady in the Lake")
+                .sidebar-right
+                    include ./includes/contact.pug
+                    include ./includes/hours.pug
+            include ./includes/footer.pug

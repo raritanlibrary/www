@@ -1,0 +1,32 @@
+.access
+    display flex
+    justify-content center
+    align-items center
+    position sticky
+    top 60vh
+    width 50px
+    height 65px
+    background-color var(--main)
+    border-right 2px solid var(--alt)
+    border-top 2px solid var(--alt)
+    border-bottom 2px solid var(--alt)
+    border-radius 0px 12px 12px 0px
+    z-index 1
+    cursor pointer
+    transition background-color 0.2s ease-out
+    transition 0.2s filter ease-in-out
+    @media screen and (max-width 749px)
+        &-darken
+            filter brightness(40%)
+    &:hover
+        background-color var(--alt)
+        .access-icon svg
+            fill var(--main)
+    &-icon
+        margin-top 3px
+        margin-right 1px
+        svg
+            transition fill 0.2s ease-out
+            fill var(--alt)
+            width 32px
+            height 32px

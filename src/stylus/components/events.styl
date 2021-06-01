@@ -1,6 +1,6 @@
 event-template(type)
     spacer(0.25)
-    border 2px solid var(unquote(--ev-alt-+type))
+    border 2px solid rgba(lookup('event-'+type), 0.3)
     background-color var(unquote(--ev-+type))
     background-position 50% 5%
     background-blend-mode overlay
@@ -12,7 +12,7 @@ event-template(type)
     @media screen and (max-width 949px)
         spacer(0)
     &-cover
-        background-color rgba(ev(lookup('event-'+type)), 0.7)
+        background-color var(unquote(--ev-cover-+type))
         padding 8px
     &-title
         minion(21.2px, var(--main-text), bold)

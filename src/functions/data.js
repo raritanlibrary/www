@@ -9,8 +9,6 @@ export let events = yaml.load(eventData);
 
 // Add board meeting if 2nd Thursday
 if (Time.getR(0) < Time.now) {
-    let boardData = fs.readFileSync('src/data/board.yaml', 'utf8');
-    let zoomLink = yaml.load(boardData)[Time.month[Time.now.getMonth()]];
     let boardObj = {
         "name": "RPL Board of Trustees Meeting",
         "title": "Board of Trustees",
@@ -18,12 +16,11 @@ if (Time.getR(0) < Time.now) {
         "date": Time.getR(1),
         "length": 1,
         "noendtime": true,
-        "blurb": "The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually via Zoom.",
-        "desc": `The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually via the <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom app</a>.`,
+        "blurb": "The regular monthly meeting of the Raritan Public Library Board of Trustees will be held in-person at the Raritan Public Library.",
+        "desc": `The regular monthly meeting of the Raritan Public Library Board of Trustees will be held in-person at the Raritan Public Library.`,
         "style": "meeting",
         "img": "meeting",
         "imgalt": "Board Meeting",
-        "zoom": zoomLink,
     };
     events.push(boardObj);
 }

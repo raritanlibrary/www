@@ -21,7 +21,7 @@ er-text(c)
 er-dark(c)
     shade(c, 90%)
 er-alt-dark(c)
-    shade(saturate(c, -50%), 70%)
+    shade(saturate(c, -40%), 50%)
 er-text-dark(c)
     tint(saturate(c, -25%), 60%)
 // Events -----------------------------
@@ -53,49 +53,59 @@ ev-text-dark(c)
     tint(saturate(c, -25%), 60%)
 // Variable ---------------------------
 :root
-    --main                  #fff8e3
-    --main-dark             #101010
-    --main2                 #e3dcc7
-    --main2-dark            #101010
-    --alt                   #4b0c10
-    --alt-lighten           #7a181f
-    --alt-dark              #d9c584
-    --alt-lighten-dark      #ab985b
-    --main-text             #000000
-    --main-textA            #000000dd
-    --main-textB            #000000bb
-    --main-textC            #000000aa
-    --main-textD            #00000077
-    --main-text-dark        #fffbec
-    --main-textA-dark       #fffbecdd
-    --main-textB-dark       #fffbecbb
-    --main-textC-dark       #fffbecaa
-    --main-textD-dark       #fffbec77
-    --alt-text              #ffffff
-    --alt-text-dark         #000000
-    --link-text:            lt = #1f53a6
-    --link-text-hover       shade(lt, 15%)
-    --link-text-dark:       ltd = #00b8d4
-    --link-text-hover-dark  shade(ltd, 15%)
-    --border-c              #4b0c10dd
-    --border-c-dark         #323232
-    --header-footer         #d9c584
-    --header-footer-dark    #35080b
-    // Alerts -------------------------
-    for col, i in alert-colors
-        --er-{col} er(lookup(col))
-        --er-alt-{col} er-alt(lookup(col))
-        --er-text-{col} er-text(lookup(col))
-        --er-{col}-dark er-dark(lookup(col))
-        --er-alt-{col}-dark er-alt-dark(lookup(col))
-        --er-text-{col}-dark er-text-dark(lookup(col))
-    // Events -------------------------
-    for col, i in event-colors
-        --ev-{col} ev(lookup('event-'+col))
-        --ev-alt-{col} ev-alt(lookup('event-'+col))
-        --ev-hover-{col} ev-hover(lookup('event-'+col))
-        --ev-text-{col} ev-text(lookup('event-'+col))
-        --ev-{col}-dark ev-dark(lookup('event-'+col))
-        --ev-alt-{col}-dark ev-alt-dark(lookup('event-'+col))
-        --ev-hover-{col}-dark ev-hover-dark(lookup('event-'+col))
-        --ev-text-{col}-dark ev-text-dark(lookup('event-'+col))
+    &[color-mode="lite"]
+        --main                  #fff8e3
+        --main2                 #e3dcc7
+        --alt                   #4b0c10
+        --alt2                  #4b0c1055
+        --alt-lighten           #7a181f
+        --main-text             #000000
+        --main-textA            #000000dd
+        --main-textB            #000000bb
+        --main-textC            #000000aa
+        --main-textD            #00000077
+        --alt-text              #ffffff
+        --link-text:            lt = #1f53a6
+        --link-text-hover       shade(lt, 15%)
+        --border-c              #4b0c10dd
+        --border-c2             #4b0c10dd
+        --header-footer         #4b0c10
+        --map                   unset
+        for col, i in alert-colors
+            --er-{col} er(lookup(col))
+            --er-alt-{col} er-alt(lookup(col))
+            --er-text-{col} er-text(lookup(col))
+        for col, i in event-colors
+            --ev-{col} ev(lookup('event-'+col))
+            --ev-alt-{col} ev-alt(lookup('event-'+col))
+            --ev-hover-{col} ev-hover(lookup('event-'+col))
+            --ev-text-{col} ev-text(lookup('event-'+col))
+            --ev-cover-{col} rgba(ev(lookup('event-'+col)), 0.6)
+    &[color-mode="dark"]
+        --main                  #101010
+        --main2                 #101010
+        --alt                   #d9c584
+        --alt2                  #d9c58455
+        --alt-lighten           #ab985b
+        --main-text             #fffbec
+        --main-textA            #fffbecdd
+        --main-textB            #fffbecbb
+        --main-textC            #fffbecaa
+        --main-textD            #fffbec77
+        --alt-text              #000000
+        --link-text:            ltd = #00b8d4
+        --link-text-hover       tint(ltd, 50%)
+        --border-c              #323232
+        --border-c2             invert(#323232)
+        --header-footer         #35080b
+        --map                   invert(90%)
+        for col, i in alert-colors
+            --er-{col} er-dark(lookup(col))
+            --er-alt-{col} er-alt-dark(lookup(col))
+            --er-text-{col} er-text-dark(lookup(col))
+        for col, i in event-colors
+            --ev-{col} ev-dark(lookup('event-'+col))
+            --ev-alt-{col} ev-alt-dark(lookup('event-'+col))
+            --ev-hover-{col} ev-hover-dark(lookup('event-'+col))
+            --ev-text-{col} ev-text-dark(lookup('event-'+col))
+            --ev-cover-{col} rgba(ev-dark(lookup('event-'+col)), 0.6)

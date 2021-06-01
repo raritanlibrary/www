@@ -1,16 +1,3 @@
-- name: Flower Trellis Wreath Craft
-  title: Flower Trellis Wreath
-  subtitle: with Michele Liana
-  date: tbd
-  length: 1.5
-  noendtime: true
-  blurb: Join Michele Liana in creating this beautiful flower and moss-covered Trellis Wreath. Class will be held on Zoom. A $15 fee applies for materials only and is due at time of registration.
-  desc: Join Michele Liana in creating this beautiful flower and moss-covered Trellis Wreath. Class will be held on <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom</a>. A $15 fee applies for materials only and is due at time of registration. Sign up early as class size is limited. Please note that flowers may vary from photo.
-  style: green
-  img: trellis
-  imgalt: Flower Trellis Wreath
-  zoom: https://zoom.us/j/94567894069
-
 - name: Virtual Chair Yoga with Breda
   title: Virtual Chair Yoga
   subtitle: with Breda
@@ -22,18 +9,6 @@
   img: yoga
   imgalt: Chair Yoga
   zoom: [https://zoom.us/j/97974057584, z, z]
-
-- name: "Out of Rushmore's Shadow"
-  title: Mount Rushmore &amp;
-  subtitle: the Luigi Del Bianco Story
-  date: 2021-05-27 18:30:00 -4
-  length: 2.5
-  noendtime: true
-  blurb: Join author Lou Del Bianco as he presents the story of his grandfather, Italian immigrant, Luigi Del Bianco, the chief carver of Mount Rushmore.
-  desc: Author, actor, singer, and storyteller, <b>Lou Del Bianco</b>, will present a fascinating story about his grandfather, Italian immigrant, <b>Luigi Del Bianco</b>, who was the chief carver of Mount Rushmore and who finally received well-deserved recognition for his invaluable contribution to our beloved National Monument. Call the Library at (908) 725-0413 to learn more details about the special program and to register.
-  style: yellow
-  img: rushmore
-  imgalt: Out of Rushmore's Shadow
 
 - name: Patriotic Grapevine Wreath with Birdhouse
   title: Flag Day Craft
@@ -61,7 +36,7 @@
 
 - name: BRHS Art Exhibit
   title: BRHS Art Exhibit
-  subtitle: ""
+  subtitle: "Live now!"
   date: [2021-06-01 10:00:00 -4, 2021-06-30 17:00:00 -4]
   length: daterange
   noendtime: true

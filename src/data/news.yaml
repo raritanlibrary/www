@@ -20,12 +20,12 @@
 
 - name: "Upcoming: Town-Wide Yard Sale"
   date: 2021-03-29
-  desc: On <b>Saturday, June 5th</b>, Raritan will be holding its 2nd Annual Town-Wide Yard Sale. Please click on the link below for a registration form and instructions. This spring will be a perfect time to sell unused items. Rain date June 19th.
+  desc: On <b>Saturday, June 5th</b>, Raritan will be holding its 2nd Annual Town-Wide Yard Sale. Please click on the link below for a directory of participating addresses. Rain date June 19th.
   img: yardsale
   imgalt: Yard sale
   buttons:
-    - name: Registration form
-      link: docs/events/YardSaleRegistrationForm.pdf
+    - name: Directory
+      link: docs/events/YardSaleDirectory2021.pdf
       external: true
 
 - name: Return to Regular Hours

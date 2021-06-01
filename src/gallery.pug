@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang="en" color-mode="lite")
     head
         - var title = "The Gallery"
         - var desc = "Explore inside the Raritan Public Library with a collection of photos from around the building."
         include ./includes/_head.pug
-    body.body
-        include ./includes/header.pug
-        main.main
-            .sidebar-left
-                include ./includes/calendar.pug
-            .center
-                h1.spacer-plus The Gallery
-                .gallery
-                    each img in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-                        a.gallery-img(href=`url:./img/gallery/${img}.jpg` target="_blank")
-                            img.gallery-img-inner(src=`url:./img/gallery/${img}.jpg?as=webp` alt=`Gallery image ${img}`)
-            .sidebar-right
-                include ./includes/contact.pug
-                include ./includes/hours.pug
-        include ./includes/footer.pug
+    body
+        include ./includes/access.pug
+        div.body
+            include ./includes/header.pug
+            main.main
+                .sidebar-left
+                    include ./includes/calendar.pug
+                .center
+                    h1.spacer-plus The Gallery
+                    .gallery
+                        each img in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+                            a.gallery-img(href=`url:./img/gallery/${img}.jpg` target="_blank")
+                                img.gallery-img-inner(src=`url:./img/gallery/${img}.jpg?as=webp` alt=`Gallery image ${img}`)
+                .sidebar-right
+                    include ./includes/contact.pug
+                    include ./includes/hours.pug
+            include ./includes/footer.pug

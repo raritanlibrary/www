@@ -63,16 +63,19 @@ export const sticky = () => {
         const menu = fx.findClass("nav-toggle");
         const menuIcon = document.querySelector(".nav-toggle > svg");
         const main = document.querySelector(".main");
+        const access = document.querySelector(".access");
         const page = document.querySelector("html");
         if (menu.contains(e.target) && !menuIcon.classList.contains("enlarge")) {
             links.classList.add("links-open");
             menuIcon.classList.add("enlarge");
             main.classList.add("main-darken", "freeze");
+            access.classList.add("access-darken");
             page.classList.add("freeze");
         } else if (!links.contains(e.target) && menuIcon.classList.contains("enlarge")) {
             links.classList.remove("links-open");
             menuIcon.classList.remove("enlarge");
             main.classList.remove("main-darken", "freeze");
+            access.classList.remove("access-darken");
             page.classList.remove("freeze");
         }
     })

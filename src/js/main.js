@@ -2,6 +2,7 @@ import * as Time from '../functions/time';
 import * as fx from '../functions/fx';
 import * as Nav from '../functions/nav';
 import * as Data from '../functions/data';
+import * as Access from '../functions/access';
 
 // Favicon mode
 if (window.matchMedia('(prefers-color-scheme:light)').matches) {
@@ -249,10 +250,30 @@ if (page.includes('index')) {
 
 Nav.dropdown();
 Nav.sticky();
+Access.preload();
 
 window.onload = function() {
     Time.injector();
     Data.eventInjector();
     pageInjector(page);
+    Access.hicontrast();
     Data.rev();
 };
+
+if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
+    window.location.href = url + '.html'
+} else if (!url.includes('.html') && url.includes('#')) {
+    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
+}
+
+if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
+    window.location.href = url + '.html'
+} else if (!url.includes('.html') && url.includes('#')) {
+    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
+}
+
+if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
+    window.location.href = url + '.html'
+} else if (!url.includes('.html') && url.includes('#')) {
+    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
+}

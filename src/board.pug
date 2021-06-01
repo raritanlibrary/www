@@ -1,107 +1,109 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang="en" color-mode="lite")
     head
         - var title = "Board of Trustees"
         - var desc = "Explore information regarding the Raritan Public Library's Board of Trustees."
         include ./includes/_head.pug
-    body.body
-        include ./includes/header.pug
-        main.main
-            .sidebar-left
-                include ./includes/calendar.pug
-            .center
-                picture.board-img
-                    source.board-img-inner(media="(min-width:500px)" srcset="url:./img/board.png?as=webp")
-                    img.board-img-inner(src="url:./img/board-480.png?as=webp" alt="")
-                h1.h1-sm Board of Trustees
-                p.text-bold.text-center.spacer-plus Board of Trustees meetings are held on the third Thursday of each month at 7 PM in the #[a.link(href="https://www.google.com/maps/dir//Raritan+Public+Library,+54+E+Somerset+St,+Raritan,+NJ+08869/@40.568867,-74.62909,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0x89c3952d67d747f5:0x1a32742982bb460d!2m2!1d-74.62909!2d40.568867!3e0" target="_blank" rel="noopener") Raritan Public Library].
-                hr.hr
-                h2.spacer-plus#members Members
-                .members
-                    .member
-                        p.text-bold Donald Esposito
-                        p.comment President
-                    .member
-                        p.text-bold Jane Fidacaro
-                        p.comment Vice-President
-                    .member
-                        p.text-bold Laura Hnasko
-                        p.comment Secretary
-                    .member
-                        p.text-bold Adele Goetsch
-                        p.comment Treasurer
-                    .member
-                        p.text-bold Umesh Agrawal
-                    .member
-                        p.text-bold Mary Pat Gausz
-                    .member
-                        p.text-bold Jim Foohey
-                    .member
-                        p.text-bold Lucy Sandler
-                        p.comment Superintendent Alternate
-                    .member
-                        p.text-bold Zachary Bray
-                        p.comment Mayor
-                    .member
-                        p.text-bold Mary J. Paese
-                        p.comment Director
-                hr.hr
-                h2#minutes Meeting Minutes
-                p.comment-big.text-center.spacer-plus Months in grey denote Board Meetings that were not held during that month.
-                .meeting
-                    .meeting-wrapper
-                        h3.meeting-h3#2021 2021
-                        .meeting-year
-                            p.text #[a.link(href="./docs/board/202101.pdf" target="_blank") January]
-                            p.text #[a.link(href="./docs/board/202102.pdf" target="_blank") February]
-                            //p.text #[a.link(href="./docs/board/202103.pdf" target="_blank") March]
-                            //p.text #[a.link(href="./docs/board/202104.pdf" target="_blank") April]
-                    .meeting-wrapper
-                        h3.meeting-h3#2020 2020
-                        .meeting-year
-                            p.text #[a.link(href="./docs/board/202001.pdf" target="_blank") January]
-                            p.text #[a.link(href="./docs/board/202002.pdf" target="_blank") February]
-                            p.greyout March
-                            p.greyout April
-                            p.text #[a.link(href="./docs/board/202005.pdf" target="_blank") May]
-                            p.text #[a.link(href="./docs/board/202006.pdf" target="_blank") June]
-                            p.text #[a.link(href="./docs/board/202007.pdf" target="_blank") July]
-                            p.text #[a.link(href="./docs/board/202008.pdf" target="_blank") August]
-                            p.text #[a.link(href="./docs/board/202009.pdf" target="_blank") September]
-                            p.text #[a.link(href="./docs/board/202010.pdf" target="_blank") October]
-                            p.text #[a.link(href="./docs/board/202011.pdf" target="_blank") November]
-                            p.text #[a.link(href="./docs/board/202012.pdf" target="_blank") December]
-                    .meeting-wrapper
-                        h3.meeting-h3#2019 2019
-                        .meeting-year
-                            p.text #[a.link(href="./docs/board/201901.pdf" target="_blank") January]
-                            p.text #[a.link(href="./docs/board/201902.pdf" target="_blank") February]
-                            p.text #[a.link(href="./docs/board/201903.pdf" target="_blank") March]
-                            p.text #[a.link(href="./docs/board/201904.pdf" target="_blank") April]
-                            p.text #[a.link(href="./docs/board/201905.pdf" target="_blank") May]
-                            p.text #[a.link(href="./docs/board/201906.pdf" target="_blank") June]
-                            p.text #[a.link(href="./docs/board/201907.pdf" target="_blank") July]
-                            p.text #[a.link(href="./docs/board/201908.pdf" target="_blank") August]
-                            p.text #[a.link(href="./docs/board/201909.pdf" target="_blank") September]
-                            p.text #[a.link(href="./docs/board/201910.pdf" target="_blank") October]
-                            p.text #[a.link(href="./docs/board/201911.pdf" target="_blank") November]
-                            p.text #[a.link(href="./docs/board/201912.pdf" target="_blank") December]
-                    .meeting-wrapper
-                        h3.meeting-h3#2018 2018
-                        .meeting-year
-                            p.text #[a.link(href="./docs/board/201801.pdf" target="_blank") January]
-                            p.text #[a.link(href="./docs/board/201802.pdf" target="_blank") February]
-                            p.text #[a.link(href="./docs/board/201803.pdf" target="_blank") March]
-                            p.text #[a.link(href="./docs/board/201804.pdf" target="_blank") April]
-                            p.text #[a.link(href="./docs/board/201805.pdf" target="_blank") May]
-                            p.text #[a.link(href="./docs/board/201806.pdf" target="_blank") June]
-                            p.greyout July
-                            p.text #[a.link(href="./docs/board/201808.pdf" target="_blank") August]
-                            p.text #[a.link(href="./docs/board/201809.pdf" target="_blank") September]
-                            p.text #[a.link(href="./docs/board/201810.pdf" target="_blank") October]
-                            p.greyout November
-                            p.text #[a.link(href="./docs/board/201812.pdf" target="_blank") December]
-            .sidebar-right
-                include ./includes/contact.pug
-                include ./includes/hours.pug
-        include ./includes/footer.pug
+    body
+        include ./includes/access.pug
+        div.body
+            include ./includes/header.pug
+            main.main
+                .sidebar-left
+                    include ./includes/calendar.pug
+                .center
+                    picture.board-img
+                        source.board-img-inner(media="(min-width:500px)" srcset="url:./img/board.png?as=webp")
+                        img.board-img-inner(src="url:./img/board-480.png?as=webp" alt="")
+                    h1.h1-sm Board of Trustees
+                    p.text-bold.text-center.spacer-plus Board of Trustees meetings are held on the third Thursday of each month at 7 PM in the #[a.link(href="https://www.google.com/maps/dir//Raritan+Public+Library,+54+E+Somerset+St,+Raritan,+NJ+08869/@40.568867,-74.62909,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0x89c3952d67d747f5:0x1a32742982bb460d!2m2!1d-74.62909!2d40.568867!3e0" target="_blank" rel="noopener") Raritan Public Library].
+                    hr.hr
+                    h2.spacer-plus#members Members
+                    .members
+                        .member
+                            p.text-bold Donald Esposito
+                            p.comment President
+                        .member
+                            p.text-bold Jane Fidacaro
+                            p.comment Vice-President
+                        .member
+                            p.text-bold Laura Hnasko
+                            p.comment Secretary
+                        .member
+                            p.text-bold Adele Goetsch
+                            p.comment Treasurer
+                        .member
+                            p.text-bold Umesh Agrawal
+                        .member
+                            p.text-bold Mary Pat Gausz
+                        .member
+                            p.text-bold Jim Foohey
+                        .member
+                            p.text-bold Lucy Sandler
+                            p.comment Superintendent Alternate
+                        .member
+                            p.text-bold Zachary Bray
+                            p.comment Mayor
+                        .member
+                            p.text-bold Mary J. Paese
+                            p.comment Director
+                    hr.hr
+                    h2#minutes Meeting Minutes
+                    p.comment-big.text-center.spacer-plus Months in grey denote Board Meetings that were not held during that month.
+                    .meeting
+                        .meeting-wrapper
+                            h3.meeting-h3#2021 2021
+                            .meeting-year
+                                p.text #[a.link(href="./docs/board/202101.pdf" target="_blank") January]
+                                p.text #[a.link(href="./docs/board/202102.pdf" target="_blank") February]
+                                //p.text #[a.link(href="./docs/board/202103.pdf" target="_blank") March]
+                                //p.text #[a.link(href="./docs/board/202104.pdf" target="_blank") April]
+                        .meeting-wrapper
+                            h3.meeting-h3#2020 2020
+                            .meeting-year
+                                p.text #[a.link(href="./docs/board/202001.pdf" target="_blank") January]
+                                p.text #[a.link(href="./docs/board/202002.pdf" target="_blank") February]
+                                p.greyout March
+                                p.greyout April
+                                p.text #[a.link(href="./docs/board/202005.pdf" target="_blank") May]
+                                p.text #[a.link(href="./docs/board/202006.pdf" target="_blank") June]
+                                p.text #[a.link(href="./docs/board/202007.pdf" target="_blank") July]
+                                p.text #[a.link(href="./docs/board/202008.pdf" target="_blank") August]
+                                p.text #[a.link(href="./docs/board/202009.pdf" target="_blank") September]
+                                p.text #[a.link(href="./docs/board/202010.pdf" target="_blank") October]
+                                p.text #[a.link(href="./docs/board/202011.pdf" target="_blank") November]
+                                p.text #[a.link(href="./docs/board/202012.pdf" target="_blank") December]
+                        .meeting-wrapper
+                            h3.meeting-h3#2019 2019
+                            .meeting-year
+                                p.text #[a.link(href="./docs/board/201901.pdf" target="_blank") January]
+                                p.text #[a.link(href="./docs/board/201902.pdf" target="_blank") February]
+                                p.text #[a.link(href="./docs/board/201903.pdf" target="_blank") March]
+                                p.text #[a.link(href="./docs/board/201904.pdf" target="_blank") April]
+                                p.text #[a.link(href="./docs/board/201905.pdf" target="_blank") May]
+                                p.text #[a.link(href="./docs/board/201906.pdf" target="_blank") June]
+                                p.text #[a.link(href="./docs/board/201907.pdf" target="_blank") July]
+                                p.text #[a.link(href="./docs/board/201908.pdf" target="_blank") August]
+                                p.text #[a.link(href="./docs/board/201909.pdf" target="_blank") September]
+                                p.text #[a.link(href="./docs/board/201910.pdf" target="_blank") October]
+                                p.text #[a.link(href="./docs/board/201911.pdf" target="_blank") November]
+                                p.text #[a.link(href="./docs/board/201912.pdf" target="_blank") December]
+                        .meeting-wrapper
+                            h3.meeting-h3#2018 2018
+                            .meeting-year
+                                p.text #[a.link(href="./docs/board/201801.pdf" target="_blank") January]
+                                p.text #[a.link(href="./docs/board/201802.pdf" target="_blank") February]
+                                p.text #[a.link(href="./docs/board/201803.pdf" target="_blank") March]
+                                p.text #[a.link(href="./docs/board/201804.pdf" target="_blank") April]
+                                p.text #[a.link(href="./docs/board/201805.pdf" target="_blank") May]
+                                p.text #[a.link(href="./docs/board/201806.pdf" target="_blank") June]
+                                p.greyout July
+                                p.text #[a.link(href="./docs/board/201808.pdf" target="_blank") August]
+                                p.text #[a.link(href="./docs/board/201809.pdf" target="_blank") September]
+                                p.text #[a.link(href="./docs/board/201810.pdf" target="_blank") October]
+                                p.greyout November
+                                p.text #[a.link(href="./docs/board/201812.pdf" target="_blank") December]
+                .sidebar-right
+                    include ./includes/contact.pug
+                    include ./includes/hours.pug
+            include ./includes/footer.pug

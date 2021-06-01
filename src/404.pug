@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang="en" color-mode="lite")
     head
         - var noindex = true
         - var title = "Page not found"
         - var desc = "Raritan Public Library couldn't find anything on this part of the website."
         include ./includes/_head.pug
-    body.body
-        include ./includes/header.pug
-        main.main
-            .sidebar-left
-                include ./includes/calendar.pug
-            .center.four04-center
-                h1.four04-h1 404
-                h3.four04-h3 Page not found
-                br
-                br
-                p.text.text-center.text-bold We didn't find anything on this part of the website.
-                br
-                p.text.text-center The page you are looking for may have been moved, or may not exist.
-                br
-                p.text.text-center If you feel something is missing, or need assistance navigating this website,<br>please #[a.link(href="./contact") contact us] or view our #[a.link(href="./site-map") site map].
-            .sidebar-right
-                include ./includes/contact.pug
-                include ./includes/hours.pug
-        include ./includes/footer.pug
+    body
+        include ./includes/access.pug
+        div.body
+            include ./includes/header.pug
+            main.main
+                .sidebar-left
+                    include ./includes/calendar.pug
+                .center.four04-center
+                    h1.four04-h1 404
+                    h3.four04-h3 Page not found
+                    br
+                    br
+                    p.text.text-center.text-bold We didn't find anything on this part of the website.
+                    br
+                    p.text.text-center The page you are looking for may have been moved, or may not exist.
+                    br
+                    p.text.text-center If you feel something is missing, or need assistance navigating this website,<br>please #[a.link(href="./contact") contact us] or view our #[a.link(href="./site-map") site map].
+                .sidebar-right
+                    include ./includes/contact.pug
+                    include ./includes/hours.pug
+            include ./includes/footer.pug
