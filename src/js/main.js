@@ -192,7 +192,7 @@ const pageInjector = (p) => {
                     `
                 }
                 if (event.img && event.imgalt) {
-                    eventImg = `<a href="img/events/${event.img}.png" target="_blank"><img class="snippet-img" src="img/events/_${event.img}.png" alt="${event.imgalt}"></a>`
+                    eventImg = `<a href="img/events/${event.img}.png" target="_blank"><img class="snippet-img" src="img/events/_${event.img}.png" alt="${event.imgalt}" ${event.img === 'yoga' ? `style = "object-position: top;"` : ``}></a>`
                 }
                 if (Time.addHours(event.datenominal, event.length) >= Time.now) {
                     eventList += `
