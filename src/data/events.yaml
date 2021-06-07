@@ -1,26 +1,14 @@
-- name: Virtual Chair Yoga with Breda
-  title: Virtual Chair Yoga
+- name: Chair Yoga with Breda
+  title: Chair Yoga
   subtitle: with Breda
   date: [2021-05-20 14:00:00 -4, 2021-06-03 14:00:00 -4, 2021-06-17 14:00:00 -4]
   length: 1
-  blurb: Join our popular "Chair Yoga" instructor, Breda, for a virtual yoga session via the Zoom app. No experience necessary.
-  desc: Join our popular "Chair Yoga" instructor, Breda, for a virtual yoga session via the <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom app</a>. Session will last approximately one hour, and there's no experience necessary. We recommend you provide your email address to us so we can send you the Zoom link in advance.
+  blurb: Join our popular "Chair Yoga" instructor, Breda, for a chair yoga session via the Zoom app. No experience necessary.
+  desc: Join our popular "Chair Yoga" instructor, Breda, for a chair yoga session via the <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom app</a>. Session will last approximately one hour, and there's no experience necessary. We recommend you provide your email address to us so we can send you the Zoom link in advance.
   style: yoga
   img: yoga
   imgalt: Chair Yoga
   zoom: [https://zoom.us/j/97974057584, https://zoom.us/j/96363980796, https://zoom.us/j/91430157937]
-
-- name: Patriotic Grapevine Wreath with Birdhouse
-  title: Flag Day Craft
-  subtitle: with Irene Mortko
-  date: 2021-06-03 18:30:00 -4
-  length: 1.5
-  blurb: Join Irene Mortko in making this beautiful floral patriotic wreath (12 inches) just in time for you to display it for Flag Day and the 4th of July.
-  desc: Join Irene Mortko in making this beautiful floral patriotic wreath (12 inches) just in time for you to display it for Flag Day and the 4th of July. A $10.00 fee is due at the time of registration for materials only. A kit will be ready for you to pick up prior to the <a class="link" href="https://zoom.us/" target="_blank" rel="noopener">Zoom app</a> presentation. Sign up early as class size is limited.
-  style: red
-  img: grapevine
-  imgalt: Grapevine Wreath and Birdhouse
-  zoom: https://zoom.us/j/97210631522
 
 - name: "Bobby Darin: Beyond the Sea"
   title: "Bobby Darin:"
@@ -45,3 +33,25 @@
   style: red
   img: art2021
   imgalt: Colorful matryoshka artwork
+
+- name: 100<sup>th</sup> Anniversary of the Signing of the Knox-Porter Resolution
+  title: "Warren G. Harding &"
+  subtitle: "the Knox-Porter Resolution"
+  date: 2021-07-10 12:00:00 -4
+  length: 3
+  blurb: To commemorate the 100<sup>th</sup> anniversary of the signing of the Knox-Porter Resolution, the official end of U.S. involvement in WWI, several special outdoor events will take place at the Raritan Public Library.
+  desc: The Library along with the Somerset County Cultural and Heritage Commission will present a special program on President Warren Harding and the signing of the peace treaty ending the United States’ involvement in WWI. Come meet Kevin Titus, a Warren Harding reenactor, and be a part of this historic moment in time. Registration is required.
+  style: yellow
+  img: wgh
+  imgalt: President Warren G. Harding signs the Knox-Porter Resolution
+
+- name: Rag Wreath Candle Holder
+  title: Rag Wreath Craft
+  subtitle: with Michele Liana
+  date: 2021-08-26 18:30:00 -4
+  length: 1.5
+  blurb: Join Michele Liana in making this fun and easy candleholder made from fabric strips. A $10.00 fee is due at registration.
+  desc: "Join Michele Liana in making this fun and easy candleholder made from fabric strips. All materials will be supplied including a battery operated candle. A $10.00 fee applies and is due at registration. (Note: Fabric design/votive may vary slightly.)"
+  style: green
+  img: rag
+  imgalt: Rag Wreath Candle Holder

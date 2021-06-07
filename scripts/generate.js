@@ -15,7 +15,6 @@ fs.writeFile('src/data/_REV', `${ltY}${ltM}${ltD}${md5}`.toUpperCase(), function
 
 // Generate static stuff
 const statics = [
-    "assets",
     "docs",
     "img/events",
     "img/news",
