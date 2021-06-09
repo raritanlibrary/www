@@ -41,3 +41,9 @@
     - name: Contact our webmaster
       link: mailto:raritanlibrary54@aol.com 
       external: false
+
+- name: New Museum Passes to the Eastern State Penitentiary
+  date: 2021-06-09
+  desc: Beginning <b>Thursday, July 1st</b>, Raritan Public Library is pleased to offer another free museum pass to the <a class="link" href="https://www.easternstate.org/" target="_blank" rel="noopener">Eastern State Penitentiary</a> in <a class="link" href="https://www.google.com/maps/dir//Eastern+State+Penitentiary,+2027+Fairmount+Ave,+Philadelphia,+PA+19130/@39.9683153,-75.2427047,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89c6c7c939597ebb:0x6f1ed8c0e12235ad!2m2!1d-75.1726652!2d39.9683254" target="_blank" rel="noopener"> Philadelphia, PA</a>. The pass may be borrowed and used by any Raritan Library patron to access free daytime tour admission to his historic site for up to six people. The Penitentiary is open Wednesday through Sunday from 10:00am to 5:00pm. Admission includes "The Voices of Eastern State" Audio Tour, narrated by actor Steve Buscemi; award-winning exhibits on mass incarceration, <i>The Big Graph</i>, and <i>Prisons Today</i>; history exhibits; and a critically acclaimed series of artist installations. Please call the Library for more information. Sign up is required.
+  img: esp
+  imgalt: Eastern State Penitentiary Logo
