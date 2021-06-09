@@ -12,7 +12,7 @@ const bitnot = (n) => {
 }
 
 export const eventid = (str, date) => {
-    str = str.replace(/\W+/g, '').toLowerCase();
+    str = str.replace(/\W+|\d/g, '').toLowerCase();
     str = str.substring(0, 19).padEnd(19, 'a');
 
     let strbin = [];

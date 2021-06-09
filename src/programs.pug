@@ -13,18 +13,18 @@ html(lang="en" color-mode="lite")
                     h3.hsidebar-event Adult Craft Projects
                     p.text.spacer-plus View our previous craft projects and see the great job done by our patron crafters!
                     .crafts
-                        h4 Trellis Wreath Craft
+                        h4 Patriotic Birdhouse Wreath
+                        each img in [1]
+                            a.crafts-img(href=`url:./img/crafts/birdhouse${img}.jpg` target="_blank")
+                                img.crafts-img-inner(src=`url:./img/crafts/birdhouse${img}.jpg?as=webp` alt=`Patriotic Birdhouse Wreath`)
+                        h4 Trellis Wreath
                         each img in [1,2]
                             a.crafts-img(href=`url:./img/crafts/trellis${img}.jpg` target="_blank")
-                                img.crafts-img-inner(src=`url:./img/crafts/trellis${img}.jpg?as=webp` alt=`Trellis Wreath Craft`)
+                                img.crafts-img-inner(src=`url:./img/crafts/trellis${img}.jpg?as=webp` alt=`Trellis Wreath`)
                         h4 Peeps Bunny Wreath
                         each img in [1,2,3]
                             a.crafts-img(href=`url:./img/crafts/peeps${img}.jpg` target="_blank")
                                 img.crafts-img-inner(src=`url:./img/crafts/peeps${img}.jpg?as=webp` alt=`Peeps Bunny Wreath`)
-                        h4 Valentine Candleholder
-                        each img in [1]
-                            a.crafts-img(href=`url:./img/crafts/valentine${img}.jpg` target="_blank")
-                                img.crafts-img-inner(src=`url:./img/crafts/valentine${img}.jpg?as=webp` alt=`Valentine Candleholder`)
                 .center
                     h2.h2-fo Programs
                     .programs
