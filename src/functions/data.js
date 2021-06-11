@@ -46,7 +46,7 @@ events.forEach(event => {
     } else if (Array.isArray(event.date)) {
         for (let i = 0; i < event.date.length; i++) {
             let day = event.date[i];
-            if (Time.addHours(day, event.length) < Time.now) {
+            if (Time.addHours(day, event.length) < Time.now && event.date.length !== 1) {
                 event.date.shift();
                 if (event.zoom) {
                     event.zoom.shift();

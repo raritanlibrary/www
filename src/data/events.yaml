@@ -9,18 +9,6 @@
   img: yoga
   imgalt: Chair Yoga
 
-- name: "Bobby Darin: Beyond the Sea"
-  title: "Bobby Darin:"
-  subtitle: Beyond the Sea
-  date: [2021-06-10 15:00:00 -4, 2021-06-10 18:30:00 -4]
-  length: 3.5
-  noendtime: true
-  blurb: Bobby Darin archivist, Jimmy Scalia, presents the life and music of Bobby Darin. Featuring multimedia and memorabilia from Jimmy's personal collection.
-  desc: Bobby Darin archivist, Jimmy Scalia, will be presenting the life and music of Bobby Darin. This journey takes you on an in-depth look at his life & career with a multimedia presentation and with memorabilia from his personal collection.
-  style: blue
-  img: beyond
-  imgalt: Bobby Darin
-
 - name: BRHS Art Exhibit
   title: BRHS Art Exhibit
   subtitle: "Live now!"
