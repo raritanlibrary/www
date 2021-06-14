@@ -33,6 +33,18 @@
   img: wgh
   imgalt: President Warren G. Harding signs the Knox-Porter Resolution
 
+- name: "\"Elvis in Vegas\" Author Visit"
+  title: "\"Elvis in Vegas\""
+  subtitle: Author Visit
+  date: 2021-08-12 18:30:00 -4
+  length: 1.5
+  noendtime: true
+  blurb: "Come meet Richard Zoglin, author of his latest book, \"Elvis in Vegas\" as he discusses the history of Las Vegas starting with the Rat Pack to Elvis' return to the concert scene in 1969 at the International Hotel."
+  desc: "Come meet Richard Zoglin, author of his latest book, \"Elvis in Vegas\" as he discusses the history of Las Vegas starting with the Rat Pack to Elvis' return to the concert scene in 1969 at the International Hotel. Richard Zoglin had been the entertainment critic for Time Magazine for over 20 years, and is also the author of two other critically acclaimed books: \"Comedy at the Edge\" and Hope (Bob), Entertainer of the Century. This week marks the anniversary of the death of Elvis Presley in August of 1977. Registration is required."
+  style: yellow
+  img: elvis
+  imgalt: Elvis in Vegas book cover
+
 - name: Rag Wreath Candle Holder
   title: Rag Wreath Craft
   subtitle: with Michele Liana
