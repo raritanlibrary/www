@@ -85,7 +85,6 @@
             margin-left 4px
     &-item, &-item-hidden
         max-width 150px
-        minion(20px, white)
         list-style none
         text-align center
         position relative
@@ -98,9 +97,15 @@
             display none
             @media screen and (max-width 749px)
                 display inline
-        @media screen and (min-width 750px) and (max-width 949px)
-            minion(17px, white)
-            max-width 120px
+        & a
+            minion(20px, white)
+            @media screen and (min-width 750px) and (max-width 949px)
+                minion(17px, white)
+                max-width 120px
+            @media screen and (max-width 749px)
+                minion(18px, white)
+                display flex
+                justify-content flex-end
         @media screen and (max-width 749px)
             text-align right
             minion(18px, white)
@@ -152,8 +157,13 @@
     transform translate(-50%) scaleY(0)
     transform-origin top left;
     transition transform 0.2s ease-out
+    &-main
+        minion(20px, white)
+        @media screen and (min-width 750px) and (max-width 949px)
+            position relative
+            top 2px
+            minion(17px, white)
     &-item
-        minion(18px, white)
         list-style none
         text-align center
         padding 12px 12px
@@ -164,8 +174,10 @@
             padding 16px 12px 12px
             @media screen and (max-width 749px)
                 padding 0 0
-        @media screen and (min-width 750px) and (max-width 949px)
-            minion(15px, white)
+        & a
+            minion(18px, white)
+            @media screen and (min-width 750px) and (max-width 949px)
+                minion(15px, white)
     @media screen and (min-width 750px) and (max-width 949px)
         top 37px
         width 120px

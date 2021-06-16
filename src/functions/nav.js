@@ -1,6 +1,6 @@
 import * as fx from './fx';
 
-// Uncheck on clicking outside, flip arrows on desktop
+// Uncheck on clicking/tabbing outside, flip arrows on desktop
 export const dropdown = () => {
     window.addEventListener('click', function(e) {   
         const books = document.getElementById("dropdown-books");
@@ -22,6 +22,29 @@ export const dropdown = () => {
             moreSub.classList.add("sublinks-down");
             moreArrow.classList.add("rotate180");
         } else if (!booksSub.contains(e.target) && moreSub.classList.contains("sublinks-down")) {
+            moreSub.classList.remove("sublinks-down");
+            moreArrow.classList.remove("rotate180");
+        }
+    });
+    window.addEventListener('keyup', function(e) {
+        let tabbed = document.activeElement.id || document.activeElement.parentElement.parentElement.id;
+        const booksSub = document.getElementById("sublinks-books");
+        const booksArrow = document.querySelector("#dropdown-books > div > svg");
+        const moreSub = document.getElementById("sublinks-more");
+        const moreArrow = document.querySelector("#dropdown-more > div > svg");
+        console.log(tabbed);
+        if (e.key === "Tab" && (tabbed === 'dropdown-books' || tabbed === 'sublinks-books') && !booksSub.classList.contains("sublinks-down")) {
+            booksSub.classList.add("sublinks-down");
+            booksArrow.classList.add("rotate180");
+        } else if (e.key === "Tab" && (tabbed !== 'sublinks-books') && booksSub.classList.contains("sublinks-down")) {
+            booksSub.classList.remove("sublinks-down");
+            booksArrow.classList.remove("rotate180");
+        }
+
+        if (e.key === "Tab" && (tabbed === 'dropdown-more' || tabbed === 'sublinks-more') && !moreSub.classList.contains("sublinks-down")) {
+            moreSub.classList.add("sublinks-down");
+            moreArrow.classList.add("rotate180");
+        } else if (e.key === "Tab" && (tabbed !== 'sublinks-more') && moreSub.classList.contains("sublinks-down")) {
             moreSub.classList.remove("sublinks-down");
             moreArrow.classList.remove("rotate180");
         }

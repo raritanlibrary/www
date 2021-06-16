@@ -4,41 +4,36 @@ header.nav
     div.nav-toggle
         include ../img/icons/list.svg
     ul.links
-        a.links-item(href="http://173.70.152.20/" target="_blank" rel="noopener"): li Catalog
-        a.links-item(href="./programs"): li Programs
-        a.links-item(href="./news"): li News
-        li.links-item.links-dropdown#dropdown-books
+        li.links-item: a(href="http://173.70.152.20/" target="_blank" rel="noopener") Catalog
+        li.links-item: a(href="./programs") Programs
+        li.links-item: a(href="./news") News
+        li.links-item.links-dropdown#dropdown-books(tabindex="0")
             div.sublinks-main Book Clubs
                 include ../img/icons/dropdown.svg
             ul.sublinks#sublinks-books
-                a.sublinks-item(href="./bookclub"): li Book Club
-                a.sublinks-item(href="http://raritanpubliclibrarybooks.blogspot.com/" target="_blank" rel="noopener"): li Books Blog
-                a.sublinks-item(href="http://raritanlibraryteenblog.blogspot.com/" target="_blank" rel="noopener"): li YA/Teen Blog
-                a.sublinks-item(href="https://sites.google.com/view/childrensroom/home" target="_blank" rel="noopener"): li Children's Room
-        ////-------------------------------------------------------------------
-        a.links-item-hidden(href="./bookclub"): li Book Club
-        a.links-item-hidden(href="http://raritanpubliclibrarybooks.blogspot.com/" target="_blank" rel="noopener"): li Books Blog
-        a.links-item-hidden(href="http://raritanlibraryteenblog.blogspot.com/" target="_blank" rel="noopener"): li YA/Teen Blog
-        a.links-item-hidden(href="https://sites.google.com/view/childrensroom/home" target="_blank" rel="noopener"): li Children's Room
-        ////===================================================================
-        a.links-item-hidden(href="./history"): li Library History
-        a.links-item-hidden(href="./gallery"): li The Gallery
-        a.links-item-hidden(href="http://www.raritan-online.com/jb-online-menu.htm" target="_blank" rel="noopener"): li Basilone Archives
-        a.links-item-hidden(href="./resources"): li Resources
-        a.links-item-hidden(href="./passes"): li Museum Passes
-        a.links-item-hidden(href="./board"): li Board of Trustees
-        //a.links-item-hidden(href="./links"): li External Links
-        ////-------------------------------------------------------------------
-        a.links-item(href="./policies"): li Policies
-        a.links-item(href="./contact"): li Contact
-        li.links-item.links-dropdown#dropdown-more
+                li.sublinks-item: a(href="./bookclub") Book Club
+                li.sublinks-item: a(href="http://raritanpubliclibrarybooks.blogspot.com/" target="_blank" rel="noopener") Books Blog
+                li.sublinks-item: a(href="http://raritanlibraryteenblog.blogspot.com/" target="_blank" rel="noopener") YA/Teen Blog
+                li.sublinks-item: a(href="https://sites.google.com/view/childrensroom/home" target="_blank" rel="noopener") Children's Room
+        li.links-item-hidden: a(href="./bookclub") Book Club
+        li.links-item-hidden: a(href="http://raritanpubliclibrarybooks.blogspot.com/" target="_blank" rel="noopener") Books Blog
+        li.links-item-hidden: a(href="http://raritanlibraryteenblog.blogspot.com/" target="_blank" rel="noopener") YA/Teen Blog
+        li.links-item-hidden: a(href="https://sites.google.com/view/childrensroom/home" target="_blank" rel="noopener") Children's Room
+        li.links-item-hidden: a(href="./history") Library History
+        li.links-item-hidden: a(href="./gallery") The Gallery
+        li.links-item-hidden: a(href="http://www.raritan-online.com/jb-online-menu.htm" target="_blank" rel="noopener") Basilone Archives
+        li.links-item-hidden: a(href="./resources") Resources
+        li.links-item-hidden: a(href="./passes") Museum Passes
+        li.links-item-hidden: a(href="./board") Board of Trustees
+        li.links-item: a(href="./policies") Policies
+        li.links-item: a(href="./contact") Contact
+        li.links-item.links-dropdown#dropdown-more(tabindex="0")
             div.sublinks-main More
                 include ../img/icons/dropdown.svg
             ul.sublinks#sublinks-more
-                a.sublinks-item(href="./history"): li Library History
-                a.sublinks-item(href="./gallery"): li The Gallery
-                a.sublinks-item(href="http://www.raritan-online.com/jb-online-menu.htm" target="_blank" rel="noopener"): li Basilone Archives
-                a.sublinks-item(href="./resources"): li Resources
-                a.sublinks-item(href="./passes"): li Museum Passes
-                a.sublinks-item(href="./board"): li Board of Trustees
-                //a.sublinks-item(href="./links"): li External Links
+                li.sublinks-item: a(href="./history") Library History
+                li.sublinks-item: a(href="./gallery") The Gallery
+                li.sublinks-item: a(href="http://www.raritan-online.com/jb-online-menu.htm" target="_blank" rel="noopener") Basilone Archives
+                li.sublinks-item: a(href="./resources") Resources
+                li.sublinks-item: a(href="./passes") Museum Passes
+                li.sublinks-item: a(href="./board") Board of Trustees

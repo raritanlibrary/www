@@ -3,8 +3,8 @@
   subtitle: with Breda
   date: [2021-06-17 14:00:00 -4, 2021-07-08 14:00:00 -4, 2021-07-22 14:00:00 -4, 2021-08-19 14:00:00 -4]
   length: 1
-  blurb: Join our popular "Chair Yoga" instructor, Breda, for a chair yoga session designed to strengthen muscles and improve flexibility. No prior yoga experience is necessary.
-  desc: Join our popular "Chair Yoga" instructor, Breda, for a chair yoga session that will guide participants safely and effectively through a series of yoga movements which are designed to strengthen muscles and improve flexibility. Sessions will last approximately one hour, and no prior yoga experience is necessary. Please wear comfortable clothing to the class.
+  blurb: Join our popular &ldquo;Chair Yoga&rdquo; instructor, Breda, for a chair yoga session designed to strengthen muscles and improve flexibility. No prior yoga experience is necessary.
+  desc: Join our popular &ldquo;Chair Yoga&rdquo; instructor, Breda, for a chair yoga session that will guide participants safely and effectively through a series of yoga movements which are designed to strengthen muscles and improve flexibility. Sessions will last approximately one hour, and no prior yoga experience is necessary. Please wear comfortable clothing to the class.
   style: yoga
   img: yoga
   imgalt: Chair Yoga
@@ -33,14 +33,14 @@
   img: wgh
   imgalt: President Warren G. Harding signs the Knox-Porter Resolution
 
-- name: "\"Elvis in Vegas\" Author Visit"
-  title: "\"Elvis in Vegas\""
+- name: "&ldquo;Elvis in Vegas&rdquo; Author Visit"
+  title: "&ldquo;Elvis in Vegas&rdquo;"
   subtitle: Author Visit
   date: 2021-08-12 18:30:00 -4
   length: 1.5
   noendtime: true
-  blurb: "Come meet Richard Zoglin, author of his latest book, \"Elvis in Vegas\" as he discusses the history of Las Vegas starting with the Rat Pack to Elvis' return to the concert scene in 1969 at the International Hotel."
-  desc: "Come meet Richard Zoglin, author of his latest book, \"Elvis in Vegas\" as he discusses the history of Las Vegas starting with the Rat Pack to Elvis' return to the concert scene in 1969 at the International Hotel. Richard Zoglin had been the entertainment critic for Time Magazine for over 20 years, and is also the author of two other critically acclaimed books: \"Comedy at the Edge\" and Hope (Bob), Entertainer of the Century. This week marks the anniversary of the death of Elvis Presley in August of 1977. Registration is required."
+  blurb: "Come meet Richard Zoglin, author of his latest book, &ldquo;Elvis in Vegas&rdquo; as he discusses the history of Las Vegas starting with the Rat Pack to Elvis' return to the concert scene in 1969 at the International Hotel."
+  desc: "Come meet Richard Zoglin, author of his latest book, &ldquo;Elvis in Vegas&rdquo; as he discusses the history of Las Vegas starting with the Rat Pack to Elvis' return to the concert scene in 1969 at the International Hotel. Richard Zoglin spent more than 30 years as an entertainment writer and critic for TIME Magazine and is also the author of two other critically acclaimed books: &ldquo;Comedy at the Edge&rdquo; and &ldquo;Hope (Bob), Entertainer of the Century&rdquo;. This week marks the anniversary of the death of Elvis Presley in August of 1977. Registration is required."
   style: yellow
   img: elvis
   imgalt: Elvis in Vegas book cover
