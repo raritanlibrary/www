@@ -55,3 +55,16 @@
   style: green
   img: rag
   imgalt: Rag Wreath Candle Holder
+
+- name: Tails and Tales Registration
+  title: Tails and Tales
+  subtitle: Summer Reads Registration
+  date: [2021-06-21 10:00:00 -4, 2021-07-02 17:00:00 -4]
+  length: daterange
+  noendtime: true
+  blurb: Our Summer Reading Program is nearly here! Children can attend Storytimes this summer to earn raffle tickets and special prizes. Sign up in person, over the phone, or online.
+  desc: Summer is nearly here, and so is our Summer Reading Program! Our theme this year is Tails and Tales, so expect to have a roaring good time! Children can attend our Storytimes this summer to complete Summer Reading Passports! Each week, explore a new biome through stories, songs, movement activities, and crafts. Earn raffle tickets and special prizes and read on! Sign up in person, over the phone, or by clicking the link below!
+  style: blue
+  img: tales
+  imgalt: Tails and Tales logo
+  form: https://docs.google.com/forms/d/e/1FAIpQLSe7j7bAlMGhxXHoNYrnMWR8iWtdUwz1dm59wV_eUe0I_qmWPw/viewform?embedded=true
