@@ -20,18 +20,24 @@ html(lang="en" color-mode="lite")
                             .books-text
                                 p.books-date March 22#[sup nd]
                                 p.books-title The Lions of Fifth Avenue
-                            img.books-img(src="./img/books/lions.png?as=webp" alt="Front cover of The Lions of Fifth Avenue")
+                            picture
+                                source(srcset="url:./img/books/lions.png?as=webp" type="image/webp")
+                                img.books-img(src="./img/books/lions.png?as=jpeg" alt="Front cover of The Lions of Fifth Avenue" type="image/jpeg")
                         .books-wrapper
                             .books-text
                                 p.books-date April 26#[sup th]
                                 p.books-title Out of Rushmore's Shadow:
                                 p.books-sub The Luigi Del Bianco Story
-                            img.books-img(src="./img/books/rushmore.png?as=webp" alt="Front cover of Out of Rushmore's Shadow")
+                            picture
+                                source(srcset="url:./img/books/rushmore.png?as=webp" type="image/webp")
+                                img.books-img(src="./img/books/rushmore.png?as=jpeg" alt="Front cover of Out of Rushmore's Shadow" type="image/jpeg")
                         .books-wrapper
                             .books-text
                                 p.books-date May 24#[sup th]
                                 p.books-title Lady in the Lake
-                            img.books-img(src="./img/books/lake.png?as=webp" alt="Front cover of Lady in the Lake")
+                            picture
+                                source(srcset="url:./img/books/lake.png?as=webp" type="image/webp")
+                                img.books-img(src="./img/books/lake.png?as=jpeg" alt="Front cover of Lady in the Lake" type="image/jpeg")
                 .sidebar-right
                     include ./includes/contact.pug
                     include ./includes/hours.pug

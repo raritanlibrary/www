@@ -29,14 +29,13 @@ const pageInjector = (p) => {
                 let newsLinks = ``;
                 let newsImg = ``;
                 if (displayed === 3 ) { break };
-                if (post.img && post.imgalt) {
-                    newsImg = `<img class="snippet-img" src="img/news/${post.img}.png" alt="${post.imgalt}">`
+                if (post.img && post.imgalt && post.imglink) {
+                    newsImg = `<a href="${post.imglink}" target="_blank" ${fx.extchk(post.imglink)}><img class="snippet-img" src="img/news/${post.img}.png" alt="${post.imgalt}"}></a>`
                 }
                 if (post.buttons) {
                     for (const button of post.buttons) {
-                        button.external = button.external ? `target ="_blank" rel="noopener"` : '';
                         newsLinks += `
-                        <a class="snippet-link" href="${button.link}" ${button.external}">
+                        <a class="snippet-link" href="${button.link}" target="_blank" ${fx.extchk(button.link)}">
                             <div class="snippet-link-inner">${button.name}</div>
                         </a>
                         `
@@ -72,14 +71,13 @@ const pageInjector = (p) => {
                 } catch(e) {}
                 let newsLinks = ``;
                 let newsImg = ``;
-                if (post.img && post.imgalt) {
-                    newsImg = `<img class="snippet-img" src="img/news/${post.img}.png" alt="${post.imgalt}">`
+                if (post.img && post.imgalt && post.imglink) {
+                    newsImg = `<a href="${post.imglink}" target="_blank" ${fx.extchk(post.imglink)}><img class="snippet-img" src="img/news/${post.img}.png" alt="${post.imgalt}"}></a>`
                 }
                 if (post.buttons) {
                     for (const button of post.buttons) {
-                        button.external = button.external ? `target ="_blank" rel="noopener"` : '';
                         newsLinks += `
-                        <a class="snippet-link" href="${button.link}" ${button.external}">
+                        <a class="snippet-link" href="${button.link}" target ="_blank" ${fx.extchk(button.link)}">
                             <div class="snippet-link-inner">${button.name}</div>
                         </a>
                         `
@@ -173,10 +171,18 @@ const pageInjector = (p) => {
                 if (event.tag === 'zoom') {
                     eventTag = `<div class="snippet-tag snippet-tag-virtual">Virtual</div>`;
                 }
-                if (event.form &&  ((event.datenominal.getTime() - 86400000 >= Time.now) || (event.date === 'tbd'))) {
+                if (event.form && ((event.datenominal.getTime() - 86400000 >= Time.now) || (event.date === 'tbd'))) {
                     zoomLink = `
-                    <a class="snippet-link" href="${event.form}" target="_blank">
+                    <a class="snippet-link" href="${event.form}" target="_blank" ${fx.extchk(event.form)}>
                         <div class="snippet-link-inner">Sign-up form</div>
+                    </a>
+                    `
+                }
+                if (event.formalt) {
+                    let formalt = event.formalt;
+                    zoomLink += `
+                    <a class="snippet-link" href="${formalt.link}" target="_blank" ${fx.extchk(formalt.link)}>
+                        <div class="snippet-link-inner">${formalt.name}</div>
                     </a>
                     `
                 }
@@ -261,3 +267,21 @@ window.onload = function() {
     Access.hicontrast();
     Data.rev();
 };
+
+if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
+    window.location.href = url + '.html'
+} else if (!url.includes('.html') && url.includes('#')) {
+    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
+}
+
+if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
+    window.location.href = url + '.html'
+} else if (!url.includes('.html') && url.includes('#')) {
+    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
+}
+
+if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
+    window.location.href = url + '.html'
+} else if (!url.includes('.html') && url.includes('#')) {
+    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
+}

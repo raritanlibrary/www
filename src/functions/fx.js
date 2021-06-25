@@ -2,6 +2,8 @@ export const checkClass = (c) => document.getElementsByClassName(c).length > 0;
 export const findClass = (c, n=0) => document.getElementsByClassName(c)[n];
 export const setClass = (c, str, n=0) => document.getElementsByClassName(c)[n].innerHTML = str;
 
+export const extchk = (str) => str.match('^http') ? `rel="noopener"` : ``;
+
 const bitnot = (n) => {
     let output =  [];
     n = n.toString(2).padStart(3, '0').split('');

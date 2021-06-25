@@ -27,12 +27,16 @@ export const dropdown = () => {
         }
     });
     window.addEventListener('keyup', function(e) {
-        let tabbed = document.activeElement.id || document.activeElement.parentElement.parentElement.id;
+        let tabbed;
+        try {
+            tabbed = document.activeElement.id || document.activeElement.parentElement.parentElement.id;
+        } catch (error) {
+            tabbed = document.activeElement.id;
+        }
         const booksSub = document.getElementById("sublinks-books");
         const booksArrow = document.querySelector("#dropdown-books > div > svg");
         const moreSub = document.getElementById("sublinks-more");
         const moreArrow = document.querySelector("#dropdown-more > div > svg");
-        console.log(tabbed);
         if (e.key === "Tab" && (tabbed === 'dropdown-books' || tabbed === 'sublinks-books') && !booksSub.classList.contains("sublinks-down")) {
             booksSub.classList.add("sublinks-down");
             booksArrow.classList.add("rotate180");
