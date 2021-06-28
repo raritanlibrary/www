@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 html(lang="en" color-mode="lite")
     head
-        - var title = "The Gallery"
-        - var desc = "Explore inside the Raritan Public Library with a collection of photos from around the building."
+        - const title = "The Gallery"
+        - const desc = "Explore inside the Raritan Public Library with a collection of photos from around the building."
         include ./includes/_head.pug
     body
         include ./includes/access.pug
@@ -15,10 +15,10 @@ html(lang="en" color-mode="lite")
                     h2.h2-fo.spacer-plus The Gallery
                     - const imgAlt = ["The homestead of the Raritan Public Library", "The entrance room in the Raritan Public Library", "The reading room at the Raritan Public Library", "An alcove in the entrance room", "An oil painting fitted in the circulation room", "The second floor History and Literature section", "The inside of the John Basilone Museum at the Raritan Public Library", "The exterior of the John Basilone Museum", "The exterior of the staff room", "Bookshelves inside the Raritan Public Library", "The exterior of the Raritan Public Library Children's Room", "The inside the Raritan Public Library Children's Room", "The outdoor gazebo at the Raritan Public Library", "The outdoor reading space at the Raritan Public Library", "Inside the outdoor gazebo"]
                     .gallery
-                        each img in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-                            a.gallery-img(href=`url:./img/gallery/${img}.jpg` target="_blank")
-                                source.gallery-img-inner(srcset=`url:./img/gallery/${img}.jpg?as=webp` type="image/webp")
-                                img.gallery-img-inner(src=`url:./img/gallery/${img}.jpg?as=jpeg` alt=`${imgAlt[img-1]}` type="image/jpeg")
+                        each img in arr(15)
+                            a.gallery-img(href=`url:./img/gallery/${img+1}.jpg` target="_blank")
+                                source.gallery-img-inner(srcset=`url:./img/gallery/${img+1}.jpg?as=webp` type="image/webp")
+                                img.gallery-img-inner(src=`url:./img/gallery/${img+1}.jpg?as=jpeg` alt=`${imgAlt[img]}` type="image/jpeg")
                 .sidebar-right
                     include ./includes/contact.pug
                     include ./includes/hours.pug

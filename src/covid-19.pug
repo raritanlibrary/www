@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 html(lang="en" color-mode="lite")
     head
-        - var title = "COVID-19 Information"
-        - var desc = "Read information regarding policies and actions taken to prevent the spread of the novel coronavirus (COVID-19) at Raritan Public Library."
+        - const title = "COVID-19 Information"
+        - const desc = "Read information regarding policies and actions taken to prevent the spread of the novel coronavirus (COVID-19) at Raritan Public Library."
         include ./includes/_head.pug
     body
         include ./includes/access.pug
@@ -24,7 +24,7 @@ html(lang="en" color-mode="lite")
                     p.text.spacer-plus Patrons are encouraged to visit our #[a.link(href="http://173.70.152.20/" target="_blank" rel="noopener") catalog] and call ahead for quicker service. Items will be ready for them at the circulation desk. 
                     p.text.spacer-plus Patrons are expected not to linger long, and sections of the Library will be closed off. These areas include all rooms upstairs, the bathrooms and the Community Room. If a patron needs a material from the second floor, a staff member will retrieve it.
                     p.text.spacer-plus Returned items are to be left in the drop box at the front door before entering.
-                    p.text.spacer-plus Computers usage is available by appointment during the hours the library is opened to the public. Time limit is 30 minutes, and staff cannot extend the timer on our PCs or laptop. You may bring in your own laptop, but you are still limited to 30 minutes of usage in the building and will not be able to print. Printing may only be done from our devices.
+                    p.text.spacer-plus Computers usage is available by appointment during the hours the Library is opened to the public. Time limit is 30 minutes, and staff cannot extend the timer on our PCs or laptop. You may bring in your own laptop, but you are still limited to 30 minutes of usage in the building and will not be able to print. Printing may only be done from our devices.
                     p.text.spacer-plus Photocopying is available during the hours we are open to the public. Staff will do the photocopying for you; patrons will not be allowed to use the copier themselves.
                 .sidebar-right
                     include ./includes/contact.pug

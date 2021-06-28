@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 html(lang="en" color-mode="lite")
     head
-        - var title = "Book Club"
-        - var desc = "Discover the Raritan Public Library Book Club and explore the wonderful world of literature."
+        - const title = "Book Club"
+        - const desc = "Discover the Raritan Public Library Book Club and explore the wonderful world of literature."
         include ./includes/_head.pug
     body
         include ./includes/access.pug
@@ -15,29 +15,23 @@ html(lang="en" color-mode="lite")
                     h2.h2-fo Book Club
                     p.text-bold.text-center.spacer-plus Book Club meetings are held on the fourth Monday of each month at 1:30 PM.
                     hr.hr
+                    -
+                        const booksList = [
+                            {date: "March 22", title: "The Lions of Fifth Avenue", img: "lions"},
+                            {date: "April 26", title: "Out of Rushmore's Shadow", sub: "The Luigi Del Bianco Story", img: "rushmore"},
+                            {date: "May 24", title: "Lady in the Lake", img: "lake"},
+                        ]
                     .books
-                        .books-wrapper
-                            .books-text
-                                p.books-date March 22#[sup nd]
-                                p.books-title The Lions of Fifth Avenue
-                            picture
-                                source(srcset="url:./img/books/lions.png?as=webp" type="image/webp")
-                                img.books-img(src="./img/books/lions.png?as=jpeg" alt="Front cover of The Lions of Fifth Avenue" type="image/jpeg")
-                        .books-wrapper
-                            .books-text
-                                p.books-date April 26#[sup th]
-                                p.books-title Out of Rushmore's Shadow:
-                                p.books-sub The Luigi Del Bianco Story
-                            picture
-                                source(srcset="url:./img/books/rushmore.png?as=webp" type="image/webp")
-                                img.books-img(src="./img/books/rushmore.png?as=jpeg" alt="Front cover of Out of Rushmore's Shadow" type="image/jpeg")
-                        .books-wrapper
-                            .books-text
-                                p.books-date May 24#[sup th]
-                                p.books-title Lady in the Lake
-                            picture
-                                source(srcset="url:./img/books/lake.png?as=webp" type="image/webp")
-                                img.books-img(src="./img/books/lake.png?as=jpeg" alt="Front cover of Lady in the Lake" type="image/jpeg")
+                        for book in booksList
+                            .books-wrapper
+                                .books-text
+                                    p.books-date #{book.date}
+                                    p.books-title #{book.title}
+                                    if typeof book.sub
+                                        p.books-sub #{book.sub}
+                                picture
+                                    source(srcset=`url:./img/books/${book.img}.png?as=webp` type="image/webp")
+                                    img.books-img(src=`./img/books/${book.img}.png?as=jpeg` alt=`Front cover of ${book.title}` type="image/jpeg")
                 .sidebar-right
                     include ./includes/contact.pug
                     include ./includes/hours.pug

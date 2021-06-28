@@ -38,3 +38,10 @@ RedirectMatch 301   /renewals                             /policies#renewals
 RedirectMatch 301   /holds                                /policies#holds
 # DISABLE DIRECTORY INDEXES
 Options -Indexes
+# ENABLE CACHE CONTROL
+<FilesMatch "\.(ttf|woff|woff2|ico|flv|jpg|jpeg|png|gif|swf|webp|svg|txt|doc|docx|xls|xlsx|ppt|pptx|pdf)$">
+Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+<FilesMatch "\.(html|css|js)$">
+Header set Cache-Control "public, max-age=0, must-revalidate"
+</FilesMatch>

@@ -84,13 +84,13 @@
             width 11px
             margin-left 4px
     &-item, &-item-hidden
-        max-width 150px
+        max-width 175px
         list-style none
         text-align center
         position relative
-        padding 6px 12px
         border-radius 12px
         transition background 0.2s ease-in-out
+        padding 6px 3px
         &:hover, &:focus
             background nav-mainB
         &-hidden
@@ -99,19 +99,24 @@
                 display inline
         & a
             minion(20px, white)
+            padding 6px 12px
             @media screen and (min-width 750px) and (max-width 949px)
                 minion(17px, white)
+                padding 6px 8px
                 max-width 120px
             @media screen and (max-width 749px)
                 minion(18px, white)
+                padding calc((2 * 100vh - 700px) / 61) 20px
                 display flex
                 justify-content flex-end
+        @media screen and (min-width 750px) and (max-width 949px)
+            padding 6px 3px
         @media screen and (max-width 749px)
             text-align right
             minion(18px, white)
-            padding calc((2 * 100vh - 751px) / 61) 20px
             max-width unset
             border-radius 0
+            padding 0
     &-dropdown
         cursor pointer
         @media screen and (max-width 749px)
@@ -119,7 +124,7 @@
     @media screen and (min-width 750px) and (max-width 949px)
         min-width auto
         max-width 860px
-        margin 8px auto -4px
+        margin 4px auto -4px
         padding 0 3px
     @media screen and (max-width 749px)
         padding 0
@@ -142,6 +147,9 @@
     @media screen and (max-width 424px)
         height calc(100vh - 73px)
         bottom calc(-100vh + 73px)
+    &-open
+        display flex
+        right 0
 .sublinks
     z-index 1
     position absolute
@@ -159,38 +167,42 @@
     transition transform 0.2s ease-out
     &-main
         minion(20px, white)
+        padding 0px 12px
         @media screen and (min-width 750px) and (max-width 949px)
             position relative
             top 2px
             minion(17px, white)
+            padding 0 8px
     &-item
         list-style none
         text-align center
-        padding 12px 12px
         transition background 0.2s ease-in-out
+        height 50px
         &:hover, &:focus
             background nav-mainB
-        &:first-child
-            padding 16px 12px 12px
-            @media screen and (max-width 749px)
-                padding 0 0
         & a
+            display block
             minion(18px, white)
+            height 50px
+            padding 18px 18px 0
             @media screen and (min-width 750px) and (max-width 949px)
                 minion(15px, white)
+                padding 18px 8px 0
     @media screen and (min-width 750px) and (max-width 949px)
-        top 37px
+        top 39px
         width 120px
     @media screen and (max-width 749px)
         visibility hidden
-.links-open
-    display flex
-    right 0
-.sublinks-down
-    transform translate(-50%) scaleY(1)
-    @media screen and (max-width 749px)
-        transform translate(0) scaleY(1)
+    &-down
+        transform translate(-50%) scaleY(1)
+        @media screen and (max-width 749px)
+            transform translate(0) scaleY(1)
 .rotate180
     transform rotate(-180deg)
 .enlarge
     transform scale(1.2)
+#sublinks-more > .sublinks-item
+    &:nth-child(3n+3) a
+        padding 9px 18px 0
+        @media screen and (min-width 750px) and (max-width 949px)
+            padding 12px 8px 0
