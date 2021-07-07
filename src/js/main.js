@@ -171,7 +171,7 @@ const pageInjector = (p) => {
                 if (event.tag === 'zoom') {
                     eventTag = `<div class="snippet-tag snippet-tag-virtual">Virtual</div>`;
                 }
-                if (event.form && ((event.datenominal.getTime() - 86400000 >= Time.now) || (event.date === 'tbd'))) {
+                if (event.form && ((event.datenominal.getTime() - 86400000 >= Time.now) || event.daterange || (event.date === 'tbd'))) {
                     zoomLink = `
                     <a class="snippet-link" href="${event.form}" target="_blank" ${fx.extchk(event.form)}>
                         <div class="snippet-link-inner">Sign-up form</div>
