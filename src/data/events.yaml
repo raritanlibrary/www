@@ -9,18 +9,6 @@
   img: yoga
   imgalt: Chair Yoga
 
-- name: BRHS Art Exhibit
-  title: BRHS Art Exhibit
-  subtitle: "Live now!"
-  date: [2021-06-01 10:00:00 -4, 2021-06-30 17:00:00 -4]
-  length: daterange
-  noendtime: true
-  blurb: Come and view art 22 various art pieces from 12 talented BRHS Honors Art III students, exclusively at Raritan Public Library.
-  desc: From June 1st to June 30th, 12 talented BRHS Honors Art III students are exhibiting their original art at the Raritan Public Library. Come and view 22 of their best pieces to support the endeavors of these local, up-and-coming artists.
-  style: red
-  img: art2021
-  imgalt: Colorful matryoshka artwork
-
 - name: 100<sup>th</sup> Anniversary of the Signing of the Knox-Porter Resolution
   title: "Warren G. Harding &"
   subtitle: "the Knox-Porter Resolution"
@@ -56,18 +44,14 @@
   img: rag
   imgalt: Rag Wreath Candle Holder
 
-- name: Tails and Tales Registration
-  title: Tails and Tales
-  subtitle: Summer Reads Registration
-  date: [2021-06-21 10:00:00 -4, 2021-07-02 17:00:00 -4]
-  length: daterange
-  noendtime: true
-  blurb: Our Summer Reading Program is nearly here! Children can attend Storytimes this summer to earn raffle tickets and special prizes. Sign up in person, over the phone, or online.
-  desc: Summer is nearly here, and so is our Summer Reading Program! Our theme this year is Tails and Tales, so expect to have a roaring good time! Children can attend our Storytimes this summer to complete Summer Reading Passports! Each week, explore a new biome through stories, songs, movement activities, and crafts. Earn raffle tickets and special prizes and read on! Sign up in person, over the phone, or by clicking the link below!
+- name: Special Zoom Event
+  title: Special Zoom Event
+  subtitle: Special Zoom Event
+  date: 2021-07-7 18:30:00 -4
+  length: 1.5
+  blurb: Join Zoom Meeting below
+  desc: Join Zoom Meeting below
   style: blue
-  img: tales
-  imgalt: Tails and Tales logo
-  form: https://docs.google.com/forms/d/e/1FAIpQLSe7j7bAlMGhxXHoNYrnMWR8iWtdUwz1dm59wV_eUe0I_qmWPw/viewform?embedded=true
-  formalt:
-    name: Summer Events Sign-up
-    link: https://docs.google.com/forms/d/1tTBBTkHE1KFHeuiO-UB3eAm7caiVWmV42N5O3jkpmtc/edit?usp=forms_home&ths=true
+  img: trellis
+  imgalt: Rag Wreath Candle Holder
+  zoom: https://zoom.us/j/96672568116
