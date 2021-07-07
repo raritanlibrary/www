@@ -5,7 +5,7 @@
     background-blend-mode multiply
     padding 4px 22px 12px
     grid-area h
-    user-select none
+    user-select(none) none
     @media screen and (max-width 749px)
         grad-background-image("left, #c00000 -40%, #4b0c10 50%, #c00000 140%", 'url:../img/banner-1000.png?as=jpg')
     &-check
@@ -202,7 +202,9 @@
 .enlarge
     transform scale(1.2)
 #sublinks-more > .sublinks-item
-    &:nth-child(3n+3) a
-        padding 9px 18px 0
-        @media screen and (min-width 750px) and (max-width 949px)
-            padding 12px 8px 0
+    &:nth-child(3n+3)
+        height 60px
+        & a
+            padding 14px 18px 0
+            @media screen and (min-width 750px) and (max-width 949px)
+                padding 16px 8px 0
