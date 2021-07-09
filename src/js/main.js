@@ -230,13 +230,6 @@ const pageInjector = (p) => {
             const scrollId = document.getElementById(urlClean);
             scrollId.scrollIntoView();
         }
-    } else if (p.includes('bam')) {
-        const clicky = document.getElementById("clicky");
-        window.addEventListener('click', function(e) {
-            if (clicky.contains(e.target)) {
-                clicky.innerHTML = 'i change :)'
-            }
-        });
     }
 }
 
@@ -246,7 +239,7 @@ if (page.includes('index')) {
     const lastYear = Data.news[0].date.getFullYear();
     const firstYear = Data.news[Data.news.length-1].date.getFullYear();
     for (let i = firstYear; i <= lastYear; i++) {
-        window.addEventListener('click', function(e) {   
+        fx.addClickListener(function(e) {
             const header = document.getElementById(`news-header-${i}`);
             const arrow = document.getElementById(`news-arrow-${i}`);
             const content = document.getElementById(`news-year-${i}`);

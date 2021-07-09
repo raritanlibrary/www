@@ -4,6 +4,11 @@ export const setClass = (c, str, n=0) => document.getElementsByClassName(c)[n].i
 
 export const extchk = (str) => str.match('^http') ? `rel="noopener"` : ``;
 
+export const addClickListener = (fn) => {
+    window.addEventListener('click', fn);
+    window.addEventListener('touchstart', fn);
+}
+
 const bitnot = (n) => {
     let output =  [];
     n = n.toString(2).padStart(3, '0').split('');

@@ -1,3 +1,5 @@
+import * as fx from './fx';
+
 export const preload = () => {
     const access = document.getElementById("access");
     const root = document.documentElement;
@@ -13,7 +15,7 @@ export const hicontrast = () => {
     if (localStorage.getItem("color-mode") === "dark") {
         access.classList.add("darkmodeon");
     }
-    window.addEventListener('click', function(e) {
+    fx.addClickListener(function(e) {
         if (access.contains(e.target) && !access.classList.contains("darkmodeon")) {
             access.classList.add("darkmodeon");
             all.forEach(element => element.style.transition = "all 0.2s ease-in-out");
