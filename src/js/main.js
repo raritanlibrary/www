@@ -230,6 +230,13 @@ const pageInjector = (p) => {
             const scrollId = document.getElementById(urlClean);
             scrollId.scrollIntoView();
         }
+    } else if (p.includes('bam')) {
+        const clicky = document.getElementById("clicky");
+        window.addEventListener('click', function(e) {
+            if (clicky.contains(e.target)) {
+                clicky.innerHTML = 'i change :)'
+            }
+        });
     }
 }
 
@@ -267,9 +274,3 @@ window.onload = function() {
     Access.hicontrast();
     Data.rev();
 };
-
-if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
-    window.location.href = url + '.html'
-} else if (!url.includes('.html') && url.includes('#')) {
-    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
-}
