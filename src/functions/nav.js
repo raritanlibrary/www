@@ -2,7 +2,7 @@ import * as fx from './fx';
 
 // Uncheck on clicking/tabbing outside, flip arrows on desktop
 export const dropdown = () => {
-    fx.addClickListener(function(e) {
+    window.addEventListener('click', function(e) {
         const books = document.getElementById("dropdown-books");
         const booksSub = document.getElementById("sublinks-books");
         const booksArrow = document.querySelector("#dropdown-books > div > svg");

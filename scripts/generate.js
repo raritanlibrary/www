@@ -19,6 +19,7 @@ const statics = [
     "img/events",
     "img/news",
     "robots.txt",
+    "winnoc.php",
     ".htaccess"
 ]
 

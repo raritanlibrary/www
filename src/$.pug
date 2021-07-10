@@ -18,6 +18,9 @@ html(lang="en" color-mode="lite")
                     br
                     br
                     p.text.text-center.text-bold#clicky I'm testing, you shouldn't be on this part of the website!
+                    form#liaisons(action="liaisons.php" method="POST" enctype="multipart/form-data")
+                        input(type="text" name="winnoc")
+                        input(type="submit" name="submit")
                 .sidebar-right
                     include ./includes/contact.pug
                     include ./includes/hours.pug
