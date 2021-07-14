@@ -12,7 +12,9 @@ html(lang="en" color-mode="lite")
                 .sidebar-left
                     include ./includes/calendar.pug
                 .center
-                    h1.h-spacer-minus News
+                    h1 News
+                    p.text.text-center Read our #[a.link(href=`./docs/news/${newsFile}.pdf` target="_blank") #{newsMonth} newsletter] here.
+                    hr.hr
                     .news
                 .sidebar-right
                     include ./includes/contact.pug
