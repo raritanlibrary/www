@@ -98,12 +98,19 @@ export const eventInjector = () => {
                 eventTime = `<p class="event-${event.style}-time">through ${Time.month[event.date[1].getMonth()]} ${Time.formatDate(event.date[1].getDate())}</p>`;
                 eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())} - ${Time.month[event.date[1].getMonth()]} ${Time.formatDate(event.date[1].getDate())}</p>`;
             } else if (Array.isArray(event.date) && event.date.length > 1) {
-                eventDate = `<p class="event-${event.style}-date">${Time.weekday[event.date[0].getDay()]}, ${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())}</p>`;
-                eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())} at ${Time.formatTime(event.date[0])}</p>`;
                 if (event.date[0].getDate() === event.date[1].getDate()) {
+                    eventDate = `<p class="event-${event.style}-date">${Time.weekday[event.date[0].getDay()]}, ${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())}</p>`;
+                    eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())} at ${Time.formatTime(event.date[0])}</p>`;    
                     eventTime = `<p class="event-${event.style}-time">${Time.formatTime(event.date[0])} and ${Time.formatTime(event.date[1])}</p>`;
                 } else {
-                    eventTime = `<p class="event-${event.style}-time">${Time.formatTime(event.date[0])}${endTime}</p>`;
+                    eventDate = `<p class="event-${event.style}-date">${Time.weekday[event.date[0].getDay()]}s at ${Time.formatTime(event.date[0])}</p>`
+                    eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.weekday[event.date[0].getDay()]}s at ${Time.formatTime(event.date[0])}</p>`
+                    eventTime = `<p class="event-${event.style}-time">`
+                    event.date.forEach((day, i) => {
+                        eventTime += `${Time.month[day.getMonth()]} ${Time.formatDate(day.getDate())}`
+                        if (i < event.date.length-1) { eventTime += `,&nbsp;` }
+                    });
+                    eventTime += `</p>`;
                 }
             } else if (Array.isArray(event.date) && event.date.length === 1) {
                 eventDate = `<p class="event-${event.style}-date">${Time.weekday[event.date[0].getDay()]}, ${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())}</p>`;
@@ -162,6 +169,6 @@ export const eventInjector = () => {
 let tag = fs.readFileSync('src/data/_REV', 'utf8');
 export const rev = () => {
     if (fx.checkClass('version')) {
-        fx.setClass('version', `Revision ${tag} · <a href="./site-map"> View Site Map</a>`);
+        fx.setClass('version', `Revision ${tag} · <a href="/site-map"> View Site Map</a>`);
     }
 }
