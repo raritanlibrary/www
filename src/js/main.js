@@ -28,6 +28,7 @@ const pageInjector = (p) => {
             for (const post of Data.news) {
                 let newsLinks = ``;
                 let newsImg = ``;
+                if (post.hidden) { continue };
                 if (displayed === 3 ) { break };
                 if (post.img && post.imgalt && post.imglink) {
                     newsImg = `<a href="${post.imglink}" target="_blank" ${fx.extchk(post.imglink)}><img class="snippet-img" src="img/news/${post.img}.png" alt="${post.imgalt}"}></a>`
@@ -65,6 +66,7 @@ const pageInjector = (p) => {
             let newsList = [];
             newsList[newsIndex] = ``;
             for (const post of Data.news) {
+                if (post.hidden) { continue };
                 curYear = post.date.getFullYear();
                 try {
                     nextYear = Data.news[Data.news.indexOf(post) + 1].date.getFullYear();
@@ -266,4 +268,4 @@ window.onload = function() {
     pageInjector(page);
     Access.hicontrast();
     Data.rev();
-};
+};
