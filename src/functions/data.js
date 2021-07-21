@@ -8,7 +8,7 @@ let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
 export let events = yaml.load(eventData);
 
 // Add board meeting if 2nd Thursday
-if (Time.getR(0) < Time.now) {
+/*if (Time.getR(0) < Time.now) {
     let boardObj = {
         "name": "RPL Board of Trustees Meeting",
         "title": "Board of Trustees",
@@ -23,7 +23,7 @@ if (Time.getR(0) < Time.now) {
         "imgalt": "Board Meeting",
     };
     events.push(boardObj);
-}
+}*/
 
 // Parse data
 events.forEach(event => {
