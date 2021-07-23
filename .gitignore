@@ -205,3 +205,6 @@ src/data/_REV
 # TMP
 src/includes/_header.pug
 src/stylus/components/_header.styl
+
+# Dist zip
+www.zip
