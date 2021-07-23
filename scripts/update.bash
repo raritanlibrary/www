@@ -6,5 +6,5 @@ then
 fi
 "C:\Program Files (x86)\WinSCP\WinSCP.com" << EOF
 open ftp://$u:$p@$h
-synchronize remote dist www -delete -criteria="size"
+synchronize remote dist www -delete
 EOF
