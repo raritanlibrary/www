@@ -7,8 +7,8 @@ export const extchk = (str) => str.match('^http') ? `rel="noopener"` : ``;
 export const addClickListener = (fn) => {
     let checked = false;
     window.addEventListener('touchstart', fn);
-    window.addEventListener('touchend', checked = true);
-    if (checked) {
+    window.addEventListener('touchend', e => checked = true);
+    if (!checked) {
         window.addEventListener('click', fn);
     }
 }
