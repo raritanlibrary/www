@@ -5,8 +5,11 @@ export const setClass = (c, str, n=0) => document.getElementsByClassName(c)[n].i
 export const extchk = (str) => str.match('^http') ? `rel="noopener"` : ``;
 
 export const addClickListener = (fn) => {
-    window.addEventListener('touchstart', fn);
-    window.addEventListener('touchend', e => e.preventDefault());
+    var fns = fn.toString();
+    fns = fns.slice(fns.indexOf("{") + 1, fns.lastIndexOf("}"));
+    const fne = new Function(fns + "\n" + 'e.preventDefault()');
+    window.addEventListener('touchstart', fne);
+    //window.addEventListener('touchend', e => e.preventDefault());
     window.addEventListener('click', fn);
 }
 
