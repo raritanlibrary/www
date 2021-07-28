@@ -15,7 +15,7 @@ export const hicontrast = () => {
     if (localStorage.getItem("color-mode") === "dark") {
         access.classList.add("darkmodeon");
     }
-    fx.addClickListener(function(e) {
+    fx.addClickListener(e => {
         if (access.contains(e.target) && !access.classList.contains("darkmodeon")) {
             access.classList.add("darkmodeon");
             all.forEach(element => element.style.transition = "all 0.2s ease-in-out");

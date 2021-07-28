@@ -2,7 +2,7 @@ import * as fx from './fx';
 
 // Uncheck on clicking/tabbing outside, flip arrows on desktop
 export const dropdown = () => {
-    fx.addClickListener(function(e) {
+    fx.addClickListener(e => {
         const books = document.getElementById("dropdown-books");
         const booksSub = document.getElementById("sublinks-books");
         const booksArrow = document.querySelector("#dropdown-books > div > svg");
@@ -26,7 +26,7 @@ export const dropdown = () => {
             moreArrow.classList.remove("rotate180");
         }
     });
-    window.addEventListener('keyup', function(e) {
+    window.addEventListener('keyup', e => {
         let tabbed;
         try {
             tabbed = document.activeElement.id || document.activeElement.parentElement.parentElement.id;
@@ -58,11 +58,11 @@ export const dropdown = () => {
 // Icon sticks when selected on mobile, darken and freeze
 export const sticky = () => {
     let xDown = null;
-    document.addEventListener('touchstart', function(e) {
+    document.addEventListener('touchstart', e => {
         const firstTouch = e.touches[0]; 
         xDown = firstTouch.clientX;
     });
-    document.addEventListener('touchmove', function(e) {
+    document.addEventListener('touchmove', e => {
         if (!xDown) { return; }
         let xUp = e.touches[0].clientX;
         let xDiff = xDown - xUp;
@@ -85,7 +85,7 @@ export const sticky = () => {
         }
         xDown = null;
     });
-    fx.addClickListener(function(e) {
+    fx.addClickListener(e => {
         const links = fx.findClass("links");
         const menu = fx.findClass("nav-toggle");
         const menuIcon = document.querySelector(".nav-toggle > svg");

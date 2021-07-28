@@ -11,7 +11,7 @@ const ltParsed = new Date(lt);
 const ltY = (ltParsed.getFullYear() - 2020).toString(36) ;
 const ltM = (ltParsed.getMonth()+1).toString(36);
 const ltD = (ltParsed.getDate()).toString(36);
-fs.writeFile('src/data/_REV', `${ltY}${ltM}${ltD}${md5}`.toUpperCase(), function(e){});
+fs.writeFile('src/data/_REV', `${ltY}${ltM}${ltD}${md5}`.toUpperCase(), e => {});
 
 // Generate static stuff
 const statics = [

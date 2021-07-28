@@ -6,8 +6,8 @@ const htmlhack = `\n\nif (!url.includes('.html') && !url.includes('#') && url !=
     window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
 }`
 
-fs.readFile('src/js/main.js', 'utf8' , (e, data) => { if (e) {}
+fs.readFile('src/js/main.js', 'utf8' , (e, data) => {
     if (!data.includes(htmlhack)) {
-        fs.writeFile('src/js/main.js', data+htmlhack, function(e){});
+        fs.writeFile('src/js/main.js', data+htmlhack, e => {});
     }
 })

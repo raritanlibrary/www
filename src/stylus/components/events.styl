@@ -42,11 +42,12 @@ event-template(type)
     &-time
         perpetua(16px, var(unquote(--ev-text-+type)), bold)
         margin-bottom 8px
-        text-align center
         @media screen and (max-width 949px)
             display none
     &-desc
         perpetua(16px, var(unquote(--ev-text-+type)))
+        text-align justify
+        text-align-last center
         @media screen and (max-width 949px)
             display none
         &-filler
@@ -55,8 +56,7 @@ event-template(type)
                 display block
                 perpetua(16px, var(unquote(--ev-text-+type)))
                 margin-top 16px;
-    text-align justify
-    text-align-last center
+    text-align center
     @media screen and (max-width 949px)
         width 215px
 .calendar-events

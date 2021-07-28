@@ -241,7 +241,7 @@ if (page.includes('index')) {
     const lastYear = Data.news[0].date.getFullYear();
     const firstYear = Data.news[Data.news.length-1].date.getFullYear();
     for (let i = firstYear; i <= lastYear; i++) {
-        fx.addClickListener(function(e) {
+        fx.addClickListener(e => {
             const header = document.getElementById(`news-header-${i}`);
             const arrow = document.getElementById(`news-arrow-${i}`);
             const content = document.getElementById(`news-year-${i}`);
@@ -268,4 +268,4 @@ window.onload = function() {
     pageInjector(page);
     Access.hicontrast();
     Data.rev();
-};
+};

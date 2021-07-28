@@ -9,7 +9,6 @@ export const addClickListener = (fn) => {
     fns = fns.slice(fns.indexOf("{") + 1, fns.lastIndexOf("}"));
     const fne = new Function(fns + "\n" + 'e.preventDefault()');
     window.addEventListener('touchstart', fne);
-    //window.addEventListener('touchend', e => e.preventDefault());
     window.addEventListener('click', fn);
 }
 
