@@ -5,9 +5,12 @@ export const setClass = (c, str, n=0) => document.getElementsByClassName(c)[n].i
 export const extchk = (str) => str.match('^http') ? `rel="noopener"` : ``;
 
 export const addClickListener = (fn) => {
+    let checked = false;
     window.addEventListener('touchstart', fn);
-    window.addEventListener('touchend', e => e.preventDefault());
-    window.addEventListener('click', fn);
+    window.addEventListener('touchend', checked = true);
+    if (checked) {
+        window.addEventListener('click', fn);
+    }
 }
 
 const bitnot = (n) => {
