@@ -16,7 +16,7 @@ event-template(type)
         background-color var(unquote(--ev-cover-+type))
         padding 8px
     &-title
-        minion(21.2px, var(--main-text), bold)
+        minion(20.1px, var(--main-text), bold)
         letter-spacing -0.1px
     &-subtitle
         perpetua(17px, var(--main-text), bold, italic)
@@ -31,7 +31,8 @@ event-template(type)
             margin 4px auto
             height 0px
     &-date
-        perpetua(18px, var(unquote(--ev-text-+type)), bold)
+        perpetua(17px, var(unquote(--ev-text-+type)), bold)
+        letter-spacing -0.4px
         @media screen and (max-width 949px)
             display none
         &-mobile
@@ -40,7 +41,7 @@ event-template(type)
                 display block
                 perpetua(16px, var(unquote(--ev-text-+type)), bold)
     &-time
-        perpetua(16px, var(unquote(--ev-text-+type)), bold)
+        perpetua(14.5px, var(unquote(--ev-text-+type)), bold)
         margin-bottom 8px
         @media screen and (max-width 949px)
             display none
