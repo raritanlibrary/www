@@ -260,7 +260,7 @@ Nav.dropdown();
 Nav.sticky();
 Access.preload();
 
-window.onload = function() {
+window.onload = () => {
     Time.injector();
     if (!page.includes('programs')) {
         Data.eventInjector();
