@@ -119,6 +119,7 @@ typings/
 
 # dotenv environment variables file
 .env
+new.env
 .env.test
 .env*.local
 
@@ -207,4 +208,4 @@ src/includes/_header.pug
 src/stylus/components/_header.styl
 
 # Dist zip
-www.zip
+www.*
