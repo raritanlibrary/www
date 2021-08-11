@@ -31,6 +31,7 @@
   style: green
   img: rag
   imgalt: Rag Wreath Candle Holder
+  zoom: https://zoom.us/j/98490841828
 
 - name: Civil War Presentation
   title: Civil War Presentation
@@ -53,7 +54,7 @@
   desc: Award-winning Elvis Tribute Artist, Jim Barone, will perform songs from all three Elvis eras (1950's - 1970's) at an outdoor concert during John Basilone Weekend. The concert will include two 45-minute shows with an intermission break. Reserve a spot for this special event by calling the Library at (908) 725-0413.
   style: red
   img: elvis2
-  imgalt: A collage of Elvis Presley stills
+  imgalt: Elvis Presley in his signature red jumpsuit
 
 - name: John Basilone Parade Day
   title: John Basilone Parade
