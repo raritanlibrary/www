@@ -17,7 +17,15 @@ header.nav
         li.links-item-hidden: a(href="/bookclub") Book Club
         li.links-item-hidden: a(href="http://raritanpubliclibrarybooks.blogspot.com/" target="_blank" rel="noopener") Books Blog
         li.links-item-hidden: a(href="http://raritanlibraryteenblog.blogspot.com/" target="_blank" rel="noopener") YA/Teen Blog
-        li.links-item: a(href="https://sites.google.com/view/childrensroom/home?authuser=0" target="_blank" rel="noopener") Children's Room
+        li.links-item.links-dropdown#dropdown-kids(tabindex="0")
+            div.sublinks-main RPL Kids
+                include ../img/icons/dropdown.svg
+            ul.sublinks#sublinks-kids
+                li.sublinks-item.sublinks-double: a(href="/kids") Programs<br>for Kids
+                li.sublinks-item.sublinks-double: a(href="https://sites.google.com/view/childrensroom/home?authuser=0" target="_blank" rel="noopener") Children's Room
+        li.links-item-hidden: a(href="/kids") Programs<br>for Kids
+        li.links-item-hidden: a(href="https://sites.google.com/view/childrensroom/home?authuser=0" target="_blank" rel="noopener") Children's Room
+        // li.links-item: a(href="https://sites.google.com/view/childrensroom/home?authuser=0" target="_blank" rel="noopener") Children's Room
         // RPL Kids - https://kids.raritanlibrary.org
         li.links-item-hidden: a(href="/history") Library History
         li.links-item-hidden: a(href="/gallery") The Gallery
@@ -33,7 +41,7 @@ header.nav
             ul.sublinks#sublinks-more
                 li.sublinks-item: a(href="/history") Library History
                 li.sublinks-item: a(href="/gallery") The Gallery
-                li.sublinks-item: a(href="http://www.raritan-online.com/jb-online-menu.htm" target="_blank" rel="noopener") Basilone Archives
+                li.sublinks-item.sublinks-double: a(href="http://www.raritan-online.com/jb-online-menu.htm" target="_blank" rel="noopener") Basilone Archives
                 li.sublinks-item: a(href="/resources") Resources
                 li.sublinks-item: a(href="/passes") Museum Passes
-                li.sublinks-item: a(href="/board") Board of Trustees
+                li.sublinks-item.sublinks-double: a(href="/board") Board of Trustees

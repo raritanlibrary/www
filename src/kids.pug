@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+html(lang="en" color-mode="lite")
+    head
+        - const title = "Programs for Kids"
+        - const desc = "Discover exclusive programs for your children and teens, only at Raritan Public Library."
+        include ./includes/_head.pug
+    body
+        include ./includes/access.pug
+        div.body
+            include ./includes/header.pug
+            main.main
+                .sidebar-left
+                    include ./includes/calendar.pug
+                .center
+                    h2.h2-fo Programs for Kids
+                    p.text.text-center An online version of our Children's Newsletter for August will be posted soon! Thank you for your patience.
+                    //p.text.text-center Read our #[a.link(href=`./docs/news/${newsFile}.pdf` target="_blank") #{newsMonth} newsletter] here.
+                    p.text.text-center To sign up for events, please call us at #[b (908) 725-0413] during our open hours.
+                    hr.hr
+                    .kids
+                .sidebar-right
+                    include ./includes/contact.pug
+                    include ./includes/hours.pug
+            include ./includes/footer.pug

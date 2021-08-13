@@ -6,6 +6,9 @@ export const dropdown = () => {
         const books = document.getElementById("dropdown-books");
         const booksSub = document.getElementById("sublinks-books");
         const booksArrow = document.querySelector("#dropdown-books > div > svg");
+        const kids = document.getElementById("dropdown-kids");
+        const kidsSub = document.getElementById("sublinks-kids");
+        const kidsArrow = document.querySelector("#dropdown-kids > div > svg");
         const more = document.getElementById("dropdown-more");
         const moreSub = document.getElementById("sublinks-more");
         const moreArrow = document.querySelector("#dropdown-more > div > svg");
@@ -17,7 +20,13 @@ export const dropdown = () => {
             booksSub.classList.remove("sublinks-down");
             booksArrow.classList.remove("rotate180");
         }
-
+        if (kids.contains(e.target) && !kidsSub.classList.contains("sublinks-down")) {
+            kidsSub.classList.add("sublinks-down");
+            kidsArrow.classList.add("rotate180");
+        } else if (!kidsSub.contains(e.target) && kidsSub.classList.contains("sublinks-down")) {
+            kidsSub.classList.remove("sublinks-down");
+            kidsArrow.classList.remove("rotate180");
+        }
         if (more.contains(e.target) && !moreSub.classList.contains("sublinks-down")) {
             moreSub.classList.add("sublinks-down");
             moreArrow.classList.add("rotate180");
@@ -35,6 +44,8 @@ export const dropdown = () => {
         }
         const booksSub = document.getElementById("sublinks-books");
         const booksArrow = document.querySelector("#dropdown-books > div > svg");
+        const kidsSub = document.getElementById("sublinks-kids");
+        const kidsArrow = document.querySelector("#dropdown-kids > div > svg");
         const moreSub = document.getElementById("sublinks-more");
         const moreArrow = document.querySelector("#dropdown-more > div > svg");
         if (e.key === "Tab" && (tabbed === 'dropdown-books' || tabbed === 'sublinks-books') && !booksSub.classList.contains("sublinks-down")) {
@@ -44,7 +55,13 @@ export const dropdown = () => {
             booksSub.classList.remove("sublinks-down");
             booksArrow.classList.remove("rotate180");
         }
-
+        if (e.key === "Tab" && (tabbed === 'dropdown-kids' || tabbed === 'sublinks-kids') && !kidsSub.classList.contains("sublinks-down")) {
+            kidsSub.classList.add("sublinks-down");
+            kidsArrow.classList.add("rotate180");
+        } else if (e.key === "Tab" && (tabbed !== 'sublinks-kids') && kidsSub.classList.contains("sublinks-down")) {
+            kidsSub.classList.remove("sublinks-down");
+            kidsArrow.classList.remove("rotate180");
+        }
         if (e.key === "Tab" && (tabbed === 'dropdown-more' || tabbed === 'sublinks-more') && !moreSub.classList.contains("sublinks-down")) {
             moreSub.classList.add("sublinks-down");
             moreArrow.classList.add("rotate180");

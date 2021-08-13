@@ -225,6 +225,94 @@ const pageInjector = (p) => {
             const scrollId = document.getElementById(urlClean);
             scrollId.scrollIntoView();
         }
+    } else if (p.includes('kids')) {
+        if (fx.checkClass(`kids`)) {
+            let kidList = ``;
+            let endTime;
+            for (const kid of Data.kids) {
+                let kidDate;
+                let kidImg = ``;
+                let zoomLink = ``;
+                let kidTag = ``;
+                if (!kid.noendtime) {
+                    endTime = ` - ${Time.formatTime(Time.addHours(kid.datenominal, kid.length))}`;
+                } else {
+                    endTime = ``
+                }
+                if (kid.date === 'tbd') {
+                    kidDate = `Date:&nbsp;TBD`
+                } else if (kid.daterange) {
+                    kidDate = `${Time.weekday[kid.date[0].getDay()]}, ${Time.month[kid.date[0].getMonth()]} ${Time.formatDate(kid.date[0].getDate())} - ${Time.weekday[kid.date[1].getDay()]}, ${Time.month[kid.date[1].getMonth()]} ${Time.formatDate(kid.date[1].getDate())}`;
+                } else if (Array.isArray(kid.date) && kid.date.length > 1) {
+                    if (kid.date[0].getDate() === kid.date[1].getDate()) {
+                        kidDate = `${Time.weekday[kid.date[0].getDay()]}, ${Time.month[kid.date[0].getMonth()]} ${Time.formatDate(kid.date[0].getDate())}, ${Time.formatTime(kid.date[0])} and ${Time.formatTime(kid.date[1])}`;
+                    } else {
+                        kidDate = `${Time.weekday[kid.date[0].getDay()]}s at ${Time.formatTime(kid.date[0])}${endTime} <br>`
+                        kid.date.forEach((day, i) => {
+                            kidDate += `${Time.month[day.getMonth()]} ${Time.formatDate(day.getDate())}`
+                            if (i < kid.date.length-1) { kidDate += `,&nbsp;` }
+                        });
+                    }
+                } else if (Array.isArray(kid.date) && kid.date.length === 1) {
+                    kidDate = `${Time.weekday[kid.date[0].getDay()]}, ${Time.month[kid.date[0].getMonth()]} ${Time.formatDate(kid.date[0].getDate())}, ${Time.formatTime(kid.date[0])}${endTime}`
+                } else {
+                    kidDate = `${Time.weekday[kid.date.getDay()]}, ${Time.month[kid.date.getMonth()]} ${Time.formatDate(kid.date.getDate())}, ${Time.formatTime(kid.date)}${endTime}`
+                }
+                if (kid.tag === 'zoom') {
+                    kidTag = `<div class="snippet-tag snippet-tag-virtual">Virtual</div>`;
+                }
+                if (kid.form && ((kid.datenominal.getTime() - 86400000 >= Time.now) || kid.daterange || (kid.date === 'tbd'))) {
+                    zoomLink = `
+                    <a class="snippet-link" href="${kid.form}" target="_blank" ${fx.extchk(kid.form)}>
+                        <div class="snippet-link-inner">Sign-up form</div>
+                    </a>
+                    `
+                }
+                if (kid.formalt) {
+                    let formalt = kid.formalt;
+                    zoomLink += `
+                    <a class="snippet-link" href="${formalt.link}" target="_blank" ${fx.extchk(formalt.link)}>
+                        <div class="snippet-link-inner">${formalt.name}</div>
+                    </a>
+                    `
+                }
+                if (kid.zoom && (kid.datenominal.getTime() - 86400000 <= Time.now) && (Time.addHours(kid.datenominal, kid.length) >= Time.now)) {
+                    zoomLink = `
+                    <a class="snippet-zoom" href="${kid.zoom}" target="_blank" rel="noopener">
+                        <div class="snippet-zoom-inner"> Join now on
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 7 24 8">
+                                <path d="M4.585 13.607l-.27-.012H1.886l3.236-3.237-.013-.27a.815.815 0 00-.796-.796l-.27-.013H0l.014.27c.034.438.353.77.794.796l.27.013h2.43L.268 13.595l.014.269c.015.433.362.78.795.796l.27.013h4.046l-.014-.27c-.036-.443-.35-.767-.795-.795zm3.238-4.328h-.004a2.696 2.697 0 10.003 0zm1.141 3.841a1.619 1.619 0 11-2.289-2.288 1.619 1.619 0 012.289 2.288zM21.84 9.28a2.158 2.158 0 00-1.615.73 2.153 2.153 0 00-1.619-.732 2.148 2.148 0 00-1.208.37c-.21-.233-.68-.37-.949-.37v5.395l.27-.013c.45-.03.778-.349.796-.796l.013-.27v-1.889l.014-.27c.01-.202.04-.382.132-.54a1.078 1.079 0 011.473-.393 1.078 1.079 0 01.393.392c.093.16.12.34.132.54l.014.271v1.889l.013.269a.83.83 0 00.795.796l.27.013v-2.967l.012-.27c.01-.2.04-.384.134-.543.3-.514.96-.69 1.473-.39a1.078 1.079 0 01.393.393c.092.16.12.343.13.54l.015.27v1.889l.013.269c.028.443.35.77.796.796l.27.013v-3.237a2.158 2.158 0 00-2.16-2.156zm-10.263.788a2.697 2.698 0 103.811 3.816 2.697 2.698 0 00-3.811-3.816zm3.05 3.052a1.619 1.619 0 11-2.289-2.29 1.619 1.619 0 012.289 2.29z"/>
+                            </svg>
+                        </div>
+                    </a>
+                    `
+                }
+                if (kid.img && kid.imgalt) {
+                    kidImg = `<a href="img/kids/${kid.img}.png" target="_blank"><img class="snippet-img" src="img/kids/_${kid.img}.png" alt="${kid.imgalt}" ${kid.img === 'yoga' ? `style = "object-position: top;"` : ``}></a>`
+                }
+                if (Time.addHours(kid.datenominal, kid.length) >= Time.now) {
+                    kidList += `
+                    <div class="snippet">
+                        ${kidImg}
+                        <div class="snippet-body" id="${fx.eventid(kid.name, kid.datenominal)}">
+                            <p class="h4-link inline" >${kid.name}</p>${kidTag}
+                            <p class="comment-date">${kidDate}</p>
+                            <br>
+                            <p class="text">${kid.desc}</p>
+                            ${zoomLink}
+                        </div>
+                    </div>
+                    `
+                }
+            }
+            fx.setClass(`kids`, kidList)
+        }
+        // Autoscroll if linked
+        const urlClean = url.split("#")[1];
+        if (urlClean) {
+            const scrollId = document.getElementById(urlClean);
+            scrollId.scrollIntoView();
+        }
     } else if (p.includes('board')) {
         // Autoscroll if linked
         const urlClean = url.split("#")[1];
@@ -269,3 +357,4 @@ window.onload = () => {
     Access.hicontrast();
     Data.rev();
 };
+

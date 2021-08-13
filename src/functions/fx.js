@@ -1,10 +1,12 @@
+import * as Time from './time';
+
 export const checkClass = (c) => document.getElementsByClassName(c).length > 0;
 export const findClass = (c, n=0) => document.getElementsByClassName(c)[n];
 export const setClass = (c, str, n=0) => document.getElementsByClassName(c)[n].innerHTML = str;
 
-export const extchk = (str) => str.match('^http') ? `rel="noopener"` : ``;
+export const extchk = str => str.match('^http') ? `rel="noopener"` : ``;
 
-export const addClickListener = (fn) => {
+export const addClickListener = fn => {
     var fns = fn.toString();
     fns = fns.slice(fns.indexOf("{") + 1, fns.lastIndexOf("}"));
     const fne = new Function(fns + "\n" + 'e.preventDefault()');
@@ -12,7 +14,51 @@ export const addClickListener = (fn) => {
     window.addEventListener('click', fn);
 }
 
-const bitnot = (n) => {
+export const eventParser = yaml => {
+    yaml.forEach(event => {
+        if (event.zoom && !event.tag) {
+            event.tag = 'zoom';
+        }
+        if (event.date === 'tbd') {
+            event.datesortable = Time.addHours(Time.now, event.length);
+            event.datenominal = Time.addHours(Time.now, event.length);
+            event.zoom = false;
+        } else if (event.length === 'daterange') {
+            event.length = 1;
+            event.datenominal = event.date[1];
+            event.daterange = true;
+            if (event.date[0] < Time.now) {
+                event.datesortable = Time.now;
+            } else {
+                event.datesortable = event.date[0];
+            }
+        } else if (Array.isArray(event.date)) {
+            for (let i = 0; i < event.date.length; i++) {
+                let day = event.date[i];
+                if (Time.addHours(day, event.length) < Time.now && event.date.length !== 1) {
+                    event.date.shift();
+                    if (event.zoom) {
+                        event.zoom.shift();
+                    }
+                    i--;
+                } else {
+                    event.datesortable = day;
+                    event.datenominal = day;
+                    if (event.zoom) {
+                        event.zoom = event.zoom[0];
+                    }
+                    break;
+                } 
+            }
+        } else {
+            event.datesortable = event.date;
+            event.datenominal = event.date;
+        }
+    });
+    yaml = yaml.sort((a, b) => a.datesortable - b.datesortable);
+}
+
+const bitnot = n => {
     let output =  [];
     n = n.toString(2).padStart(3, '0').split('');
     n.forEach(nn => {

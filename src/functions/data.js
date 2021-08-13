@@ -7,6 +7,10 @@ const yaml = require('js-yaml');
 let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
 export let events = yaml.load(eventData);
 
+// Events data (childrens programming)
+let kidsData = fs.readFileSync('src/data/kids.yaml', 'utf8');
+export let kids = yaml.load(kidsData);
+
 // Add board meeting if 2nd Thursday
 /*if (Time.getR(0) < Time.now) {
     let boardObj = {
@@ -25,48 +29,9 @@ export let events = yaml.load(eventData);
     events.push(boardObj);
 }*/
 
-// Parse data
-events.forEach(event => {
-    if (event.zoom && !event.tag) {
-        event.tag = 'zoom';
-    }
-    if (event.date === 'tbd') {
-        event.datesortable = Time.addHours(Time.now, event.length);
-        event.datenominal = Time.addHours(Time.now, event.length);
-        event.zoom = false;
-    } else if (event.length === 'daterange') {
-        event.length = 1;
-        event.datenominal = event.date[1];
-        event.daterange = true;
-        if (event.date[0] < Time.now) {
-            event.datesortable = Time.now;
-        } else {
-            event.datesortable = event.date[0];
-        }
-    } else if (Array.isArray(event.date)) {
-        for (let i = 0; i < event.date.length; i++) {
-            let day = event.date[i];
-            if (Time.addHours(day, event.length) < Time.now && event.date.length !== 1) {
-                event.date.shift();
-                if (event.zoom) {
-                    event.zoom.shift();
-                }
-                i--;
-            } else {
-                event.datesortable = day;
-                event.datenominal = day;
-                if (event.zoom) {
-                    event.zoom = event.zoom[0];
-                }
-                break;
-            } 
-        }
-    } else {
-        event.datesortable = event.date;
-        event.datenominal = event.date;
-    }
-});
-events = events.sort((a, b) => a.datesortable - b.datesortable);
+// Parse all event data
+fx.eventParser(events);
+fx.eventParser(kids);
 
 // News data
 let newsData = fs.readFileSync('src/data/news.yaml', 'utf8');

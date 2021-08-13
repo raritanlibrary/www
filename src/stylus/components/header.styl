@@ -106,7 +106,7 @@
                 max-width 120px
             @media screen and (max-width 749px)
                 minion(18px, white)
-                padding calc((2 * 100vh - 700px) / 61) 20px
+                padding calc((2 * 100vh - 700px) / 67) 20px // 15=divide by 61
                 display flex
                 justify-content flex-end
         @media screen and (min-width 750px) and (max-width 949px)
@@ -201,10 +201,9 @@
     transform rotate(-180deg)
 .enlarge
     transform scale(1.2)
-#sublinks-more > .sublinks-item
-    &:nth-child(3n+3)
-        height 60px
-        & a
-            padding 14px 18px 0
-            @media screen and (min-width 750px) and (max-width 949px)
-                padding 16px 8px 0
+.sublinks-double
+    height 60px
+    & a
+        padding 14px 18px 0
+        @media screen and (min-width 750px) and (max-width 949px)
+            padding 16px 8px 0
