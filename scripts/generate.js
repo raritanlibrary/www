@@ -17,6 +17,7 @@ fs.writeFile('src/data/_REV', `${ltY}${ltM}${ltD}${md5}`.toUpperCase(), e => {})
 const statics = [
     "docs",
     "img/events",
+    "img/kids",
     "img/news",
     "robots.txt",
     ".htaccess"
