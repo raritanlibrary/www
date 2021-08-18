@@ -258,8 +258,9 @@ const pageInjector = (p) => {
                 } else {
                     kidDate = `${Time.weekday[kid.date.getDay()]}, ${Time.month[kid.date.getMonth()]} ${Time.formatDate(kid.date.getDate())}, ${Time.formatTime(kid.date)}${endTime}`
                 }
+                kidTag = `<div class="snippet-tag snippet-tag-kids">Ages ${kid.age}</div>`
                 if (kid.tag === 'zoom') {
-                    kidTag = `<div class="snippet-tag snippet-tag-virtual">Virtual</div>`;
+                    kidTag += `<div class="snippet-tag snippet-tag-virtual">Virtual</div>`;
                 }
                 if (kid.form && ((kid.datenominal.getTime() - 86400000 >= Time.now) || kid.daterange || (kid.date === 'tbd'))) {
                     zoomLink = `
@@ -357,4 +358,4 @@ window.onload = () => {
     Access.hicontrast();
     Data.rev();
 };
-
+
