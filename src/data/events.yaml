@@ -31,30 +31,6 @@
   img: yoga
   imgalt: Chair Yoga
 
-- name: "&ldquo;Elvis in Vegas&rdquo; Author Visit"
-  title: "&ldquo;Elvis in Vegas&rdquo;"
-  subtitle: Author Visit
-  date: 2021-08-12 18:30:00 -4
-  length: 1.5
-  noendtime: true
-  blurb: "Come meet Richard Zoglin, author of his latest book, &ldquo;Elvis in Vegas&rdquo; as he discusses the history of Las Vegas starting with the Rat Pack to Elvis' return to the concert scene in 1969 at the International Hotel."
-  desc: "Come meet Richard Zoglin, author of his latest book, &ldquo;Elvis in Vegas&rdquo; as he discusses the history of Las Vegas starting with the Rat Pack to Elvis' return to the concert scene in 1969 at the International Hotel. Richard Zoglin spent more than 30 years as an entertainment writer and critic for TIME Magazine and is also the author of two other critically acclaimed books: &ldquo;Comedy at the Edge&rdquo; and &ldquo;Hope (Bob), Entertainer of the Century&rdquo;. This week marks the anniversary of the death of Elvis Presley in August of 1977. Registration is required."
-  style: yellow
-  img: elvis
-  imgalt: Elvis in Vegas book cover
-
-- name: Rag Wreath Candle Holder
-  title: Virtual Wreath Craft
-  subtitle: with Michele Liana
-  date: 2021-08-26 18:30:00 -4
-  length: 1.5
-  blurb: Join Michele Liana in making this fun and easy candleholder made from fabric strips. A $10.00 fee is due at registration.
-  desc: "Join Michele Liana in making this fun and easy candleholder made from fabric strips. All materials will be supplied including a battery operated candle. A $10.00 fee applies and is due at registration. (Note: Fabric design/votive may vary slightly.)"
-  style: green
-  img: rag
-  imgalt: Rag Wreath Candle Holder
-  zoom: https://zoom.us/j/98490841828
-
 - name: Civil War Presentation
   title: Civil War Presentation
   subtitle: "with Tim Rack"
