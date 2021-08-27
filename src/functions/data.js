@@ -12,7 +12,7 @@ let kidsData = fs.readFileSync('src/data/kids.yaml', 'utf8');
 export let kids = yaml.load(kidsData);
 
 // Add board meeting if 2nd Thursday
-/*if (Time.getR(0) < Time.now) {
+if (Time.getR(0) < Time.now) {
     let boardObj = {
         "name": "RPL Board of Trustees Meeting",
         "title": "Board of Trustees",
@@ -27,7 +27,7 @@ export let kids = yaml.load(kidsData);
         "imgalt": "Board Meeting",
     };
     events.push(boardObj);
-}*/
+}
 
 // Parse all event data
 fx.eventParser(events);
@@ -71,9 +71,9 @@ export const eventInjector = () => {
                     eventDate = `<p class="event-${event.style}-date">${Time.weekday[event.date[0].getDay()]}s at ${Time.formatTime(event.date[0])}</p>`
                     eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.weekday[event.date[0].getDay()]}s at ${Time.formatTime(event.date[0])}</p>`
                     eventTime = `<p class="event-${event.style}-time">`
-                    event.date.forEach((day, i) => {
-                        eventTime += `${Time.month[day.getMonth()]} ${Time.formatDate(day.getDate())}`
-                        if (i < event.date.length-1) { eventTime += `,&nbsp;` }
+                    Time.datechunk(event.date).forEach((chunk, i) => {
+                        eventTime += chunk
+                        if (i < event.date.length-1) { eventTime += `<br>` }
                     });
                     eventTime += `</p>`;
                 }

@@ -69,6 +69,28 @@ export const addHours = (d, h) => {
     return dNew;
 }
 
+export const datechunk = arr => {
+    // [8,8,9,9,10]
+    let splitter = [0];
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i].getMonth() !== arr[i-1].getMonth()) {
+            splitter.push(i);
+        }
+    }
+    splitter.push(arr.length)
+    let output = [];
+    let datestr;
+    for (let i = 0; i < splitter.length-1; i++) {
+        datestr = `${month[arr[splitter[i]].getMonth()]} `;
+        for (let j = splitter[i]; j < splitter[i+1]; j++) {
+            datestr += formatDate(arr[j].getDate())
+            if (j < splitter[i+1]-1) { datestr += ` & ` }
+        }
+        output.push(datestr);
+    }
+    return output;
+}
+
 export let hoursData = fs.readFileSync('src/data/hours.yaml', 'utf8');
 export let hoursYaml = yaml.load(hoursData);
 export const hours = hoursYaml.hours;
