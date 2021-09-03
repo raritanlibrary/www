@@ -63,3 +63,38 @@
   style: blue
   img: basilone
   imgalt: Sergeant John Basilone, pictured in 1943 during his service with the United States Marine Corps
+
+
+- name: "Somerset County&#8217;s &ldquo;Journey Through the Past&rdquo; Weekend" 
+  title: Somerset County&#8217;s
+  subtitle: "&ldquo;Journey Through the Past&rdquo;"
+  date: [2021-10-09 12:00:00 -4, 2021-10-10 12:00:00 -4]
+  length: daterange
+  blurb: The Library will be open for self-guided history tours on Saturday from 10:00am to 5:00pm and again on Sunday from 12:00pm until 4:00pm.
+  desc: Raritan Public Library will again be participating in the annual Somerset County Journey Through the Past event. Our Library will be open for self-guided tours on Saturday from 10:00am to 5:00pm and again on Sunday from 12:00pm until 4:00pm. A Library staff member will greet you on the front porch, give you hand-outs on our historic building and relay some important facts.
+  style: orange
+  img: jttp
+  imgalt: Journey through the Past logo
+
+- name: Colonial Blacksmithing Presentation
+  title: Colonial Blacksmiths
+  subtitle: with Dave &ldquo;Sarge&rdquo; Bala
+  date: 2021-10-10 12:00:00 -4
+  length: 4
+  blurb: Join Dave &ldquo;Sarge&rdquo; Bala as he demonstrates blacksmithing techniques and discusses the historical importance of this vital trade.
+  desc: Join Dave &ldquo;Sarge&rdquo; Bala as he demonstrates blacksmithing techniques and presents information on this vital trade from the 18th century through today. He will include topics such as coal/ore mining during the Revolutionary War, the Iron Tax of 1750, types of coal and its uses, the role and tools of the Blacksmith during the Revolutionary War/Colonial period, and apprenticeships.
+  style: gray
+  img: blacksmith
+  imgalt: A blacksmith forging hot metal
+
+- name: "&ldquo;Tickle Me&rdquo; Movie Night"
+  title: "Movie: &ldquo;Tickle Me&rdquo;"
+  subtitle: starring Elvis Presley
+  date: 2021-10-14 18:30:00 -4
+  length: 1.5
+  noendtime: true
+  blurb: Elvis plays an out-of-work rodeo star who takes a job at a women's health camp where he meets fitness trainer, Pam Merritt (Jocelyn Lane). Refreshments served. Registration is required. 
+  desc: Elvis plays an out-of-work rodeo star who takes a job at a women's health camp where he meets fitness trainer, Pam Merritt (Jocelyn Lane). Together he and Lane find buried gold in a nearby western haunted ghost town. As this was Elvis&#8217; first straight comedy, the film is full of slapstick, stunts, fun, laughs and, of course, great music. Refreshments served. Registration is required. 
+  style: orange
+  img: tickle
+  imgalt: A snippet from the movie poster for Tickle Me, depicting Elvis Presley as Lonnie Beale and Jocelyn Lane as Pamela Meritt
