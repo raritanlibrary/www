@@ -82,7 +82,7 @@
   date: 2021-10-10 12:00:00 -4
   length: 4
   blurb: Join Dave &ldquo;Sarge&rdquo; Bala as he demonstrates blacksmithing techniques and discusses the historical importance of this vital trade.
-  desc: Join Dave &ldquo;Sarge&rdquo; Bala as he demonstrates blacksmithing techniques and presents information on this vital trade from the 18th century through today. He will include topics such as coal/ore mining during the Revolutionary War, the Iron Tax of 1750, types of coal and its uses, the role and tools of the Blacksmith during the Revolutionary War/Colonial period, and apprenticeships.
+  desc: Join Dave &ldquo;Sarge&rdquo; Bala as he demonstrates blacksmithing techniques and presents information on this vital trade from the 18th century through today. He will include topics such as coal/ore mining during the Revolutionary War, the Iron Tax of 1750, types of coal and its uses, the role and tools of the blacksmith during the Revolutionary War/Colonial period, and apprenticeships.
   style: gray
   img: blacksmith
   imgalt: A blacksmith forging hot metal
@@ -98,3 +98,15 @@
   style: orange
   img: tickle
   imgalt: A snippet from the movie poster for Tickle Me, depicting Elvis Presley as Lonnie Beale and Jocelyn Lane as Pamela Meritt
+
+- name: "&ldquo;Dressed to Kill&rdquo;"
+  title: "&ldquo;Dressed to Kill&rdquo;"
+  subtitle: with Dana Bala
+  date: 2021-10-28 18:30:00 -4
+  length: 1.5
+  noendtime: true
+  blurb: Join textile and fashion historian, Dana Bala with a fascinating talk on some of the most lethal fashion practices in history, with a focus on the Victorian and Edwardian periods. Registration is required.
+  desc: From arsenic in clothing, to blazing crinolines, to lead in cosmetics, throughout history, we have worn deadly clothing and makeup to be at the height of fashion...even if it kills us. Textile and fashion historian, Dana Bala, will present a fascinating talk on some of the most lethal fashion practices in history, focusing on the Victorian and Edwardian periods, when people were literally &ldquo;Dressed to Kill.&rdquo; Registration is required. 
+  style: green
+  img: arsenic
+  imgalt: A Victorian-style dress, alongside a can of Berger's Pure Paris Green toxic paint
