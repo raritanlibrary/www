@@ -48,7 +48,7 @@ export const eventInjector = () => {
             let eventTime;
             let eventDateMobile;
             let zoomLink = ``;
-            if (displayed === 3 ) { break };
+            if (displayed === 4 ) { break };
             if (!event.noendtime) {
                 endTime = ` - ${Time.formatTime(Time.addHours(event.datenominal, event.length))}`;
             } else {
