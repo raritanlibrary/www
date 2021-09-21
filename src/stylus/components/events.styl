@@ -114,10 +114,16 @@ event-template(type)
             margin-top 6px
         &-inner
             perpetua(18px, var(--alt-text), bold)
-    &-spacer
-        spacer(-0.5)
+    &-extend
+        spacer(1)
         @media screen and (max-width 949px)
             spacer(0)
+        &-inner
+            @media screen and (max-width 949px)
+                display flex
+                flex-flow column wrap
+                justify-content center
+                height 103px
     &-red
         event-template('red')
     &-orange

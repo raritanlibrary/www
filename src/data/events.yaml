@@ -30,41 +30,6 @@
   img: yoga
   imgalt: Chair Yoga
 
-- name: Civil War Presentation
-  title: Civil War Presentation
-  subtitle: "with Tim Rack"
-  date: 2021-09-09 18:30:00 -4
-  length: 1
-  blurb: Tim Rack, a member of the Raritan Historic and Cultural Committee and a Civil War reenactor for many years, will display and talk about uniforms, weapons, gear, and food that was arried and used by Civil War soldiers.
-  desc: What did a Civil War soldier wear and carry while fighting in America's bloodiest conflict? If you'd like to learn, come to the Raritan Public Library on September 9, 2021 to find out. Tim Rack, a member of the Raritan Historic and Cultural Committee and a Civil War reenactor for many years, will display and talk about the uniforms, weapons, gear, and food that was carried and used by a typical Civil War soldier. The hour long talk starts at 6:30pm and will include a question and answer period.
-  style: orange
-  img: civilwar
-  imgalt: A painting of an American Civil War soldier from the Union
-
-- name: "Outdoor Concert: &ldquo;A Tribute to Elvis Through the Years&rdquo;"
-  title: Elvis Outdoor Concert
-  subtitle: Elvis Through the Years
-  date: 2021-09-18 13:00:00 -4
-  length: 2
-  noendtime: true
-  blurb: Award-winning Elvis Tribute Artist, Jim Barone, will perform songs from all three Elvis Eras (1950's - 1970's) at a special outdoor concert. Reservation is required in advance.
-  desc: Award-winning Elvis Tribute Artist, Jim Barone, will perform songs from all three Elvis eras (1950's - 1970's) at an outdoor concert during John Basilone Weekend. The concert will include two 45-minute shows with an intermission break. Reserve a spot for this special event by calling the Library at (908) 725-0413.
-  style: red
-  img: elvis2
-  imgalt: Elvis Presley in his signature red jumpsuit
-
-- name: John Basilone Parade Day
-  title: John Basilone Parade
-  subtitle: Special Open Hours
-  date: 2021-09-19 10:00:00 -4
-  length: 3
-  blurb: Raritan Public Library will be open preceding the 40th annual John Basilone Parade, featuring displays, news clips, and memorabilia on our hometown hero Sgt. John Basilone.
-  desc: Preceding the 40th annual John Basilone Parade, Raritan Public Library will be open from 10:00 AM until 1:00 PM with displays, news clips, and memorabilia on our hometown hero Sgt. John Basilone. Registration is not required.
-  style: blue
-  img: basilone
-  imgalt: Sergeant John Basilone, pictured in 1943 during his service with the United States Marine Corps
-
-
 - name: "Somerset County&#8217;s &ldquo;Journey Through the Past&rdquo; Weekend" 
   title: Somerset County&#8217;s
   subtitle: "&ldquo;Journey Through the Past&rdquo;"

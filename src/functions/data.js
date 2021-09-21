@@ -48,6 +48,7 @@ export const eventInjector = () => {
             let eventTime;
             let eventDateMobile;
             let zoomLink = ``;
+            let extender = [" event-extend", " event-extend-inner"];
             if (displayed === 4 ) { break };
             if (!event.noendtime) {
                 endTime = ` - ${Time.formatTime(Time.addHours(event.datenominal, event.length))}`;
@@ -96,20 +97,14 @@ export const eventInjector = () => {
                     </div>
                 </a>
                 `
-            } else {
-                zoomLink = `
-                <a class="event-more" href="programs#${fx.eventid(event.name, event.datenominal)}">
-                    <div class="event-more-inner">Learn more</div>
-                </a>
-                <div class="event-spacer"></div>
-                `
+                extender = ["", ""]
             }
             if (Time.addHours(event.datenominal, event.length) >= Time.now) {
                 eventList += `
-                <div class="event">
+                <div class="event${extender[0]}">
                     <div class="event-${event.style}" style="background-image: url(./img/events/_${event.img}.png")>
                         <a class="event-${event.style}-link" href="programs#${fx.eventid(event.name, event.datenominal)}">
-                            <div class="event-${event.style}-cover">
+                            <div class="event-${event.style}-cover${extender[1]}">
                                 <p class="event-${event.style}-title">${event.title}</p>
                                 <p class="event-${event.style}-subtitle">${event.subtitle}</p>
                                 <hr class="event-${event.style}-hr" />
