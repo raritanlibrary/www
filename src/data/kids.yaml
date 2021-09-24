@@ -13,6 +13,7 @@
 #  img                   image in img/events-kids/*
 #  imgalt                image alt attribute
 #  form                  link to registration form
+#                        currently set to a default in main.js
 #  formalt               secondary form/information
 #  --link                link to secondary form/information
 #  --name                name of button
@@ -22,38 +23,26 @@
 #  title/subtitle, blurb, style unneeded for now
 ##############################################################
 
-- name: Read with Riley
-  date: 2021-08-16 10:30:00 -4
-  length: 1
+- name: Storytime at the Library
+  date: [2021-09-28 10:30:00 -4, 2021-10-05 10:30:00 -4, 2021-10-12 10:30:00 -4, 2021-10-19 10:30:00 -4]
+  length: 0.75
   age: 0 - 18
-  desc: Riley, a certified therapy dog, will be visiting the library to hear stories! We'll start by reading one together and then take turns with Riley. All ages and reading levels are encouraged to attend. Riley likes stories of all kinds-even the ones you make up yourself!
-  img: readwriley
-  imgalt: Riley, a certified therapy dog
-  form: https://docs.google.com/forms/d/e/1FAIpQLSexzMC0KhtjIMRZT1yVBla-fFVZe69UB3f0g0KgkFFQaj5K_g/viewform
+  desc: "Children are invited to join Miss Amber for music, movement, stories, and crafts centered around a theme that changes every week! All children are welcome, we don't require you to be still or silent to join!"
+  img: storytime
+  imgalt: Children gathered around an open book
 
-- name: Animal Guess Who
-  date: 2021-08-18 14:00:00 -4
-  length: 1
-  age: 6 - 10
-  desc: How well do you <i>think</i> you know animals? Put your skills to the test with this fun game of Animal Guess Who! Registration is required.
-  img: guesswho
-  imgalt: A silhouette of a deer with a question mark overlaid onto it
-  form: https://docs.google.com/forms/d/e/1FAIpQLSexzMC0KhtjIMRZT1yVBla-fFVZe69UB3f0g0KgkFFQaj5K_g/viewform
-
-- name: Owl Pellet Dissection
-  date: 2021-08-20 14:00:00 -4
-  length: 1
-  age: 8 - 18
-  desc: Owls are pretty cool. They can turn their necks almost all the way around, they have binocular vision, and some can detect prey up to a half mile away. But do you know how cool their <i>poop</i> is? Come get your hands dirty- literally!- and dissect a real owl pellet. Registration is required.
-  img: owlpellet
-  imgalt: A burrowing owl
-  form: https://docs.google.com/forms/d/e/1FAIpQLSexzMC0KhtjIMRZT1yVBla-fFVZe69UB3f0g0KgkFFQaj5K_g/viewform
-
-- name: "Turtle Dance Music presents: Tails and Tales!"
-  date: 2021-08-21 13:00:00 -4
-  length: 1
+- name: Storytime at Frelinghuysen Park
+  date: [2021-09-30 10:30:00 -4, 2021-10-07 10:30:00 -4, 2021-10-14 10:30:00 -4, 2021-10-21 10:30:00 -4]
+  length: 0.75
   age: 0 - 18
-  desc: Flap your wings, jump up and down like five little monkeys jumping on the bed and roar like a polar bear! This performance celebrates famous children's stories and songs about animals including a few written by adults on the autism spectrum! The show will also celebrate biodiversity - the more wild our planet is the healthier it is! Kids will dance, sing, laugh, use their imaginations and connect with new friends. The show is crafted to be inclusive for all children, including children on the autism spectrum, and a great time for parents and caregivers! Each song in the 30-minute show is accompanied by hands-on, visual, and sensory experiences designed to help kids learn and have fun at the same time. 
-  img: turtledance
-  imgalt: A cartoon turtle holding a guitar
-  form: https://docs.google.com/forms/d/e/1FAIpQLSexzMC0KhtjIMRZT1yVBla-fFVZe69UB3f0g0KgkFFQaj5K_g/viewform
+  desc: "Children are invited to join Miss Amber for music, movement, stories, and crafts centered around a theme that changes every week! All children are welcome, we don't require you to be still or silent to join!"
+  img: storytime-park
+  imgalt: Clip art illustration of a park with an open book
+
+- name: "YA Book Club Meeting"
+  date: 2021-09-29 18:00:00 -4
+  length: 1
+  age: 13 - 18
+  desc: "<b>This Month: <i>Sunny Song Will Never Be Famous</i> by Suzanne Park</b><br>Sunny Song's Big Summer Goals: [1] Make Rafael Kim my boyfriend (finally!) [2] Hit 100K followers (almost there...) [3] Have the best last summer of high school ever. Not on Sunny's list? Accidentally filming a PG-13 cooking video that goes viral —III (#browniegate). Extremely not on her list? Being shipped off to a digital-detox farm camp in Iowa (IOWA??) for a whole month. She's trading in her Wi-Fi connection for a butter churn, and if she wants any shot at growing her social media platform this summer, she'll need to find a way back online. But between some unexpected friendships and an alarmingly cute farm boy, Sunny might be surprised by the connections she makes when she's forced to disconnect."
+  img: sunny-song
+  imgalt: A stylized digital illustration of a chicken

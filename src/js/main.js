@@ -234,6 +234,7 @@ const pageInjector = (p) => {
                 let kidImg = ``;
                 let zoomLink = ``;
                 let kidTag = ``;
+                kid.form = "https://docs.google.com/forms/d/e/1FAIpQLSexzMC0KhtjIMRZT1yVBla-fFVZe69UB3f0g0KgkFFQaj5K_g/viewform"
                 if (!kid.noendtime) {
                     endTime = ` - ${Time.formatTime(Time.addHours(kid.datenominal, kid.length))}`;
                 } else {
