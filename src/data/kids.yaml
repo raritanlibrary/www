@@ -57,7 +57,7 @@
 
 - name: Virtual Author Visit with Craig Sidell
   date: 2021-10-13 17:00:00 -4
-  length: 0.666
+  length: 0.67
   age: 0 - 18
   desc: Join Craig Sidell, author of <i>The Life and Time of Fuzzy Wuzzy</i> for a live reading of his story on Zoom.<br><br>&ldquo;In this retelling of a well-known tale, hairless bear Fuzzy Wuzzy leads a jolly existence. He has a loving wife and cares very much for his bear cub. He's also a dancer and singer who helps out other animals in need and lives a comfortable life that's full in every measure aside from his lack of fur.&rdquo; &mdash;Kirkus Reviews
   img: craig-sidell
@@ -96,3 +96,11 @@
   desc: Put on your favorite pajamas, grab your stuffie, and join Miss Amber for an evening of stories, songs, and crafts. All children are welcome, we don't require you to be still or silent to join!
   img: storytime-pj
   imgalt: A cartoon illustration of a girl dressed up in unicorn pajamas, holding a pillow
+
+- name: "Little Neighbors: Bulding a Better World Together"
+  date: 2021-10-15 10:30:00 -4
+  length: 0.75
+  age: 0 - 6
+  desc: Your favorite <i>Sesame Street</i> characters are joining us for this fun program that focuses on teaching children the importance of kindness and cooperation. If you cannot join us for the program you can take the materials home.
+  img: neighbors
+  imgalt: A cartoon illustration of children outside of a library

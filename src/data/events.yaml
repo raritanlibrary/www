@@ -22,7 +22,7 @@
 - name: Chair Yoga with Breda
   title: Chair Yoga
   subtitle: with Breda
-  date: [2021-09-09 14:00:00 -4, 2021-09-23 14:00:00 -4, 2021-10-07 14:00:00 -4, 2021-10-21 14:00:00 -4]
+  date: [2021-10-21 14:00:00 -4]
   length: 1
   blurb: Join our popular &ldquo;Chair Yoga&rdquo; instructor, Breda, for a chair yoga session designed to strengthen muscles and improve flexibility. No prior yoga experience is necessary.
   desc: Join our popular &ldquo;Chair Yoga&rdquo; instructor, Breda, for a chair yoga session that will guide participants safely and effectively through a series of yoga movements which are designed to strengthen muscles and improve flexibility. Sessions will last approximately one hour, and no prior yoga experience is necessary. Please wear comfortable clothing to the class.
@@ -75,3 +75,27 @@
   style: green
   img: arsenic
   imgalt: A Victorian-style dress, alongside a can of Berger's Pure Paris Green toxic paint
+
+- name: Female Spies of WWII
+  title: Female Spies of WWII
+  subtitle: with Alisa Dupuy
+  date: 2021-11-09 18:30:00 -5
+  length: 1.5
+  noendtime: true
+  blurb: Join historic re-enactor Alisa Dupuy as she portrays Vera Atikins, real-life British spy mistress, of World War II. Learn about other female spies who risked their lives to aid their country. Registration is required.
+  desc: Join Alisa Dupuy as she portrays Vera Atikins, real-life British spy mistress, of World War II. You will also learn about other female spies who risked their lives to aid their country. Historic re-enactor, Alisa Dupuy, is a French teacher who enjoys recounting the lives of important women in history. This program is funded by the Raritan Historic and Cultural Committee. Registration is required. 
+  style: blue
+  img: spies
+  imgalt: A colorized image of Vera Atikins
+
+- name: Annual Book Sale
+  title: Annual Book Sale
+  subtitle: at Raritan Public Library
+  date: [2021-12-03 10:00:00 -5, 2021-12-04 10:00:00 -5]
+  length: daterange
+  noendtime: true
+  blurb: The &ldquo;Friends&rdquo; of the Raritan Public Library will be holding its annual book sale. This is a great opportunity to purchase books and other materials for bargain prices and as holiday gifts.
+  desc: The &ldquo;Friends&rdquo; of the Raritan Public Library will be holding a book sale on Friday, December 3rd and Saturday, December 4th. This is a great opportunity to purchase books and other materials for bargain prices. Many items in our &ldquo;like-new&rdquo; condition will make wonderful holiday gifts. The library will glady accept &ldquo;gently used&rdquo; materials for the sale beginning on November 1st. No textbooks or manuals, please.
+  style: red
+  img: booksale
+  imgalt: A cartoon illustration of a pile of books
