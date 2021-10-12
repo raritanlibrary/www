@@ -32,6 +32,8 @@ const pageInjector = (p) => {
                 if (displayed === 3 ) { break };
                 if (post.img && post.imgalt && post.imglink) {
                     newsImg = `<a href="${post.imglink}" target="_blank" ${fx.extchk(post.imglink)}><img class="snippet-img" src="img/news/${post.img}.png" alt="${post.imgalt}"}></a>`
+                } else if (post.img && post.imgalt) {
+                    newsImg = `<img class="snippet-img" src="img/news/${post.img}.png" alt="${post.imgalt}"}>`
                 }
                 if (post.buttons) {
                     for (const button of post.buttons) {
@@ -75,6 +77,8 @@ const pageInjector = (p) => {
                 let newsImg = ``;
                 if (post.img && post.imgalt && post.imglink) {
                     newsImg = `<a href="${post.imglink}" target="_blank" ${fx.extchk(post.imglink)}><img class="snippet-img" src="img/news/${post.img}.png" alt="${post.imgalt}"}></a>`
+                } else if (post.img && post.imgalt) {
+                    newsImg = `<img class="snippet-img" src="img/news/${post.img}.png" alt="${post.imgalt}"}>`
                 }
                 if (post.buttons) {
                     for (const button of post.buttons) {

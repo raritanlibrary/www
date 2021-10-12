@@ -88,14 +88,14 @@
   img: spies
   imgalt: A colorized image of Vera Atkins
 
-- name: Annual Book Sale
-  title: Annual Book Sale
-  subtitle: at Raritan Public Library
-  date: [2021-12-03 10:00:00 -5, 2021-12-04 10:00:00 -5]
-  length: daterange
+- name: The History and Stories of Diners in New Jersey
+  title: Diners in New Jersey
+  subtitle: with Michael Gabriele
+  date: 2021-11-30 18:30:00 -5
+  length: 1.5
   noendtime: true
-  blurb: The &ldquo;Friends&rdquo; of the Raritan Public Library will be holding its annual book sale. This is a great opportunity to purchase books and other materials for bargain prices and as holiday gifts.
-  desc: The &ldquo;Friends&rdquo; of the Raritan Public Library will be holding a book sale on Friday, December 3rd and Saturday, December 4th. This is a great opportunity to purchase books and other materials for bargain prices. Many items in our &ldquo;like-new&rdquo; condition will make wonderful holiday gifts. The library will glady accept &ldquo;gently used&rdquo; materials for the sale beginning on November 1st. No textbooks or manuals, please.
-  style: red
-  img: booksale
-  imgalt: A cartoon illustration of a pile of books
+  blurb: Join local author, Michael Gabriele, as he discusses two of his popular books written about New Jersey being the &ldquo;Diner Capital of the World&rdquo;. Registration is required.
+  desc: Join local author, Michael Gabriele, as he discusses two of his popular books written about New Jersey being the &ldquo;Diner Capital of the World&rdquo;. For more than 100 years diners have played an important role in the Garden State’s history as gathering places for the community. Diner experiences&mdash; good food, encounters with friends and strangers, and the memories they inspire reflect the State's spirit, culture, and mythology. Registration is required. 
+  style: blue
+  img: diners
+  imgalt: A photo collage of diners located in New Jersey
