@@ -24,7 +24,7 @@
 ##############################################################
 
 - name: Storytime at the Library
-  date: [2021-10-05 10:30:00 -4, 2021-10-12 10:30:00 -4, 2021-10-19 10:30:00 -4, 2021-10-26 10:30:00 -4]
+  date: [2021-11-02 10:30:00 -4, 2021-11-09 10:30:00 -5, 2021-11-16 10:30:00 -5, 2021-11-23 10:30:00 -5, 2021-11-30 10:30:00 -5] #, 2021-12-07 10:30:00 -5, 2021-12-14 10:30:00 -5, 2021-12-21 10:30:00 -5, 2021-12-28 10:30:00 -5]
   length: 0.75
   age: 0 - 18
   desc: "Children are invited to join Miss Amber for music, movement, stories, and crafts centered around a theme that changes every week! All children are welcome, we don't require you to be still or silent to join!"
@@ -32,7 +32,7 @@
   imgalt: Children gathered around an open book
 
 - name: Storytime at Frelinghuysen Park
-  date: [2021-10-07 10:30:00 -4, 2021-10-14 10:30:00 -4, 2021-10-21 10:30:00 -4, 2021-10-28 10:30:00 -4]
+  date: [2021-10-28 10:30:00 -4, 2021-11-04 10:30:00 -4, 2021-11-18 10:30:00 -5, 2021-12-02 10:30:00 -5, 2021-12-09 10:30:00 -5] #, 2021-12-16 10:30:00 -5, 2021-12-23 10:30:00 -5, 2021-12-30 10:30:00 -5]
   length: 0.75
   age: 0 - 18
   desc: Children are invited to join Miss Amber for music, movement, stories, and crafts centered around a theme that changes every week! All children are welcome, we don't require you to be still or silent to join!
@@ -47,22 +47,6 @@
   img: well-girl
   imgalt: A young, ghastly-looking girl in a dead forest
 
-- name: Painted Paper Collages with The Hummingbird Studio
-  date: 2021-10-02 11:00:00 -4
-  length: 1
-  age: 0 - 18
-  desc: Join Miss Amber and Sarah DeWire of The Hummingbird Studio for a morning of stories and art! We'll be creating our own paper collages inspired by the classic <i>Brown Bear, Brown Bear What Do You See?</i> by Bill Martin, Jr.
-  img: collages
-  imgalt: The front cover of the book Brown Bear, Brown Bear What Do You See by Bill Martin Junior
-
-- name: Virtual Author Visit with Craig Sidell
-  date: 2021-10-13 17:00:00 -4
-  length: 0.67
-  age: 0 - 18
-  desc: Join Craig Sidell, author of <i>The Life and Time of Fuzzy Wuzzy</i> for a live reading of his story on Zoom.<br><br>&ldquo;In this retelling of a well-known tale, hairless bear Fuzzy Wuzzy leads a jolly existence. He has a loving wife and cares very much for his bear cub. He's also a dancer and singer who helps out other animals in need and lives a comfortable life that's full in every measure aside from his lack of fur.&rdquo; &mdash;Kirkus Reviews
-  img: craig-sidell
-  imgalt: The front cover of the book The Life and Time of Fuzzy Wuzzy by Craig Sidell
-  zoom: https://zoom.us/
 
 - name: Monster Mash Party
   date: 2021-10-27 18:00:00 -4
@@ -71,36 +55,3 @@
   desc: Celebrate all things silly and spooky at our Monster Mash party! We'll dance, play games, make a craft, and most importantly, trick or treat! Costumes are encouraged but not required.
   img: monster-mash
   imgalt: Three cartoon illustrations of a ghost, a skeleton, and a green monster in party hats
-
-- name: DIY Playdough
-  date: 2021-10-22 11:00:00 -4
-  length: 1
-  age: 0 - 12
-  desc: Spend the morning learning how to make your very own Playdough and then enjoy some free play time! Materials will be provided.
-  img: playdough
-  imgalt: A cartoon illustration of a person shaping playdough
-
-- name: Pumpkin Painting
-  date: 2021-10-20 17:00:00 -4
-  length: 1
-  age: 0 - 12
-  desc: Help us decorate for the season! Create your very own masterpiece on a real pumpkin and display it in our yard, or take it home for your own! Materials will be provided.
-  img: pumpkin-painting
-  imgalt: A cartoon illustration of a pumpkin with a funny-looking face
-
-- name: Pajama Storytime
-  date: 2021-10-06 18:00:00 -4
-  length: 2
-  noendtime: true
-  age: 0 - 18
-  desc: Put on your favorite pajamas, grab your stuffie, and join Miss Amber for an evening of stories, songs, and crafts. All children are welcome, we don't require you to be still or silent to join!
-  img: storytime-pj
-  imgalt: A cartoon illustration of a girl dressed up in unicorn pajamas, holding a pillow
-
-- name: "Little Neighbors: Bulding a Better World Together"
-  date: 2021-10-15 10:30:00 -4
-  length: 0.75
-  age: 0 - 6
-  desc: Your favorite <i>Sesame Street</i> characters are joining us for this fun program that focuses on teaching children the importance of kindness and cooperation. If you cannot join us for the program you can take the materials home.
-  img: neighbors
-  imgalt: A cartoon illustration of children outside of a library
