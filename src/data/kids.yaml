@@ -47,11 +47,69 @@
   img: well-girl
   imgalt: A young, ghastly-looking girl in a dead forest
 
-
-- name: Monster Mash Party
-  date: 2021-10-27 18:00:00 -4
+- name: Storytime and Craft with the Country Garden Club 
+  date: 2021-11-06 10:30:00 -4
   length: 1
-  age: 0 - 13
-  desc: Celebrate all things silly and spooky at our Monster Mash party! We'll dance, play games, make a craft, and most importantly, trick or treat! Costumes are encouraged but not required.
-  img: monster-mash
-  imgalt: Three cartoon illustrations of a ghost, a skeleton, and a green monster in party hats
+  age: 0 - 18
+  desc: "The Country Garden Club will be teaching us the importance of being good environmental stewards.They will be reading <b>The Frightened Frog: An Environmental Tale</b> and teaching us how to make some adorable frog puppets! Registration is required."
+  img: storytime-garden
+  imgalt: A cartoon illustration of a frog
+
+- name: Read with Riley
+  date: 2021-11-15 10:30:00 -5
+  length: 1
+  age: 0 - 18
+  desc: Riley, a certified therapy dog, will be visiting the library to hear stories! We'll start by reading one together and then take turns with Riley. All ages and reading levels are encouraged to attend. Riley likes stories of all kinds-even the ones you make up yourself!
+  img: readwriley
+  imgalt: Riley, a certified therapy dog
+
+- name: Pajama Storytime
+  date: 2021-11-10 18:00:00 -5
+  length: 2
+  noendtime: true
+  age: 0 - 18
+  desc: Put on your favorite pajamas, grab your stuffie, and join Miss Amber for an evening of stories, songs, and crafts. All children are welcome, we don't require you to be still or silent to join!
+  img: storytime-pj
+  imgalt: A cartoon illustration of a girl dressed up in unicorn pajamas, holding a pillow
+
+- name: "YA Book Club Meeting"
+  date: 2021-11-24 16:00:00 -5
+  length: 1
+  age: 13 - 18
+  desc: "<b>This Month: <i>Cemetery Boys</i> by Aidan Thomas</b><br><br>&ldquo;When his traditional Latinx family has problems accepting his true gender, Yadriel becomes determined to prove himself a real brujo. With the help of his cousin and best friend, Maritza, he performs the ritual himself and then sets out to find the ghost of his murdered cousin and set it free.&rdquo;<br><br>Available as an eBook and eAudio for free on hooplaDigital."
+
+- name: Paint With Your Pet
+  date: 2021-11-12 15:00:00 -5
+  length: 2
+  age: 0 - 18
+  desc: Join us to try your "paw" at the viral TikTok trend. Works best with dogs, but other animal friends are welcome as well!
+
+- name: Wii Game Night
+  date: 2021-11-17 16:00:00 -5
+  length: 2
+  age: 8 - 18
+  desc: Fight your friends for virtual supremacy in the classic <i>Super Smash Bros. Brawl</i>!
+
+- name: Rag Dolls
+  date: 2021-11-15 16:00:00 -5
+  length: 1
+  age: 10 - 18
+  desc: Teen volunteer Emily will be teaching us how to create our very own rag doll.
+
+- name: Thanksgiving Storytime and Community Outreach
+  date: 2021-11-19 16:00:00 -5
+  length: 1
+  age: 0 - 18
+  desc: Join Miss Amber and the Raritan Food Pantry for a special Thanksgiving Storytime and to learn about how the Raritan Food Pantry is combating food insecurity in our community. Donations of personal hygene items are requested.
+
+- name: Diwali Celebration with Enjoy Explore India
+  date: 2021-11-20 13:30:00 -5
+  length: 1.334
+  age: 0 - 18
+  desc: Seema Moondra of Enjoy Explore India will be teaching us a special Diwali dance and craft, and we'll read a special Diwali story!
+
+- name: English Club for Adults
+  date: 2021-11-20 11:00:00 -5
+  length: 1
+  age: 0 - 18
+  desc: Join other adults in our community to practice your English. Have little ones? No problem! Miss Amber will be offering a Storytime and craft while you chat!

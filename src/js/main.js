@@ -294,7 +294,7 @@ const pageInjector = (p) => {
                     `
                 }
                 if (kid.img && kid.imgalt) {
-                    kidImg = `<a href="img/kids/${kid.img}.png" target="_blank"><img class="snippet-img" src="img/kids/_${kid.img}.png" alt="${kid.imgalt}" ${kid.img === 'yoga' ? `style = "object-position: top;"` : ``}></a>`
+                    kidImg = `<img class="snippet-img" src="img/kids/_${kid.img}.png" alt="${kid.imgalt}" ${kid.img === 'yoga' ? `style = "object-position: top;"` : ``}`
                 }
                 if (Time.addHours(kid.datenominal, kid.length) >= Time.now) {
                     kidList += `
