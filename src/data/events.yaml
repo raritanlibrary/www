@@ -65,3 +65,15 @@
   style: grey
   img: beyond-tomorrow
   imgalt: A black and white still from the movie Beyond Tomorrow. On the left, actor Richard Carlson plays James Houston. On the right, actress Jean Parker plays Jean Lawrence. The still shows the two characters looking at each other with concern
+
+- name: "The OTHER Mentalist LIVE"
+  title: The OTHER Mentalist
+  subtitle: Tom Kennedy LIVE at RPL
+  date: 2021-12-09 18:30:00 -5
+  length: 1.5
+  noendtime: true
+  blurb: Come see local resident, Tom Kennedy, perform as the OTHER Mentalist and witness light-hearted telepathy and other mind games that will leave you amazed and laughing. Register early as seating is limited.
+  desc: Come see local resident, Tom Kennedy, perform as the OTHER Mentalist and witness light-hearted, humorous, and interactive demonstrations of telepathy and other mind games that will leave you amazed and laughing. Register early for this popular, entertaining show! Seating is limited.
+  style: red
+  img: mentalist
+  imgalt: Tom Kennedy performing as the OTHER Mentalist. A deck of cards can be seen scattering out of his hand and into the air
