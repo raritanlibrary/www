@@ -24,7 +24,7 @@
 ##############################################################
 
 - name: Storytime at the Library
-  date: [2021-11-02 10:30:00 -4, 2021-11-09 10:30:00 -5, 2021-11-16 10:30:00 -5, 2021-11-23 10:30:00 -5, 2021-11-30 10:30:00 -5] #, 2021-12-07 10:30:00 -5, 2021-12-14 10:30:00 -5, 2021-12-21 10:30:00 -5, 2021-12-28 10:30:00 -5]
+  date: [2021-11-23 10:30:00 -5, 2021-11-30 10:30:00 -5, 2021-12-07 10:30:00 -5, 2021-12-14 10:30:00 -5, 2021-12-21 10:30:00 -5] #, 2021-12-28 10:30:00 -5]
   length: 0.75
   age: 0 - 18
   desc: "Children are invited to join Miss Amber for music, movement, stories, and crafts centered around a theme that changes every week! All children are welcome, we don't require you to be still or silent to join!"
@@ -32,7 +32,7 @@
   imgalt: Children gathered around an open book
 
 - name: Storytime at Frelinghuysen Park
-  date: [2021-10-28 10:30:00 -4, 2021-11-04 10:30:00 -4, 2021-11-18 10:30:00 -5, 2021-12-02 10:30:00 -5, 2021-12-09 10:30:00 -5] #, 2021-12-16 10:30:00 -5, 2021-12-23 10:30:00 -5, 2021-12-30 10:30:00 -5]
+  date: [2021-12-02 10:30:00 -5, 2021-12-09 10:30:00 -5, 2021-12-16 10:30:00 -5, 2021-12-23 10:30:00 -5, 2021-12-30 10:30:00 -5]
   length: 0.75
   age: 0 - 18
   desc: Children are invited to join Miss Amber for music, movement, stories, and crafts centered around a theme that changes every week! All children are welcome, we don't require you to be still or silent to join!
@@ -40,61 +40,10 @@
   imgalt: Clip art illustration of a park with an open book
 
 - name: "YA Book Club Meeting"
-  date: 2021-10-29 16:00:00 -4
-  length: 1
-  age: 13 - 18
-  desc: "<b>This Month: <i>The Girl from the Well</i> by Rin Chupeco</b><br><br>&ldquo;A dead girl walks the streets. She hunts murderers. Child killers, much like the man who threw her body down a well three hundred years ago. And when a strange boy bearing stranger tattoos moves into the neighborhood so, she discovers, does something else. And soon both will be drawn into the world of eerie doll rituals and dark Shinto exorcisms that will take them from American suburbia to the remote valleys and shrines of Aomori, Japan. Because the boy has a terrifying secret- one that would just kill to get out.&rdquo;<br><br>Available as an eBook and eAudio for free on hooplaDigital."
-  img: well-girl
-  imgalt: A young, ghastly-looking girl in a dead forest
-
-- name: Storytime and Craft with the Country Garden Club 
-  date: 2021-11-06 10:30:00 -4
-  length: 1
-  age: 0 - 18
-  desc: "The Country Garden Club will be teaching us the importance of being good environmental stewards.They will be reading <b>The Frightened Frog: An Environmental Tale</b> and teaching us how to make some adorable frog puppets! Registration is required."
-  img: storytime-garden
-  imgalt: A cartoon illustration of a frog
-
-- name: Read with Riley
-  date: 2021-11-15 10:30:00 -5
-  length: 1
-  age: 0 - 18
-  desc: Riley, a certified therapy dog, will be visiting the library to hear stories! We'll start by reading one together and then take turns with Riley. All ages and reading levels are encouraged to attend. Riley likes stories of all kinds-even the ones you make up yourself!
-  img: readwriley
-  imgalt: Riley, a certified therapy dog
-
-- name: Pajama Storytime
-  date: 2021-11-10 18:00:00 -5
-  length: 2
-  noendtime: true
-  age: 0 - 18
-  desc: Put on your favorite pajamas, grab your stuffie, and join Miss Amber for an evening of stories, songs, and crafts. All children are welcome, we don't require you to be still or silent to join!
-  img: storytime-pj
-  imgalt: A cartoon illustration of a girl dressed up in unicorn pajamas, holding a pillow
-
-- name: "YA Book Club Meeting"
   date: 2021-11-24 16:00:00 -5
   length: 1
   age: 13 - 18
   desc: "<b>This Month: <i>Cemetery Boys</i> by Aidan Thomas</b><br><br>&ldquo;When his traditional Latinx family has problems accepting his true gender, Yadriel becomes determined to prove himself a real brujo. With the help of his cousin and best friend, Maritza, he performs the ritual himself and then sets out to find the ghost of his murdered cousin and set it free.&rdquo;<br><br>Available as an eBook and eAudio for free on hooplaDigital."
-
-- name: Paint With Your Pet
-  date: 2021-11-12 15:00:00 -5
-  length: 2
-  age: 0 - 18
-  desc: Join us to try your "paw" at the viral TikTok trend. Works best with dogs, but other animal friends are welcome as well!
-
-- name: Wii Game Night
-  date: 2021-11-17 16:00:00 -5
-  length: 2
-  age: 8 - 18
-  desc: Fight your friends for virtual supremacy in the classic <i>Super Smash Bros. Brawl</i>!
-
-- name: Rag Dolls
-  date: 2021-11-15 16:00:00 -5
-  length: 1
-  age: 10 - 18
-  desc: Teen volunteer Emily will be teaching us how to create our very own rag doll.
 
 - name: Thanksgiving Storytime and Community Outreach
   date: 2021-11-19 16:00:00 -5
