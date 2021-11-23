@@ -3,18 +3,18 @@
   "version": "1.0.0",
   "description": "A website for Raritan Public Library.",
   "dependencies": {
-    "fs-extra": "^9.1.0",
-    "js-yaml": "^4.0.0",
+    "fs-extra": "^10.0.0",
+    "js-yaml": "^4.1.0",
     "pug": "^3.0.2",
-    "stylus": "^0.54.8"
+    "stylus": "^0.55.0"
   },
   "devDependencies": {
-    "@parcel/config-default": "^2.0.0-beta.2",
-    "@parcel/transformer-image": "^2.0.0-beta.2",
-    "@parcel/transformer-pug": "^2.0.0-beta.2",
-    "@parcel/transformer-stylus": "^2.0.0-beta.2",
-    "parcel": "^2.0.0-beta.2",
-    "sharp": "^0.28.1"
+    "@parcel/config-default": "^2.0.1",
+    "@parcel/transformer-image": "^2.0.1",
+    "@parcel/transformer-pug": "^2.0.1",
+    "@parcel/transformer-stylus": "^2.0.1",
+    "parcel": "^2.0.1",
+    "sharp": "^0.29.3"
   },
   "scripts": {
     "clear": "rm -rf dist && rm -rf .parcel-cache",
