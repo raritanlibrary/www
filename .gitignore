@@ -208,3 +208,6 @@ src/stylus/components/_header.styl
 
 # Dist zip
 www.*
+
+# Other stuff
+COMMANDS
