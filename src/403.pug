@@ -2,8 +2,8 @@
 html(lang="en" color-mode="lite")
     head
         - const noindex = true
-        - const title = "Page not found"
-        - const desc = "Raritan Public Library couldn't find anything on this part of the website."
+        - const title = "Forbidden"
+        - const desc = "Raritan Public Library does not allow access to this part of the website."
         include ./includes/_head.pug
     body
         include ./includes/access.pug
@@ -13,11 +13,11 @@ html(lang="en" color-mode="lite")
                 .sidebar-left
                     include ./includes/calendar.pug
                 .center.status-center
-                    h1.status-h1 404
-                    h2.status-h2 Page not found
+                    h1.status-h1 403
+                    h2.status-h2 Forbidden
                     br
                     br
-                    p.text.text-center.text-bold We didn't find anything on this part of the website.
+                    p.text.text-center.text-bold You do not have permission to access this part of the website.
                     br
                     p.text.text-center The page you are looking for may have been moved, or may not exist.
                     br

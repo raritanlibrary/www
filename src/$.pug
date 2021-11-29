@@ -3,9 +3,8 @@ html(lang="en" color-mode="lite")
     head
         - const noindex = true
         - const title = "Test"
-        - const desc = "I'm testing, you shouldn't be on this part of the website!"
+        - const desc = "Test"
         include ./includes/_head.pug
-        script(type="module" src="https://unpkg.com/x-frame-bypass")
     body
         include ./includes/access.pug
         div.body
@@ -13,15 +12,9 @@ html(lang="en" color-mode="lite")
             main.main
                 .sidebar-left
                     include ./includes/calendar.pug
-                .center.four04-center
-                    h1.four04-h1 200
-                    h2.four04-h2 OK
-                    br
-                    br
-                    p.text.text-center.text-bold#clicky I'm testing, you shouldn't be on this part of the website!
-                    form#liaisons(action="liaisons.php" method="POST" enctype="multipart/form-data")
-                        input(type="text" name="winnoc")
-                        input(type="submit" name="submit")
+                .center.status-center
+                    h1.status-h1 200
+                    h2.status-h2 OK
                 .sidebar-right
                     include ./includes/contact.pug
                     include ./includes/hours.pug

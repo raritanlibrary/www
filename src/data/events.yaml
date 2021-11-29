@@ -68,3 +68,15 @@
   formalt:
     link: https://theothermentalist.com/demo/
     name: Teaser Trailer
+
+- name: "&ldquo;Boys Town&rdquo;"
+  title: "&ldquo;Boys Town&rdquo;"
+  subtitle: a Classic Movie Event
+  date: 2022-01-06 18:30:00 -5
+  length: 1.5
+  noendtime: true
+  blurb: "Sign up for this classic 1938 Oscar-winning film based on a the true story of the Boys Town orphanage in Nebraska. Refreshments are served. Running time: 96 minutes."
+  desc: "Sign up for this classic 1938 Oscar-winning film starring Spencer Tracy and Mickey Rooney. Based on the true-life inspirational story about Father Flanagan who started the Boys Town orphanage in Nebraska for delinquent boys. Watch how Father Flanagan gives love and hope to orphan boys left behind! Refreshments are served. Running time: 96 minutes. Registration required."
+  style: yellow
+  img: boys-town
+  imgalt: An illustration of Mickey Rooney and Spencer Tracy, taken from a promotional poster for the 1938 film Boys Town

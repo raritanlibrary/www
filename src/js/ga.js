@@ -1,7 +1,3 @@
-window.dataLayer = window.dataLayer || [];
-const gtag = () => dataLayer.push(arguments);
-gtag('js', new Date());
-gtag('config', 'UA-130594894-1');
-let trackOutboundLink = url => {
-    ga('send', 'event', 'outbound', 'click', url, {'transport': 'beacon', 'hitCallback': () => document.location=url})
-};
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-130594894-1', 'auto');
+ga('send', 'pageview');
