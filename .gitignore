@@ -196,18 +196,8 @@ $RECYCLE.BIN/
 # Private development folder
 .dev
 
-# Local Netlify folder
-.netlify
-
 # Sample revision tag
 src/data/_REV
 
-# TMP
-src/includes/_header.pug
-src/stylus/components/_header.styl
-
 # Dist zip
 www.*
-
-# Other stuff
-COMMANDS
