@@ -14,3 +14,4 @@ rmdir www
 call cd c && unzip -o www.zip
 rm www.zip
 EOF
+exit 0
