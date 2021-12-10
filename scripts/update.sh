@@ -11,6 +11,6 @@ fi
 open ssh://$u:@$h -privatekey=$k
 put -delete www.zip 
 rmdir www
-call unzip -o www.zip "!"
+call cd c && unzip -o www.zip
 rm www.zip
 EOF

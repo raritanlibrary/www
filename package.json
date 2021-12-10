@@ -20,6 +20,6 @@
     "clear": "rm -rf dist && rm -rf .parcel-cache",
     "push": "node scripts/generate.js",
     "dev": "node scripts/generate.js && node scripts/htmlhack.js && parcel src/*.pug && node scripts/cleanup.js",
-    "build": "npm run clear && node scripts/generate.js && parcel build src/*.pug && bash ./scripts/update.bash"
+    "build": "npm run clear && node scripts/generate.js && parcel build src/*.pug && bash ./scripts/update.sh"
   }
 }
