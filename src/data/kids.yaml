@@ -39,6 +39,22 @@
   img: storytime-park
   imgalt: Clip art illustration of a park with an open book
 
+- name: Kids' Holiday Party
+  date: 2021-12-22 16:00:00 -5
+  length: 2
+  age: 0 - 13
+  desc: Join us to learn about and celebrate Winter holidays from around the world! We'll be exploring Hanukkah, Solstice, Christmas, and Kwanzaa. Happy holidays!
+  img: holidays
+  imgalt: White silhouettes of trees on a bright turquoise background
+
+- name: YA Book Club Meeting
+  date: 2021-12-22 18:30:00 -5
+  length: 1
+  age: 13 - 18
+  desc: Embrace the warm, fuzzy spirit of the Winter holidays with <i>Blame it on the Mistletoe</i> by Beth Garrod. &ldquo;Tweet Cute meets the movie The Holiday in this funny holiday rom-com where two very different girls swap lives for a Christmas adventure.&rdquo;
+  img: mistletoe
+  imgalt: The front cover of Blame it on the Mistletoe by Beth Garrod
+
 - name: Read with Riley
   date: 2021-12-27 10:30:00 -5
   length: 1
@@ -46,3 +62,19 @@
   desc: Riley, a certified therapy dog, will be visiting the library to hear stories! We'll start by reading one together and then take turns with Riley. All ages and reading levels are encouraged to attend. Riley likes stories of all kinds-even the ones you make up yourself!
   img: readwriley
   imgalt: Riley, a certified therapy dog
+
+- name: Family Board Game Night
+  date: 2021-12-29 15:00:00 -5
+  length: 4
+  age: 8 - 18
+  desc: Looking for something to do during break? Grab your friends and family and try your hand at one of the many puzzles or board games we have here at the library.
+  img: boardgame
+  imgalt: Two pawn chess pieces placed on blue and green tiles
+
+- name: Kids' New Year Dance Party
+  date: 2021-12-30 11:00:00 -5
+  length: 1
+  age: 0 - 6
+  desc: Let's celebrate the end of 2021 and beginning of 2022 with a kid-friendly dance party!
+  img: newyears
+  imgalt: Clip art of a sparkling disco ball
