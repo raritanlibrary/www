@@ -363,4 +363,3 @@ window.onload = () => {
     Access.hicontrast();
     Data.rev();
 };
-
