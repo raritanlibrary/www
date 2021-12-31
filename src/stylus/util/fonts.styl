@@ -1,51 +1,19 @@
-@font-face
-    font-family "Lexend Mega"
-    font-style normal
-    font-weight normal
-    src url("../fonts/lexend-mega.woff2")
-    font-display swap
-@font-face
-    font-family "Minion Pro"
-    font-style normal
-    font-weight normal
-    src url("../fonts/minion-pro.woff2")
-    font-display swap
-@font-face
-    font-family "Minion Pro"
-    font-style normal
-    font-weight bold
-    src url("../fonts/minion-pro_bold.woff2")
-    font-display swap
-@font-face
-    font-family "Perpetua"
-    font-style normal
-    font-weight normal
-    src url("../fonts/perpetua.woff2")
-    font-display swap
-@font-face
-    font-family "Perpetua"
-    font-style normal
-    font-weight bold
-    src url("../fonts/perpetua_bold.woff2")
-    font-display swap
-@font-face
-    font-family "Perpetua"
-    font-style italic
-    font-weight normal
-    src url("../fonts/perpetua_italic.woff2")
-    font-display swap
-@font-face
-    font-family "Perpetua"
-    font-style italic
-    font-weight bold
-    src url("../fonts/perpetua_bold-italic.woff2")
-    font-display swap
-@font-face
-    font-family "Lato"
-    font-style normal
-    font-weight bold
-    src url("../fonts/lato_bold.woff2")
-    font-display swap
+load-font(name, file, w=normal, st=normal)
+    @font-face
+        font-family name
+        font-style st
+        font-weight w
+        src url("../fonts/" + file + ".woff2")
+        font-display swap
+
+load-font("Lexend Mega", "lexend-mega")
+load-font("Minion Pro", "minion-pro")
+load-font("Minion Pro", "minion-pro_bold", bold)
+load-font("Perpetua", "perpetua")
+load-font("Perpetua", "perpetua_bold", bold)
+load-font("Perpetua", "perpetua_italic",, italic)
+load-font("Perpetua", "perpetua_bold-italic", bold, italic)
+load-font("Lato", "lato_bold", bold)
 
 lexend(sz, c=black, w=bold)
     font sz "Lexend Mega", Arial, sans-serif
