@@ -6,7 +6,7 @@
     "fs-extra": "^10.0.0",
     "js-yaml": "^4.1.0",
     "pug": "^3.0.2",
-    "stylus": "^0.55.0"
+    "stylus": "^0.56.0"
   },
   "devDependencies": {
     "@parcel/config-default": "^2.0.1",
