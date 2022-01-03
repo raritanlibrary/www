@@ -32,6 +32,11 @@ html(lang="en" color-mode="lite")
                                     source.crafts-img-inner(srcset=`url:./img/crafts/_trellis${img+1}.jpg?as=webp` type="image/webp")
                                     img.crafts-img-inner(src=`url:./img/crafts/_trellis${img+1}.jpg?as=jpeg` alt=`Trellis Wreath` type="image/jpeg")
                 .center
+                    .alert-critical
+                        .alert-critical-logo: include ./img/icons/alert.svg
+                        .alert-critical-text
+                            .alert-critical-title Covid-19 Alert
+                            .alert-critical-desc Due to the increase in COVID-19 cases in Somerset County, Raritan Public Library will be holding all events for the month of January virtually over #[a.link(href="https://zoom.us/") Zoom]. Please continue to check this page for updates pertaining to future events, or contact the Library by phone at #[b (908) 725-0413] or by email at #[a.link(href="mailto:raritanl@yahoo.com") raritanl@yahoo.com].
                     h2.h2-fo Programs
                     p.text.text-center To sign up for events, please use a provided sign-up form, or call us at #[b (908) 725-0413] during our open hours.
                     hr.hr

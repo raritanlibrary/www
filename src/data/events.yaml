@@ -19,33 +19,22 @@
 #                        automatically sets "virtual" tag
 ##############################################################
 
-- name: Chair Yoga with Breda
-  title: Chair Yoga
+- name: Virtual Chair Yoga with Breda
+  title: Virtual Chair Yoga
   subtitle: with Breda
-  date: [2021-12-16 14:00:00 -5, 2022-01-06 14:00:00 -5, 2022-01-20 14:00:00 -5]
+  date: [2022-01-06 14:00:00 -5, 2022-01-20 14:00:00 -5, 2022-02-03 14:00:00 -5, 2022-02-17 14:00:00 -5]
   length: 1
-  blurb: Join our popular &ldquo;Chair Yoga&rdquo; instructor, Breda, for a chair yoga session designed to strengthen muscles and improve flexibility. No prior yoga experience is necessary.
-  desc: Join our popular &ldquo;Chair Yoga&rdquo; instructor, Breda, for a chair yoga session that will guide participants safely and effectively through a series of yoga movements which are designed to strengthen muscles and improve flexibility. Sessions will last approximately one hour, and no prior yoga experience is necessary. Please wear comfortable clothing to the class.
+  blurb: Join our popular &ldquo;Chair Yoga&rdquo; instructor, Breda, for a virtual yoga session via the Zoom app. No prior yoga experience is necessary.
+  desc: Join our popular &ldquo;Chair Yoga&rdquo; instructor, Breda, for a virtual yoga session via the Zoom app. Sessions will last approximately one hour, and there's no experience necessary. We recommend you provide your email address to us so we can send you the Zoom link in advance.
   style: yoga
   img: yoga
   imgalt: Chair Yoga
-
-- name: "Classic Movie Matinee: <i>Beyond Tomorrow</i>"
-  title: <i>Beyond Tomorrow</i>
-  subtitle: a Classic Movie Matinee
-  date: 2021-12-14 14:00:00 -5
-  length: 1.5
-  noendtime: true
-  blurb: "Sign up to watch this heartwarming story which takes place during the Holiday season. Refreshments are served. Running time: 81 minutes."
-  desc: "Three wealthy, but lonely, bachelors befriend two young strangers, James and Jean, and invite them to their house for dinner on Christmas Eve. The two seem to hit it off and all is jolly until the three bachelors are killed in a plane crash. The trio return as spirits and are shocked to find that the couple's relationship is falling apart as James proves that he is a talented singer and is caught up in the show business world. Can the bachelors help to reunite the young couple before it is too late? Sign up for this heartwarming story. Refreshments are served. Running time: 81 minutes."
-  style: grey
-  img: beyond-tomorrow
-  imgalt: A black and white still from the movie Beyond Tomorrow. On the left, actor Richard Carlson plays James Houston. On the right, actress Jean Parker plays Jean Lawrence. The still shows the two characters looking at each other with concern
+  zoom: [https://zoom.us/j/92230747880, https://zoom.us/j/92230747880, https://zoom.us/j/92230747880, https://zoom.us/j/92230747880]
 
 - name: "&ldquo;Boys Town&rdquo;"
   title: "&ldquo;Boys Town&rdquo;"
   subtitle: a Classic Movie Event
-  date: 2022-01-06 18:00:00 -5
+  date: tbd
   length: 1.5
   noendtime: true
   blurb: "Sign up for this classic 1938 Oscar-winning film based on a the true story of the Boys Town orphanage in Nebraska. Refreshments are served. Running time: 96 minutes."
@@ -60,16 +49,17 @@
   date: 2022-01-13 18:00:00 -5
   length: 1
   noendtime: true
-  blurb: Join instructor Michele Liana in creating this beautiful, easy-to-make 14-inch wreath for the winter months. $15.00 fee for materials.
-  desc: Join instructor Michele Liana in creating this beautiful, easy-to-make 14-inch wreath for the winter months. Materials including bow and cardinal will be supplied. A $15.00 fee is due at time of registration. Feel free to bring any additional embellishments to decorate.
+  blurb: Join instructor Michele Liana in creating this beautiful, easy-to-make 14-inch wreath for the winter months. Class will be held on Zoom. $15.00 fee for materials.
+  desc: Join instructor Michele Liana in creating this beautiful, easy-to-make 14-inch wreath for the winter months. Class will be held on Zoom. Materials including bow and cardinal will be supplied. A $15.00 fee is due at time of registration. We recommend you provide your email address to us so we can send you the Zoom link in advance.
   style: blue
   img: winter-wreath
   imgalt: A white wreath decorated with a decorative plaid bow and red snowflakes
+  zoom: https://zoom.us/j/94014203835
 
 - name: "&ldquo;The Good, the Bad and the Ugly&rdquo;"
   title: Sergio Leone's Epic
   subtitle: "<span style=\"letter-spacing: -1px\">The Good, the Bad &amp; the Ugly"
-  date: 2022-01-25 14:00:00 -5
+  date: tbd
   length: 3
   noendtime: true
   blurb: "Born and raised in Somerville, NJ, Lee Van Cleef teams up with Clint Eastwood and Eli Wallach in this epic Western film. Refreshments are served. Running time: 161 minutes."

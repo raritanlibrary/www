@@ -20,8 +20,8 @@ export const eventParser = yaml => {
             event.tag = 'zoom';
         }
         if (event.date === 'tbd') {
-            event.datesortable = Time.addHours(Time.now, event.length);
-            event.datenominal = Time.addHours(Time.now, event.length);
+            event.datesortable = new Date(1e14);
+            event.datenominal = new Date(1e14);
             event.zoom = false;
         } else if (event.length === 'daterange') {
             event.length = 1;
