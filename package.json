@@ -17,9 +17,13 @@
     "sharp": "^0.29.3"
   },
   "scripts": {
-    "clear": "rm -rf dist && rm -rf .parcel-cache",
-    "push": "node scripts/generate.js",
-    "dev": "node scripts/generate.js && node scripts/htmlhack.js && parcel src/*.pug --open 'chrome' && node scripts/cleanup.js",
-    "build": "npm run clear && node scripts/generate.js && parcel build src/*.pug && bash ./scripts/update.sh"
+    "clear": "rm -rf dist && mkdir dist && rm -rf .parcel-cache",
+    "gen": "bash ./scripts/generate.sh",
+    "pre-dev": "bash ./scripts/htmlhack.sh",
+    "post-dev": "bash ./scripts/cleanup.sh",
+    "push": "bash ./scripts/update.sh",
+    "dev": "npm run gen && npm run pre-dev && parcel src/*.pug --open 'chrome' && npm run post-dev",
+    "redev": "npm run clear && npm run dev",
+    "build": "npm run clear && npm run gen && parcel build src/*.pug && npm run push"
   }
 }
