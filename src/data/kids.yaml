@@ -23,22 +23,6 @@
 #  title/subtitle, blurb, style unneeded for now
 ##############################################################
 
-- name: Kids' Holiday Party
-  date: 2021-12-22 16:00:00 -5
-  length: 2
-  age: 0 - 13
-  desc: Join us to learn about and celebrate Winter holidays from around the world! We'll be exploring Hanukkah, Solstice, Christmas, and Kwanzaa. Happy holidays!
-  img: holidays
-  imgalt: White silhouettes of trees on a bright turquoise background
-
-- name: YA Book Club Meeting
-  date: 2021-12-22 18:30:00 -5
-  length: 1
-  age: 13 - 18
-  desc: Embrace the warm, fuzzy spirit of the Winter holidays with <i>Blame it on the Mistletoe</i> by Beth Garrod. &ldquo;Tweet Cute meets the movie The Holiday in this funny holiday rom-com where two very different girls swap lives for a Christmas adventure.&rdquo;
-  img: mistletoe
-  imgalt: The front cover of Blame it on the Mistletoe by Beth Garrod
-
 - name: Read with Riley
   date: 2021-12-27 10:30:00 -5
   length: 1
@@ -46,19 +30,68 @@
   desc: Riley, a certified therapy dog, will be visiting the library to hear stories! We'll start by reading one together and then take turns with Riley. All ages and reading levels are encouraged to attend. Riley likes stories of all kinds-even the ones you make up yourself!
   img: readwriley
   imgalt: Riley, a certified therapy dog
+  zoom: https://zoom.us/
 
-- name: Family Board Game Night
-  date: 2021-12-29 15:00:00 -5
-  length: 4
-  age: 8 - 18
-  desc: Looking for something to do during break? Grab your friends and family and try your hand at one of the many puzzles or board games we have here at the library.
-  img: boardgame
-  imgalt: Two pawn chess pieces placed on blue and green tiles
+- name: Willy Wonka and the (Hot) Chocolate Factory
+  date: 2022-01-19 18:00:00 -5
+  length: 1.5
+  age: 0 - 18
+  desc: Stop by the library to create your very own hot chocolate mix, then take it home with you to enjoy while we stream Willy Wonka and the Chocolate Factory (the Gene Wilder version) on Zoom!
+  img: hot-chocolate
+  imgalt: A mug full of hot chocolate, topped with whipped cream and cinnamon sticks
+  zoom: https://zoom.us/
 
-- name: Kids' New Year Dance Party
-  date: 2021-12-30 11:00:00 -5
+- name: Pajama Storytime on Zoom
+  date: 2022-01-12 18:00:00 -5
+  length: 2
+  noendtime: true
+  age: 0 - 18
+  desc: Put on your favorite pajamas, grab your stuffie, and join Miss Amber for an evening of stories, songs, and crafts. All children are welcome, we don't require you to be still or silent to join!
+  img: storytime-pj
+  imgalt: A cartoon illustration of a girl dressed up in unicorn pajamas, holding a pillow
+  zoom: https://zoom.us/
+  
+- name: "Cover to Cover on Zoom: YA Book Club"
+  date: 2022-01-28 16:00:00 -5
   length: 1
-  age: 0 - 6
-  desc: Let's celebrate the end of 2021 and beginning of 2022 with a kid-friendly dance party!
-  img: newyears
-  imgalt: Clip art of a sparkling disco ball
+  age: 13 - 18
+  desc: This month we'll be reading <i>They Both Die at the End</i> by Adam Silvera. &ldquo;On September 5, a little after midnight, Death-Cast calls Mateo Torrez and Rufus Emeterio to give them some bad news&mdash; They're going to die today. Mateo and Rufus are total strangers, but, for different reasons, they're both looking to make a new friend on their End Day.&rdquo;<br>Available for free as an eBook and audiobook on <a class="link" href="https://www.hoopladigital.com/" target="_blank" rel="noopener">hoopladigital</a>.
+  img: they-both-die
+  imgalt: The front over of Adam Silvera's They Both Die at the End
+  zoom: https://zoom.us/
+
+- name: "Book Bites on Zoom: Middle Grade Book Club"
+  date: 2022-01-21 16:00:00 -5
+  length: 1
+  age: 9 - 13
+  desc: Daniel Nayeri's <i>Everything Sad is Untrue</i> is the true story of an immigrant boy named Khosrou (who everyone calls Daniel). While his classmates ridicule him for his differences, he is determined to tell his stories&mdash; of ancestors who ate pastries that made people cry, and walked on carpets studded with jewels, to his family's flight from the Iranian secret police, and their eventual arrival in America.<br>Available for free as an audiobook on <a class="link" href="https://www.hoopladigital.com/" target="_blank" rel="noopener">hoopladigital</a>.
+  img: everything-sad
+  imgalt: The front cover of Daniel Nayeri's Everything Sad is Untrue
+  zoom: https://zoom.us/
+
+- name: Taboo for Kids on Zoom
+  date: 2022-01-14 16:00:00 -5
+  length: 0.75
+  age: 8 - 13
+  desc: Try your hand at our version of the classic game Taboo. This kid-friendly version utilizes topics that children are likely already familiar with to maximize fun. 
+  img: taboo
+  imgalt: A set of green, blue, yellow, and red cards
+  zoom: https://zoom.us/
+
+- name: Story Chain on Zoom
+  date: 2022-01-26 16:00:00 -5
+  length: 0.5
+  age: 9 - 13
+  desc: Let's work together to create our very own story! It's just like improv, but maybe even more fun. Add to the story whenever inspiration strikes you, but there's no pressure to participate. Miss Amber will type the story as we go so we can add it to our collection! 
+  img: story-chain
+  imgalt: Illustrated headshots of children, connected by a jagged dotted line, over an open book
+  zoom: https://zoom.us/
+
+- name: Data Privacy for Kids on Facebook Live
+  date: 2022-01-28 14:00:00 -5
+  length: 0.75
+  age: 0 - 18
+  desc: It's true that most websites, particularly those designed for use by children, have measures in place to protect the data of users under the age of 13, but what about those that allow you to browse without declaring your age? What about when kids access sites without permission? Join Miss Amber to learn more about what kind of data is commonly collected when browsing online. Questions are encouraged. 
+  img: data-privacy
+  imgalt: A cloud upload logo with a cursor hovered over it
+  zoom: https://zoom.us/
