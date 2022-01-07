@@ -48,7 +48,7 @@ export const eventParser = yaml => {
                         event.zoom = event.zoom[0];
                     }
                     break;
-                } 
+                }
             }
         } else {
             event.datesortable = event.date;

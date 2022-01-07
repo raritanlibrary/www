@@ -7,17 +7,13 @@ const yaml = require('js-yaml');
 let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
 export let events = yaml.load(eventData);
 
-// Events data (childrens programming)
-let kidsData = fs.readFileSync('src/data/kids.yaml', 'utf8');
-export let kids = yaml.load(kidsData);
-
 // Add board meeting if 2nd Thursday
-if (Time.getR(0) < Time.now) {
+if (Time.getR(1) < Time.now) {
     let boardObj = {
         "name": "RPL Board of Trustees Meeting",
         "title": "Board of Trustees",
         "subtitle": `Meeting for ${Time.month[Time.now.getMonth()]} ${Time.now.getFullYear()}`,
-        "date": Time.getR(1),
+        "date": Time.getR(2),
         "length": 1,
         "noendtime": true,
         "blurb": "The regular monthly meeting of the Raritan Public Library Board of Trustees will be held in-person at the Raritan Public Library.",
@@ -28,6 +24,29 @@ if (Time.getR(0) < Time.now) {
     };
     events.push(boardObj);
 }
+
+// Events data (childrens programming)
+let kidsData = fs.readFileSync('src/data/kids.yaml', 'utf8');
+export let kids = yaml.load(kidsData);
+
+// Add next 4 Tuesdays for Storytime at the Library
+let storytimeDates = [];
+for (let i = 0; i < 4; i++) {
+    let day = Time.getNextDotw(Time.now, 2)
+    day = Time.addDays(day, i*7);
+    day = Time.addHours(day, 10.5);
+    storytimeDates.push(day);
+}
+let storytimeObj = {
+    "name": "Storytime at the Library",
+    "date": storytimeDates,
+    "length": 0.75,
+    "age": "0 - 18",
+    "desc": "Children are invited to join Miss Amber for music, movement, stories, and crafts centered around a theme that changes every week! All children are welcome, we don't require you to be still or silent to join!",
+    "img": "storytime",
+    "imgalt": "Children gathered around an open book",
+};
+kids.push(storytimeObj);
 
 // Parse all event data
 fx.eventParser(events);

@@ -23,14 +23,6 @@
 #  title/subtitle, blurb, style unneeded for now
 ##############################################################
 
-- name: Storytime at the Library
-  date: [2021-12-14 10:30:00 -5, 2021-12-16 10:30:00 -5, 2021-12-21 10:30:00 -5, 2021-12-23 10:30:00 -5, 2021-12-28 10:30:00 -5, 2021-12-30 10:30:00 -5]
-  length: 0.75
-  age: 0 - 18
-  desc: "Children are invited to join Miss Amber for music, movement, stories, and crafts centered around a theme that changes every week! All children are welcome, we don't require you to be still or silent to join!"
-  img: storytime
-  imgalt: Children gathered around an open book
-
 - name: Kids' Holiday Party
   date: 2021-12-22 16:00:00 -5
   length: 2

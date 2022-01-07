@@ -4,42 +4,30 @@ const yaml = require('js-yaml');
 
 export const now = new Date();
 export const dotw = now.getDay();
-export const weekday = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
-];
-export const month = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-];
+export const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+export const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-export const getR = (which) => {
-    const month = new Date(`${now.getFullYear()}-${(now.getMonth()+1).toString().padStart(2, 0)}-01 00:00:00`);
-    let output = [];
-    for (let i = month.getTime(); i < i + 2419200000; i += 86400000) {
-        let id = new Date(i);
-        if (id.getDay() == 4) {
-            output.push(new Date(`${now.getFullYear()}-${(now.getMonth()+1).toString().padStart(2, 0)}-${id.getDate()+7} 19:00:00`));
-            output.push(new Date(`${now.getFullYear()}-${(now.getMonth()+1).toString().padStart(2, 0)}-${id.getDate()+14} 19:00:00`));
-            break;
-        }
+// ms shortcuts (ms*s*m...)
+const msh = 36e5;
+const msd = msh*24;
+
+export const addHours = (d, h) => new Date(d.getTime() + h * msh);
+export const addDays = (d, dd) => new Date(d.getTime() + dd * msd);
+
+export const getNextDotw = (d, which) => {
+    let day = new Date(new Date(d).setHours(0,0,0,0));
+    while (day.getDay() != which) {
+        day = addDays(day, 1);
     }
-    return output[which];
+    return day;
+}
+
+export const getR = which => {
+    const monthDay = new Date(now.getFullYear(), now.getMonth(), 1);
+    let day = getNextDotw(monthDay, 4);
+    day = addDays(day, which*7);
+    day = addHours(day, 19);
+    return day;
 }
 
 export const formatDate = (n) => {
@@ -63,12 +51,6 @@ export const formatTime = (d) => {
     }
     return `${h}:${m} ${dd}`;
 }
-
-export const addHours = (d, h) => {
-    const dNew = new Date(d.getTime() + h*60*60*1000);
-    return dNew;
-}
-
 export const datechunk = arr => {
     // [8,8,9,9,10]
     let splitter = [0];
