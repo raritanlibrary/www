@@ -1,39 +1,42 @@
-import * as fx from './fx';
+import * as util from './util';
+
+// Get an object with some important properties
+const getListenerElements = str => {
+    return  {
+        "main": document.getElementById(`dropdown-${str}`),
+        "sub": document.getElementById(`sublinks-${str}`),
+        "arrow": document.querySelector(`#dropdown-${str} > div > svg`),    
+    }
+}
+
+// Conditional for clicking dropdowns
+const dropdownClickLogic = (str, e) => {
+    const obj = getListenerElements(str);
+    util.toggleClasses(
+        obj.main.contains(e.target) && !obj.sub.classList.contains("sublinks-down"),
+        !obj.sub.contains(e.target) && obj.sub.classList.contains("sublinks-down"),
+        [obj.sub, "sublinks-down"],
+        [obj.arrow, "rotate180"]
+    )
+}
+
+// Conditional for dropdowns via keyboard input
+const dropdownKeyLogic = (str, tab, e) => {
+    const obj = getListenerElements(str);
+    util.toggleClasses(
+        e.key === "Tab" && (tab === `dropdown-${str}` || tab === `sublinks-${str}`) && !obj.sub.classList.contains("sublinks-down"),
+        e.key === "Tab" && (tab !== `sublinks-${str}`) && obj.sub.classList.contains("sublinks-down"),
+        [obj.sub, "sublinks-down"],
+        [obj.arrow, "rotate180"]
+    )
+}
 
 // Uncheck on clicking/tabbing outside, flip arrows on desktop
 export const dropdown = () => {
-    fx.addClickListener(e => {
-        const books = document.getElementById("dropdown-books");
-        const booksSub = document.getElementById("sublinks-books");
-        const booksArrow = document.querySelector("#dropdown-books > div > svg");
-        const kids = document.getElementById("dropdown-kids");
-        const kidsSub = document.getElementById("sublinks-kids");
-        const kidsArrow = document.querySelector("#dropdown-kids > div > svg");
-        const more = document.getElementById("dropdown-more");
-        const moreSub = document.getElementById("sublinks-more");
-        const moreArrow = document.querySelector("#dropdown-more > div > svg");
-        
-        if (books.contains(e.target) && !booksSub.classList.contains("sublinks-down")) {
-            booksSub.classList.add("sublinks-down");
-            booksArrow.classList.add("rotate180");
-        } else if (!booksSub.contains(e.target) && booksSub.classList.contains("sublinks-down")) {
-            booksSub.classList.remove("sublinks-down");
-            booksArrow.classList.remove("rotate180");
-        }
-        if (kids.contains(e.target) && !kidsSub.classList.contains("sublinks-down")) {
-            kidsSub.classList.add("sublinks-down");
-            kidsArrow.classList.add("rotate180");
-        } else if (!kidsSub.contains(e.target) && kidsSub.classList.contains("sublinks-down")) {
-            kidsSub.classList.remove("sublinks-down");
-            kidsArrow.classList.remove("rotate180");
-        }
-        if (more.contains(e.target) && !moreSub.classList.contains("sublinks-down")) {
-            moreSub.classList.add("sublinks-down");
-            moreArrow.classList.add("rotate180");
-        } else if (!booksSub.contains(e.target) && moreSub.classList.contains("sublinks-down")) {
-            moreSub.classList.remove("sublinks-down");
-            moreArrow.classList.remove("rotate180");
-        }
+    util.addClickListener(e => {
+        dropdownClickLogic("books", e);
+        dropdownClickLogic("kids", e);
+        dropdownClickLogic("more", e);
     });
     window.addEventListener('keyup', e => {
         let tabbed;
@@ -42,33 +45,9 @@ export const dropdown = () => {
         } catch (error) {
             tabbed = document.activeElement.id;
         }
-        const booksSub = document.getElementById("sublinks-books");
-        const booksArrow = document.querySelector("#dropdown-books > div > svg");
-        const kidsSub = document.getElementById("sublinks-kids");
-        const kidsArrow = document.querySelector("#dropdown-kids > div > svg");
-        const moreSub = document.getElementById("sublinks-more");
-        const moreArrow = document.querySelector("#dropdown-more > div > svg");
-        if (e.key === "Tab" && (tabbed === 'dropdown-books' || tabbed === 'sublinks-books') && !booksSub.classList.contains("sublinks-down")) {
-            booksSub.classList.add("sublinks-down");
-            booksArrow.classList.add("rotate180");
-        } else if (e.key === "Tab" && (tabbed !== 'sublinks-books') && booksSub.classList.contains("sublinks-down")) {
-            booksSub.classList.remove("sublinks-down");
-            booksArrow.classList.remove("rotate180");
-        }
-        if (e.key === "Tab" && (tabbed === 'dropdown-kids' || tabbed === 'sublinks-kids') && !kidsSub.classList.contains("sublinks-down")) {
-            kidsSub.classList.add("sublinks-down");
-            kidsArrow.classList.add("rotate180");
-        } else if (e.key === "Tab" && (tabbed !== 'sublinks-kids') && kidsSub.classList.contains("sublinks-down")) {
-            kidsSub.classList.remove("sublinks-down");
-            kidsArrow.classList.remove("rotate180");
-        }
-        if (e.key === "Tab" && (tabbed === 'dropdown-more' || tabbed === 'sublinks-more') && !moreSub.classList.contains("sublinks-down")) {
-            moreSub.classList.add("sublinks-down");
-            moreArrow.classList.add("rotate180");
-        } else if (e.key === "Tab" && (tabbed !== 'sublinks-more') && moreSub.classList.contains("sublinks-down")) {
-            moreSub.classList.remove("sublinks-down");
-            moreArrow.classList.remove("rotate180");
-        }
+        dropdownKeyLogic("books", tabbed, e);
+        dropdownKeyLogic("kids", tabbed, e);
+        dropdownKeyLogic("more", tabbed, e);
     });
 }
 
@@ -80,47 +59,40 @@ export const sticky = () => {
         xDown = firstTouch.clientX;
     });
     document.addEventListener('touchmove', e => {
-        if (!xDown) { return; }
+        if (!xDown) { return }
         let xUp = e.touches[0].clientX;
         let xDiff = xDown - xUp;
         if (Math.abs(xDiff) > 10) {
-            const links = fx.findClass("links");
+            const links = util.findClass("links");
             const menuIcon = document.querySelector(".nav-toggle > svg");
             const main = document.querySelector(".main");
             const page = document.querySelector("html");
-            if (!menuIcon.classList.contains("enlarge") && (xDiff > 0)) {
-                links.classList.add("links-open");
-                menuIcon.classList.add("enlarge");
-                main.classList.add("main-darken", "freeze");
-                page.classList.add("freeze");
-            } else if (menuIcon.classList.contains("enlarge") && (xDiff < 0)) {
-                links.classList.remove("links-open");
-                menuIcon.classList.remove("enlarge");
-                main.classList.remove("main-darken", "freeze");
-                page.classList.remove("freeze");
-            }                       
+            util.toggleClasses(
+                !menuIcon.classList.contains("enlarge") && (xDiff > 0),
+                menuIcon.classList.contains("enlarge") && (xDiff < 0),
+                [links, "links-open"],
+                [menuIcon, "enlarge"],
+                [main, "main-darken", "freeze"],
+                [page, "freeze"]                
+            )
         }
         xDown = null;
     });
-    fx.addClickListener(e => {
-        const links = fx.findClass("links");
-        const menu = fx.findClass("nav-toggle");
+    util.addClickListener(e => {
+        const links = util.findClass("links");
+        const menu = util.findClass("nav-toggle");
         const menuIcon = document.querySelector(".nav-toggle > svg");
         const main = document.querySelector(".main");
         const access = document.querySelector(".access");
         const page = document.querySelector("html");
-        if (menu.contains(e.target) && !menuIcon.classList.contains("enlarge")) {
-            links.classList.add("links-open");
-            menuIcon.classList.add("enlarge");
-            main.classList.add("main-darken", "freeze");
-            access.classList.add("access-darken");
-            page.classList.add("freeze");
-        } else if (!links.contains(e.target) && menuIcon.classList.contains("enlarge")) {
-            links.classList.remove("links-open");
-            menuIcon.classList.remove("enlarge");
-            main.classList.remove("main-darken", "freeze");
-            access.classList.remove("access-darken");
-            page.classList.remove("freeze");
-        }
+        util.toggleClasses(
+            menu.contains(e.target) && !menuIcon.classList.contains("enlarge"),
+            !links.contains(e.target) && menuIcon.classList.contains("enlarge"),
+            [links, "links-open"],
+            [menuIcon, "enlarge"],
+            [main, "main-darken", "freeze"],
+            [access, "access-darken"],
+            [page, "freeze"]
+        )
     })
 }

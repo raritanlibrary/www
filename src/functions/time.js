@@ -1,19 +1,28 @@
-import * as fx from './fx';
+import * as util from './util';
 const fs = require('fs');
 const yaml = require('js-yaml');
 
+// Current time
 export const now = new Date();
 export const dotw = now.getDay();
-export const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-export const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-// ms shortcuts (ms*s*m...)
+// Days of the week and month names
+export const ww = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+export const mm = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// Return day of the week or month name based on a datetime object
+export const weekday = t => ww[t.getDay()];
+export const month = t => mm[t.getMonth()];
+
+// Millisecond shortcuts (milliseconds * seconds * minutes...)
 const msh = 36e5;
 const msd = msh*24;
 
+// Add hours or days to a datetime object
 export const addHours = (d, h) => new Date(d.getTime() + h * msh);
 export const addDays = (d, dd) => new Date(d.getTime() + dd * msd);
 
+// Get the next day of the week
 export const getNextDotw = (d, which) => {
     let day = new Date(new Date(d).setHours(0,0,0,0));
     while (day.getDay() != which) {
@@ -22,6 +31,7 @@ export const getNextDotw = (d, which) => {
     return day;
 }
 
+// Get the next time (Thursday) a board meeting will happen
 export const getR = which => {
     const monthDay = new Date(now.getFullYear(), now.getMonth(), 1);
     let day = getNextDotw(monthDay, 4);
@@ -30,14 +40,18 @@ export const getR = which => {
     return day;
 }
 
-export const formatDate = (n) => {
-    return (n % 10 == 1 && n % 100 != 11) ? `${n}st`
-    : (n % 10 == 2 && n % 100 != 12) ? `${n}nd`
-    : (n % 10 == 3 && n % 100 != 13) ? `${n}rd`
+// Format a datetime into a string for dates
+export const formatDate = n => {
+    console.log(n);
+    n = n.getDate();
+    return (n % 10 === 1 && n % 100 != 11) ? `${n}st`
+    : (n % 10 === 2 && n % 100 != 12) ? `${n}nd`
+    : (n % 10 === 3 && n % 100 != 13) ? `${n}rd`
     : `${n}th`
 }
 
-export const formatTime = (d) => {
+// Format a datetime into a string for 12-hour times
+export const formatTime = d => {
     const hh = d.getHours();
     const m = d.getMinutes().toString().padStart(2, 0);
     let dd = "AM";
@@ -46,13 +60,20 @@ export const formatTime = (d) => {
         h = hh - 12;
         dd = "PM";
     }
-    if (h == 0) {
+    if (h === 0) {
         h = 12;
     }
     return `${h}:${m} ${dd}`;
 }
+
+// Shortcuts to combine stringified datetimes
+export const monthDay = t => `${month(t)} ${formatDate(t)}`;
+export const fullDate = t => `${weekday(t)}, ${monthDay(t)}`;
+export const monthDayTime = t => `${monthDay(t)} at ${formatTime(t)}`;
+export const fullDayTime = t => `${fullDate(t)}, ${formatTime(t)}`;
+
+// Formats multiple dates into a string, chunked by month
 export const datechunk = arr => {
-    // [8,8,9,9,10]
     let splitter = [0];
     for (let i = 1; i < arr.length; i++) {
         if (arr[i].getMonth() !== arr[i-1].getMonth()) {
@@ -63,9 +84,9 @@ export const datechunk = arr => {
     let output = [];
     let datestr;
     for (let i = 0; i < splitter.length-1; i++) {
-        datestr = `${month[arr[splitter[i]].getMonth()]} `;
+        datestr = `${month(arr[splitter[i]])} `;
         for (let j = splitter[i]; j < splitter[i+1]; j++) {
-            datestr += formatDate(arr[j].getDate())
+            datestr += formatDate(arr[j]);
             if (j < splitter[i+1]-1) { datestr += ` & ` }
         }
         output.push(datestr);
@@ -73,44 +94,36 @@ export const datechunk = arr => {
     return output;
 }
 
-export let hoursData = fs.readFileSync('src/data/hours.yaml', 'utf8');
-export let hoursYaml = yaml.load(hoursData);
-export const hours = hoursYaml.hours;
-export const hoursPorch = hoursYaml.porch;
-export const spehours = hours[7];
-export const spehoursPorch = hoursPorch[7];
+// Load hours data
+let hoursData = fs.readFileSync('src/data/hours.yaml', 'utf8');
+let hoursYaml = yaml.load(hoursData);
+const hours = hoursYaml.hours;
+const hoursPorch = hoursYaml.porch;
+const spehours = hours[7];
+const spehoursPorch = hoursPorch[7];
+const curhours = hours[dotw];
+const curhoursPorch = hoursPorch[dotw];
+let nexday = dotw === 6 ? "next Monday" : "tomorrow";
+let nexhours = dotw === 6 ? hours[1] : hoursPorch[dotw+1];
 
-export const curhours = hours[dotw];
-export const curhoursPorch = hoursPorch[dotw];
-export let nexday = "tomorrow"
-export let nexhours = hoursPorch[dotw+1];
-if (dotw == 6) {
-    nexday = "next Monday"
-    nexhours = hours[1];
-}
-
+// Inject hours data
 export const injector = () => {
-    if (fx.checkClass(`hours-detail`)) {
+    if (util.checkClass(`hours-detail`)) {
         for (let i = 0; i < 6; i++) {
-            fx.setClass(`hours-detail`, hours[i+1], i)
-            fx.setClass(`hours-detail`, hoursPorch[i+1], i+7)
+            util.setClass(`hours-detail`, hours[i+1], i)
+            util.setClass(`hours-detail`, hoursPorch[i+1], i+7)
         }
-        fx.setClass(`hours-detail`, hours[0], 6)
-        fx.setClass(`hours-detail`, hoursPorch[0], 13)
+        util.setClass(`hours-detail`, hours[0], 6)
+        util.setClass(`hours-detail`, hoursPorch[0], 13)
     }
-    if (fx.checkClass(`hours-footer-main`) && fx.checkClass(`hours-footer-other`)) {
-        if (dotw === 0) {
-            fx.setClass(`hours-footer-main`, `The library is closed today.`);
-            fx.setClass(`hours-footer-other`, `Open ${nexday} · ${nexhours}`);
-        } else if (spehours == "CLOSED") {
-            fx.setClass(`hours-footer-main`, `The library is closed today.`);
-            fx.setClass(`hours-footer-other`, `Open ${nexday} · ${nexhours}`);
-        } else if (!!spehours && !!spehoursPorch) {
-            fx.setClass(`hours-footer-main`, `Open today · ${spehours}`);
-            fx.setClass(`hours-footer-other`, `Porchside Pickup · ${spehoursPorch}`);
-        } else {
-            fx.setClass(`hours-footer-main`, `Open today · ${curhours}`);
-            fx.setClass(`hours-footer-other`, `Porchside Pickup · ${curhoursPorch}`);
-        }
+    if (util.checkClass(`hours-footer-main`) && util.checkClass(`hours-footer-other`)) {
+        const mainStr = (dotw === 0) || (spehours === "CLOSED") ? `The library is closed today.`
+        : !!spehours && !!spehoursPorch ? `Open today · ${spehours}`
+        : `Open today · ${curhours}`;
+        const otherStr = (dotw === 0) || (spehours === "CLOSED") ? `Open ${nexday} · ${nexhours}`
+        : !!spehours && !!spehoursPorch ? `Porchside Pickup · ${spehoursPorch}`
+        : `Porchside Pickup · ${curhoursPorch}`;
+        util.setClass(`hours-footer-main`, mainStr);
+        util.setClass(`hours-footer-other`, otherStr);
     }
 }

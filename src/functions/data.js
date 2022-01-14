@@ -1,19 +1,60 @@
-import * as Time from './time';
-import * as fx from './fx';
+import * as time from './time';
+import * as svg from './svg';
+import * as util from './util';
 const fs = require('fs');
 const yaml = require('js-yaml');
+
+// Event parsing function
+const eventParser = yaml => {
+    yaml.forEach(event => {
+        event.tag = event.zoom && !event.tag ? "zoom" : false;
+        event.length = event.length === "range" ? 1 : event.length;
+        if (event.date === "tbd") {
+            event.dateSort = new Date(1e14);
+            event.dateName = new Date(1e14);
+            event.zoom = false;
+        } else if (event.length === "range") {
+            event.dateSort = event.date[0] < time.now ? time.now : event.date[0];
+            event.dateName = event.date[1];
+            event.range = true;
+        } else if (Array.isArray(event.date)) {
+            const numDays = event.date.length;
+            for (let i = 0; i < numDays; i++) {
+                let day = event.date[i];
+                if (time.addHours(day, event.length) < time.now && numDays !== 1) {
+                    event.date.shift();
+                    if (event.zoom) {
+                        event.zoom.shift();
+                    }
+                    i--;
+                } else {
+                    event.dateSort = day;
+                    event.dateName = day;
+                    if (event.zoom) {
+                        event.zoom = event.zoom[0];
+                    }
+                    break;
+                }
+            }
+        } else {
+            event.dateSort = event.date;
+            event.dateName = event.date;
+        }
+    });
+    yaml = yaml.sort((a, b) => a.dateSort - b.dateSort);
+}
 
 // Events data
 let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
 export let events = yaml.load(eventData);
 
 // Add board meeting if 2nd Thursday
-if (Time.getR(1) < Time.now) {
+if (time.getR(1) < time.now) {
     let boardObj = {
         "name": "RPL Board of Trustees Meeting",
         "title": "Board of Trustees",
-        "subtitle": `Meeting for ${Time.month[Time.now.getMonth()]} ${Time.now.getFullYear()}`,
-        "date": Time.getR(2),
+        "subtitle": `Meeting for ${time.month[time.now.getMonth()]} ${time.now.getFullYear()}`,
+        "date": time.getR(2),
         "length": 1,
         "noendtime": true,
         "blurb": "The regular monthly meeting of the Raritan Public Library Board of Trustees will be held in-person at the Raritan Public Library.",
@@ -32,11 +73,11 @@ export let kids = yaml.load(kidsData);
 // Add next 2 Tuesdays/Thursdays for Storytime at the Library
 let storytimeDates = [];
 for (let i = 0; i < 2; i++) {
-    let day = Time.getNextDotw(Time.now, 2)
-    day = Time.addDays(day, i*7);
-    day = Time.addHours(day, 10.5);
+    let day = time.getNextDotw(time.now, 2)
+    day = time.addDays(day, i*7);
+    day = time.addHours(day, 10.5);
     storytimeDates.push(day);
-    day = Time.addDays(day, 2);
+    day = time.addDays(day, 2);
     storytimeDates.push(day);
 }
 let storytimeObj = {
@@ -47,92 +88,77 @@ let storytimeObj = {
     "desc": "Join Miss Amber on Zoom every Tuesday and Thursday for songs, movement, stories, and more! Drop by the library any time after Storytime to pick up a Take &amp; Make craft",
     "img": "storytime-zoom",
     "imgalt": "A red-haired woman reading from a book, streamed through the internet onto a laptop",
-    zoom: "https://zoom.us/"
+    zoom: ["https://zoom.us/", "https://zoom.us/", "https://zoom.us/", "https://zoom.us/"]
 };
 kids.push(storytimeObj);
 
 // Parse all event data
-fx.eventParser(events);
-fx.eventParser(kids);
+eventParser(events);
+eventParser(kids);
 
 // News data
 let newsData = fs.readFileSync('src/data/news.yaml', 'utf8');
 export let news = yaml.load(newsData);
 news = news.sort((a, b) => b.date - a.date);
 
+// HTML injection for program blurbs (sidebar)
 export const eventInjector = () => {
-    if (fx.checkClass(`calendar-events`)) {
+    if (util.checkClass(`calendar-events`)) {
         let displayed = 0;
         let eventList = ``;
         let endTime;
         for (const event of events) {
-            let eventDate;
-            let eventTime;
-            let eventDateMobile;
+            let eventDate, eventTime, eventDateMobile;
             let zoomLink = ``;
-            let extender = [" event-extend", " event-extend-inner"];
             if (displayed === 4 ) { break };
-            if (!event.noendtime) {
-                endTime = ` - ${Time.formatTime(Time.addHours(event.datenominal, event.length))}`;
-            } else {
-                endTime = ``;
-            }
+            endTime = event.noendtime ? `` : ` - ${time.formatTime(time.addHours(event.dateName, event.length))}`;
             if (event.date === 'tbd') {
-                eventDate = `<p class="event-${event.style}-date">Date:&nbsp;TBD</p>`;
-                eventTime = `<p class="event-${event.style}-time"></p>`;
-                eventDateMobile = `<p class="event-${event.style}-date-mobile">Date: TBD</p>`;
+                eventDate = `Date:&nbsp;TBD`;
+                eventTime = ``;
+                eventDateMobile = eventDate;
             } else if (event.daterange) {
-                eventDate = `<p class="event-${event.style}-date">Starting ${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())}</p>`;
-                eventTime = `<p class="event-${event.style}-time">through ${Time.month[event.date[1].getMonth()]} ${Time.formatDate(event.date[1].getDate())}</p>`;
-                eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())} - ${Time.month[event.date[1].getMonth()]} ${Time.formatDate(event.date[1].getDate())}</p>`;
+                eventDate = `Starting ${time.monthDay(event.date[0])}`;
+                eventTime = `through ${time.monthDay(event.date[1])}`;
+                eventDateMobile = `${eventDate.slice(9)} - ${eventTime.slice(8)}`;
             } else if (Array.isArray(event.date) && event.date.length > 1) {
                 if (event.date[0].getDate() === event.date[1].getDate()) {
-                    eventDate = `<p class="event-${event.style}-date">${Time.weekday[event.date[0].getDay()]}, ${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())}</p>`;
-                    eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())} at ${Time.formatTime(event.date[0])}</p>`;    
-                    eventTime = `<p class="event-${event.style}-time">${Time.formatTime(event.date[0])} and ${Time.formatTime(event.date[1])}</p>`;
+                    eventDate = time.fullDate(event.date[0]);
+                    eventTime = `${time.formatTime(event.date[0])} and ${time.formatTime(event.date[1])}`;
+                    eventDateMobile = time.monthDayTime(event.date[0]);
                 } else {
-                    eventDate = `<p class="event-${event.style}-date">${Time.weekday[event.date[0].getDay()]}s at ${Time.formatTime(event.date[0])}</p>`
-                    eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.weekday[event.date[0].getDay()]}s at ${Time.formatTime(event.date[0])}</p>`
-                    eventTime = `<p class="event-${event.style}-time">`
-                    Time.datechunk(event.date).forEach((chunk, i) => {
-                        eventTime += chunk
-                        if (i < event.date.length-1) { eventTime += `<br>` }
-                    });
-                    eventTime += `</p>`;
+                    eventDate = `${time.weekday(event.date[0])}s at ${time.formatTime(event.date[0])}`;
+                    eventTime = ``;
+                    time.datechunk(event.date).forEach((chunk, i) => eventTime += i < event.date.length - 1 ? `${chunk}<br>` : chunk);
+                    eventDateMobile = eventDate;
                 }
             } else if (Array.isArray(event.date) && event.date.length === 1) {
-                eventDate = `<p class="event-${event.style}-date">${Time.weekday[event.date[0].getDay()]}, ${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())}</p>`;
-                eventTime = `<p class="event-${event.style}-time">${Time.formatTime(event.date[0])}${endTime}</p>`;
-                eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.month[event.date[0].getMonth()]} ${Time.formatDate(event.date[0].getDate())} at ${Time.formatTime(event.date[0])}</p>`;
+                eventDate = time.fullDate(event.date[0]);
+                eventTime = `${time.formatTime(event.date[0])}${endTime}`;
+                eventDateMobile = time.monthDayTime(event.date[0]);
             } else {
-                eventDate = `<p class="event-${event.style}-date">${Time.weekday[event.date.getDay()]}, ${Time.month[event.date.getMonth()]} ${Time.formatDate(event.date.getDate())}</p>`;
-                eventTime = `<p class="event-${event.style}-time">${Time.formatTime(event.date)}${endTime}</p>`;
-                eventDateMobile = `<p class="event-${event.style}-date-mobile">${Time.month[event.date.getMonth()]} ${Time.formatDate(event.date.getDate())} at ${Time.formatTime(event.date)}</p>`;
+                eventDate = time.fullDate(event.date);
+                eventTime = `${time.formatTime(event.date)}${endTime}`;
+                eventDateMobile = time.monthDayTime(event.date);
             }
-            if (event.zoom && (event.datenominal.getTime() - 86400000 <= Time.now) && (Time.addHours(event.datenominal, event.length) >= Time.now)) {
+            if (event.zoom && (event.dateName.getTime() - time.msd <= time.now) && (time.addHours(event.dateName, event.length) >= time.now)) {
                 zoomLink = `
                 <a class="event-zoom-link" href="${event.zoom}" target="_blank" rel="noopener">
-                    <div class="event-zoom"> Join now on
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 7 24 8">
-                            <path d="M4.585 13.607l-.27-.012H1.886l3.236-3.237-.013-.27a.815.815 0 00-.796-.796l-.27-.013H0l.014.27c.034.438.353.77.794.796l.27.013h2.43L.268 13.595l.014.269c.015.433.362.78.795.796l.27.013h4.046l-.014-.27c-.036-.443-.35-.767-.795-.795zm3.238-4.328h-.004a2.696 2.697 0 10.003 0zm1.141 3.841a1.619 1.619 0 11-2.289-2.288 1.619 1.619 0 012.289 2.288zM21.84 9.28a2.158 2.158 0 00-1.615.73 2.153 2.153 0 00-1.619-.732 2.148 2.148 0 00-1.208.37c-.21-.233-.68-.37-.949-.37v5.395l.27-.013c.45-.03.778-.349.796-.796l.013-.27v-1.889l.014-.27c.01-.202.04-.382.132-.54a1.078 1.079 0 011.473-.393 1.078 1.079 0 01.393.392c.093.16.12.34.132.54l.014.271v1.889l.013.269a.83.83 0 00.795.796l.27.013v-2.967l.012-.27c.01-.2.04-.384.134-.543.3-.514.96-.69 1.473-.39a1.078 1.079 0 01.393.393c.092.16.12.343.13.54l.015.27v1.889l.013.269c.028.443.35.77.796.796l.27.013v-3.237a2.158 2.158 0 00-2.16-2.156zm-10.263.788a2.697 2.698 0 103.811 3.816 2.697 2.698 0 00-3.811-3.816zm3.05 3.052a1.619 1.619 0 11-2.289-2.29 1.619 1.619 0 012.289 2.29z"/>
-                        </svg>
-                    </div>
+                    <div class="event-zoom"> Join now on ${svg.zoom}</div>
                 </a>
                 `
-                extender = ["", ""]
             }
-            if (Time.addHours(event.datenominal, event.length) >= Time.now) {
+            if (time.addHours(event.dateName, event.length) >= time.now) {
                 eventList += `
-                <div class="event${extender[0]}">
+                <div class="event${zoomLink ? "" : " event-extend"}">
                     <div class="event-${event.style}" style="background-image: url(./img/events/_${event.img}.png")>
-                        <a class="event-${event.style}-link" href="programs#${fx.eventid(event.name, event.datenominal)}">
-                            <div class="event-${event.style}-cover${extender[1]}">
+                        <a class="event-${event.style}-link" href="programs#${util.eventid(event.name, event.dateName)}">
+                            <div class="event-${event.style}-cover${zoomLink ? "" : " event-extend-inner"}">
                                 <p class="event-${event.style}-title">${event.title}</p>
                                 <p class="event-${event.style}-subtitle">${event.subtitle}</p>
-                                <hr class="event-${event.style}-hr" />
-                                ${eventDate}
-                                ${eventTime}
-                                ${eventDateMobile}
+                                <hr class="event-${event.style}-hr"/>
+                                <p class="event-${event.style}-date">${eventDate}</p>
+                                <p class="event-${event.style}-time">${eventTime}</p>
+                                <p class="event-${event.style}-date-mobile">${eventDateMobile}</p>
                                 <p class="event-${event.style}-desc">${event.blurb}</p>
                             </div>
                         </a>
@@ -143,14 +169,14 @@ export const eventInjector = () => {
                 displayed++;
             }
         }
-        fx.setClass(`calendar-events`, eventList)
+        util.setClass(`calendar-events`, eventList)
     }
 }
 
 // Git data
 let tag = fs.readFileSync('src/data/_REV', 'utf8');
 export const rev = () => {
-    if (fx.checkClass('version')) {
-        fx.setClass('version', `Revision ${tag} · <a href="/site-map"> View Site Map</a>`);
+    if (util.checkClass('version')) {
+        util.setClass('version', `Revision ${tag} · <a href="/site-map"> View Site Map</a>`);
     }
 }
