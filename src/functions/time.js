@@ -42,7 +42,6 @@ export const getR = which => {
 
 // Format a datetime into a string for dates
 export const formatDate = n => {
-    console.log(n);
     n = n.getDate();
     return (n % 10 === 1 && n % 100 != 11) ? `${n}st`
     : (n % 10 === 2 && n % 100 != 12) ? `${n}nd`

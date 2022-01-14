@@ -53,15 +53,16 @@ if (time.getR(1) < time.now) {
     let boardObj = {
         "name": "RPL Board of Trustees Meeting",
         "title": "Board of Trustees",
-        "subtitle": `Meeting for ${time.month[time.now.getMonth()]} ${time.now.getFullYear()}`,
+        "subtitle": `Meeting for ${time.month(time.now)} ${time.now.getFullYear()}`,
         "date": time.getR(2),
         "length": 1,
         "noendtime": true,
-        "blurb": "The regular monthly meeting of the Raritan Public Library Board of Trustees will be held in-person at the Raritan Public Library.",
-        "desc": `The regular monthly meeting of the Raritan Public Library Board of Trustees will be held in-person at the Raritan Public Library.`,
+        "blurb": "The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually over Zoom.", //in-person at the Raritan Public Library.",
+        "desc": "The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually over Zoom.", //in-person at the Raritan Public Library.`,
         "style": "meeting",
         "img": "meeting",
         "imgalt": "Board Meeting",
+        "zoom": "https://zoom.us/j/97734472805",
     };
     events.push(boardObj);
 }
@@ -151,7 +152,7 @@ export const eventInjector = () => {
                 eventList += `
                 <div class="event${zoomLink ? "" : " event-extend"}">
                     <div class="event-${event.style}" style="background-image: url(./img/events/_${event.img}.png")>
-                        <a class="event-${event.style}-link" href="programs#${util.eventid(event.name, event.dateName)}">
+                        <a class="event-${event.style}-link" href="programs#${util.eventid(event.name)}">
                             <div class="event-${event.style}-cover${zoomLink ? "" : " event-extend-inner"}">
                                 <p class="event-${event.style}-title">${event.title}</p>
                                 <p class="event-${event.style}-subtitle">${event.subtitle}</p>

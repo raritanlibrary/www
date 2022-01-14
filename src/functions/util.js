@@ -24,41 +24,20 @@ export const addClickListener = func => {
     window.addEventListener('click', func);
 }
 
-// Returns the inverse of a 4-bit number
-const bitnot = n => {
-    let output = [];
-    n = n.toString(2).padStart(3, '0').split('');
-    n.forEach(nn => output.push(nn === '1' ? '0' : '1'));
-    return output.join('');
-}
-
-// Generate a unique event identifier based on a string and date
-export const eventid = (str, date) => {
+// Generate a unique event identifier based on a string
+export const eventid = (str) => {
     // Reduce input string
     str = str.replace(/\W+|\d/g, '').toLowerCase();
-    str = str.substring(0, 19).padEnd(19, 'a');
+    str = str.substring(0, 24).padEnd(24, 'a');
 
     // Convert string to binary
-    let strbin = ``;
-    str.split('').forEach(char => strbin += (char.charCodeAt() - 97).toString(2).padStart(5, '0'));
-    strbin += '0';
-
-    // Convert date to binary
-    const datestr = String(date.getTime()).substring(0, 8);
-    let datebin = ``;
-    datestr.split('').forEach(char => datebin += Number(char).toString(2).padStart(4, '0'));
-
-    // Generate final binary number
     let bin = ``;
-    for (let i = 0; i < strbin.length; i += 3) {
-        let n = parseInt(strbin.substring(i, i + 3), 2);
-        bin += datebin[i/3] === '1' ? bitnot(n) : n.toString(2).padStart(3, '0');
-    }
+    str.split('').forEach(char => bin += (char.charCodeAt() - 97).toString(2).padStart(5, '0'));
 
     // Convert number to Base64 and return it
     let output = ``;
     const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_';
-    for (let i = 0; i < bin.length; i += 16) {
+    for (let i = 0; i < bin.length; i += 24) {
         let n = parseInt(bin.substring(i, i + 6), 2);
         output += chars[n];
     }

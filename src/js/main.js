@@ -152,7 +152,7 @@ const contentPrograms = () => {
     if (util.checkClass(`programs`)) {
         let eventList = ``;
         let endTime;
-        for (const event of Data.events) {
+        for (const event of data.events) {
             let eventDate;
             let eventImg = ``;
             let zoomLink = ``;
@@ -166,8 +166,8 @@ const contentPrograms = () => {
                 if (event.date[0].getDate() === event.date[1].getDate()) {
                     eventDate = `${time.fullDate(event.date[0])}, ${time.formatTime(event.date[0])} and ${time.formatTime(event.date[1])}`;
                 } else {
-                    eventDate = `${time.weekday(event.date[0])}s at ${time.formatTime(event.date[0])} <br>`;
-                    event.date.forEach((day, i) =>  eventDate += i < event.date.length - 1 ? `,&nbsp;` : time.monthDay(day));
+                    eventDate = `${time.weekday(event.date[0])}s at ${time.formatTime(event.date[0])}${endTime} <br>`;
+                    event.date.forEach((day, i) =>  eventDate += i < event.date.length - 1 ? `${time.monthDay(day)},&nbsp;` : time.monthDay(day));
                 }
             } else if (Array.isArray(event.date) && event.date.length === 1) {
                 eventDate = `${time.fullDayTime(event.date[0])}${endTime}`;
@@ -206,11 +206,11 @@ const contentPrograms = () => {
                 </a>
                 `
             }
-            if (Time.addHours(event.dateName, event.length) >= Time.now) {
+            if (time.addHours(event.dateName, event.length) >= time.now) {
                 eventList += `
                 <div class="snippet">
                     ${eventImg}
-                    <div class="snippet-body" id="${util.eventid(event.name, event.dateName)}">
+                    <div class="snippet-body" id="${util.eventid(event.name)}">
                         <p class="h4-link inline" >${event.name}</p>${eventTag}
                         <p class="comment-date">${eventDate}</p>
                         <br>
@@ -247,8 +247,8 @@ const contentKids = () => {
                 if (kid.date[0].getDate() === kid.date[1].getDate()) {
                     kidDate = `${time.fullDate(kid.date[0])}, ${time.formatTime(kid.date[0])} and ${time.formatTime(kid.date[1])}`;
                 } else {
-                    kidDate = `${time.weekday(kid.date[0])}s at ${time.formatTime(kid.date[0])} <br>`;
-                    kid.date.forEach((day, i) =>  kidDate += i < kid.date.length - 1 ? `,&nbsp;` : time.monthDay(day));
+                    kidDate = `${time.weekday(kid.date[0])}s at ${time.formatTime(kid.date[0])}${endTime} <br>`;
+                    kid.date.forEach((day, i) =>  kidDate += i < kid.date.length - 1 ? `${time.monthDay(day)},&nbsp;` : time.monthDay(day));
                 }
             } else if (Array.isArray(kid.date) && kid.date.length === 1) {
                 kidDate = `${time.fullDayTime(kid.date[0])}${endTime}`;
@@ -286,11 +286,11 @@ const contentKids = () => {
                 </a>
                 `
             }
-            if (time.addHours(kid.datenominal, kid.length) >= time.now) {
+            if (time.addHours(kid.dateName, kid.length) >= time.now) {
                 kidList += `
                 <div class="snippet">
                     ${kidImg}
-                    <div class="snippet-body" id="${util.eventid(kid.name, kid.dateName)}">
+                    <div class="snippet-body" id="${util.eventid(kid.name)}">
                         <p class="h4-link inline" >${kid.name}</p>${kidTag}
                         <p class="comment-date">${kidDate}</p>
                         <br>
