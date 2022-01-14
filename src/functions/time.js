@@ -15,8 +15,8 @@ export const weekday = t => ww[t.getDay()];
 export const month = t => mm[t.getMonth()];
 
 // Millisecond shortcuts (milliseconds * seconds * minutes...)
-const msh = 36e5;
-const msd = msh*24;
+export const msh = 36e5;
+export const msd = msh*24;
 
 // Add hours or days to a datetime object
 export const addHours = (d, h) => new Date(d.getTime() + h * msh);
