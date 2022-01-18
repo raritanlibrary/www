@@ -195,7 +195,7 @@ const contentPrograms = () => {
             if (event.zoom && (event.dateName.getTime() - time.msd <= time.now) && (time.addHours(event.dateName, event.length) >= time.now)) {
                 zoomLink = `
                 <a class="snippet-zoom" href="${event.zoom}" target="_blank" rel="noopener">
-                    <div class="event-zoom"> Join now on ${svg.zoom}</div>
+                    <div class="snippet-zoom-inner"> Join now on ${svg.zoom}</div>
                 </a>
                 `
             }
@@ -275,7 +275,7 @@ const contentKids = () => {
             if (kid.zoom && (kid.dateName.getTime() - time.msd <= time.now) && (time.addHours(kid.dateName, kid.length) >= time.now)) {
                 zoomLink = `
                 <a class="snippet-zoom" href="${kid.zoom}" target="_blank" rel="noopener">
-                    <div class="kid-zoom"> Join now on ${svg.zoom}</div>
+                    <div class="snippet-zoom-inner"> Join now on ${svg.zoom}</div>
                 </a>
                 `
             }
