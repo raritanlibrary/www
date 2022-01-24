@@ -117,7 +117,7 @@ export const eventInjector = () => {
                 eventDate = `Date:&nbsp;TBD`;
                 eventTime = ``;
                 eventDateMobile = eventDate;
-            } else if (event.daterange) {
+            } else if (event.range) {
                 eventDate = `Starting ${time.monthDay(event.date[0])}`;
                 eventTime = `through ${time.monthDay(event.date[1])}`;
                 eventDateMobile = `${eventDate.slice(9)} - ${eventTime.slice(8)}`;

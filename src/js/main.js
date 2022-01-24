@@ -160,7 +160,7 @@ const contentPrograms = () => {
             endTime = event.noendtime ? `` : ` - ${time.formatTime(time.addHours(event.dateName, event.length))}`;
             if (event.date === 'tbd') {
                 eventDate = `Date:&nbsp;TBD`;
-            } else if (event.daterange) {
+            } else if (event.range) {
                 eventDate = `${time.fullDate(event.date[0])} - ${time.fullDate(event.date[1])}`;
             } else if (Array.isArray(event.date) && event.date.length > 1) {
                 if (event.date[0].getDate() === event.date[1].getDate()) {
