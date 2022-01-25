@@ -24,6 +24,7 @@
     "push": "bash ./scripts/update.sh",
     "dev": "npm run gen && npm run pre-dev && parcel src/*.pug --open 'chrome' && npm run post-dev",
     "redev": "npm run clear && npm run dev",
-    "build": "npm run clear && npm run gen && parcel build src/*.pug && npm run push"
+    "build": "npm run clear && npm run gen && parcel build src/*.pug && npm run push",
+    "tmp": "parcel build src/*.pug"
   }
 }
