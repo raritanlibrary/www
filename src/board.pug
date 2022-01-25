@@ -50,7 +50,7 @@ html(lang="en" color-mode="lite")
                         .meeting-wrapper
                             h3.meeting-h3#2021 #{2021}
                             .meeting-year
-                                for m in arr(11)
+                                for m in arr(12)
                                     if !([8].includes(m+1))
                                         p.text #[a.link(href=`./docs/board/2021${String(m+1).padStart(2, '0')}.pdf` target="_blank") #{months[m]}]
                                     else
