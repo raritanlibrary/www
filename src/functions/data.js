@@ -10,8 +10,7 @@ const eventParser = yaml => {
         event.tag = event.zoom && !event.tag ? "zoom" : false;
         event.length = event.length === "range" ? 1 : event.length;
         if (event.date === "tbd") {
-            event.dateSort = new Date(1e14);
-            event.dateName = new Date(1e14);
+            event.dateName =  event.dateSort = new Date(1e14);
             event.zoom = false;
         } else if (event.length === "range") {
             event.dateSort = event.date[0] < time.now ? time.now : event.date[0];
@@ -28,8 +27,7 @@ const eventParser = yaml => {
                     }
                     i--;
                 } else {
-                    event.dateSort = day;
-                    event.dateName = day;
+                    event.dateName = event.dateSort = day;
                     if (event.zoom) {
                         event.zoom = event.zoom[0];
                     }
@@ -37,8 +35,7 @@ const eventParser = yaml => {
                 }
             }
         } else {
-            event.dateSort = event.date;
-            event.dateName = event.date;
+            event.dateName = event.dateSort = event.date;
         }
     });
     yaml = yaml.sort((a, b) => a.dateSort - b.dateSort);

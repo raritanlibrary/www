@@ -37,8 +37,8 @@ const contentIndex = () => {
         let displayed = 0;
         let newsList = ``;
         for (const post of data.news) {
-            let newsLinks = ``;
-            let newsImg = ``;
+            let newsLinks, newsImg;
+            newsImg = newsLinks = ``;
             if (post.hidden) { continue };
             if (displayed === 3 ) { break };
             if (post.img && post.imgalt) {
@@ -86,8 +86,8 @@ const contentNews = () => {
             try {
                 nextYear = data.news[data.news.indexOf(post) + 1].date.getFullYear();
             } catch(e) {}
-            let newsLinks = ``;
-            let newsImg = ``;
+            let newsLinks, newsImg;
+            newsImg = newsLinks = ``;
             if (post.img && post.imgalt) {
                 newsImg = `<img class="snippet-img" src="img/news/${post.img}.png" alt="${post.imgalt}"}>`;
                 newsImg = post.imglink ? `<a href="${post.imglink}" target="_blank" ${util.extchk(post.imglink)}>${newsImg}</a>` : newsImg;
@@ -153,10 +153,8 @@ const contentPrograms = () => {
         let eventList = ``;
         let endTime;
         for (const event of data.events) {
-            let eventDate;
-            let eventImg = ``;
-            let zoomLink = ``;
-            let eventTag = ``;
+            let eventDate, eventImg, zoomLink, eventTag;
+            eventTag = zoomLink = eventImg = ``;
             endTime = event.noendtime ? `` : ` - ${time.formatTime(time.addHours(event.dateName, event.length))}`;
             if (event.date === 'tbd') {
                 eventDate = `Date:&nbsp;TBD`;
@@ -233,10 +231,8 @@ const contentKids = () => {
         let kidList = ``;
         let endTime;
         for (const kid of data.kids) {
-            let kidDate;
-            let kidImg = ``;
-            let zoomLink = ``;
-            let kidTag = ``;
+            let kidDate, kidImg, zoomLink, kidTag;
+            kidTag = zoomLink = kidImg = ``;
             kid.form = "https://docs.google.com/forms/d/e/1FAIpQLSexzMC0KhtjIMRZT1yVBla-fFVZe69UB3f0g0KgkFFQaj5K_g/viewform"
             endTime = kid.noendtime ? `` : ` - ${time.formatTime(time.addHours(kid.dateName, kid.length))}`;
             if (kid.date === 'tbd') {
