@@ -31,19 +31,6 @@
   imgalt: Chair Yoga
   zoom: [https://zoom.us/j/92230747880, https://zoom.us/j/92230747880, https://zoom.us/j/92230747880, https://zoom.us/j/92230747880]
 
-- name: Winter Wreath Class
-  title: Winter Wreath Class
-  subtitle: with Michele Liana
-  date: 2022-01-31 19:00:00 -5
-  length: 1
-  noendtime: true
-  blurb: Join instructor Michele Liana in creating this beautiful, easy-to-make 14-inch wreath for the winter months. Class will be held on Zoom. $15.00 fee for materials.
-  desc: Join instructor Michele Liana in creating this beautiful, easy-to-make 14-inch wreath for the winter months. Class will be held on Zoom. Materials including bow and cardinal will be supplied. A $15.00 fee is due at time of registration. We recommend you provide your email address to us so we can send you the Zoom link in advance.
-  style: blue
-  img: winter-wreath
-  imgalt: A white wreath decorated with a decorative plaid bow and red snowflakes
-  zoom: https://zoom.us/j/94014203835
-
 - name: "&ldquo;Boys Town&rdquo;"
   title: "&ldquo;Boys Town&rdquo;"
   subtitle: a Classic Movie Event
