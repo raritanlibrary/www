@@ -8,7 +8,6 @@ const yaml = require('js-yaml');
 const eventParser = yaml => {
     yaml.forEach(event => {
         event.tag = event.zoom && !event.tag ? "zoom" : false;
-        event.length = event.length === "range" ? 1 : event.length;
         if (event.date === "tbd") {
             event.dateName =  event.dateSort = new Date(1e14);
             event.zoom = false;
@@ -16,6 +15,7 @@ const eventParser = yaml => {
             event.dateSort = event.date[0] < time.now ? time.now : event.date[0];
             event.dateName = event.date[1];
             event.range = true;
+            event.length = 1;
         } else if (Array.isArray(event.date)) {
             const numDays = event.date.length;
             for (let i = 0; i < numDays; i++) {

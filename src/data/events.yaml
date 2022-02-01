@@ -46,7 +46,7 @@
 - name: "&ldquo;The Good, the Bad and the Ugly&rdquo;"
   title: Sergio Leone's Epic
   subtitle: "<span style=\"letter-spacing: -1px\">The Good, the Bad &amp; the Ugly"
-  date: tbd
+  date: 2022-02-22 14:00:00 -5
   length: 3
   noendtime: true
   blurb: "Born and raised in Somerville, NJ, Lee Van Cleef teams up with Clint Eastwood and Eli Wallach in this epic Western film. Refreshments are served. Running time: 161 minutes."
@@ -54,3 +54,18 @@
   style: orange
   img: goodbadugly3
   imgalt: A black-and-white image of actor Lee Van Cleef playing the role of Angel Eyes in The Good, the Bad and the Ugly
+
+- name: RVFL Poetry Submissions
+  title: Poetry Submissions
+  subtitle: RVFL Poetry Anthology
+  date: [2022-02-01 10:00:00 -5, 2022-03-19 17:00:00 -4]
+  length: range
+  blurb: April is National Poetry Month! Submit your poems now for publication in the Raritan Valley Federation of Libraries Poetry Program Anthology! Deadline is March 19th, 2022.
+  desc: April is National Poetry Month! Submit your poems now for publication in the Raritan Valley Federation of Libraries Poetry Program Anthology! Deadline is <b>March 19th, 2022</b>.
+  style: green
+  img: poetry
+  imgalt: 123
+  form: docs/events/PoetrySubmissionForm2022.pdf
+  formalt:
+    name: NBFPL Website
+    link: https://www.nbfpl.org/

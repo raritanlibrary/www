@@ -125,8 +125,8 @@ const contentNews = () => {
             newsOutput += `
             <div class="news-wrapper">
                 <h2 class="news-h2" id="news-header-${curYear}">${curYear}</h2>
-                ${svg.arrow(newsList.indexOf(year) !== 0 ? " news-arrow-collapsed" : "", curYear)}
-                <div class="news-year${newsList.indexOf(year) !== 0 ? " news-year-collapsed" : ""}" id="news-year-${curYear}">
+                ${svg.arrow(newsList.indexOf(year) >= 2  ? " news-arrow-collapsed" : "", curYear)}
+                <div class="news-year${newsList.indexOf(year) >= 2  ? " news-year-collapsed" : ""}" id="news-year-${curYear}">
                     ${year}
                 </div>
             </div>
