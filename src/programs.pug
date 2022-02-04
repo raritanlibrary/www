@@ -12,25 +12,20 @@ html(lang="en" color-mode="lite")
                 .sidebar-left.sidebar-craft
                     h3.hsidebar-event Adult Craft Projects
                     p.text.spacer-plus View our previous craft projects and see the great job done by our patron crafters!
+                    -
+                        const craftList = [
+                            {name: "Winter Wreath", num: 1, img: "winter"},
+                            {name: "Rag Candle Wreath", num: 3, img: "rag"},
+                            {name: "Patriotic Birdhouse Wreath", num: 3, img: "birdhouse"},
+                        ]
                     .crafts
-                        h4 Rag Candle Wreath
-                        each img in arr(3)
-                            a.crafts-img(href=`url:./img/crafts/rag${img+1}.jpg` target="_blank")
-                                picture
-                                    source.crafts-img-inner(srcset=`url:./img/crafts/_rag${img+1}.jpg?as=webp` type="image/webp")
-                                    img.crafts-img-inner(src=`url:./img/crafts/_rag${img+1}.jpg?as=jpeg` alt=`Rag Candle Wreath` type="image/jpeg")
-                        h4 Patriotic Birdhouse Wreath
-                        each img in arr(3)
-                            a.crafts-img(href=`url:./img/crafts/birdhouse${img+1}.jpg` target="_blank")
-                                picture
-                                    source.crafts-img-inner(srcset=`url:./img/crafts/_birdhouse${img+1}.jpg?as=webp` type="image/webp")
-                                    img.crafts-img-inner(src=`url:./img/crafts/_birdhouse${img+1}.jpg?as=jpeg` alt=`Patriotic Birdhouse Wreath` type="image/jpeg")
-                        h4 Trellis Wreath
-                        each img in arr(4)
-                            a.crafts-img(href=`url:./img/crafts/trellis${img+1}.jpg` target="_blank")
-                                picture
-                                    source.crafts-img-inner(srcset=`url:./img/crafts/_trellis${img+1}.jpg?as=webp` type="image/webp")
-                                    img.crafts-img-inner(src=`url:./img/crafts/_trellis${img+1}.jpg?as=jpeg` alt=`Trellis Wreath` type="image/jpeg")
+                        for craft in craftList
+                            h4 #{craft.name}
+                            each img in arr(craft.num)
+                                a.crafts-img(href=`url:./img/crafts/${craft.img}${img+1}.jpg` target="_blank")
+                                    picture
+                                        source.crafts-img-inner(srcset=`url:./img/crafts/_${craft.img}${img+1}.jpg?as=webp` type="image/webp")
+                                        img.crafts-img-inner(src=`url:./img/crafts/_${craft.img}${img+1}.jpg?as=jpeg` alt=`${craft.name}` type="image/jpeg")
                 .center
                     h2.h2-fo Programs
                     p.text.text-center To sign up for events, please use a provided sign-up form, or call us at #[b (908) 725-0413] during our open hours.
@@ -39,4 +34,5 @@ html(lang="en" color-mode="lite")
                 .sidebar-right
                     include ./includes/contact.pug
                     include ./includes/hours.pug
+                    include ./includes/advert.pug
             include ./includes/footer.pug

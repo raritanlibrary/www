@@ -1,0 +1,23 @@
+.advert
+    display flex
+    flex-flow column nowrap
+    width 210px
+    margin 0 auto
+    &-img
+        position relative
+        border 2px solid var(--border-c) 
+        overflow hidden
+        width 210px
+        height h = calc((100vw/24 - (1600px/24 - 210px)))
+        &-inner
+            height h
+            width 100%
+            object-fit cover
+            object-position 50% 50%
+    &-tag
+        lexend(10px, var(--main))
+        background-color var(--alt)
+        user-select(none)
+        padding 3px 10px 3px 12px
+        border-radius 0 0 0 12px
+        align-self flex-end

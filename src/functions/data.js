@@ -83,7 +83,7 @@ let storytimeObj = {
     "date": storytimeDates,
     "length": 0.75,
     "age": "0 - 18",
-    "desc": "Join Miss Amber on Zoom every Tuesday and Thursday for songs, movement, stories, and more! Drop by the library any time after Storytime to pick up a Take &amp; Make craft",
+    "desc": "Join Miss Amber on Zoom every Tuesday and Thursday for songs, movement, stories, and more! Drop by the library any time after Storytime to pick up a Take &amp; Make craft.",
     "img": "storytime-zoom",
     "imgalt": "A red-haired woman reading from a book, streamed through the internet onto a laptop",
     zoom: ["https://zoom.us/", "https://zoom.us/", "https://zoom.us/", "https://zoom.us/"]

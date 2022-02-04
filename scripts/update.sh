@@ -13,4 +13,10 @@ rmdir www
 call cd c && unzip -o www.zip
 rm www.zip
 EOF
+
+echo "╭─────────────────────────────────────────────╮"
+echo "│ Revision $(cat src/data/_REV) pushed to server successfully. │"
+echo "│         https://raritanlibrary.org/         │"
+echo "╰─────────────────────────────────────────────╯"
+
 exit 0
