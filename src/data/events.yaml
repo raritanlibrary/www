@@ -1,23 +1,24 @@
-##########################  params  ##########################
-#  name                  for programs page
-#  title / subtitle      for sidebar
-#  date                  date, datearray, or tbd
-#                        handles sameday events
-#  length                from start, can also be range
-#                        date must be two
-#  noendtime             bool, set true to disable end time
-#  blurb                 for sidebar (shortened desc)
-#  desc                  for programs page
-#  style                 colorization
-#  img                   image in img/events/*
-#  imgalt                image alt attribute
-#  form                  link to registration form
-#  formalt               secondary form/information
-#  --link                link to secondary form/information
-#  --name                name of button
-#  zoom                  zoom link or array of links
-#                        automatically sets "virtual" tag
-##############################################################
+#######################  params  #######################
+#  name               for programs page
+#  title / subtitle   for sidebar
+#  date               date, datearray, or tbd
+#                     handles sameday events
+#  length             from start, can also be range
+#                     date must be two
+#  noendtime          bool, set true to disable end time
+#  blurb              for sidebar (shortened desc)
+#  desc               for programs page
+#  eblast             extra detail for eblasts only
+#  style              colorization
+#  img                image in img/events/*
+#  imgalt             image alt attribute
+#  form               link to registration form
+#  formalt            secondary form/information
+#  --link             link to secondary form/information
+#  --name             name of button
+#  zoom               zoom link or array of links
+#                     automatically sets "virtual" tag
+########################################################
 
 - name: Virtual Chair Yoga with Breda
   title: Virtual Chair Yoga
@@ -73,6 +74,7 @@
   length: range
   blurb: April is National Poetry Month! Submit your poems now for publication in the Raritan Valley Federation of Libraries Poetry Program Anthology! Deadline is March 19th, 2022.
   desc: April is National Poetry Month! Submit your poems now for publication in the Raritan Valley Federation of Libraries Poetry Program Anthology! Deadline is <b>March 19th, 2022</b>.
+  eblast: Submission forms can be obtained at the front desk at the Library or as a <a href="http://raritanlibrary.org/programs#Zk94s" target="_blank">download on our website's programming page</a>. 
   style: green
   img: poetry
   imgalt: 123
