@@ -79,14 +79,13 @@ for (let i = 0; i < 2; i++) {
     storytimeDates.push(day);
 }
 let storytimeObj = {
-    "name": "Storytime on Zoom",
+    "name": "Storytime at the Library",
     "date": storytimeDates,
     "length": 0.75,
     "age": "0 - 18",
-    "desc": "Join Miss Amber on Zoom every Tuesday and Thursday for songs, movement, stories, and more! Drop by the library any time after Storytime to pick up a Take &amp; Make craft.",
-    "img": "storytime-zoom",
-    "imgalt": "A red-haired woman reading from a book, streamed through the internet onto a laptop",
-    zoom: ["https://zoom.us/", "https://zoom.us/", "https://zoom.us/", "https://zoom.us/"]
+    "desc": "Children are invited to join Miss Amber for music, movement, stories, and crafts centered around a theme that changes every week! All children are welcome, we don't require you to be still or silent to join!",
+    "img": "storytime",
+    "imgalt": "Children gathered around an open book",
 };
 kids.push(storytimeObj);
 

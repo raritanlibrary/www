@@ -277,9 +277,7 @@ const contentKids = () => {
             }
             if (kid.img && kid.imgalt) {
                 kidImg = `
-                <a href="img/kids/${kid.img}.png" target="_blank">
-                    <img class="snippet-img" src="img/kids/_${kid.img}.png" alt="${kid.imgalt}"}>
-                </a>
+                <img class="snippet-img" src="img/kids/${kid.img}.png" alt="${kid.imgalt}"}>
                 `
             }
             if (time.addHours(kid.dateName, kid.length) >= time.now) {
@@ -343,4 +341,10 @@ window.onload = () => {
     pageInjector(page);
     access.hicontrast();
     data.rev();
+};
+
+if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
+    window.location.href = url + '.html'
+} else if (!url.includes('.html') && url.includes('#')) {
+    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
 };

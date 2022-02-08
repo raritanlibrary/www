@@ -31,7 +31,11 @@ script if (/*@cc_on!@*/false || !!document.documentMode) window.location.href = 
 script(src="./js/ga.js")
 script(async src='https://www.google-analytics.com/analytics.js')
 script(type="module" src="./js/main.js")
+// Newsletter dates ///////////////////////////////////////////////////////////
+- const curYear     = 2022
+- const curMonth    = 2
 // Variables //////////////////////////////////////////////////////////////////
-- const arr         = (n) => [...Array(n).keys()];
-- const newsMonth   = 'January 2022';
-- const newsShort   = 202201
+- const arr         = n => [...Array(n).keys()];
+- const months      = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+- const newsShort   = `${curYear}${String(curMonth).padStart(2, 0)}`
+- const newsMonth   = `${months[curMonth-1]} ${curYear}`;

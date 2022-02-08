@@ -30,68 +30,60 @@
   desc: Riley, a certified therapy dog, will be visiting the library to hear stories! We'll start by reading one together and then take turns with Riley. All ages and reading levels are encouraged to attend. Riley likes stories of all kinds-even the ones you make up yourself!
   img: readwriley
   imgalt: Riley, a certified therapy dog
-  zoom: https://zoom.us/
 
-- name: Willy Wonka and the (Hot) Chocolate Factory
-  date: 2022-01-19 18:00:00 -5
-  length: 1.5
-  age: 0 - 18
-  desc: Stop by the library to create your very own hot chocolate mix, then take it home with you to enjoy while we stream Willy Wonka and the Chocolate Factory (the Gene Wilder version) on Zoom!
-  img: hot-chocolate
-  imgalt: A mug full of hot chocolate, topped with whipped cream and cinnamon sticks
-  zoom: https://zoom.us/
-
-- name: Pajama Storytime on Zoom
-  date: 2022-01-12 18:00:00 -5
-  length: 2
+- name: Pajama Storytime
+  date: 2022-02-12 18:00:00 -5
+  length: 0.75
   noendtime: true
   age: 0 - 18
   desc: Put on your favorite pajamas, grab your stuffie, and join Miss Amber for an evening of stories, songs, and crafts. All children are welcome, we don't require you to be still or silent to join!
   img: storytime-pj
   imgalt: A cartoon illustration of a girl dressed up in unicorn pajamas, holding a pillow
-  zoom: https://zoom.us/
   
-- name: "Cover to Cover on Zoom: YA Book Club"
-  date: 2022-01-28 16:00:00 -5
+- name: "Cover to Cover: YA Book Club"
+  date: 2022-02-25 16:00:00 -5
   length: 1
   age: 13 - 18
-  desc: This month we'll be reading <i>They Both Die at the End</i> by Adam Silvera. &ldquo;On September 5, a little after midnight, Death-Cast calls Mateo Torrez and Rufus Emeterio to give them some bad news&mdash; They're going to die today. Mateo and Rufus are total strangers, but, for different reasons, they're both looking to make a new friend on their End Day.&rdquo;<br>Available for free as an eBook and audiobook on <a class="link" href="https://www.hoopladigital.com/" target="_blank" rel="noopener">hoopladigital</a>.
-  img: they-both-die
-  imgalt: The front over of Adam Silvera's They Both Die at the End
-  zoom: https://zoom.us/
+  desc: This month we'll be reading <i>Loveboat, Taipei</i> by Abigail Hing Wen. &ldquo;...Ever Wong's summer takes an unexpected turn. Gone is Chien Tan, the strict educational program in Taiwan that Ever was expecting. In its place, she finds Loveboat- a summer-long free-for-all where hookups abound, adults turn a blind eye, snake-blood sake flows abundantly, and the nightlife runs nonstop. But not every student is quite what they seem...&rdquo;<br>Available for free as an eBook and audiobook on <a class="link" href="https://www.hoopladigital.com/" target="_blank" rel="noopener">hoopladigital</a>.
+  img: loveboat-taipei
+  imgalt: The front over of Abigail Hing Wen's Loveboat, Taipei
 
-- name: "Book Bites on Zoom: Middle Grade Book Club"
-  date: 2022-01-21 16:00:00 -5
+- name: "Book Bites: Middle Grade Book Club"
+  date: 2022-02-18 16:00:00 -5
   length: 1
   age: 9 - 13
-  desc: Daniel Nayeri's <i>Everything Sad is Untrue</i> is the true story of an immigrant boy named Khosrou (who everyone calls Daniel). While his classmates ridicule him for his differences, he is determined to tell his stories&mdash; of ancestors who ate pastries that made people cry, and walked on carpets studded with jewels, to his family's flight from the Iranian secret police, and their eventual arrival in America.<br>Available for free as an audiobook on <a class="link" href="https://www.hoopladigital.com/" target="_blank" rel="noopener">hoopladigital</a>.
-  img: everything-sad
-  imgalt: The front cover of Daniel Nayeri's Everything Sad is Untrue
-  zoom: https://zoom.us/
+  desc: This month we'll be reading <i>Ever</i> by Gail Carson Levine. &ldquo;Falling in love is never easy, but falling in love with an immortal god while your days on earth are numbered is almost more than a young girl can bear.&rdquo;<br>Available for free as an eBook and audiobook on <a class="link" href="https://www.hoopladigital.com/" target="_blank" rel="noopener">hoopladigital</a>.
+  img: ever
+  imgalt: The front cover of Gail Carson Levine's Ever
 
-- name: Taboo for Kids on Zoom
-  date: 2022-01-14 16:00:00 -5
-  length: 0.75
-  age: 8 - 13
-  desc: Try your hand at our version of the classic game Taboo. This kid-friendly version utilizes topics that children are likely already familiar with to maximize fun. 
-  img: taboo
-  imgalt: A set of green, blue, yellow, and red cards
-  zoom: https://zoom.us/
-
-- name: Story Chain on Zoom
-  date: 2022-01-26 16:00:00 -5
-  length: 0.5
-  age: 9 - 13
-  desc: Let's work together to create our very own story! It's just like improv, but maybe even more fun. Add to the story whenever inspiration strikes you, but there's no pressure to participate. Miss Amber will type the story as we go so we can add it to our collection! 
-  img: story-chain
-  imgalt: Illustrated headshots of children, connected by a jagged dotted line, over an open book
-  zoom: https://zoom.us/
-
-- name: Data Privacy for Kids on Facebook Live
-  date: 2022-01-28 14:00:00 -5
-  length: 0.75
+- name: DIY Valentines (Drop In)
+  date: 2022-02-09 13:00:00 -5
+  length: 6
   age: 0 - 18
-  desc: It's true that most websites, particularly those designed for use by children, have measures in place to protect the data of users under the age of 13, but what about those that allow you to browse without declaring your age? What about when kids access sites without permission? Join Miss Amber to learn more about what kind of data is commonly collected when browsing online. Questions are encouraged. 
-  img: data-privacy
-  imgalt: A cloud upload logo with a cursor hovered over it
-  zoom: https://zoom.us/
+  desc: Looking for an extra-special valentine for your special someone(s) this year? Stop by the library to make some DIY valentines! Use our templates or use our supplies make something totally unique.
+  img: diy-valentines
+  imgalt: Various heart-shaped paper crafts
+
+- name: Valentine's Party
+  date: 2022-02-14 16:00:00 -5
+  length: 1
+  age: 0 - 18
+  desc: We love love, and we love Valentine's Day! Join us for an evening of Valentine-themed games, crafts, and music. We are so excited to celebrate this special day with all of you.
+  img: valentines-day
+  imgalt: Hearts floating amidst a rose red background
+
+- name: Loving Llamas Sewing Project
+  date: 2022-02-23 17:00:00 -5
+  length: 1.5
+  age: 9 - 18
+  desc: Who doesn't need a little more love in their lives? Join us to make a bright, cuddly, pocket-sized felt llama. We'll be working on our blanket and running stitches. No experience is necessary to participate!
+  img: loving-llamas
+  imgalt: A Sew Easy Lovable Llama sewing kit
+
+- name: National Tell a Fairy Tale Day
+  date: 2022-02-23 16:00:00 -5
+  length: 1
+  age: 0 - 18
+  desc: National Tell a Fairy Tale Day is on February 26, so we're celebrating it today! Join us for fairy tale themed stories and activities!
+  img: fairy-tale-day
+  imgalt: An opened and glowing magical book
