@@ -23,14 +23,14 @@
 - name: Virtual Chair Yoga with Breda
   title: Virtual Chair Yoga
   subtitle: with Breda
-  date: [2022-01-06 14:00:00 -5, 2022-01-20 14:00:00 -5, 2022-02-03 14:00:00 -5, 2022-02-17 14:00:00 -5]
+  date: [2022-02-17 14:00:00 -5]
   length: 1
   blurb: Join our popular &ldquo;Chair Yoga&rdquo; instructor, Breda, for a virtual yoga session via the Zoom app. No prior yoga experience is necessary.
   desc: Join our popular &ldquo;Chair Yoga&rdquo; instructor, Breda, for a virtual yoga session via the Zoom app. Sessions will last approximately one hour, and there's no experience necessary. We recommend you provide your email address to us so we can send you the Zoom link in advance.
   style: yoga
   img: yoga
   imgalt: Chair Yoga
-  zoom: [https://zoom.us/j/92230747880, https://zoom.us/j/92230747880, https://zoom.us/j/92230747880, https://zoom.us/j/92230747880]
+  zoom: https://zoom.us/j/92230747880
 
 - name: Chair Yoga with Breda
   title: Chair Yoga
@@ -42,18 +42,6 @@
   style: yoga
   img: yoga
   imgalt: Chair Yoga
-
-- name: "&ldquo;Boys Town&rdquo;"
-  title: "&ldquo;Boys Town&rdquo;"
-  subtitle: a Classic Movie Event
-  date: 2022-02-08 14:00:00 -5
-  length: 1.5
-  noendtime: true
-  blurb: "Sign up for this classic 1938 Oscar-winning film based on a the true story of the Boys Town orphanage in Nebraska. Refreshments are served. Running time: 96 minutes."
-  desc: "Sign up for this classic 1938 Oscar-winning film starring Spencer Tracy and Mickey Rooney. Based on the true-life inspirational story about Father Flanagan who started the Boys Town orphanage in Nebraska for delinquent boys. Watch how Father Flanagan gives love and hope to orphan boys left behind! Refreshments are served. Running time: 96 minutes. Registration required."
-  style: yellow
-  img: boys-town
-  imgalt: An illustration of Mickey Rooney and Spencer Tracy, taken from a promotional poster for the 1938 film Boys Town
 
 - name: "&ldquo;The Good, the Bad and the Ugly&rdquo;"
   title: Sergio Leone's Epic
@@ -77,8 +65,22 @@
   eblast: Submission forms can be obtained at the front desk at the Library or as a <a href="http://raritanlibrary.org/programs#Zk94s" target="_blank">download</a> on our website's programming page. 
   style: green
   img: poetry
-  imgalt: 123
+  imgalt: A inkpen lying on a sheet of paper with illegible scribbles that appear to resemble poetry
   form: docs/events/PoetrySubmissionForm2022.pdf
   formalt:
     name: NBFPL Website
     link: https://www.nbfpl.org/
+
+- name: NJ Makers Day 2022
+  title: NJ Makers Day 2022
+  subtitle: at Raritan Public Library
+  date: 2022-03-26 10:30:00 -4
+  length: 4
+  blurb: Raritan Public Library is excited to announce this year's NJ Makers Day. Join us for 3D printing showcases, coding workshops, and more on this special day!
+  desc: Raritan Public Library is excited to announce this year's NJ Makers Day. The Library will be hosting various activities for children and adults to showcase, highlight, and inspire STEM culture. Join us for 3D printing showcases, coding workshops, and more on this special day!
+  style: cyan
+  img: makersday
+  imgalt: A headshot of a cyan-colored cartoon robot, the mascot of NJ Makers Day
+  formalt:
+    name: More information
+    link: makersday

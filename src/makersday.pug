@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+html(lang="en" color-mode="lite")
+    head
+        - const title = "NJ Makers Day"
+        - const desc = "Explore activities offered by the Raritan Public Library for NJ Makers Day."
+        include ./includes/_head.pug
+    body
+        include ./includes/access.pug
+        div.body
+            include ./includes/header.pug
+            main.main
+                .sidebar-left
+                    include ./includes/calendar.pug
+                .center
+                    h1.h1-sm.spacer-none NJ Makers Day 2022
+                    p.comment-date-xl.text-center.spacer-plus Saturday, March 26th, 10:30 AM - 2:30 PM
+                    p.text.spacer-plus Raritan Public Library is excited to participate in this year's NJ Makers Day. Explore this page to learn more about the various activities we will be offering to our patrons.
+                    hr.hr
+                    h2.status-h2 This page is under construction.
+                    p.comment-date.text-center Check back later for more updates and Makers Day fun!
+                    .snippet: .snippet-body
+                        picture
+                            source(srcset="./img/makers/3d-printing.png?as=webp" type="image/webp")
+                            img.snippet-img(src="./img/makers/3d-printing.png?as=jpeg" alt="A red-colored 3D printer" type="image/jpeg")
+                        h4.h4-link.inline 3D Printer Demos
+                        p.comment-date More Information TBA
+                        br
+                        p.text Join IT Specialist Spencer Gunning in a 3D Printing seminar that covers the basics of bringing 3D models to life. Request the printing of any 3D object, and stick around to watch the live demonstration of your model get printed by our 3D printing machine! Sign up quickly as space is limited for this activity!
+                    .snippet: .snippet-body
+                        picture
+                            source(srcset="./img/makers/buttons.png?as=webp" type="image/webp")
+                            img.snippet-img(src="./img/makers/buttons.png?as=jpeg" alt="A collage of various buttons with a button maker" type="image/jpeg")
+                        h4.h4-link.inline Button Make &amp; Take
+                        p.comment-date More Information TBA
+                        br
+                        p.text Patrons can stop by to create or pick out a button design and take it home with them after they are finished. We will have a variety of templates on hand you can choose from or you can choose to turn your own picture into a button.
+
+                    .snippet: .snippet-body
+                        picture
+                            source(srcset="./img/makers/botley.png?as=webp" type="image/webp")
+                            img.snippet-img(src="./img/makers/botley.png?as=jpeg" alt="Botley the Robot" type="image/jpeg")
+                        h4.h4-link.inline Play &amp; Learn with Botley
+                        p.comment-date More Information TBA
+                        br
+                        p.text Introduce your children to the foundational ideas behind computer coding with Botley the Robot. Increase your child's critical thinking and problem solving skills by helping Botley tackle and obstacle course.
+                .sidebar-right
+                    include ./includes/contact.pug
+                    include ./includes/hours.pug
+                    include ./includes/advert.pug
+            include ./includes/footer.pug

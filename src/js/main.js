@@ -185,7 +185,7 @@ const contentPrograms = () => {
             if (event.formalt) {
                 let formalt = event.formalt;
                 zoomLink += `
-                <a class="snippet-link" href="${formalt.link}" target="_blank" ${util.extchk(formalt.link)}>
+                <a class="snippet-link" href="${formalt.link}" ${formalt.link !== 'makersday' ? `target="_blank"` : ``} ${util.extchk(formalt.link)}>
                     <div class="snippet-link-inner">${formalt.name}</div>
                 </a>
                 `
