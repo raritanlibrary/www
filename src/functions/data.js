@@ -54,12 +54,11 @@ if (time.getR(1) < time.now) {
         "date": time.getR(2),
         "length": 1,
         "noendtime": true,
-        "blurb": "The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually over Zoom.", //in-person at the Raritan Public Library.",
-        "desc": "The regular monthly meeting of the Raritan Public Library Board of Trustees will be held virtually over Zoom.", //in-person at the Raritan Public Library.`,
+        "blurb": "The regular monthly meeting of the Raritan Public Library Board of Trustees will be held in-person at the Raritan Public Library.",
+        "desc": "The regular monthly meeting of the Raritan Public Library Board of Trustees will be held in-person at the Raritan Public Library.",
         "style": "meeting",
         "img": "meeting",
         "imgalt": "Board Meeting",
-        "zoom": "https://zoom.us/j/97734472805",
     };
     events.push(boardObj);
 }

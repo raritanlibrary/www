@@ -50,7 +50,7 @@
   length: 3
   noendtime: true
   blurb: "Born and raised in Somerville, NJ, Lee Van Cleef teams up with Clint Eastwood and Eli Wallach in this epic Western film. Refreshments are served. Running time: 161 minutes."
-  desc: "In conjunction with this month’s BReeze article on local actor Lee Van Cleef, the Raritan Library will be showing one of the most influential westerns of all time. Born and raised in Somerville, NJ, Van Cleef teams up with Clint Eastwood and Eli Wallach in this epic Western film. Refreshments are served. Running time: 161 minutes. Registration is required."
+  desc: "In conjunction with this month's BReeze article on local actor Lee Van Cleef, the Raritan Library will be showing one of the most influential westerns of all time. Born and raised in Somerville, NJ, Van Cleef teams up with Clint Eastwood and Eli Wallach in this epic Western film. Refreshments are served. Running time: 161 minutes. Registration is required."
   style: orange
   img: goodbadugly3
   imgalt: A black-and-white image of actor Lee Van Cleef playing the role of Angel Eyes in The Good, the Bad and the Ugly
@@ -78,9 +78,21 @@
   length: 4
   blurb: Raritan Public Library is excited to announce this year's NJ Makers Day. Join us for 3D printing showcases, coding workshops, and more on this special day!
   desc: Raritan Public Library is excited to announce this year's NJ Makers Day. The Library will be hosting various activities for children and adults to showcase, highlight, and inspire STEM culture. Join us for 3D printing showcases, coding workshops, and more on this special day!
-  style: cyan
+  style: makersday
   img: makersday
   imgalt: A headshot of a cyan-colored cartoon robot, the mascot of NJ Makers Day
   formalt:
     name: More information
     link: makersday
+
+- name: "&ldquo;Strike Up the Band&rdquo;"
+  title: "&ldquo;Strike Up the Band&rdquo;"
+  subtitle: a Classic Movie Matinee
+  date: 2022-03-08 14:00:00 -5
+  length: 2.5
+  noendtime: true
+  blurb: "Mickey Rooney and Judy Garland team up in &ldquo;Strike Up the Band&rdquo;, a highly entertaining 1940 musical tribute filled with high energy songs. Refreshments are served. Running time: 120 minutes."
+  desc: "Among cinema's many treasures, few are as delightfully entertaining as the musical pairings of the two great stars: Mickey Rooney and Judy Garland. &ldquo;Strike Up the Band&rdquo; is one of the brightest results of that special talented collaboration. Register for this highly entertaining 1940 musical tribute filled with high energy songs, dances and an over-the-top drumming and vibraphone performance by Mickey Rooney. Also starring &ldquo;King of Jazz&rdquo; bandleader Paul Whiteman. Refreshments are served. Running time: 120 minutes. Registration is required."
+  style: red
+  img: strikeup
+  imgalt: A black-and-white image of Mickey Rooney and Judy Garland in Strike Up the Band
