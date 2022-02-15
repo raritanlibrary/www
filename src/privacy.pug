@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+html(lang="en" color-mode="lite")
+    head
+        - const noindex = true
+        - const title = "Privacy & Terms"
+        - const desc = "Privacy & Terms of the Raritan Public Library's website."
+        include ./includes/_head.pug
+    body
+        include ./includes/access.pug
+        div.body
+            include ./includes/header.pug
+            main.main
+                .sidebar-left
+                    include ./includes/calendar.pug
+                .center
+                    h1.h1.spacer-plus Privacy &amp; Terms
+                    h2.h2-sm.left.spacer-plus#intro Preamble
+                    p.text.spacer-plus Raritan Public Library strives to provide the highest level of information protection to all Library patrons and guests. This Privacy Policy contains types of information that is collected and recorded and how it is used by the Raritan Public Library. By using this website, you hereby consent to this Privacy Policy and agree to its terms.
+                    h2.h2-sm.left.spacer-plus#data Your Data
+                    p.text.spacer-plus Raritan Public Library retains no personal and/or identifiable data on this website, accessible from raritanlibrary.org. Raritan Public Library will not share and/or sell any information  with any third party except as required pursuant to the provisions of a valid court order or dispute resolution.
+                    h3.h3-sm.left#usage Usage Reports
+                    br
+                    p.text To improve the usefulness of the Raritan Public Library website for patrons and guests, anonymous statistical information is automatically collected through website usage reports. The information collected by these usage reports includes internet protocol (IP) addresses, browser types, access timestamps, and referred and browsed pages. This information may be used for analyzing trends and gathering demographic information, but this information is not linked to anything that is personally identifiable.
+                    br
+                    p.text.spacer-plus The Raritan Public Library also uses Google Analytics as a secondary method for usage reporting. Google Analytics collects the same information as listed in the section above.
+                    h2.h2-sm.left.spacer-plus#contact Contact
+                    p.text.spacer-plus If you have questions or concerns about the details of this Privacy Policy, please #[a.link(href="/contact") contact us] for more information.
+                .sidebar-right
+                    include ./includes/contact.pug
+                    include ./includes/hours.pug
+                    include ./includes/advert.pug
+            include ./includes/footer.pug

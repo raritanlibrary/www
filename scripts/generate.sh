@@ -4,7 +4,7 @@ echo "Generating static files..."
 
 # Generate git data
 rev=$(git rev-list --count main)
-printf '%03X' $rev > src/data/_REV
+printf '%04d' $rev > src/data/_REV
 
 # Make necessary folders
 mkdir "dist/img"

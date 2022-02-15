@@ -173,6 +173,6 @@ export const eventInjector = () => {
 let tag = fs.readFileSync('src/data/_REV', 'utf8');
 export const rev = () => {
     if (util.checkClass('version')) {
-        util.setClass('version', `Revision ${tag} · <a href="/site-map"> View Site Map</a>`);
+        util.setClass('version', `Build ${tag} · <a href="/site-map">Site Map</a> · <a href="/privacy"> Privacy</a>`);
     }
 }

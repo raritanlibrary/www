@@ -16,51 +16,52 @@ html(lang="en" color-mode="lite")
                     p.comment-date-xl.text-center.spacer-plus Saturday, March 26th, 10:30 AM - 2:30 PM
                     p.text.spacer-plus Raritan Public Library is excited to participate in this year's NJ Makers Day. Explore this page to learn more about the various activities we will be offering to our patrons.
                     hr.hr
-                    .snippet: .snippet-body
-                        picture
-                            source(srcset="./img/makers/3d-printing.png?as=webp" type="image/webp")
-                            img.snippet-img(src="./img/makers/3d-printing.png?as=jpeg" alt="A red-colored 3D printer" type="image/jpeg")
-                        h4.h4-link.inline 3D Printer Demos
-                        p.comment-date 
-                            include img/icons/time.svg
-                            span 10:30AM - 2:30PM &nbsp;
-                            include img/icons/location.svg
-                            span Audiobook Room
-                        p.comment-date 
-                            include img/icons/form.svg
-                            span Sign-up only (4 slots left)
-                        br
-                        p.text Join IT Specialist Spencer Gunning in a 3D Printing seminar that covers the basics of bringing 3D models to life. Request the printing of any 3D object, and stick around to watch the live demonstration of your model get printed by our 3D printing machine! Sign up quickly as space is limited for this activity!
-                    .snippet: .snippet-body
-                        picture
-                            source(srcset="./img/makers/buttons.png?as=webp" type="image/webp")
-                            img.snippet-img(src="./img/makers/buttons.png?as=jpeg" alt="A collage of various buttons with a button maker" type="image/jpeg")
-                        h4.h4-link.inline Button Make &amp; Take
-                        p.comment-date 
-                            include img/icons/time.svg
-                            span 11:00AM - 2:00PM &nbsp;
-                            include img/icons/location.svg
-                            span Audiobook Room
-                        p.comment-date 
-                            include img/icons/form.svg
-                            span Drop-in, no sign-up required
-                        br
-                        p.text Patrons can stop by to create or pick out a button design and take it home with them after they are finished. We will have a variety of templates on hand you can choose from or you can choose to turn your own picture into a button.
-                    .snippet: .snippet-body
-                        picture
-                            source(srcset="./img/makers/botley.png?as=webp" type="image/webp")
-                            img.snippet-img(src="./img/makers/botley.png?as=jpeg" alt="Botley the Robot" type="image/jpeg")
-                        h4.h4-link.inline Play &amp; Learn with Botley
-                        p.comment-date 
-                            include img/icons/time.svg
-                            span TBD &nbsp;
-                            include img/icons/location.svg
-                            span Rose Pacifico Children's Room
-                        p.comment-date 
-                            include img/icons/form.svg
-                            span TBD
-                        br
-                        p.text Introduce your children to the foundational ideas behind computer coding with Botley the Robot. Increase your child's critical thinking and problem solving skills by helping Botley tackle and obstacle course.
+                    -
+                        const eventList = [
+                            {title: "3D Printer Demos", img: "3d-printing",
+                            imgalt: "A red-colored 3D printer", time: "10:30AM - 2:30PM",
+                            location: "Audiobook Room", signup: "Sign-up only (4 slots left)",
+                            desc: `Join IT Specialist Spencer Gunning in a 3D Printing seminar that covers the basics of bringing 3D models to life. Request the printing of any 3D object, and stick around to watch the live demonstration of your model get printed by our 3D printing machine! Sign up quickly as space is limited for this activity!`,
+                            form: "https://forms.gle/HZ7gYGF2ThgGJJU5A"},
+
+                            {title: "Button Make &amp; Take", img: "buttons",
+                            imgalt: "A collage of various buttons with a button maker", time: "11:00AM - 2:00PM",
+                            location: "Audiobook Room", signup: "Drop-in, no sign-up required",
+                            desc: `Patrons can stop by to create or pick out a button design and take it home with them after they are finished. We will have a variety of templates on hand you can choose from or you can choose to turn your own picture into a button.`},
+
+                            {title: "Learn with Botley", img: "botley",
+                            imgalt: "Botley the Robot", time: "TBD",
+                            location: "Rose Pacifico Children's Room", signup: "TBD",
+                            desc: `Introduce your children to the foundational ideas behind computer coding with Botley the Robot. Increase your child's critical thinking and problem solving skills by helping Botley tackle and obstacle course.`},
+
+                            {title: "Game Design Crash Course", img: "game-design",
+                            imgalt: "An blue-colored orthographic render of a video game controller among other widgets", time: "1:00PM - 2:30PM",
+                            location: "Community Room", signup: "TBD",
+                            desc: `Join Anesha Santhanam from Likeable STEM to learn how to create your very own video games! Using Scratch and Python, explore how to develop games for players and learn how to think like a game designer.`},
+
+                            //{title: "---", img: "---",
+                            //imgalt: "---", time: "11:00AM - 12:30PM",
+                            //location: "Community Room", signup: "TBD",
+                            //desc: `---`},
+                        ]
+                    for event in eventList
+                        .snippet: .snippet-body
+                            picture
+                                source(srcset=`./img/makers/${event.img}.png?as=webp` type="image/webp")
+                                img.snippet-img(src=`./img/makers/${event.img}.png?as=jpeg` alt=`${event.imgalt}` type="image/jpeg")
+                            h4.h4-link.inline #{event.title}
+                            p.comment-date 
+                                include img/icons/time.svg
+                                span #{event.time} &nbsp;
+                                include img/icons/location.svg
+                                span #{event.location}
+                            p.comment-date 
+                                include img/icons/form.svg
+                                span #{event.signup}
+                            br
+                            p.text #{event.desc}
+                            if event.form 
+                                a.snippet-link(href=`${event.form}` target="_blank" rel="noopener"): div.snippet-link-inner Sign-up form
                 .sidebar-right
                     include ./includes/contact.pug
                     include ./includes/hours.pug
