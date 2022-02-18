@@ -17,9 +17,9 @@ html(lang="en" color-mode="lite")
                     hr.hr
                     -
                         const booksList = [
-                            {date: "September 27", title: "The Four Winds", sub: "by Kristin Hannah", img: "winds"},
-                            {date: "October 25", title: "Becoming Mrs. Lewis", sub: "by Patti Callahan", img: "lewis"},
-                            {date: "November 22/29", title: "Then She Was Gone", sub: "by Lisa Jewell", img: "gone"},
+                            {date: "March 28", title: "The Children's Blizzard", sub: "Melanie Benjamin", img: "blizzard"},
+                            {date: "April 25", title: "A Matter of Chance", sub: "Julie Maloney", img: "chance"},
+                            {date: "June 27", title: "The Last Thing He Told Me", sub: "Laura Dave", img: "last"},
                         ]
                     .books
                         for book in booksList
@@ -28,10 +28,10 @@ html(lang="en" color-mode="lite")
                                     p.books-date #{book.date}
                                     p.books-title #{book.title}
                                     if typeof book.sub
-                                        p.books-sub #{book.sub}
+                                        p.books-sub by #{book.sub}
                                 picture
                                     source(srcset=`url:./img/books/${book.img}.png?as=webp` type="image/webp")
-                                    img.books-img(src=`./img/books/${book.img}.png?as=jpeg` alt=`Front cover of ${book.title}` type="image/jpeg")
+                                    img.books-img(src=`./img/books/${book.img}.png?as=jpeg` alt=`Front cover of ${book.title} by ${book.sub}` type="image/jpeg")
                 .sidebar-right
                     include ./includes/contact.pug
                     include ./includes/hours.pug
