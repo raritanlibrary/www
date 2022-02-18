@@ -251,8 +251,7 @@ const contentKids = () => {
             } else {
                 kidDate = `${time.fullDayTime(kid.date)}${endTime}`;
             }
-            kidTag = `<div class="snippet-tag snippet-tag-kids">Ages ${kid.age}</div>`
-            kidTag += kid.tag === 'zoom' ? `<div class="snippet-tag snippet-tag-virtual">Virtual</div>` : ``;
+            kidTag = kid.tag === 'zoom' ? `<div class="snippet-tag snippet-tag-virtual">Virtual</div>` : ``;
             if (kid.form && ((kid.dateName.getTime() - time.msd >= time.now) || kid.range || (kid.date === 'tbd'))) {
                 zoomLink = `
                 <a class="snippet-link" href="${kid.form}" target="_blank" ${util.extchk(kid.form)}>
@@ -287,6 +286,7 @@ const contentKids = () => {
                     <div class="snippet-body" id="${util.eventid(kid.name)}">
                         <p class="h4-link inline" >${kid.name}</p>${kidTag}
                         <p class="comment-date">${kidDate}</p>
+                        <p class="comment-date">${svg.people}Ages ${kid.age}</p>
                         <br>
                         <p class="text">${kid.desc}</p>
                         ${zoomLink}

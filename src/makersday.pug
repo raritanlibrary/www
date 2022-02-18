@@ -18,31 +18,31 @@ html(lang="en" color-mode="lite")
                     hr.hr
                     -
                         const eventList = [
-                            {title: "3D Printer Demos", img: "3d-printing",
-                            imgalt: "A red-colored 3D printer", time: "10:30AM - 2:30PM",
-                            location: "Audiobook Room", signup: "Sign-up only (4 slots left)",
-                            desc: `Join IT Specialist Spencer Gunning in a 3D Printing seminar that covers the basics of bringing 3D models to life. Request the printing of any 3D object, and stick around to watch the live demonstration of your model get printed by our 3D printing machine! Sign up quickly as space is limited for this activity!`,
-                            form: "https://forms.gle/HZ7gYGF2ThgGJJU5A"},
-
-                            {title: "Button Make &amp; Take", img: "buttons",
-                            imgalt: "A collage of various buttons with a button maker", time: "11:00AM - 2:00PM",
-                            location: "Audiobook Room", signup: "Drop-in, no sign-up required",
-                            desc: `Patrons can stop by to create or pick out a button design and take it home with them after they are finished. We will have a variety of templates on hand you can choose from or you can choose to turn your own picture into a button.`},
-
-                            {title: "Learn with Botley", img: "botley",
-                            imgalt: "Botley the Robot", time: "TBD",
-                            location: "Rose Pacifico Children's Room", signup: "TBD",
-                            desc: `Introduce your children to the foundational ideas behind computer coding with Botley the Robot. Increase your child's critical thinking and problem solving skills by helping Botley tackle and obstacle course.`},
+                            {title: "How to Podcasting with Barry Gould", img: "podcast",
+                            imgalt: "A microphone on a stand", time: "11:00AM - 12:30PM",
+                            location: "Community Room", ages: "Adults only", signup: "Call the library to register",
+                            desc: `Join Podcaster Barry Gould from UpBeat NewsRadio to learn a bit about what goes into the process of podcasting. Observe a live interview, then watch Barry demonstrate how the editing process is done and what software he uses. You will be able to listen to the Podcast online once he publishes it. For more info on Barry's podcast click here.`},
 
                             {title: "Game Design Crash Course", img: "game-design",
                             imgalt: "An blue-colored orthographic render of a video game controller among other widgets", time: "1:00PM - 2:30PM",
-                            location: "Community Room", signup: "TBD",
+                            location: "Community Room", ages: "Ages 10+", signup: "Call the library to register",
                             desc: `Join Anesha Santhanam from Likeable STEM to learn how to create your very own video games! Using Scratch and Python, explore how to develop games for players and learn how to think like a game designer.`},
 
-                            //{title: "---", img: "---",
-                            //imgalt: "---", time: "11:00AM - 12:30PM",
-                            //location: "Community Room", signup: "TBD",
-                            //desc: `---`},
+                            {title: "3D Printer Demos", img: "3d-printing",
+                            imgalt: "A red-colored 3D printer", time: "10:30AM - 2:30PM",
+                            location: "Audiobook Room", ages: "All ages", signup: "Online registration only (3 slots left)",
+                            desc: `Join IT Specialist Spencer Gunning in a 3D Printing seminar that covers the basics of bringing 3D models to life. Request the printing of any 3D object, and stick around to watch the live demonstration of your model get printed by our 3D printing machine! Sign up quickly as space is limited for this activity!`,
+                            form: "https://forms.gle/HZ7gYGF2ThgGJJU5A"},
+
+                            {title: "Button Make & Take", img: "buttons",
+                            imgalt: "A collage of various buttons with a button maker", time: "11:00AM - 2:00PM",
+                            location: "Audiobook Room", ages: "All ages", signup: "Drop-in / no registration required",
+                            desc: `Patrons can stop by to create or pick out a button design and take it home with them after they are finished. We will have a variety of templates on hand you can choose from or you can choose to turn your own picture into a button.`},
+
+                            {title: "Learn with Botley", img: "botley",
+                            imgalt: "Botley the Robot", time: "10:30AM - 2:00PM",
+                            location: "Rose Pacifico Children's Room", ages: "Ages 5+", signup: "Drop-in / no registration required",
+                            desc: `Introduce your children to the foundational ideas behind computer coding with Botley the Robot. Increase your child's critical thinking and problem solving skills by helping Botley tackle and obstacle course.`},
                         ]
                     for event in eventList
                         .snippet: .snippet-body
@@ -56,6 +56,8 @@ html(lang="en" color-mode="lite")
                                 include img/icons/location.svg
                                 span #{event.location}
                             p.comment-date 
+                                include img/icons/people.svg
+                                span #{event.ages} &nbsp;
                                 include img/icons/form.svg
                                 span #{event.signup}
                             br
