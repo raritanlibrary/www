@@ -65,7 +65,8 @@
 
 - name: "Upcoming: Town-Wide Yard Sale"
   date: 2022-02-25
-  desc: On <b>Saturday, May 7th</b>, Raritan will be holding its 3nd Annual Town-Wide Yard Sale. Please click on the link below for a directory of participating addresses. Rain date May 21st.
+  desc: On <b>Saturday, May 7th</b>, Raritan will be holding its 3rd Annual Town-Wide Yard Sale. Please click on the link below for a registration form and instructions. This Spring will be a perfect time to sell unused items. Rain date May 21st.
+  #Please click on the link below for a directory of participating addresses. Rain date May 21st.
   img: yardsale
   imgalt: Yard sale
   imglink: docs/events/YardSaleRegistration2022.pdf
