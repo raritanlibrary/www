@@ -72,7 +72,7 @@
   imglink: docs/events/YardSaleRegistration2022.pdf
   #imglink: docs/events/YardSaleDirectory2022.pdf
   buttons:
-    - name: Registration Form
+    - name: Registration form
       link: docs/events/YardSaleRegistration2022.pdf
     #- name: Directory
     #  link: docs/events/YardSaleDirectory2022.pdf
