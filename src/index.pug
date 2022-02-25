@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+doctype html
 html(lang="en" color-mode="lite")
     head
         - const home = true
@@ -12,7 +12,7 @@ html(lang="en" color-mode="lite")
                 .sidebar-left
                     include ./includes/calendar.pug
                 .center
-                    //include ./includes/alert.pug
+                    //-include ./includes/alert.pug
                     - const imgAlt = ["The homestead of the Raritan Public Library","Bookshelves inside the Raritan Public Library","The reading room at the Raritan Public Library", "The Raritan Public Library Children's Room", "The outdoor gazebo at the Raritan Public Library"]
                     .slideshow
                         each img in arr(5)

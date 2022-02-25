@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+doctype html
 html(lang="en" color-mode="lite")
     head
         - const title = "Board of Trustees"
@@ -43,15 +43,15 @@ html(lang="en" color-mode="lite")
                     hr.hr
                     h2#minutes Meeting Minutes
                     p.comment-big.text-center.spacer-plus Months in grey denote Board Meetings that were not held during that month.
-                    - const years = [2020, 2019, 2018]
-                    - const yearExclude = [[3,4], [], [7,11]]
+                    - const years = [2021, 2020, 2019]
+                    - const yearExclude = [[8], [3,4], []]
                     .meeting
                         .meeting-wrapper
-                            h3.meeting-h3#2021 #{2021}
+                            h3.meeting-h3#2022 #{2022}
                             .meeting-year
-                                for m in arr(12)
-                                    if !([8].includes(m+1))
-                                        p.text #[a.link(href=`./docs/board/2021${String(m+1).padStart(2, '0')}.pdf` target="_blank") #{months[m]}]
+                                for m in arr(1)
+                                    if !([].includes(m+1))
+                                        p.text #[a.link(href=`./docs/board/2022${String(m+1).padStart(2, '0')}.pdf` target="_blank") #{months[m]}]
                                     else
                                         p.greyout #{months[m]}
                         for y in years
@@ -59,7 +59,7 @@ html(lang="en" color-mode="lite")
                                 h3.meeting-h3(id=`${y}`) #{y}
                                 .meeting-year
                                     for m in arr(12)
-                                        if !(yearExclude[2020-y].includes(m+1))
+                                        if !(yearExclude[2021-y].includes(m+1))
                                             p.text #[a.link(href=`./docs/board/${y}${String(m+1).padStart(2, '0')}.pdf` target="_blank") #{months[m]}]
                                         else
                                             p.greyout #{months[m]}
