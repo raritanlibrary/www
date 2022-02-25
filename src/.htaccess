@@ -37,8 +37,10 @@ RedirectMatch 301   /printing                             /policies#printing
 RedirectMatch 301   /ill                                  /policies#ill
 RedirectMatch 301   /renewals                             /policies#renewals
 RedirectMatch 301   /holds                                /policies#holds
+
 # DISABLE DIRECTORY INDEXES
 Options -Indexes
+
 # ENABLE CACHE CONTROL
 <FilesMatch "\.(ttf|woff|woff2|ico|flv|jpg|jpeg|png|gif|swf|webp|svg|txt|doc|docx|xls|xlsx|ppt|pptx|pdf)$">
 Header set Cache-Control "public, max-age=31536000, immutable"
@@ -46,3 +48,29 @@ Header set Cache-Control "public, max-age=31536000, immutable"
 <FilesMatch "\.(html|css|js)$">
 Header set Cache-Control "public, max-age=0, must-revalidate"
 </FilesMatch>
+
+# GZIP COMPRESSION
+# HTML, CSS, JS, TEXT, XML, FONTS
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+AddOutputFilterByType DEFLATE application/x-font
+AddOutputFilterByType DEFLATE application/x-font-opentype
+AddOutputFilterByType DEFLATE application/x-font-otf
+AddOutputFilterByType DEFLATE application/x-font-truetype
+AddOutputFilterByType DEFLATE application/x-font-ttf
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE font/opentype
+AddOutputFilterByType DEFLATE font/otf
+AddOutputFilterByType DEFLATE font/ttf
+AddOutputFilterByType DEFLATE image/svg+xml
+AddOutputFilterByType DEFLATE image/x-icon
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/javascript
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/xml
+</IfModule>
