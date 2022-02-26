@@ -12,11 +12,7 @@ html(lang="en" color-mode="lite")
                 .sidebar-left
                     include ./includes/calendar.pug
                 .center
-                    picture.image
-                        source.image-inner(media="(min-width:500px)" srcset="url:./img/history.png?as=webp" type="image/webp")
-                        source.image-inner(srcset="url:./img/history-480.png?as=webp" type="image/webp")
-                        source.image-inner(media="(min-width:500px)" srcset="url:./img/history.png?as=jpeg" type="image/jpeg")
-                        img.image-inner(src="url:./img/history-480.png?as=jpeg" alt="The reading room at the Raritan Public Library" type="image/jpeg")
+                    +picture-multi(`history.png`, `history-480.png`, "The reading room at the Raritan Public Library", "image-inner", "image")
                     h1.welcome History
                     p.text.spacer-plus The General John Frelinghuysen House, which currently accommodates the Raritan Public Library, belonged to one of the most prominent families of New Jersey and has its historical origins in the early eighteenth century. The land upon which the house stands was a section of a large tract of land purchased by Dutch settlers in 1683 from a Native American tribe for a paltry sum. Cornelius Middaugh was one of the earliest owners of the Frelinghuysen property and it is believed that he may have constructed what is now the west wing of the house. Built in the early 1700's, the west wing is identified as the oldest section of the house and is presumed to have been used as a tavern, as well as a public meeting hall and jail for the then governing Township of Bridgewater. The solid, unfinished style of this low structure reflects the economical nature of the early Dutch settlers who utilized the home in its totality. The small wooden structure faces north to what was known as the Old York Road, once a wilderness trail that grew into a major artery connecting New York and Philadelphia. During the pre-revolutionary era, the New World saw many New Jersey towns, such as Raritan, develop along the Old York Road.
                     p.text.spacer-plus As Raritan evolved, so in turn did the General John Frelinghuysen House. Colonel Frederick Frelinghuysen, John's father, was the first Frelinghuysen to acquire the property, which became familiarly recognized as the Homestead. Frederick, or a previous owner, may have been responsible for constructing the first brick story adjacent to the clapboard frame sometime before 1780. This section of the house is dated with more confidence since the building material, glazed headers from Holland, was a popular feature used by affluent homeowners between 1740 and 1780. By 1810, during John's tenure, the second brick story had been added and the house was given its finished Federal style.
@@ -25,36 +21,21 @@ html(lang="en" color-mode="lite")
                     hr.hr
                     h2#timeline Timeline
                     ul.timeline
-                        li.timeline-entry: p.timeline-title 1681
-                            p.text On May 12th James Graham, Cornelius Corsen and Samuel Winder purchase a tract of land on both sides of the Raritan River from Native Americans for one hundred and twenty pounds, or approximately eighty cents at today's value.
-                        li.timeline-entry: p.timeline-title 1683
-                            p.text A grant of 1,904 acres is patented to Graham &amp; Co., and the territory, known as Lot No. 7, is subdivided into four tracts.
-                        li.timeline-entry: p.timeline-title 1693
-                            p.text On October 26th James Graham deeds a subdivision of his tract to Peter Van Nest, a Dutchman who migrated west from a Long Island settlement.
-                        li.timeline-entry: p.timeline-title 1709
-                            p.text On May 1st, Peter Van Nest deeds the land to his son-in-law, Derrick Middaugh. Cornelius Middaugh (1698-1778), Derrick's son, will come into possession of the property upon the death of his father.
-                        li.timeline-entry: p.timeline-title 1734
-                            p.text Cornelius sells the south portion of the land to his brother, George, who establishes a tavern there. This property, which is then sold to Richard Duyckinck and later F.F. Cornell, is located on Glaser Street behind the Frelinghuysen House.
-                        li.timeline-entry: p.timeline-title Early 1700's
-                            p.text A one-and-a-half-story wooden structure is erected, and is used possibly as a pre-Revolutionary tavern, public meeting hall, and/or prison. This structure, now known as the west wing, is the oldest section of the General John Frelinghuysen House.
-                        li.timeline-entry: p.timeline-title Late 1700's
-                            p.text Colonel Frederick Frelinghuysen purchases the property, which becomes known as the “Homestead” property. The one-story brick house is built adjacent west to the wooden structure sometime between 1740 and 1780, a fact based on the use of glazed headers, a material exclusive to the era. This section could have been built by Frederick or Cornelius.
-                        li.timeline-entry: p.timeline-title 1804
-                            p.text Upon the death of Frederick, General John Frelinghuysen, his oldest son, inherits the homestead property.
-                        li.timeline-entry: p.timeline-title 1810
-                            p.text John has a second story added to the brick house and renovates the interior. The house is now finished in the then popular Federal style, prominent in the U.S. from 1790 to 1830.
-                        li.timeline-entry: p.timeline-title 1833
-                            p.text After the death of John, two of his six children, Sarah and Katherine, continue to occupy the house.
-                        li.timeline-entry: p.timeline-title 1850
-                            p.text A Neo-classic portico is added to the north entrance. The four columns represent Equality, Liberty, Freedom, and Law. A two-story wing is added to the rear of the house on the west side. The wing is demolished during the 1974 restoration and addition work.
-                        li.timeline-entry: p.timeline-title 1921
-                            p.text Katherine's will provides that her niece and two nephews shall inherit the house.
-                        li.timeline-entry: p.timeline-title 1923
-                            p.text Two mantelpieces located on the first floor and the front doorway are removed from the house and relocated to the home of Joseph Frelinghuysen in Far Hills, NJ. A two-story wing is added to the rear of the house on the east side, replacing an earlier porch. The wing is also removed during the 1974 restoration and addition work.
-                        li.timeline-entry: p.timeline-title 1924
-                            p.text David Glaser purchases the Homestead property, and extra rooms are added to the rear of the house. In 1951, it is managed by Glaser Realty Co. Inc. Most of the additions are demolished during 1974 renovation.
-                        li.timeline-entry: p.timeline-title 1970
-                            p.text Peter H.B. Frelinghuysen, a former NJ Congressman, buys the property for $30,000 from the Glaser family and donates it to the Borough of Raritan for public use as a library and museum.
+                        +timeline("1681", "On May 12th James Graham, Cornelius Corsen and Samuel Winder purchase a tract of land on both sides of the Raritan River from Native Americans for one hundred and twenty pounds, or approximately eighty cents at today's value.")
+                        +timeline("1683", "A grant of 1,904 acres is patented to Graham &amp; Co., and the territory, known as Lot No. 7, is subdivided into four tracts.")
+                        +timeline("1693", "On October 26th James Graham deeds a subdivision of his tract to Peter Van Nest, a Dutchman who migrated west from a Long Island settlement.")
+                        +timeline("1709", "On May 1st, Peter Van Nest deeds the land to his son-in-law, Derrick Middaugh. Cornelius Middaugh (1698-1778), Derrick's son, will come into possession of the property upon the death of his father.")
+                        +timeline("1734", "Cornelius sells the south portion of the land to his brother, George, who establishes a tavern there. This property, which is then sold to Richard Duyckinck and later F.F. Cornell, is located on Glaser Street behind the Frelinghuysen House.")
+                        +timeline("Early 1700's", "A one-and-a-half-story wooden structure is erected, and is used possibly as a pre-Revolutionary tavern, public meeting hall, and/or prison. This structure, now known as the west wing, is the oldest section of the General John Frelinghuysen House.")
+                        +timeline("Late 1700's", "Colonel Frederick Frelinghuysen purchases the property, which becomes known as the “Homestead” property. The one-story brick house is built adjacent west to the wooden structure sometime between 1740 and 1780, a fact based on the use of glazed headers, a material exclusive to the era. This section could have been built by Frederick or Cornelius.")
+                        +timeline("1804", "Upon the death of Frederick, General John Frelinghuysen, his oldest son, inherits the homestead property.")
+                        +timeline("1810", "John has a second story added to the brick house and renovates the interior. The house is now finished in the then popular Federal style, prominent in the U.S. from 1790 to 1830.")
+                        +timeline("1833", "After the death of John, two of his six children, Sarah and Katherine, continue to occupy the house.")
+                        +timeline("1850", "A Neo-classic portico is added to the north entrance. The four columns represent Equality, Liberty, Freedom, and Law. A two-story wing is added to the rear of the house on the west side. The wing is demolished during the 1974 restoration and addition work.")
+                        +timeline("1921", "Katherine's will provides that her niece and two nephews shall inherit the house.")
+                        +timeline("1923", "Two mantelpieces located on the first floor and the front doorway are removed from the house and relocated to the home of Joseph Frelinghuysen in Far Hills, NJ. A two-story wing is added to the rear of the house on the east side, replacing an earlier porch. The wing is also removed during the 1974 restoration and addition work.")
+                        +timeline("1924", "David Glaser purchases the Homestead property, and extra rooms are added to the rear of the house. In 1951, it is managed by Glaser Realty Co. Inc. Most of the additions are demolished during 1974 renovation.")
+                        +timeline("1970", "Peter H.B. Frelinghuysen, a former NJ Congressman, buys the property for $30,000 from the Glaser family and donates it to the Borough of Raritan for public use as a library and museum.")
                 .sidebar-right
                     include ./includes/contact.pug
                     include ./includes/hours.pug

@@ -12,54 +12,35 @@ html(lang="en" color-mode="lite")
                 .sidebar-left
                     include ./includes/calendar.pug
                 .center
-                    picture.board-img
-                        source.board-img-inner(media="(min-width:500px)" srcset="url:./img/board.png?as=webp" type="image/webp")
-                        source.board-img-inner(srcset="url:./img/board.png?as=webp" type="image/webp")
-                        source.board-img-inner(media="(min-width:500px)" srcset="url:./img/board.png?as=jpeg" type="image/jpeg")
-                        img.board-img-inner(src="url:./img/board-480.png?as=jpeg" alt="Bust sculpture of William Shakespeare" type="image/jpeg")
+                    +picture-multi("board.png", "board-480.png", "Bust sculpture of William Shakespeare", "board-img-inner", "board-img")
                     h1.h1-sm Board of Trustees
                     p.text-bold.text-center.spacer-plus Board of Trustees meetings are held on the third Thursday of each month at 7 PM in the #[a.link(href="https://www.google.com/maps/dir//Raritan+Public+Library,+54+E+Somerset+St,+Raritan,+NJ+08869/@40.568867,-74.62909,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0x89c3952d67d747f5:0x1a32742982bb460d!2m2!1d-74.62909!2d40.568867!3e0" target="_blank" rel="noopener") Raritan Public Library].
                     hr.hr
                     h2.spacer-plus#members Members
-                    -
-                        const memberList = [
-                            {name: "Donald Esposito", title: "President"},
-                            {name: "Jane Fidacaro", title: "Vice-President"},
-                            {name: "Laura Hnasko", title: "Secretary"},
-                            {name: "Umesh Agrawal", title: "Treasurer"},
-                            {name: "Adele Goetsch"},
-                            {name: "Jim Foohey"},
-                            {name: "Ann Marie Mead"},
-                            {name: "Lucy Sandler", title: "Superintendent Alternate"},
-                            {name: "Zachary Bray", title: "Mayor"},
-                            {name: "Mary J. Paese", title: "Director"}
-                        ]
                     .members
-                        for member in memberList
-                            .member
-                                p.text-bold #{member.name}
-                                if member.title
-                                    p.comment #{member.title}
+                        +member("Donald Esposito", "President")
+                        +member("Jane Fidacaro", "Vice-President")
+                        +member("Laura Hnasko", "Secretary")
+                        +member("Umesh Agrawal", "Treasurer")
+                        +member("Adele Goetsch")
+                        +member("Jim Foohey")
+                        +member("Ann Marie Mead")
+                        +member("Lucy Sandler", "Superintendent Alternate")
+                        +member("Zachary Bray", "Mayor")
+                        +member("Mary J. Paese", "Director")
                     hr.hr
                     h2#minutes Meeting Minutes
                     p.comment-big.text-center.spacer-plus Months in grey denote Board Meetings that were not held during that month.
-                    - const years = [2021, 2020, 2019]
-                    - const yearExclude = [[8], [3,4], []]
+                    - const years = [2022, 2021, 2020, 2019]
+                    - const yearExclude = [[], [8], [3,4], []]
                     .meeting
-                        .meeting-wrapper
-                            h3.meeting-h3#2022 #{2022}
-                            .meeting-year
-                                for m in arr(1)
-                                    if !([].includes(m+1))
-                                        p.text #[a.link(href=`./docs/board/2022${String(m+1).padStart(2, '0')}.pdf` target="_blank") #{months[m]}]
-                                    else
-                                        p.greyout #{months[m]}
-                        for y in years
+                        for y, i in years
                             .meeting-wrapper
                                 h3.meeting-h3(id=`${y}`) #{y}
                                 .meeting-year
-                                    for m in arr(12)
-                                        if !(yearExclude[2021-y].includes(m+1))
+                                    - let arrLen = i !== 0 ? 12 : 1;
+                                    for m in arr(arrLen)
+                                        if !(yearExclude[i].includes(m+1))
                                             p.text #[a.link(href=`./docs/board/${y}${String(m+1).padStart(2, '0')}.pdf` target="_blank") #{months[m]}]
                                         else
                                             p.greyout #{months[m]}

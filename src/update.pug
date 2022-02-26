@@ -7,6 +7,10 @@ html(lang="en")
         style .a {width: 64px; padding: 4px 16px;}
             | .b {font-size: xx-large; padding: 4px 16px; text-decoration: none;}
             | hr {width: 500px;}
+        mixin trtd(name, img, href)
+            tr
+                td: img.a(src=`./img/misc/${img}.png`)
+                td: a.b(href=href) #[b #{name}]
         title Unsupported Browser &ndash; Raritan Public Library
     body(style="font-size: large; margin: 32px; text-align: center;")
         h1(style="margin-bottom: -8px;") Welcome to Raritan Public Library.
@@ -15,18 +19,10 @@ html(lang="en")
             | <br> We thank you for your continued support!
         table(style="margin: 0 auto; padding: 8px 32px;")
             tbody(style="text-align: left;")
-                tr
-                    td: img.a(src="./img/misc/edge.png")
-                    td: a.b(href="https://www.microsoft.com/en-us/edge") #[b Microsoft Edge]
-                tr
-                    td: img.a(src="./img/misc/firefox.png")
-                    td: a.b(href="https://www.mozilla.org/en-US/firefox/") #[b Mozilla Firefox]
-                tr
-                    td: img.a(src="./img/misc/chrome.png")
-                    td: a.b(href="https://www.google.com/chrome/") #[b Google Chrome]
-                tr
-                    td: img.a(src="./img/misc/opera.png")
-                    td: a.b(href="https://www.opera.com/") #[b Opera]
+                +trtd("Microsoft Edge", "edge", "https://www.microsoft.com/en-us/edge")
+                +trtd("Mozilla Firefox", "firefox", "https://www.mozilla.org/en-US/firefox/")
+                +trtd("Google Chrome", "chrome", "https://www.google.com/chrome/")
+                +trtd("Opera", "opera", "https://www.opera.com/")
         p If you need assistance from the Library, please contact us by phone
             | <br> at #[b (908) 725-0413], or by email at #[a(href="mailto:raritanlibrary54@aol.com") raritanlibrary54@aol.com].
         hr

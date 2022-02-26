@@ -12,15 +12,11 @@ html(lang="en" color-mode="lite")
                 .sidebar-left
                     include ./includes/calendar.pug
                 .center
-                    //-include ./includes/alert.pug
+                    //- Alerts go here
                     - const imgAlt = ["The homestead of the Raritan Public Library","Bookshelves inside the Raritan Public Library","The reading room at the Raritan Public Library", "The Raritan Public Library Children's Room", "The outdoor gazebo at the Raritan Public Library"]
                     .slideshow
                         each img in arr(5)
-                            picture
-                                source.slideshow-img(media="(min-width:500px)" srcset=`url:./img/slideshow/${img+1}.png?as=webp` type="image/webp")
-                                source.slideshow-img(srcset=`url:./img/slideshow/${img+1}.png?as=webp` type="image/webp")
-                                source.slideshow-img(media="(min-width:500px)" srcset=`url:./img/slideshow/${img+1}.png?as=jpg` type="image/jpeg")
-                                img.slideshow-img(src=`url:./img/slideshow/480/${img+1}.png?as=jpg` alt=`${imgAlt[img]}` type="image/jpeg")
+                            +picture-multi(`/slideshow/${img+1}.png`, `slideshow/480/${img+1}.png`, imgAlt[img], "slideshow-img")
                     h1.welcome Welcome
                     p.text.spacer-plus Welcome to the Raritan Public Library! Explore our website to find out information on our books, graphic novels, eBooks and other digital resources, magazines, videos, DVDs, recorded books, CDs, museum pass programs, and our policies. For books not available in our library we also offer an inter-library loan service. In addition, we sponsor many activities such as book clubs for adults and teens, story times for children, movie nights and many educational and entertaining programs. We encourage you to visit our library to see its rustic and historical features. The Raritan Public Library, once the Frelinghuysen Homestead, is registered as a historic site. The carpeting and window treatments are designed to match the time period in which the structure was built. We also feature a museum dedicated to the Raritan WWII hero Sgt. John Basilone. So come curl up with a good book in our cozy library. We look forward to seeing you!
                     hr.hr

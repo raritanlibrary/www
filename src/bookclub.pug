@@ -15,23 +15,10 @@ html(lang="en" color-mode="lite")
                     h2.h2-fo Book Club
                     p.text-bold.text-center.spacer-plus Book Club meetings are held on the fourth Monday of each month at 1:30 PM.
                     hr.hr
-                    -
-                        const booksList = [
-                            {date: "March 28", title: "The Children's Blizzard", sub: "Melanie Benjamin", img: "blizzard"},
-                            {date: "April 25", title: "A Matter of Chance", sub: "Julie Maloney", img: "chance"},
-                            {date: "June 27", title: "The Last Thing He Told Me", sub: "Laura Dave", img: "last"},
-                        ]
                     .books
-                        for book in booksList
-                            .books-wrapper
-                                .books-text
-                                    p.books-date #{book.date}
-                                    p.books-title #{book.title}
-                                    if typeof book.sub
-                                        p.books-sub by #{book.sub}
-                                picture
-                                    source(srcset=`url:./img/books/${book.img}.png?as=webp` type="image/webp")
-                                    img.books-img(src=`./img/books/${book.img}.png?as=jpeg` alt=`Front cover of ${book.title} by ${book.sub}` type="image/jpeg")
+                        +book("March 28", "The Children's Blizzard", "Melanie Benjamin", "blizzard")
+                        +book("April 25", "A Matter of Chance", "Julie Maloney", "chance")
+                        +book("June 27", "The Last Thing He Told Me", "Laura Dave", "last")
                 .sidebar-right
                     include ./includes/contact.pug
                     include ./includes/hours.pug

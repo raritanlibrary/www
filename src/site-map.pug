@@ -20,70 +20,70 @@ html(lang="en" color-mode="lite")
                             .spacer-plus
                             h3 Books
                             ul.sitemap-list
-                                li #[a.sitemap-link(href="/bookclub") Book Club]
-                                li #[a.sitemap-link(href="http://raritanpubliclibrarybooks.blogspot.com/" target="_blank" rel="noopener") Books Blog]
-                                li #[a.sitemap-link(href="http://raritanlibraryteenblog.blogspot.com/" target="_blank" rel="noopener") YA/Teen Blog]
-                                li #[a.sitemap-link(href="https://sites.google.com/view/childrensroom/home" target="_blank" rel="noopener") Children's Room]
+                                +sitemap-link("Book Club", "/bookclub")
+                                +sitemap-link("Books Blog", "http://raritanpubliclibrarybooks.blogspot.com/") 
+                                +sitemap-link("YA/Teen Blog", "http://raritanlibraryteenblog.blogspot.com/")
+                                +sitemap-link("Children's Room", "https://sites.google.com/view/childrensroom/home")
                             .spacer-plus
                             h3 Things to Do
                             ul.sitemap-list
-                                li #[a.sitemap-link(href="/programs") Programs]
-                                li #[a.sitemap-link(href="/kids") Programs for Kids]
-                                li #[a.sitemap-link(href="/resources") Resources]
-                                li #[a.sitemap-link(href="/passes") Museum Passes]
-                                li #[a.sitemap-link(href="/makersday") NJ Makers Day]
+                                +sitemap-link("Programs", "/programs")
+                                +sitemap-link("Programs for Kids", "/kids")
+                                +sitemap-link("Resources", "/resources")
+                                +sitemap-link("Museum Passes", "/passes"   )
+                                +sitemap-link("NJ Makers Day", "/makersday")
                             .spacer-plus
                             h3 Our History
                             ul.sitemap-list
-                                li #[a.sitemap-link(href="/history") History Page]
-                                li #[a.sitemap-link(href="http://www.raritan-online.com/jb-online-menu.htm" target="_blank" rel="noopener") Basilone Archives]
+                                +sitemap-link("History Page", "/history")
+                                +sitemap-link("Basilone Archives", "http://www.raritan-online.com/jb-online-menu.htm")
                             .spacer-plus
                             h3 About Us
                             ul.sitemap-list
-                                li #[a.sitemap-link(href="/news") News]
-                                li #[a.sitemap-link(href="/contact") Contact Information]
-                                li #[a.sitemap-link(href="/policies") Library Policies]
-                                li #[a.sitemap-link(href="/gallery") The Gallery]
-                                li #[a.sitemap-link(href="/board") Board of Trustees]
-                                li #[a.sitemap-link(href="/privacy") Privacy &amp; Terms]
+                                +sitemap-link("News", "/news")
+                                +sitemap-link("Contact Information", "/contact")
+                                +sitemap-link("Library Policies", "/policies")
+                                +sitemap-link("The Gallery", "/gallery")
+                                +sitemap-link("Board of Trustees", "/board")
+                                +sitemap-link("Privacy & Terms", "/privacy")
                             .spacer-plus
                             h3 COVID-19
                             ul.sitemap-list
-                                li #[a.sitemap-link(href="/covid-19") COVID-19 Information]
-                                li #[a.sitemap-link(href="/porchside-pickup") Porchside Pickup]
+                                +sitemap-link("COVID-19 Information", "/covid-19")
+                                +sitemap-link("Porchside Pickup", "/porchside-pickup")
                         .sitemap-r
                             h2 More Links
                             .spacer-plus
                             h3 Federal
                             ul.sitemap-list
-                                li #[a.sitemap-link(href="http://www.raritanboro.org/" target="_blank" rel="noopener") Raritan Borough]
-                                li #[a.sitemap-link(href="https://www.co.somerset.nj.us/" target="_blank" rel="noopener") Somerset County]
-                                li #[a.sitemap-link(href="https://www.njleg.state.nj.us/" target="_blank" rel="noopener") NJ Legislature]
-                                li #[a.sitemap-link(href="https://www.house.gov/" target="_blank" rel="noopener") US House of Representatives]
-                                li #[a.sitemap-link(href="https://www.senate.gov/" target="_blank" rel="noopener") US Senate]
+                                +sitemap-link("Raritan Borough", "http://www.raritanboro.org/")
+                                +sitemap-link("Somerset County", "https://www.co.somerset.nj.us/")
+                                +sitemap-link("NJ Legislature", "https://www.njleg.state.nj.us/")
+                                +sitemap-link("US House of Representatives", "https://www.house.gov/")
+                                +sitemap-link("US Senate", "https://www.senate.gov/")
                             .spacer-plus
                             h3 Education
                             ul.sitemap-list
-                                li #[a.sitemap-link(href="https://www.cia.gov/the-world-factbook/" target="_blank" rel="noopener") CIA World Factbook]
-                                li #[a.sitemap-link(href="https://www.epermittest.com/new-jersey/nj-practice-permit-test" target="_blank" rel="noopener") DMV Practice Test]
-                                li #[a.sitemap-link(href="https://www.epermittest.com/new-jersey/drivers-education" target="_blank" rel="noopener") Driver's Education]
-                                li #[a.sitemap-link(href="https://www.goodcall.com/scholarships/" target="_blank" rel="noopener") GoodCall Scholarship Engine]
+                                +sitemap-link("CIA World Factbook", "https://www.cia.gov/the-world-factbook/")
+                                +sitemap-link("DMV Practice Test", "https://www.epermittest.com/new-jersey/nj-practice-permit-test")
+                                +sitemap-link("Driver's Education", "https://www.epermittest.com/new-jersey/drivers-education")
+                                +sitemap-link("GoodCall Scholarship Engine", "https://www.goodcall.com/scholarships/")
                             .spacer-plus
                             h3 Libraries &amp; Museums
                             ul.sitemap-list
-                                li #[a.sitemap-link(href="https://www.loc.gov/" target="_blank" rel="noopener") Library of Congress]
-                                li #[a.sitemap-link(href="https://www.nypl.org/" target="_blank" rel="noopener") New York Public Library]
-                                li #[a.sitemap-link(href="https://www.statueofliberty.org/ellis-island/" target="_blank" rel="noopener") Ellis Island]
-                                li #[a.sitemap-link(href="https://www.si.edu/" target="_blank" rel="noopener") Smithsonian Institute]
-                                li #[a.sitemap-link(href="https://www.metmuseum.org/" target="_blank" rel="noopener") Metropolitan Museum Art]
+                                +sitemap-link("Library of Congress", "https://www.loc.gov/")
+                                +sitemap-link("New York Public Library", "https://www.nypl.org/")
+                                +sitemap-link("Ellis Island", "https://www.statueofliberty.org/ellis-island/")
+                                +sitemap-link("Smithsonian Institute", "https://www.si.edu/")
+                                +sitemap-link("Metropolitan Museum Art", "https://www.metmuseum.org/")
                             .spacer-plus
                             h3 Miscellaneous
                             ul.sitemap-list
-                                li #[a.sitemap-link(href="https://www.pbs.org/" target="_blank" rel="noopener") PBS]
-                                li #[a.sitemap-link(href="https://sites.google.com/site/ls62344/" target="_blank" rel="noopener") Resource Somerset]
-                                li #[a.sitemap-link(href="http://www.ala.org/yalsa/booklistsawards/booklistsbook" target="_blank" rel="noopener") YALSA's Book Awards]
-                                li #[a.sitemap-link(href="https://somerset.maps.arcgis.com/home/index.html" target="_blank" rel="noopener") Somerset County GIS Information]
-                                li #[a.sitemap-link(href="https://www.fueleconomy.gov/" target="_blank" rel="noopener") Fuel Economy Guide]
+                                +sitemap-link("PBS", "https://www.pbs.org/")
+                                +sitemap-link("Resource Somerset", "https://sites.google.com/site/ls62344/")
+                                +sitemap-link("YALSA's Book Awards", "http://www.ala.org/yalsa/booklistsawards/booklistsbook")
+                                +sitemap-link("Somerset County GIS Information", "https://somerset.maps.arcgis.com/home/index.html")
+                                +sitemap-link("Fuel Economy Guide", "https://www.fueleconomy.gov/")
                 .sidebar-right
                     include ./includes/contact.pug
                     include ./includes/hours.pug

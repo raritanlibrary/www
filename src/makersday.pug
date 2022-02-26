@@ -16,57 +16,34 @@ html(lang="en" color-mode="lite")
                     p.comment-date-xl.text-center.spacer-plus Saturday, March 26th, 10:30 AM - 2:30 PM
                     p.text.spacer-plus Raritan Public Library is excited to participate in this year's NJ Makers Day. Explore this page to learn more about the various activities we will be offering to our patrons.
                     hr.hr
-                    -
-                        const eventList = [
-                            {title: "How to Podcasting with Barry Gould", img: "podcast",
-                            imgalt: "A microphone on a stand", time: "11:00AM - 12:30PM",
-                            location: "Community Room", ages: "Adults only", signup: "Call the library to register",
-                            desc: `Join Podcaster Barry Gould from UpBeat NewsRadio to learn a bit about what goes into the process of podcasting. Observe a live interview, then watch Barry demonstrate how the editing process is done and what software he uses. You will be able to listen to the Podcast online once he publishes it.`,
-                            links: [{desc: "UpBeat NewsRadio", href: "https://anchor.fm/barry-drucker-barry-m-gould"},
-                            {desc: "Listen on Spotify", href: "https://open.spotify.com/show/04lXMF1I6pO4Rh30Oj2l5U"}]},
-
-                            {title: "Game Design Crash Course", img: "game-design",
-                            imgalt: "A blue-colored orthographic render of a video game controller among other widgets", time: "1:00PM - 2:30PM",
-                            location: "Community Room", ages: "Ages 10+", signup: "Call the library to register",
-                            desc: `Join Anesha Santhanam from Likeable STEM to learn how to create your very own video games! Using Scratch and Python, explore how to develop games for players and learn how to think like a game designer.`},
-
-                            {title: "3D Printer Demos", img: "3d-printing",
-                            imgalt: "A red-colored 3D printer", time: "10:30AM - 2:30PM",
-                            location: "Audiobook Room", ages: "All ages", signup: "Online registration only (3 slots left)",
-                            desc: `Join IT Specialist Spencer Gunning in a 3D Printing seminar that covers the basics of bringing 3D models to life. Request the printing of any 3D object, and stick around to watch the live demonstration of your model get printed by our 3D printing machine! Sign up quickly as space is limited for this activity!`,
-                            links: [{desc: "Sign-up form", href: "https://forms.gle/HZ7gYGF2ThgGJJU5A"}]},
-
-                            {title: "Button Make & Take", img: "buttons",
-                            imgalt: "A collage of various buttons with a button maker", time: "11:00AM - 2:00PM",
-                            location: "Audiobook Room", ages: "All ages", signup: "Drop-in / no registration required",
-                            desc: `Patrons can stop by to create or pick out a button design and take it home with them after they are finished. We will have a variety of templates on hand you can choose from or you can choose to turn your own picture into a button.`},
-
-                            {title: "Learn with Botley", img: "botley",
-                            imgalt: "Botley the Robot", time: "10:30AM - 2:00PM",
-                            location: "Rose Pacifico Children's Room", ages: "Ages 5+", signup: "Drop-in / no registration required",
-                            desc: `Introduce your children to the foundational ideas behind computer coding with Botley the Robot. Increase your child's critical thinking and problem solving skills by helping Botley tackle an obstacle course.`},
-                        ]
-                    for event in eventList
-                        .snippet: .snippet-body
-                            picture
-                                source(srcset=`./img/makers/${event.img}.png?as=webp` type="image/webp")
-                                img.snippet-img(src=`./img/makers/${event.img}.png?as=jpeg` alt=`${event.imgalt}` type="image/jpeg")
-                            h4.h4-link.inline #{event.title}
-                            p.comment-date 
-                                include img/icons/time.svg
-                                span #{event.time} &nbsp;
-                                include img/icons/location.svg
-                                span #{event.location}
-                            p.comment-date 
-                                include img/icons/people.svg
-                                span #{event.ages} &nbsp;
-                                include img/icons/form.svg
-                                span #{event.signup}
-                            br
-                            p.text #{event.desc}
-                            if event.links
-                                for link in event.links 
-                                    a.snippet-link(href=`${link.href}` target="_blank" rel="noopener"): div.snippet-link-inner #{link.desc}
+                    +makers-event(
+                        "How to Podcasting with Barry Gould",
+                        "podcast", "A microphone on a stand",
+                        "11:00AM - 12:30PM", "Community Room", "Adults only", "Call the library to register",
+                        `Join Podcaster Barry Gould from UpBeat NewsRadio to learn a bit about what goes into the process of podcasting. Observe a live interview, then watch Barry demonstrate how the editing process is done and what software he uses. You will be able to listen to the Podcast online once he publishes it.`,
+                        [{desc: "UpBeat NewsRadio", href: "https://anchor.fm/barry-drucker-barry-m-gould"},
+                        {desc: "Listen on Spotify", href: "https://open.spotify.com/show/04lXMF1I6pO4Rh30Oj2l5U"}])
+                    +makers-event(
+                        "Game Design Crash Course",
+                        "game-design", "A blue-colored orthographic render of a video game controller among other widgets",
+                        "1:00PM - 2:30PM", "Community Room", "Ages 10+", "Call the library to register",
+                        `Join Anesha Santhanam from Likeable STEM to learn how to create your very own video games! Using Scratch and Python, explore how to develop games for players and learn how to think like a game designer.`)
+                    +makers-event(
+                        "3D Printer Demos",
+                        "3d-printing", "A red-colored 3D printer",
+                        "10:30AM - 2:30PM", "Audiobook Room", "All ages", "Online registration only (3 slots left)",
+                        `Join IT Specialist Spencer Gunning in a 3D Printing seminar that covers the basics of bringing 3D models to life. Request the printing of any 3D object, and stick around to watch the live demonstration of your model get printed by our 3D printing machine! Sign up quickly as space is limited for this activity!`,
+                        [{desc: "Sign-up form", href: "https://forms.gle/HZ7gYGF2ThgGJJU5A"}])             
+                    +makers-event(
+                        "Button Make & Take",
+                        "buttons", "A collage of various buttons with a button maker",
+                        "11:00AM - 2:00PM", "Audiobook Room", "All ages", "Drop-in / no registration required",
+                        `Patrons can stop by to create or pick out a button design and take it home with them after they are finished. We will have a variety of templates on hand you can choose from or you can choose to turn your own picture into a button.`)
+                    +makers-event(
+                        "Learn with Botley",
+                        "botley", "Botley the Robot",
+                        "10:30AM - 2:00PM", "Rose Pacifico Children's Room", "Ages 5+", "Drop-in / no registration required",
+                        `Introduce your children to the foundational ideas behind computer coding with Botley the Robot. Increase your child's critical thinking and problem solving skills by helping Botley tackle an obstacle course.`)
                 .sidebar-right
                     include ./includes/contact.pug
                     include ./includes/hours.pug

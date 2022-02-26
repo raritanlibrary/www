@@ -15,97 +15,47 @@ html(lang="en" color-mode="lite")
                     h1 Resources
                     p.text.spacer-plus Resources made available by the Raritan Public Library require a library card. If you are a library card holder, patron of the Library, or are looking to register for a library card, please #[a.link(href="/contact") contact us] for more information on how to access these resources.
                     hr.hr
+                    //- eBooks ////////////////////////////////////////////////
                     h2.spacer-plus.left#ebooks eBooks
-                    .snippet: .snippet-body
-                        a(href="https://raritan.axis360.baker-taylor.com/" target="_blank" rel="noopener")
-                            picture
-                                source(srcset="./img/resources/axis.png?as=webp" type="image/webp")
-                                img.snippet-img(src="./img/resources/axis.png?as=jpg" alt="Axis 360" type="image/jpeg")
-                        h3.spacer-plus.left Axis360
+                    +resource("Axis360", "https://raritan.axis360.baker-taylor.com/", "axis")
                         p.text Use your Raritan Library Online Catalog login to access over 1,500 eBooks and eAudiobooks on #[b Axis 360] for free. Accessible from your browser, #[a.link(href="https://apps.apple.com/us/app/axis-360/id903001147" target="_blank" rel="noopener") phone], #[a.link(href="https://apps.apple.com/us/app/axis-360/id903001147" target="_blank" rel="noopener") tablet], or #[a.link(href="https://www.amazon.com/Baker-Taylor-Inc-Axis-360/dp/B00N59G3ZE" target="_blank" rel="noopener") Kindle device].
                         br
                         p.comment.spacer-plus This service is made possible through the Coronavirus Aid, Relief, and Economic Security (CARES) Act and will be available until October 14th, 2023.
-                    .snippet: .snippet-body
-                        a(href="https://ebook.yourcloudlibrary.com/library/raritanpl/Featured" target="_blank" rel="noopener")
-                            picture
-                                source(srcset="./img/resources/cloudlibrary.png?as=webp" type="image/webp")
-                                img.snippet-img(src="./img/resources/cloudlibrary.png?as=jpg" alt="cloudLibrary" type="image/jpeg")
-                        h3.spacer-plus.left.crunch cloudLibrary
-                        p.text The #[b cloudLibrary ] book service includes all of the books available in our current eBook collection, new ones purchased directly for our own Cloud Library, and existing eBooks inventories from various libraries throughout New Jersey. Check out up to 5 titles, and keep them all for up to 21 days!
-                    .snippet: .snippet-body
-                        a(href="https://www.hoopladigital.com/" target="_blank" rel="noopener")
-                            picture
-                                source(srcset="./img/resources/hoopla.png?as=webp" type="image/webp")
-                                img.snippet-img(src="./img/resources/hoopla.png?as=jpg" alt="hoopla" type="image/jpeg")
-                        h3.spacer-plus.left hoopla
+                    +resource("cloudLibrary", "https://ebook.yourcloudlibrary.com/library/raritanpl/Featured", "cloudlibrary", 3)
+                        p.text The #[b cloudLibrary] book service includes all of the books available in our current eBook collection, new ones purchased directly for our own Cloud Library, and existing eBooks inventories from various libraries throughout New Jersey. Check out up to 5 titles, and keep them all for up to 21 days!
+                    +resource("hoopla", "https://www.hoopladigital.com/", "hoopla")
                         p.text #[b hoopla] digital services include over 500,000 eBooks, Audiobooks, Movies, TV shows, CDs, Comics, and Graphic novels. Accessible from your browser or Smart device.
                         br
                         p.text  #[b NEW for December 2021:] #[i Try #[b BingePass] to access a comprehensive 50-magazine catalog and the Great Courses Library Collection!]
                         br
                         p.comment.spacer-plus Please note our library is not part of the Somerset County Library system.
+                    //- Education /////////////////////////////////////////////
                     h2.spacer-plus.left#education Education
-                    .snippet: .snippet-body
-                        a(href="https://landing.brainfuse.com/authenticate.asp?u=main.raritan.hn.nj.brainfuse.com" target="_blank" rel="noopener")
-                            picture
-                                source(srcset="./img/resources/brainfuse.png?as=webp" type="image/webp")
-                                img.snippet-img(src="./img/resources/brainfuse.png?as=jpg" alt="Brainfuse" type="image/jpeg")
-                        h3.spacer-plus.left Brainfuse
+                    +resource("Brainfuse", "https://landing.brainfuse.com/authenticate.asp?u=main.raritan.hn.nj.brainfuse.com", "brainfuse")
                         p.text #[b Brainfuse] is a web-based tutoring service for children of all ages. Live tutoring engages patrons through online homework help, writing lab assistance, test prep and more.
                         br
                         p.text  #[b NEW for August 2021:] #[i Access is now available to HelpNow, JobNow, VetNow, and LearnNow&ndash; curated services to help patrons of all ages learn new topics and build skills.]
                         br
                         p.comment.spacer-plus This service is made possible through the American Rescue Plan Act (ARPA) and will be available until June 30th, 2022.
-                    .snippet: .snippet-body
-                        a(href="https://www.abcmouse.com" target="_blank" rel="noopener")
-                            picture
-                                source(srcset="./img/resources/abcmouse.png?as=webp" type="image/webp")
-                                img.snippet-img(src="./img/resources/abcmouse.png?as=jpg" alt="ABCmouse.com" type="image/jpeg")
-                        h3.spacer-plus.left.crunch-more ABCMouse.com
+                    +resource("ABCMouse.com", "https://www.abcmouse.com", "abcmouse", 2)
                         p.text.spacer-plus #[b ABCmouse.com] is an award winning learning academy, helping children ages 2 through 7 learn to learn lessons in phonics, math, social studies, art, music, and much more. If you are interested in logging on to ABC Mouse at the library, please ask at the circulation desk or the Children's Librarian to assist you.
+                    //- Databases /////////////////////////////////////////////
                     h2.spacer-plus.left#databases Databases
-                    .snippet: .snippet-body
-                        a(href="http://www.njstatelib.org/services_for_libraries/statewide_services/jerseyclicks/" target="_blank" rel="noopener")
-                            picture
-                                source(srcset="./img/resources/njclicks.png?as=webp" type="image/webp")
-                                img.snippet-img(src="./img/resources/njclicks.png?as=jpg" alt="JerseyClicks" type="image/jpeg")
-                        h3.spacer-plus.left.crunch-mini JerseyClicks
+                    +resource("JerseyClicks", "http://www.njstatelib.org/services_for_libraries/statewide_services/jerseyclicks/", "njclicks", 3)
                         p.text #[b JerseyClicks] is provided via the #[a.link(href="https://www.njstatelib.org/" target="_blank" rel="noopener") New Jersey State Library] and provides a wide variety of databases and resources for use in personal projects and academic papers.
-                    .snippet: .snippet-body
-                        a(href="https://www.heritagequestonline.com/ipbarcode?aid=25703" target="_blank" rel="noopener")
-                            picture
-                                source(srcset="./img/resources/heritagequest.png?as=webp" type="image/webp")
-                                img.snippet-img(src="./img/resources/heritagequest.png?as=jpg" alt="HeritageQuest" type="image/jpeg")
-                        h3.spacer-plus.left.crunch-some HeritageQuest
+                    +resource("HeritageQuest", "https://www.heritagequestonline.com/ipbarcode?aid=25703", "heritagequest", 1)
                         p.text.spacer-plus Discover your amazing  family history with #[b HeritageQuest], powered by #[a.link(href="https://www.ancestry.com/" target="_blank" rel="noopener") Ancestry.com]. Access an essential collection of genealogical and historical sources with coverage dating back to the 1700s.
+                    //- Newspapers ////////////////////////////////////////////
                     h2.spacer-plus.left#newspapers Newspapers
-                    .snippet: .snippet-body
-                        a(href="https://www.usatoday.com/" target="_blank" rel="noopener")
-                            picture
-                                source(srcset="./img/resources/usatoday.png?as=webp" type="image/webp")
-                                img.snippet-img(src="./img/resources/usatoday.png?as=jpg" alt="USA TODAY" type="image/jpeg")
-                        h3.spacer-plus.left USA TODAY
+                    +resource("USA TODAY", "https://www.usatoday.com/", "usatoday")
                         p.text Visit #[a.link(href="https://www.usatoday.com/") usatoday.com] and #[a.link(href="/contact") call the Library] for the email and password to sign in for #[b USA TODAY] Digital Access. Must be a resident of Raritan.
-                    .snippet: .snippet-body
-                        a(href="https://myaccount.nj.com/index.aspx?sitecode=NJ" target="_blank" rel="noopener")
-                            picture
-                                source(srcset="./img/resources/starledger.png?as=webp" type="image/webp")
-                                img.snippet-img(src="./img/resources/starledger.png?as=jpg" alt="Star-Ledger" type="image/jpeg")
-                        h3.spacer-plus.left The Star-Ledger
+                    +resource("The Star-Ledger", "https://myaccount.nj.com/index.aspx?sitecode=NJ", "starledger")
                         p.text.spacer-plus #[b The Star Ledger] is available digitally for patron residents of Raritan. #[a.link(href="/contact") Call the Library] for the email and password to sign in.
+                    //- Language //////////////////////////////////////////////
                     h2.spacer-plus.left#language Language
-                    .snippet: .snippet-body
-                        a(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank" rel="noopener")
-                            picture
-                                source(srcset="./img/resources/pronunciator.png?as=webp" type="image/webp")
-                                img.snippet-img(src="./img/resources/pronunciator.png?as=jpg" alt="Pronunciator" type="image/jpeg")
-                        h3.spacer-plus.left.crunch-mini Pronunciator
+                    +resource("Pronunciator", "http://learning.pronunciator.com/getstarted.php?library_id=7904", "pronunciator", 3)
                         p.text #[b Pronunciator] is an online language-learning system free to our library patrons. With 80 of the world's most popular languages and ESL courses in 50 languages, it focuses on quickly building conversational skills through a suite of interactive content. Accessible from your #[a.link(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank" rel="noopener") browser], #[a.link(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank" rel="noopener") phone], or #[a.link(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank" rel="noopener") tablet].
-                    .snippet: .snippet-body
-                        a(href="https://search.ebscohost.com/login.aspx?authtype=cpid&custid=s8971388" target="_blank" rel="noopener")
-                            picture
-                                source(srcset="./img/resources/rosettastone.png?as=webp" type="image/webp")
-                                img.snippet-img(src="./img/resources/rosettastone.png?as=jpg" alt="Rosetta Stone" type="image/jpeg")
-                        h3.spacer-plus.left Rosetta Stone
+                    +resource("Rosetta Stone", "https://search.ebscohost.com/login.aspx?authtype=cpid&custid=s8971388", "rosettastone")
                         p.text The popular #[b Rosetta Stone] language learning software is available free for all library card holders.
                 .sidebar-right
                     include ./includes/contact.pug

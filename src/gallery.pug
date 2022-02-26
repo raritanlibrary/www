@@ -13,12 +13,11 @@ html(lang="en" color-mode="lite")
                     include ./includes/calendar.pug
                 .center
                     h2.h2-fo.spacer-plus The Gallery
-                    - const imgAlt = ["The homestead of the Raritan Public Library", "The entrance room in the Raritan Public Library", "The reading room at the Raritan Public Library", "An alcove in the entrance room", "An oil painting fitted in the circulation room", "The second floor History and Literature section", "The inside of the John Basilone Museum at the Raritan Public Library", "The exterior of the John Basilone Museum", "The exterior of the staff room", "Bookshelves inside the Raritan Public Library", "The exterior of the Raritan Public Library Children's Room", "The inside the Raritan Public Library Children's Room", "The outdoor gazebo at the Raritan Public Library", "The outdoor reading space at the Raritan Public Library", "Inside the outdoor gazebo"]
+                    - const imgAlt = ["The homestead of the Raritan Public Library", "The entrance room in the Raritan Public Library", "The reading room at the Raritan Public Library", "An alcove in the entrance room", "An oil painting fitted in the circulation room", "The second floor History and Literature section", "The inside of the John Basilone Museum at the Raritan Public Library", "The exterior of the John Basilone Museum", "The exterior of the staff room", "Bookshelves inside the Raritan Public Library", "The exterior of the Rose Pacifico Children's Room", "The inside of the Rose Pacifico Children's Room", "The outdoor gazebo at the Raritan Public Library", "The outdoor reading space at the Raritan Public Library", "Inside the outdoor gazebo"]
                     .gallery
                         each img in arr(15)
-                            a.gallery-img(href=`url:./img/gallery/${img+1}.jpg` target="_blank")
-                                source.gallery-img-inner(srcset=`url:./img/gallery/${img+1}.jpg?as=webp` type="image/webp")
-                                img.gallery-img-inner(src=`url:./img/gallery/${img+1}.jpg?as=jpeg` alt=`${imgAlt[img]}` type="image/jpeg")
+                            a.gallery-img(href=`./img/gallery/${img+1}.jpg` target="_blank")
+                                +picture(`gallery/${img+1}.jpg`, imgAlt[img], `gallery-img-inner`)
                 .sidebar-right
                     include ./includes/contact.pug
                     include ./includes/hours.pug

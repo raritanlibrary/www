@@ -252,22 +252,20 @@ ol
     height 500px
     filter: var(--map)
 .crunch
-    @media screen and (min-width 425px) and (max-width 460px)
-        letter-spacing -3px
-    &-more
+    &-3
+        @media screen and (min-width 425px) and (max-width 460px)
+            letter-spacing -3px
+    &-2
         @media screen and (min-width 950px) and (max-width 980px)
             minion(38px, var(--alt), bold)
             letter-spacing -2px         
         @media screen and (min-width 425px) and (max-width 510px)
             minion(31px, var(--alt), bold)
             letter-spacing -2px
-    &-some
+    &-1
         @media screen and (min-width 950px) and (max-width 980px)
             minion(40px, var(--alt), bold)
             letter-spacing -1px
         @media screen and (min-width 425px) and (max-width 510px)
             minion(35px, var(--alt), bold)
             letter-spacing -2px
-    &-mini
-        @media screen and (min-width 425px) and (max-width 460px)
-            letter-spacing -3px
