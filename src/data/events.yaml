@@ -31,18 +31,6 @@
   img: yoga
   imgalt: Chair Yoga
 
-- name: "&ldquo;The Good, the Bad and the Ugly&rdquo;"
-  title: Sergio Leone's Epic
-  subtitle: "<span style=\"letter-spacing: -1px\">The Good, the Bad &amp; the Ugly"
-  date: 2022-02-22 14:00:00 -5
-  length: 3
-  noendtime: true
-  blurb: "Born and raised in Somerville, NJ, Lee Van Cleef teams up with Clint Eastwood and Eli Wallach in this epic Western film. Refreshments are served. Running time: 161 minutes."
-  desc: "In conjunction with this month's BReeze article on local actor Lee Van Cleef, the Raritan Library will be showing one of the most influential westerns of all time. Born and raised in Somerville, NJ, Van Cleef teams up with Clint Eastwood and Eli Wallach in this epic Western film. Refreshments are served. Running time: 161 minutes. Registration is required."
-  style: orange
-  img: goodbadugly3
-  imgalt: A black-and-white image of actor Lee Van Cleef playing the role of Angel Eyes in The Good, the Bad and the Ugly
-
 - name: RVFL Poetry Submissions
   title: Poetry Submissions
   subtitle: RVFL Poetry Anthology
@@ -84,3 +72,15 @@
   style: red
   img: strikeup
   imgalt: A black-and-white image of Mickey Rooney and Judy Garland in Strike Up the Band
+
+- name: "&ldquo;Young Tom Edison&rdquo;"
+  title: "&ldquo;Young Tom Edison&rdquo;"
+  subtitle: a Classic Movie Matinee
+  date: 2022-04-12 14:00:00 -4
+  length: 1.5
+  noendtime: true
+  blurb: "Mickey Rooney stars in this 1940 classic film as a young Tom Edison, exploring his scientific curiosity and mischievous experiments gone wrong. Refreshments are served. Running time: 82 minutes."
+  desc: "Mickey Rooney stars in this 1940 classic film as the boy &ldquo;Young Tom Edison&rdquo; who dreamed big...and became America's greatest inventor. The film traces Tom's scientific curiosity, his experiments which had gone wrong and how he became the scorn in his hometown. But Tom shows heroism in the face of danger and even invents a device to help a doctor save his mother's life. Find out if it is enough to win over his family and the townspeople who think he is addled. Refreshments are served. Running time: 82 minutes. Registration is required."
+  style: blue
+  img: youngedison
+  imgalt: A black-and-white image of Fay Bainter and Mickey Rooney playing the roles of Nancy Edison and Tom Edison in Young Tom Edison
