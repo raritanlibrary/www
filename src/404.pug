@@ -11,7 +11,7 @@ html(lang="en" color-mode="lite")
             include ./includes/header.pug
             main.main
                 .sidebar-left
-                    include ./includes/calendar.pug
+                    include ./includes/sidebar-left.pug
                 .center.status-center
                     h1.status-h1 404
                     h2.status-h2 Page not found
@@ -23,7 +23,5 @@ html(lang="en" color-mode="lite")
                     br
                     p.text.text-center If you feel something is missing, or need assistance navigating this website,<br>please #[a.link(href="/contact") contact us] or view our #[a.link(href="/site-map") site map].
                 .sidebar-right
-                    include ./includes/contact.pug
-                    include ./includes/hours.pug
-                    include ./includes/advert.pug
+                    include ./includes/sidebar-right.pug
             include ./includes/footer.pug

@@ -10,7 +10,7 @@ printf '%04d' $rev > src/data/_REV
 mkdir "dist/img"
 
 # Copy static files
-for static in "docs" "img/events" "img/kids" "img/news" "robots.txt" ".htaccess"; do
+for static in "docs" "img/events" "img/kids" "img/news" "img/promo" "robots.txt" ".htaccess"; do
     cp -R "src/${static}" "dist/${static}"
 done
 

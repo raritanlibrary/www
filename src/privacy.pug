@@ -11,7 +11,7 @@ html(lang="en" color-mode="lite")
             include ./includes/header.pug
             main.main
                 .sidebar-left
-                    include ./includes/calendar.pug
+                    include ./includes/sidebar-left.pug
                 .center
                     h1.h1.spacer-plus Privacy &amp; Terms
                     h2.h2-sm.left.spacer-plus#intro Preamble
@@ -26,7 +26,5 @@ html(lang="en" color-mode="lite")
                     h2.h2-sm.left.spacer-plus#contact Contact
                     p.text.spacer-plus If you have questions or concerns about the details of this Privacy Policy, please #[a.link(href="/contact") contact us] for more information.
                 .sidebar-right
-                    include ./includes/contact.pug
-                    include ./includes/hours.pug
-                    include ./includes/advert.pug
+                    include ./includes/sidebar-right.pug
             include ./includes/footer.pug

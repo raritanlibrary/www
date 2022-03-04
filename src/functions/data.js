@@ -97,6 +97,10 @@ let newsData = fs.readFileSync('src/data/news.yaml', 'utf8');
 export let news = yaml.load(newsData);
 news = news.sort((a, b) => b.date - a.date);
 
+// Advertisement data
+let adsData = fs.readFileSync('src/data/ads.yaml', 'utf8');
+let ads = yaml.load(adsData);
+
 // HTML injection for program blurbs (sidebar)
 export const eventInjector = () => {
     if (util.checkClass(`calendar-events`)) {
@@ -166,6 +170,28 @@ export const eventInjector = () => {
             }
         }
         util.setClass(`calendar-events`, eventList)
+    }
+}
+
+// HTML injection for advertisements (sidebar)
+export const adInjector = () => {
+    if (util.checkClass(`advert`)) {
+        const adPool = []
+        for (const ad of ads) {
+            if (((ad.start && ad.end) && (time.now >= ad.start && ad.end > time.now)) ||
+            ((ad.start || ad.end) && (time.now >= ad.start || ad.end > time.now)) ||
+            (!ad.start && !ad.end)) {
+                adPool.push(ad)
+            }
+        }
+        const ad = adPool[Math.floor(Math.random() * adPool.length)]
+        const adOutput = `
+        <a class="advert-img" href="${ad.imglink}" target="_blank" ${util.extchk(ad.imglink)}>
+            <img class="advert-img-inner" src="img/promo/${ad.img}.${ad.isgif ? "gif" : "png"}" alt="${ad.imgalt}"}>
+        </a>
+        <div class="advert-tag">Advertisement</div>
+        `
+        util.setClass(`advert`, adOutput)
     }
 }
 

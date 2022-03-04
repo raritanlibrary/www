@@ -10,7 +10,7 @@ html(lang="en" color-mode="lite")
             include ./includes/header.pug
             main.main
                 .sidebar-left
-                    include ./includes/calendar.pug
+                    include ./includes/sidebar-left.pug
                 .center
                     h2.h2-fo.spacer-plus The Gallery
                     - const imgAlt = ["The homestead of the Raritan Public Library", "The entrance room in the Raritan Public Library", "The reading room at the Raritan Public Library", "An alcove in the entrance room", "An oil painting fitted in the circulation room", "The second floor History and Literature section", "The inside of the John Basilone Museum at the Raritan Public Library", "The exterior of the John Basilone Museum", "The exterior of the staff room", "Bookshelves inside the Raritan Public Library", "The exterior of the Rose Pacifico Children's Room", "The inside of the Rose Pacifico Children's Room", "The outdoor gazebo at the Raritan Public Library", "The outdoor reading space at the Raritan Public Library", "Inside the outdoor gazebo"]
@@ -19,7 +19,5 @@ html(lang="en" color-mode="lite")
                             a.gallery-img(href=`./img/gallery/${img+1}.jpg` target="_blank")
                                 +picture(`gallery/${img+1}.jpg`, imgAlt[img], `gallery-img-inner`)
                 .sidebar-right
-                    include ./includes/contact.pug
-                    include ./includes/hours.pug
-                    include ./includes/advert.pug
+                    include ./includes/sidebar-right.pug
             include ./includes/footer.pug

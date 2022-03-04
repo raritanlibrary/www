@@ -10,14 +10,12 @@ html(lang="en" color-mode="lite")
             include ./includes/header.pug
             main.main
                 .sidebar-left
-                    include ./includes/calendar.pug
+                    include ./includes/sidebar-left.pug
                 .center
                     h1 News
                     p.text.text-center Read our #[a.link(href=`./docs/newsletter${newsShort}.pdf` target="_blank") #{newsMonth} Newsletter] here.
                     hr.hr
                     .news
                 .sidebar-right
-                    include ./includes/contact.pug
-                    include ./includes/hours.pug
-                    include ./includes/advert.pug
+                    include ./includes/sidebar-right.pug
             include ./includes/footer.pug

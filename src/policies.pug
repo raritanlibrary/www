@@ -10,7 +10,7 @@ html(lang="en" color-mode="lite")
             include ./includes/header.pug
             main.main
                 .sidebar-left
-                    include ./includes/calendar.pug
+                    include ./includes/sidebar-left.pug
                 .center
                     h1 Policies
                     p.text-bold.spacer-plus.text-center Looking for our COVID-19-related policies? Read about them on our #[a.link(href="covid-19") COVID-19 guidelines page].
@@ -65,7 +65,5 @@ html(lang="en" color-mode="lite")
                     br
                     p.text Holds can be placed on books, audiobooks, CDs, DVDs and magazines for 3 days. Holds can be done by phone, in person, or online. On the 4th day, the held material will go back into circulation if it has not been picked up.
                 .sidebar-right
-                    include ./includes/contact.pug
-                    include ./includes/hours.pug
-                    include ./includes/advert.pug
+                    include ./includes/sidebar-right.pug
             include ./includes/footer.pug

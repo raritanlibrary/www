@@ -10,7 +10,7 @@ html(lang="en" color-mode="lite")
             include ./includes/header.pug
             main.main
                 .sidebar-left
-                    include ./includes/calendar.pug
+                    include ./includes/sidebar-left.pug
                 .center
                     h1.h1-sm.spacer-none NJ Makers Day 2022
                     p.comment-date-xl.text-center.spacer-plus Saturday, March 26th, 10:30 AM - 2:30 PM
@@ -45,7 +45,5 @@ html(lang="en" color-mode="lite")
                         "10:30AM - 2:00PM", "Rose Pacifico Children's Room", "Ages 5+", "Drop-in / no registration required",
                         `Introduce your children to the foundational ideas behind computer coding with Botley the Robot. Increase your child's critical thinking and problem solving skills by helping Botley tackle an obstacle course.`)
                 .sidebar-right
-                    include ./includes/contact.pug
-                    include ./includes/hours.pug
-                    include ./includes/advert.pug
+                    include ./includes/sidebar-right.pug
             include ./includes/footer.pug

@@ -338,6 +338,7 @@ window.onload = () => {
     if (!page.includes('programs')) {
         data.eventInjector();
     };
+    data.adInjector();
     pageInjector(page);
     access.hicontrast();
     data.rev();

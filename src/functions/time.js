@@ -43,9 +43,9 @@ export const getR = which => {
 // Format a datetime into a string for dates
 export const formatDate = n => {
     n = n.getDate();
-    return (n % 10 === 1 && n % 100 != 11) ? `${n}st`
-    : (n % 10 === 2 && n % 100 != 12) ? `${n}nd`
-    : (n % 10 === 3 && n % 100 != 13) ? `${n}rd`
+    return (n % 10 === 1 && n != 11) ? `${n}st`
+    : (n % 10 === 2 && n != 12) ? `${n}nd`
+    : (n % 10 === 3 && n != 13) ? `${n}rd`
     : `${n}th`
 }
 
@@ -53,15 +53,9 @@ export const formatDate = n => {
 export const formatTime = d => {
     const hh = d.getHours();
     const m = d.getMinutes().toString().padStart(2, 0);
-    let dd = "AM";
-    let h = hh;
-    if (h >= 12) {
-        h = hh - 12;
-        dd = "PM";
-    }
-    if (h === 0) {
-        h = 12;
-    }
+    const dd = hh >= 12 ? "PM" : "AM";
+    let h = hh >= 12 ? hh - 12 : hh
+    h = h === 0 ? h = 12 : h;
     return `${h}:${m} ${dd}`;
 }
 

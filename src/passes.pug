@@ -10,7 +10,7 @@ html(lang="en" color-mode="lite")
             include ./includes/header.pug
             main.main
                 .sidebar-left
-                    include ./includes/calendar.pug
+                    include ./includes/sidebar-left.pug
                 .center
                     +alert("attention", "Attention")
                         p Due to the outbreak of the novel coronavirus (COVID-19), please visit the websites of the following museums for details on their operating status and varied hours of operation.
@@ -28,7 +28,5 @@ html(lang="en" color-mode="lite")
                     +pass("Morris Museum", "https://morrismuseum.org/", "morris")
                         p.text Adult patrons can now participate in our museum pass program to the #[b Morris Museum] in #[a.link(href="https://www.google.com/maps/place/Morris+Museum/@40.7960409,-74.4504904,17z/data=!3m2!4b1!5s0x89c3a661642669ed:0x388bebf137c65eb9!4m5!3m4!1s0x89c3a6616461f9fb:0x20f510000afe5846!8m2!3d40.7960409!4d-74.4482964" target="_blank" rel="noopener") Morristown, NJ]. The museum is a Smithsonian affilate, which favorably impacts any upcoming exhibits. The pass is available for up to two adults and three children at no charge. Please schedule your pass up to one month in advance, as these are offered on a first-come first-served basis.
                 .sidebar-right
-                    include ./includes/contact.pug
-                    include ./includes/hours.pug
-                    include ./includes/advert.pug
+                    include ./includes/sidebar-right.pug
             include ./includes/footer.pug

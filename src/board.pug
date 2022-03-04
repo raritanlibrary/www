@@ -10,7 +10,7 @@ html(lang="en" color-mode="lite")
             include ./includes/header.pug
             main.main
                 .sidebar-left
-                    include ./includes/calendar.pug
+                    include ./includes/sidebar-left.pug
                 .center
                     +picture-multi("board.png", "board-480.png", "Bust sculpture of William Shakespeare", "board-img-inner", "board-img")
                     h1.h1-sm Board of Trustees
@@ -45,7 +45,5 @@ html(lang="en" color-mode="lite")
                                         else
                                             p.greyout #{months[m]}
                 .sidebar-right
-                    include ./includes/contact.pug
-                    include ./includes/hours.pug
-                    include ./includes/advert.pug
+                    include ./includes/sidebar-right.pug
             include ./includes/footer.pug

@@ -10,7 +10,7 @@ html(lang="en" color-mode="lite")
             include ./includes/header.pug
             main.main
                 .sidebar-left
-                    include ./includes/calendar.pug
+                    include ./includes/sidebar-left.pug
                 .center
                     h1 Resources
                     p.text.spacer-plus Resources made available by the Raritan Public Library require a library card. If you are a library card holder, patron of the Library, or are looking to register for a library card, please #[a.link(href="/contact") contact us] for more information on how to access these resources.
@@ -58,7 +58,5 @@ html(lang="en" color-mode="lite")
                     +resource("Rosetta Stone", "https://search.ebscohost.com/login.aspx?authtype=cpid&custid=s8971388", "rosettastone")
                         p.text The popular #[b Rosetta Stone] language learning software is available free for all library card holders.
                 .sidebar-right
-                    include ./includes/contact.pug
-                    include ./includes/hours.pug
-                    include ./includes/advert.pug
+                    include ./includes/sidebar-right.pug
             include ./includes/footer.pug

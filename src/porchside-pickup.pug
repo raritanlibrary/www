@@ -10,7 +10,7 @@ html(lang="en" color-mode="lite")
             include ./includes/header.pug
             main.main
                 .sidebar-left
-                    include ./includes/calendar.pug
+                    include ./includes/sidebar-left.pug
                 .center
                     h1.h1-sm Porchside Pickup
                     p.text-bold.spacer-plus.text-center Looking for our COVID-19-related policies? Read about them on our #[a.link(href="covid-19") COVID-19 guidelines page].
@@ -26,7 +26,5 @@ html(lang="en" color-mode="lite")
                         li.text-list Your bag will be waiting for you on the bench with a tag revealing the last 4 digits of your card number.
                     p.text-bold.text-center We greatly appreciate your patience during this time and greatly look forward to serving you soon!
                 .sidebar-right
-                    include ./includes/contact.pug
-                    include ./includes/hours.pug
-                    include ./includes/advert.pug
+                    include ./includes/sidebar-right.pug
             include ./includes/footer.pug

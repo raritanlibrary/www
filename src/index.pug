@@ -10,7 +10,7 @@ html(lang="en" color-mode="lite")
             include ./includes/header.pug
             main.main
                 .sidebar-left
-                    include ./includes/calendar.pug
+                    include ./includes/sidebar-left.pug
                 .center
                     //- Alerts go here
                     - const imgAlt = ["The homestead of the Raritan Public Library","Bookshelves inside the Raritan Public Library","The reading room at the Raritan Public Library", "The Raritan Public Library Children's Room", "The outdoor gazebo at the Raritan Public Library"]
@@ -29,7 +29,5 @@ html(lang="en" color-mode="lite")
                     p.comment.text-center.newsletter #[span.newsletter-decor &mdash;&mdash;&mdash;] Read our #[a.comment-link(href=`./docs/newsletter${newsShort}.pdf` target="_blank") #{newsMonth} Newsletter] #[span.newsletter-decor &mdash;&mdash;&mdash;]
                     br
                 .sidebar-right
-                    include ./includes/contact.pug
-                    include ./includes/hours.pug
-                    include ./includes/advert.pug
+                    include ./includes/sidebar-right.pug
             include ./includes/footer.pug
