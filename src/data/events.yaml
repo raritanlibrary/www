@@ -61,26 +61,26 @@
     name: More information
     link: makersday
 
-- name: "&ldquo;Strike Up the Band&rdquo;"
-  title: "&ldquo;Strike Up the Band&rdquo;"
-  subtitle: a Classic Movie Matinee
-  date: 2022-03-08 14:00:00 -5
-  length: 2.5
-  noendtime: true
-  blurb: "Mickey Rooney and Judy Garland team up in &ldquo;Strike Up the Band&rdquo;, a highly entertaining 1940 musical tribute filled with high energy songs. Refreshments are served. Running time: 120 minutes."
-  desc: "Among cinema's many treasures, few are as delightfully entertaining as the musical pairings of the two great stars: Mickey Rooney and Judy Garland. &ldquo;Strike Up the Band&rdquo; is one of the brightest results of that special talented collaboration. Register for this highly entertaining 1940 musical tribute filled with high energy songs, dances and an over-the-top drumming and vibraphone performance by Mickey Rooney. Also starring &ldquo;King of Jazz&rdquo; bandleader Paul Whiteman. Refreshments are served. Running time: 120 minutes. Registration is required."
-  style: red
-  img: strikeup
-  imgalt: A black-and-white image of Mickey Rooney and Judy Garland in Strike Up the Band
-
 - name: "&ldquo;Young Tom Edison&rdquo;"
   title: "&ldquo;Young Tom Edison&rdquo;"
   subtitle: a Classic Movie Matinee
   date: 2022-04-12 14:00:00 -4
   length: 1.5
   noendtime: true
-  blurb: "Mickey Rooney stars in this 1940 classic film as a young Tom Edison, exploring his scientific curiosity and mischievous experiments gone wrong. Refreshments are served. Running time: 82 minutes."
+  blurb: "Mickey Rooney stars in this 1940 classic film as a young Tom Edison, exploring his scientific curiosity and mischievous experiments gone wrong. Registration is required. Refreshments are served. Running time: 82 minutes."
   desc: "Mickey Rooney stars in this 1940 classic film as the boy &ldquo;Young Tom Edison&rdquo; who dreamed big...and became America's greatest inventor. The film traces Tom's scientific curiosity, his experiments which had gone wrong and how he became the scorn in his hometown. But Tom shows heroism in the face of danger and even invents a device to help a doctor save his mother's life. Find out if it is enough to win over his family and the townspeople who think he is addled. Refreshments are served. Running time: 82 minutes. Registration is required."
   style: blue
   img: youngedison
   imgalt: A black-and-white image of Fay Bainter and Mickey Rooney playing the roles of Nancy Edison and Tom Edison in Young Tom Edison
+
+- name: "A Visit With Thomas Edison: The Wizard of Menlo Park"
+  title: A Visit With Thomas Edison
+  subtitle: The Wizard of Menlo Park
+  date: 2022-04-26 18:30:00 -4
+  length: 1.5
+  noendtime: true
+  blurb: "Come meet America's famous inventor, Thomas Edison, portrayed by re-enactor Robert Gleason from the American Historical Theatre in Philadelphia. Registration is required."
+  desc: "Come meet Thomas A. Edison, America's famous inventor portrayed by Robert Gleason, re-enactor from the American Historical Theatre in Philadelphia, PA. Learn about our American inventor, scientist, and businessman dubbed the &ldquo;Wizard of Menlo Park&rdquo; who developed many devices that greatly influenced life around the world, including the phonograph, the motion picture camera, and a long lasting practical electric light bulb. A question and answer session will follow. Registration is required."
+  style: yellow
+  img: edison
+  imgalt: A black-and-white image of re-enactor Robert Gleason portraying Thomas Edison
