@@ -1,7 +1,8 @@
 //- Single-source picture
 mixin picture(image, alt, c)
-    source(srcset=` ./img/${image}?as=webp` type="image/webp")
-    img(class=c src=`./img/${image}?as=jpeg` alt=alt type="image/jpeg")
+    picture
+        source(srcset=` ./img/${image}?as=webp` type="image/webp")
+        img(class=c src=`./img/${image}?as=jpeg` alt=alt type="image/jpeg")
 
 //- Dual-source picture
 mixin picture-multi(image, image2, alt, c, c2)

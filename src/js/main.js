@@ -42,7 +42,12 @@ const contentIndex = () => {
             if (post.hidden) { continue };
             if (displayed === 3 ) { break };
             if (post.img && post.imgalt) {
-                newsImg = `<img class="snippet-img" src="img/news/${post.img}.png" alt="${post.imgalt}"}>`;
+                newsImg = `
+                <picture>
+                    <source srcset="img/news/${post.img}.webp" type="image/webp"/>
+                    <img class="snippet-img" src="img/news/${post.img}.jpg" alt="${post.imgalt}" type="image/jpeg"/>
+                </picture>
+                `
                 newsImg = post.imglink ? `<a href="${post.imglink}" target="_blank" ${util.extchk(post.imglink)}>${newsImg}</a>` : newsImg;
             }
             if (post.buttons) {
@@ -89,7 +94,12 @@ const contentNews = () => {
             let newsLinks, newsImg;
             newsImg = newsLinks = ``;
             if (post.img && post.imgalt) {
-                newsImg = `<img class="snippet-img" src="img/news/${post.img}.png" alt="${post.imgalt}"}>`;
+                newsImg = `
+                <picture>
+                    <source srcset="img/news/${post.img}.webp" type="image/webp"/>
+                    <img class="snippet-img" src="img/news/${post.img}.jpg" alt="${post.imgalt}" type="image/jpeg"/>
+                </picture>
+                `
                 newsImg = post.imglink ? `<a href="${post.imglink}" target="_blank" ${util.extchk(post.imglink)}>${newsImg}</a>` : newsImg;
             }
             if (post.buttons) {
@@ -199,8 +209,11 @@ const contentPrograms = () => {
             }
             if (event.img && event.imgalt) {
                 eventImg = `
-                <a href="img/events/${event.img}.png" target="_blank">
-                    <img class="snippet-img" src="img/events/_${event.img}.png" alt="${event.imgalt}" ${event.img === 'yoga' ? `style = "object-position: top;"` : ``}>
+                <a href="img/events/${event.img}.jpg" target="_blank">
+                    <picture>
+                        <source srcset="img/events/_${event.img}.webp" type="image/webp"/>
+                        <img class="snippet-img" src="img/events/_${event.img}.jpg" alt="${event.imgalt}" ${event.img === 'yoga' ? `style = "object-position: top;"` : ``} type="image/jpeg"/>
+                    </picture>
                 </a>
                 `
             }
@@ -276,7 +289,10 @@ const contentKids = () => {
             }
             if (kid.img && kid.imgalt) {
                 kidImg = `
-                <img class="snippet-img" src="img/kids/${kid.img}.png" alt="${kid.imgalt}"}>
+                <picture>
+                    <source srcset="img/kids/${kid.img}.webp" type="image/webp"/>
+                    <img class="snippet-img" src="img/kids/${kid.img}.jpg" alt="${kid.imgalt}" type="image/jpeg"/>
+                </picture>
                 `
             }
             if (time.addHours(kid.dateName, kid.length) >= time.now) {

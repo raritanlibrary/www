@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Set program variables
+magick="C:\Program Files\ImageMagick\magick.exe"
+
 echo "Generating static files..."
 
 # Generate git data
@@ -10,8 +13,25 @@ printf '%04d' $rev > src/data/_REV
 [[ ! -d "dist/docs" ]] && mkdir "dist/docs"
 [[ ! -d "dist/img" ]] && mkdir "dist/img"
 
-# Copy static files
-for static in "docs/events" "img/events" "img/kids" "img/news" "img/promo" "robots.txt" ".htaccess"; do
+# Copy + transform static images
+for static in "events" "kids" "news" "promo"; do
+    [[ ! -d "dist/img/${static}" ]] && mkdir "dist/img/${static}"
+    staticPath="src/img/${static}/*"
+    for file in $staticPath; do
+        file=$(basename -- "$file")
+        fname="${file%.*}"
+        ftype="${file##*.}"
+        if [[ $ftype == "gif" ]]; then
+            "$magick" -quality 80 "src/img/${static}/${fname}.${ftype}" "dist/img/${static}/${fname}.webp"
+        else
+            "$magick" -quality 80 "src/img/${static}/${fname}.${ftype}" "dist/img/${static}/${fname}.jpg"
+            "$magick" -quality 80 "src/img/${static}/${fname}.${ftype}" "dist/img/${static}/${fname}.webp"
+        fi
+    done
+done
+
+# Copy other static files
+for static in "docs/events" "robots.txt" ".htaccess"; do
     [[ ! -d "dist/${static}" ]] && cp -R "src/${static}" "dist/${static}"
 done
 

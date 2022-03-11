@@ -150,7 +150,7 @@ export const eventInjector = () => {
             if (time.addHours(event.dateName, event.length) >= time.now) {
                 eventList += `
                 <div class="event${zoomLink ? "" : " event-extend"}">
-                    <div class="event-${event.style}" style="background-image: url(./img/events/_${event.img}.png")>
+                <div class="event-${event.style}" style="background-image: url(./img/events/_${event.img}.jpg);">
                         <a class="event-${event.style}-link" href="programs#${util.eventid(event.name)}">
                             <div class="event-${event.style}-cover${zoomLink ? "" : " event-extend-inner"}">
                                 <p class="event-${event.style}-title">${event.title}</p>
@@ -187,7 +187,10 @@ export const adInjector = () => {
         const ad = adPool[Math.floor(Math.random() * adPool.length)]
         const adOutput = `
         <a class="advert-img" href="${ad.imglink}" target="_blank" ${util.extchk(ad.imglink)}>
-            <img class="advert-img-inner" src="img/promo/${ad.img}.${ad.isgif ? "gif" : "png"}" alt="${ad.imgalt}"}>
+            <picture>
+                <source srcset="img/promo/${ad.img}.webp" type="image/webp"/>
+                <img class="advert-img-inner" src="img/promo/${ad.img}.${ad.isgif ? "gif" : "jpeg"}" alt="${ad.imgalt}" type="image/${ad.isgif ? "gif" : "jpeg"}"/>
+            </picture>
         </a>
         <div class="advert-tag">Advertisement</div>
         `
