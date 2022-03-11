@@ -22,11 +22,11 @@ for static in "events" "kids" "news" "promo"; do
         fname="${file%.*}"
         ftype="${file##*.}"
         if [[ $ftype == "gif" ]]; then
-            "$magick" -quality 80 "src/img/${static}/${fname}.${ftype}" "dist/img/${static}/${fname}.webp"
+            cp "src/img/${static}/${file}" "dist/img/${static}/${file}"
         else
             "$magick" -quality 80 "src/img/${static}/${fname}.${ftype}" "dist/img/${static}/${fname}.jpg"
-            "$magick" -quality 80 "src/img/${static}/${fname}.${ftype}" "dist/img/${static}/${fname}.webp"
         fi
+        "$magick" -quality 80 "src/img/${static}/${fname}.${ftype}" "dist/img/${static}/${fname}.webp"
     done
 done
 
