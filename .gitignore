@@ -196,6 +196,9 @@ $RECYCLE.BIN/
 # Private development folder
 .dev
 
+# Lighthouse reports
+reports
+
 # Sample revision tag
 src/data/_REV
 

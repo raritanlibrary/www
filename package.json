@@ -12,6 +12,7 @@
     "@parcel/transformer-image": "^2.3.2",
     "@parcel/transformer-pug": "^2.3.2",
     "@parcel/transformer-stylus": "^2.3.2",
+    "lighthouse": "^9.5.0",
     "parcel": "^2.3.2",
     "sharp": "^0.29.1"
   },
@@ -25,6 +26,7 @@
     "dev": "npm run gen && npm run pre-dev && parcel src/*.pug && npm run post-dev",
     "redev": "npm run clear && npm run dev",
     "build": "npm run clear && npm run gen && parcel build src/*.pug && npm run push-serv",
-    "commit": "npm run push-git && npm run build"
+    "commit": "npm run push-git && npm run build",
+    "report": "bash ./scripts/report.sh"
   }
 }
