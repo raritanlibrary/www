@@ -35,7 +35,6 @@ const dropdownKeyLogic = (str, tab, e) => {
 export const dropdown = () => {
     util.addClickListener(e => {
         dropdownClickLogic("books", e);
-        dropdownClickLogic("kids", e);
         dropdownClickLogic("more", e);
     });
     window.addEventListener('keyup', e => {
@@ -46,7 +45,6 @@ export const dropdown = () => {
             tabbed = document.activeElement.id;
         }
         dropdownKeyLogic("books", tabbed, e);
-        dropdownKeyLogic("kids", tabbed, e);
         dropdownKeyLogic("more", tabbed, e);
     });
 }
