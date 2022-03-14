@@ -36,7 +36,7 @@ export const getR = which => {
     const monthDay = new Date(now.getFullYear(), now.getMonth(), 1);
     let day = getNextDotw(monthDay, 4);
     day = addDays(day, which*7);
-    day = addHours(day, 19);
+    day = addHours(day, 18); // 19 for DST
     return day;
 }
 

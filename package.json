@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A website for Raritan Public Library.",
   "dependencies": {
-    "fs-extra": "^10.0.1",
     "js-yaml": "^4.1.0",
     "pug": "^3.0.2",
     "stylus": "^0.56.0"
@@ -25,6 +24,7 @@
     "push-serv": "bash ./scripts/ssh.sh",
     "dev": "npm run gen && npm run pre-dev && parcel src/*.pug && npm run post-dev",
     "redev": "npm run clear && npm run dev",
-    "build": "npm run push-git && npm run clear && npm run gen && parcel build src/*.pug && npm run push-serv"
+    "build": "npm run clear && npm run gen && parcel build src/*.pug && npm run push-serv",
+    "commit": "npm run push-git && npm run build"
   }
 }

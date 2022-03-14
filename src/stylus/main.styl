@@ -10,6 +10,7 @@
 @require './components/events'
 @require './components/header'
 @require './components/footer'
+@require './components/scrollbar'
 @require './components/sidebar'
 @require './pages/404'
 @require './pages/board'
@@ -22,10 +23,8 @@
 
 html
     scroll-behavior smooth
-    scrollbar-width none
     -ms-overflow-style none
-    &::-webkit-scrollbar
-        display none
+    overflow overlay
     @media screen and (max-width 749px)
         overflow-x hidden
 a

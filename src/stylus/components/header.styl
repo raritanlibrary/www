@@ -1,13 +1,13 @@
 .nav
     position relative
-    grad-background-image("left, #c00000 -40%, #4b0c10 50%, #c00000 140%", 'url:../img/banner.png?as=jpg')
+    grad-background-image("left, #c00000 -40%, #4b0c10 50%, #c00000 140%", 'banner.png')
     background-position 0% 0%
     background-blend-mode multiply
     padding 4px 22px 12px
     grid-area h
     user-select(none)
     @media screen and (max-width 749px)
-        grad-background-image("left, #c00000 -40%, #4b0c10 50%, #c00000 140%", 'url:../img/banner-1000.png?as=jpg')
+        grad-background-image("left, #c00000 -40%, #4b0c10 50%, #c00000 140%", 'banner-1000.png')
     &-check
         display none
     &-toggle
@@ -106,7 +106,8 @@
                 max-width 120px
             @media screen and (max-width 749px)
                 minion(18px, white)
-                padding calc((2 * 100vh - 700px) / 67) 20px // 15=divide by 61
+                // 15 = /61 ... 16 = /73
+                padding calc((2 * 100vh - 700px) / 73) 20px
                 display flex
                 justify-content flex-end
         @media screen and (min-width 750px) and (max-width 949px)
