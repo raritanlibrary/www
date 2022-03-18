@@ -44,11 +44,8 @@ RedirectMatch 301   ^/holds$                                /policies#holds
 Options -Indexes
 
 # ENABLE CACHE CONTROL
-<FilesMatch "\.(ttf|woff|woff2)$">
+<FilesMatch "\.(ttf|woff|woff2|ico|flv|jpg|jpeg|png|gif|swf|webp|svg|txt|doc|docx|xls|xlsx|ppt|pptx|pdf)$">
 Header set Cache-Control "public, max-age=31536000, immutable"
-</FilesMatch>
-<FilesMatch "\.(ico|flv|jpg|jpeg|png|gif|swf|webp|svg|txt|doc|docx|xls|xlsx|ppt|pptx|pdf)$">
-Header set Cache-Control "public, max-age=7776000, immutable"
 </FilesMatch>
 <FilesMatch "\.(html|css|js)$">
 Header set Cache-Control "public, max-age=0, must-revalidate"

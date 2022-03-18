@@ -9,7 +9,7 @@ html(lang="en")
             | hr {width: 500px;}
         mixin trtd(name, img, href)
             tr
-                td: img.a(src=`./img/misc/${img}.png`)
+                td: img.a(src=`./img/misc/${img}.png` alt=`${name} logo`)
                 td: a.b(href=href) #[b #{name}]
         title Unsupported Browser &ndash; Raritan Public Library
     body(style="font-size: large; margin: 32px; text-align: center;")

@@ -27,6 +27,6 @@
     "redev": "npm run clear && npm run dev",
     "build": "npm run clear && npm run gen && parcel build src/*.pug && npm run push-serv",
     "commit": "npm run push-git && npm run build",
-    "report": "bash ./scripts/report.sh"
+    "lighthouse": "bash ./scripts/lighthouse.sh"
   }
 }

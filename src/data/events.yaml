@@ -34,10 +34,10 @@
 - name: RVFL Poetry Submissions
   title: Poetry Submissions
   subtitle: RVFL Poetry Anthology
-  date: [2022-02-01 10:00:00 -5, 2022-03-19 17:00:00 -4]
+  date: [2022-02-01 10:00:00 -5, 2022-03-25 17:00:00 -4]
   length: range
-  blurb: April is National Poetry Month! Submit your poems now for publication in the Raritan Valley Federation of Libraries Poetry Program Anthology! Deadline is March 19th, 2022.
-  desc: April is National Poetry Month! Submit your poems now for publication in the Raritan Valley Federation of Libraries Poetry Program Anthology! Deadline is <b>March 19th, 2022</b>.
+  blurb: April is National Poetry Month! Submit your poems now for publication in the Raritan Valley Federation of Libraries Poetry Program Anthology! Deadline is March 25th, 2022.
+  desc: April is National Poetry Month! Submit your poems now for publication in the Raritan Valley Federation of Libraries Poetry Program Anthology! Deadline is <b>March 25th, 2022</b>.
   eblast: Submission forms can be obtained at the front desk at the Library or as a <a href="http://raritanlibrary.org/programs#Zk94s" target="_blank">download</a> on our website's programming page. 
   style: green
   img: poetry2
@@ -58,7 +58,7 @@
   img: makersday2
   imgalt: A headshot of a cyan-colored cartoon robot, the mascot of NJ Makers Day
   formalt:
-    name: More information
+    name: Makers Day information
     link: makersday
 
 - name: "&ldquo;Young Tom Edison&rdquo;"
