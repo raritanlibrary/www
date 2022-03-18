@@ -17,7 +17,7 @@ html(lang="en" color-mode="lite")
                     .gallery
                         each img in arr(17)
                             a.gallery-img(href=`./img/gallery/${img+1}.jpg` target="_blank")
-                                +picture(`gallery/${img+1}.jpg`, imgAlt[img], `gallery-img-inner`)
+                                +picture(`gallery/sm/${img+1}.jpg`, imgAlt[img], `gallery-img-inner`)
                 .sidebar-right
                     include ./includes/sidebar-right.pug
             include ./includes/footer.pug

@@ -150,7 +150,7 @@ export const eventInjector = () => {
             if (time.addHours(event.dateName, event.length) >= time.now) {
                 eventList += `
                 <div class="event${zoomLink ? "" : " event-extend"}">
-                <div class="event-${event.style}" style="background-image: url(./img/events/_${event.img}.jpg);">
+                <div class="event-${event.style}" style="background-image: url(./img/events/${event.img}.jpg);">
                         <a class="event-${event.style}-link" href="programs#${util.eventid(event.name)}">
                             <div class="event-${event.style}-cover${zoomLink ? "" : " event-extend-inner"}">
                                 <p class="event-${event.style}-title">${event.title}</p>

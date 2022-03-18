@@ -209,12 +209,10 @@ const contentPrograms = () => {
             }
             if (event.img && event.imgalt) {
                 eventImg = `
-                <a href="img/events/${event.img}.jpg" target="_blank">
-                    <picture>
-                        <source srcset="img/events/_${event.img}.webp" type="image/webp"/>
-                        <img class="snippet-img" src="img/events/_${event.img}.jpg" alt="${event.imgalt}" ${event.img === 'yoga' ? `style = "object-position: top;"` : ``} type="image/jpeg"/>
-                    </picture>
-                </a>
+                <picture>
+                    <source srcset="img/events/${event.img}.webp" type="image/webp"/>
+                    <img class="snippet-img" src="img/events/${event.img}.jpg" alt="${event.imgalt}" ${event.img === 'yoga' ? `style = "object-position: top;"` : ``} type="image/jpeg"/>
+                </picture>
                 `
             }
             if (time.addHours(event.dateName, event.length) >= time.now) {

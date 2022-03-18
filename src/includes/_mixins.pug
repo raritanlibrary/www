@@ -78,7 +78,7 @@ mixin craft(name, img, num)
     h4 #{name}
     each i in arr(num)
         a.crafts-img(href=`./img/crafts/${img}${i+1}.jpg` target="_blank")
-            +picture(`crafts/_${img}${i+1}.jpg`, name, "crafts-img-inner")
+            +picture(`crafts/sm/${img}${i+1}.jpg`, name, "crafts-img-inner")
 
 //- Resource
 mixin resource(name, href, img, crunch)

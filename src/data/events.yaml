@@ -40,7 +40,7 @@
   desc: April is National Poetry Month! Submit your poems now for publication in the Raritan Valley Federation of Libraries Poetry Program Anthology! Deadline is <b>March 19th, 2022</b>.
   eblast: Submission forms can be obtained at the front desk at the Library or as a <a href="http://raritanlibrary.org/programs#Zk94s" target="_blank">download</a> on our website's programming page. 
   style: green
-  img: poetry
+  img: poetry2
   imgalt: A inkpen lying on a sheet of paper with illegible scribbles that appear to resemble poetry
   form: docs/events/PoetrySubmissionForm2022.pdf
   formalt:
@@ -55,7 +55,7 @@
   blurb: Raritan Public Library is excited to announce this year's NJ Makers Day. Join us for 3D printing showcases, coding workshops, and more on this special day!
   desc: Raritan Public Library is excited to announce this year's NJ Makers Day. The Library will be hosting various activities for children and adults to showcase, highlight, and inspire STEM culture. Join us for 3D printing showcases, coding workshops, and more on this special day!
   style: makersday
-  img: makersday
+  img: makersday2
   imgalt: A headshot of a cyan-colored cartoon robot, the mascot of NJ Makers Day
   formalt:
     name: More information
@@ -70,7 +70,7 @@
   blurb: "Mickey Rooney stars in this 1940 classic film as a young Tom Edison, exploring his scientific curiosity and mischievous experiments gone wrong. Registration is required. Refreshments are served. Running time: 82 minutes."
   desc: "Mickey Rooney stars in this 1940 classic film as the boy &ldquo;Young Tom Edison&rdquo; who dreamed big...and became America's greatest inventor. The film traces Tom's scientific curiosity, his experiments which had gone wrong and how he became the scorn in his hometown. But Tom shows heroism in the face of danger and even invents a device to help a doctor save his mother's life. Find out if it is enough to win over his family and the townspeople who think he is addled. Refreshments are served. Running time: 82 minutes. Registration is required."
   style: blue
-  img: youngedison
+  img: youngedison2
   imgalt: A black-and-white image of Fay Bainter and Mickey Rooney playing the roles of Nancy Edison and Tom Edison in Young Tom Edison
 
 - name: "A Visit With Thomas Edison: The Wizard of Menlo Park"
@@ -82,5 +82,5 @@
   blurb: "Come meet America's famous inventor, Thomas Edison, portrayed by re-enactor Robert Gleason from the American Historical Theatre in Philadelphia. Registration is required."
   desc: "Come meet Thomas A. Edison, America's famous inventor portrayed by Robert Gleason, re-enactor from the American Historical Theatre in Philadelphia, PA. Learn about our American inventor, scientist, and businessman dubbed the &ldquo;Wizard of Menlo Park&rdquo; who developed many devices that greatly influenced life around the world, including the phonograph, the motion picture camera, and a long lasting practical electric light bulb. A question and answer session will follow. Registration is required."
   style: purple
-  img: edison2
+  img: edison3
   imgalt: An image of re-enactor Robert Gleason portraying Thomas Edison
