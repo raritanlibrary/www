@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set program variables
-magick="C:\Program Files\ImageMagick\magick.exe"
+magick="/c/Program Files/ImageMagick/magick.exe"
 
 echo "Generating static files..."
 
