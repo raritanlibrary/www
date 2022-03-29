@@ -5,7 +5,9 @@
 # Set program variables
 magick="/c/Program Files/ImageMagick/magick.exe"
 
-for file in src/img/crafts/*; do
-    file=$(basename -- "$file")
-    "$magick" "src/img/crafts/$file" -resize 500x500 -auto-orient -thumbnail 300x150^ -gravity center -extent 300x150 "src/img/crafts/sm/$file"
-done
+"$magick" "src/img/kids/--spring-bracelet.png" -resize "300x300!" "src/img/kids/spring-bracelet.png"
+
+#for file in src/img/crafts/*; do
+#    file=$(basename -- "$file")
+#    "$magick" "src/img/crafts/$file" -resize 500x500 -auto-orient -thumbnail 300x150^ -gravity center -extent 300x150 "src/img/crafts/sm/$file"
+#done

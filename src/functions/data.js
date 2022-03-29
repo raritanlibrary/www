@@ -80,9 +80,11 @@ for (let i = 0; i < 2; i++) {
 let storytimeObj = {
     "name": "Storytime at the Library",
     "date": storytimeDates,
+    "dotws": "Tuesdays and Thursdays",
     "length": 0.75,
-    "age": "0 - 18",
-    "desc": "Children are invited to join Miss Amber for music, movement, stories, and crafts centered around a theme that changes every week! All children are welcome, we don't require you to be still or silent to join!",
+    "noendtime": true,
+    "age": "All ages",
+    "desc": "Join Ms. Amy every Tuesday and Thursday for songs, movement, stories, crafts and more!",
     "img": "storytime",
     "imgalt": "Children gathered around an open book",
 };
@@ -126,7 +128,8 @@ export const eventInjector = () => {
                     eventTime = `${time.formatTime(event.date[0])} and ${time.formatTime(event.date[1])}`;
                     eventDateMobile = time.monthDayTime(event.date[0]);
                 } else {
-                    eventDate = `${time.weekday(event.date[0])}s at ${time.formatTime(event.date[0])}`;
+                    let eventDotW = event.dotws ? event.dotws : `${time.weekday(event.date[0])}s`;
+                    eventDate = `${eventDotW} at ${time.formatTime(event.date[0])}`;
                     eventTime = ``;
                     time.datechunk(event.date).forEach((chunk, i) => eventTime += i < event.date.length - 1 ? `${chunk}<br>` : chunk);
                     eventDateMobile = eventDate;

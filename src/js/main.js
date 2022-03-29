@@ -174,7 +174,8 @@ const contentPrograms = () => {
                 if (event.date[0].getDate() === event.date[1].getDate()) {
                     eventDate = `${time.fullDate(event.date[0])}, ${time.formatTime(event.date[0])} and ${time.formatTime(event.date[1])}`;
                 } else {
-                    eventDate = `${time.weekday(event.date[0])}s at ${time.formatTime(event.date[0])}${endTime} <br>`;
+                    let eventDotW = event.dotws ? event.dotws : `${time.weekday(event.date[0])}s`;
+                    eventDate = `${eventDotW} at ${time.formatTime(event.date[0])}${endTime} <br>`;
                     event.date.forEach((day, i) =>  eventDate += i < event.date.length - 1 ? `${time.monthDay(day)},&nbsp;` : time.monthDay(day));
                 }
             } else if (Array.isArray(event.date) && event.date.length === 1) {
@@ -244,7 +245,7 @@ const contentKids = () => {
         for (const kid of data.kids) {
             let kidDate, kidImg, zoomLink, kidTag;
             kidTag = zoomLink = kidImg = ``;
-            kid.form = "https://docs.google.com/forms/d/e/1FAIpQLSexzMC0KhtjIMRZT1yVBla-fFVZe69UB3f0g0KgkFFQaj5K_g/viewform"
+            //kid.form = "https://docs.google.com/forms/d/e/1FAIpQLSexzMC0KhtjIMRZT1yVBla-fFVZe69UB3f0g0KgkFFQaj5K_g/viewform"
             endTime = kid.noendtime ? `` : ` - ${time.formatTime(time.addHours(kid.dateName, kid.length))}`;
             if (kid.date === 'tbd') {
                 kidDate = `Date:&nbsp;TBD`;
@@ -254,7 +255,8 @@ const contentKids = () => {
                 if (kid.date[0].getDate() === kid.date[1].getDate()) {
                     kidDate = `${time.fullDate(kid.date[0])}, ${time.formatTime(kid.date[0])} and ${time.formatTime(kid.date[1])}`;
                 } else {
-                    kidDate = `${time.weekday(kid.date[0])}s at ${time.formatTime(kid.date[0])}${endTime} <br>`;
+                    let kidDotW = kid.dotws ? kid.dotws : `${time.weekday(kid.date[0])}s`;
+                    kidDate = `${kidDotW} at ${time.formatTime(kid.date[0])}${endTime} <br>`;
                     kid.date.forEach((day, i) =>  kidDate += i < kid.date.length - 1 ? `${time.monthDay(day)},&nbsp;` : time.monthDay(day));
                 }
             } else if (Array.isArray(kid.date) && kid.date.length === 1) {
@@ -300,7 +302,7 @@ const contentKids = () => {
                     <div class="snippet-body" id="${util.eventid(kid.name)}">
                         <p class="h4-link inline" >${kid.name}</p>${kidTag}
                         <p class="comment-date">${kidDate}</p>
-                        <p class="comment-date">${svg.people}Ages ${kid.age}</p>
+                        <p class="comment-date">${svg.people}${(kid.age).match("-|\\+") ? "Ages ": "" }${kid.age}</p>
                         <br>
                         <p class="text">${kid.desc}</p>
                         ${zoomLink}
