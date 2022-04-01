@@ -28,7 +28,7 @@
   date: 2022-04-02 12:00:00 -4
   length: 2
   age: All ages
-  desc: "Get cozy in The Raritan Public Library and discover your favorite Disney family's magical powers. Let the Madrigals whisk you away to an enchanted story about their life. You will be singing all the fun songs on your way home! Snacks will be served. Running time: 109 minutes."
+  desc: "Get cozy in The Raritan Public Library and discover your favorite Disney family&rsquo;s magical powers. Let the Madrigals whisk you away to an enchanted story about their life. You will be singing all the fun songs on your way home! Snacks will be served. Running time: 109 minutes."
   img: encanto
   imgalt: Mirabel Madrigal
 
@@ -36,6 +36,38 @@
   date: 2022-04-06 17:30:00 -4
   length: 1
   age: 8 - 12
-  desc: Join Ms. Amy in making a beautiful spring bracelet to wear for any fun Spring occasion! It would also make a perfect gift for a friend or family member!  Enjoy some light snacks while chatting with friends and beading the night away! Please register at the front desk.
+  desc: Join Ms. Amy in making a beautiful spring bracelet to wear for any fun Spring occasion! It would also make a perfect gift for a friend or family member!  Enjoy some light snacks while chatting with friends and beading the night away!
   img: spring-bracelet
   imgalt: Flowers
+
+- name: "Children&rsquo;s Monday Matinee: <i>Peter Rabbit</i>"
+  date: 2022-04-11 12:00:00 -4
+  length: 2
+  age: All ages
+  desc: "What has that mischievous Peter Rabbit gotten into now?! Stop in early Monday during your spring break to watch a springtime favorite and see if the rotten Mr. McGregor catches up with Peter! Snacks will be served. Running time: 95 minutes."
+  img: peter-rabbit
+  imgalt: Peter Rabbit
+
+- name: Egg Coloring Fun
+  date: 2022-04-13 14:00:00 -4
+  length: 1
+  age: All ages
+  desc: Join Ms. Amy to dye Easter eggs and take a couple home as decorations! While you are here, search for a plastic egg with a treat inside in the Children&rsquo;s Room and listen to a couple of &ldquo;Egg&rdquo;celent stories! Also, enter to win a free copy of &ldquo;The Easter Bunny is Comin&rsquo; to Town&rdquo; DVD!
+  img: eggs
+  imgalt: Easter eggs
+
+- name: Bedtime Stories with Ms. Amy
+  date: 2022-04-20 18:00:00 -4
+  length: 0.75
+  age: All ages
+  desc: Put on your coziest pj&rsquo;s, grab your favorite stuffed animal and head on down to the Raritan Public Library. Join Ms. Amy and friends for some fun stories and a light snack before bedtime. Pj&rsquo;s and stuffed animals optional.
+  img: bedtime-stories
+  imgalt: Teddy bear asleep in bed
+
+- name: Windchime Craft and Stories
+  date: 2022-04-27 17:30:00 -4
+  length: 1
+  age: All ages
+  desc: Spring is in full bloom! The birds are singing, the breeze is blowing. Join Ms. Amy for a night of painting a wooden windchime to bring home and listening to spring stories while our windchimes dry.
+  img: windchime
+  imgalt: Cartoon illustration of birds
