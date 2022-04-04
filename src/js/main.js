@@ -258,7 +258,7 @@ const contentKids = () => {
                     let kidDotW = kid.dotws ? kid.dotws : `${time.weekday(kid.date[0])}s`;
                     kidDate = `${kidDotW} at ${time.formatTime(kid.date[0])}${endTime} <br>`;
                     kid.date.forEach((day, i) => {
-                        kidTemp = time.monthDay(day) === "April 14th" ? "April 14th (craft only)" : time.monthDay(day);
+                        let kidTemp = time.monthDay(day) === "April 14th" ? "April 14th (craft only)" : time.monthDay(day);
                         kidDate += i < kid.date.length - 1 ? `${kidTemp},&nbsp;` : kidTemp;
                     });
                 }
