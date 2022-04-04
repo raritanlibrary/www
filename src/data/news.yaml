@@ -78,7 +78,7 @@
     #- name: Directory
     #  link: docs/events/YardSaleDirectory2022.pdf
 
-- name: New Museum Passes to the Thomas Edison Center
+- name: New Museum Pass to the Thomas Edison Center
   date: 2022-04-01
   desc: Patrons can now visit the <a class="link" href="https://www.menloparkmuseum.org/" target="_blank" rel="noopener"> Thomas Edison Center</a> at Menlo Park in <a class="link" href="https://www.google.com/maps/place/Edison+State+Park/@40.5635793,-74.3414046,17z/data=!4m5!3m4!1s0x89c3b65c1248f98d:0x97c71d957cbbd11b!8m2!3d40.5620002!4d-74.3404183" target="_blank" rel="noopener"> Edison, NJ</a>. Learn about the groundbreaking innovation of New Jersey's own Thomas Edison as you enjoy a fully guided tour of the museum, or enjoy a walk through the Edison State Park's nature trail. Please call the Library for more information. Sign up is required.
   img: edison-center
