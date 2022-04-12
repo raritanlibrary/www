@@ -1,9 +1,9 @@
-import * as time from '../functions/time';
-import * as util from '../functions/util';
-import * as nav from '../functions/nav';
-import * as data from '../functions/data';
-import * as access from '../functions/access';
-import * as svg from '../functions/svg';
+import * as time from './time';
+import * as util from './util';
+import * as nav from './nav';
+import * as data from './data';
+import * as access from './access';
+import * as svg from './svg';
 
 // Favicon mode
 if (window.matchMedia('(prefers-color-scheme:light)').matches) {
