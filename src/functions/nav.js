@@ -3,8 +3,8 @@ import * as util from './util';
 // Get an object with some important properties
 const getListenerElements = str => {
     return  {
-        "main": document.getElementById(`dropdown-${str}`),
-        "sub": document.getElementById(`sublinks-${str}`),
+        "main": document.document.getElementById(`dropdown-${str}`),
+        "sub": document.document.getElementById(`sublinks-${str}`),
         "arrow": document.querySelector(`#dropdown-${str} > div > svg`),    
     }
 }
@@ -61,7 +61,7 @@ export const sticky = () => {
         let xUp = e.touches[0].clientX;
         let xDiff = xDown - xUp;
         if (Math.abs(xDiff) > 10) {
-            const links = util.findClass("links");
+            const links = document.getElementById("links");
             const menuIcon = document.querySelector(".nav-toggle > svg");
             const main = document.querySelector(".main");
             const page = document.querySelector("html");
@@ -77,8 +77,8 @@ export const sticky = () => {
         xDown = null;
     });
     util.addClickListener(e => {
-        const links = util.findClass("links");
-        const menu = util.findClass("nav-toggle");
+        const links = document.getElementById("links");
+        const menu = document.getElementById("nav-toggle");
         const menuIcon = document.querySelector(".nav-toggle > svg");
         const main = document.querySelector(".main");
         const access = document.querySelector(".access");

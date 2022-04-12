@@ -92,31 +92,27 @@ let hoursData = fs.readFileSync('src/data/hours.yaml', 'utf8');
 let hoursYaml = yaml.load(hoursData);
 const hours = hoursYaml.hours;
 const hoursPorch = hoursYaml.porch;
-const spehours = hours[7];
-const spehoursPorch = hoursPorch[7];
-const curhours = hours[dotw];
-const curhoursPorch = hoursPorch[dotw];
-let nexday = dotw === 6 ? "next Monday" : "tomorrow";
-let nexhours = dotw === 6 ? hours[1] : hoursPorch[dotw+1];
+const speHours = hours[7];
+const speHoursPorch = hoursPorch[7];
+const curHours = hours[dotw];
+const curHoursPorch = hoursPorch[dotw];
+let nextDay = dotw === 6 ? "next Monday" : "tomorrow";
+let nextHours = dotw === 6 ? hours[1] : hoursPorch[dotw+1];
 
 // Inject hours data
 export const injector = () => {
-    if (util.checkClass(`hours-detail`)) {
-        for (let i = 0; i < 6; i++) {
-            util.setClass(`hours-detail`, hours[i+1], i)
-            util.setClass(`hours-detail`, hoursPorch[i+1], i+7)
-        }
-        util.setClass(`hours-detail`, hours[0], 6)
-        util.setClass(`hours-detail`, hoursPorch[0], 13)
+    // Sidebar
+    for (let i = 1; i < 7; i++) {
+        document.getElementById(`hours${i-1}`).innerHTML = hours[i];
+        document.getElementById(`porch${i-1}`).innerHTML = hoursPorch[i];
     }
-    if (util.checkClass(`hours-footer-main`) && util.checkClass(`hours-footer-other`)) {
-        const mainStr = (dotw === 0) || (spehours === "CLOSED") ? `The library is closed today.`
-        : !!spehours && !!spehoursPorch ? `Open today · ${spehours}`
-        : `Open today · ${curhours}`;
-        const otherStr = (dotw === 0) || (spehours === "CLOSED") ? `Open ${nexday} · ${nexhours}`
-        : !!spehours && !!spehoursPorch ? `Porchside Pickup · ${spehoursPorch}`
-        : `Porchside Pickup · ${curhoursPorch}`;
-        util.setClass(`hours-footer-main`, mainStr);
-        util.setClass(`hours-footer-other`, otherStr);
-    }
+    document.getElementById(`hours6`).innerHTML = hours[0];
+    document.getElementById(`porch6`).innerHTML = hoursPorch[0];
+    // Footer
+    const mainStr = (dotw === 0) || (speHours === "CLOSED") ? `The library is closed today.`
+    : `Open today · ${(!!speHours && !!speHoursPorch) ? speHours : curHours}`;
+    const otherStr = (dotw === 0) || (speHours === "CLOSED") ? `Open ${nextDay} · ${nextHours}`
+    : `Porchside Pickup · ${(!!speHours && !!speHoursPorch) ? speHoursPorch : curHoursPorch}`;
+    document.getElementById("hours-footer-main").innerHTML = mainStr;
+    document.getElementById("hours-footer-other").innerHTML = otherStr;
 }

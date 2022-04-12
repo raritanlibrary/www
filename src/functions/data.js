@@ -105,106 +105,100 @@ let ads = yaml.load(adsData);
 
 // HTML injection for program blurbs (sidebar)
 export const eventInjector = () => {
-    if (util.checkClass(`calendar-events`)) {
-        let displayed = 0;
-        let eventList = ``;
-        let endTime;
-        for (const event of events) {
-            let eventDate, eventTime, eventDateMobile;
-            let zoomLink = ``;
-            if (displayed === 4 ) { break };
-            endTime = event.noendtime ? `` : ` - ${time.formatTime(time.addHours(event.dateName, event.length))}`;
-            if (event.date === 'tbd') {
-                eventDate = `Date:&nbsp;TBD`;
-                eventTime = ``;
-                eventDateMobile = eventDate;
-            } else if (event.range) {
-                eventDate = `Starting ${time.monthDay(event.date[0])}`;
-                eventTime = `through ${time.monthDay(event.date[1])}`;
-                eventDateMobile = `${eventDate.slice(9)} - ${eventTime.slice(8)}`;
-            } else if (Array.isArray(event.date) && event.date.length > 1) {
-                if (event.date[0].getDate() === event.date[1].getDate()) {
-                    eventDate = time.fullDate(event.date[0]);
-                    eventTime = `${time.formatTime(event.date[0])} and ${time.formatTime(event.date[1])}`;
-                    eventDateMobile = time.monthDayTime(event.date[0]);
-                } else {
-                    let eventDotW = event.dotws ? event.dotws : `${time.weekday(event.date[0])}s`;
-                    eventDate = `${eventDotW} at ${time.formatTime(event.date[0])}`;
-                    eventTime = ``;
-                    time.datechunk(event.date).forEach((chunk, i) => eventTime += i < event.date.length - 1 ? `${chunk}<br>` : chunk);
-                    eventDateMobile = eventDate;
-                }
-            } else if (Array.isArray(event.date) && event.date.length === 1) {
+    let displayed = 0;
+    let eventList = ``;
+    let endTime;
+    for (const event of events) {
+        let eventDate, eventTime, eventDateMobile;
+        let zoomLink = ``;
+        if (displayed === 4 ) { break };
+        endTime = event.noendtime ? `` : ` - ${time.formatTime(time.addHours(event.dateName, event.length))}`;
+        if (event.date === 'tbd') {
+            eventDate = `Date:&nbsp;TBD`;
+            eventTime = ``;
+            eventDateMobile = eventDate;
+        } else if (event.range) {
+            eventDate = `Starting ${time.monthDay(event.date[0])}`;
+            eventTime = `through ${time.monthDay(event.date[1])}`;
+            eventDateMobile = `${eventDate.slice(9)} - ${eventTime.slice(8)}`;
+        } else if (Array.isArray(event.date) && event.date.length > 1) {
+            if (event.date[0].getDate() === event.date[1].getDate()) {
                 eventDate = time.fullDate(event.date[0]);
-                eventTime = `${time.formatTime(event.date[0])}${endTime}`;
+                eventTime = `${time.formatTime(event.date[0])} and ${time.formatTime(event.date[1])}`;
                 eventDateMobile = time.monthDayTime(event.date[0]);
             } else {
-                eventDate = time.fullDate(event.date);
-                eventTime = `${time.formatTime(event.date)}${endTime}`;
-                eventDateMobile = time.monthDayTime(event.date);
+                let eventDotW = event.dotws ? event.dotws : `${time.weekday(event.date[0])}s`;
+                eventDate = `${eventDotW} at ${time.formatTime(event.date[0])}`;
+                eventTime = ``;
+                time.datechunk(event.date).forEach((chunk, i) => eventTime += i < event.date.length - 1 ? `${chunk}<br>` : chunk);
+                eventDateMobile = eventDate;
             }
-            if (event.zoom && (event.dateName.getTime() - time.msd <= time.now) && (time.addHours(event.dateName, event.length) >= time.now)) {
-                zoomLink = `
-                <a class="event-zoom-link" href="${event.zoom}" target="_blank" rel="noopener">
-                    <div class="event-zoom"> Join now on ${svg.zoom}</div>
-                </a>
-                `
-            }
-            if (time.addHours(event.dateName, event.length) >= time.now) {
-                eventList += `
-                <div class="event${zoomLink ? "" : " event-extend"}">
-                <div class="event-${event.style}" style="background-image: url(./img/events/${event.img}.jpg);">
-                        <a class="event-${event.style}-link" href="programs#${util.eventid(event.name)}">
-                            <div class="event-${event.style}-cover${zoomLink ? "" : " event-extend-inner"}">
-                                <p class="event-${event.style}-title">${event.title}</p>
-                                <p class="event-${event.style}-subtitle">${event.subtitle}</p>
-                                <hr class="event-${event.style}-hr"/>
-                                <p class="event-${event.style}-date">${eventDate}</p>
-                                <p class="event-${event.style}-time">${eventTime}</p>
-                                <p class="event-${event.style}-date-mobile">${eventDateMobile}</p>
-                                <p class="event-${event.style}-desc">${event.blurb}</p>
-                            </div>
-                        </a>
-                    </div>
-                    ${zoomLink}
-                </div>
-                `
-                displayed++;
-            }
+        } else if (Array.isArray(event.date) && event.date.length === 1) {
+            eventDate = time.fullDate(event.date[0]);
+            eventTime = `${time.formatTime(event.date[0])}${endTime}`;
+            eventDateMobile = time.monthDayTime(event.date[0]);
+        } else {
+            eventDate = time.fullDate(event.date);
+            eventTime = `${time.formatTime(event.date)}${endTime}`;
+            eventDateMobile = time.monthDayTime(event.date);
         }
-        util.setClass(`calendar-events`, eventList)
+        if (event.zoom && (event.dateName.getTime() - time.msd <= time.now) && (time.addHours(event.dateName, event.length) >= time.now)) {
+            zoomLink = `
+            <a class="event-zoom-link" href="${event.zoom}" target="_blank" rel="noopener">
+                <div class="event-zoom"> Join now on ${svg.zoom}</div>
+            </a>
+            `
+        }
+        if (time.addHours(event.dateName, event.length) >= time.now) {
+            eventList += `
+            <div class="event${zoomLink ? "" : " event-extend"}">
+            <div class="event-${event.style}" style="background-image: url(./img/events/${event.img}.jpg);">
+                    <a class="event-${event.style}-link" href="programs#${util.eventid(event.name)}">
+                        <div class="event-${event.style}-cover${zoomLink ? "" : " event-extend-inner"}">
+                            <p class="event-${event.style}-title">${event.title}</p>
+                            <p class="event-${event.style}-subtitle">${event.subtitle}</p>
+                            <hr class="event-${event.style}-hr"/>
+                            <p class="event-${event.style}-date">${eventDate}</p>
+                            <p class="event-${event.style}-time">${eventTime}</p>
+                            <p class="event-${event.style}-date-mobile">${eventDateMobile}</p>
+                            <p class="event-${event.style}-desc">${event.blurb}</p>
+                        </div>
+                    </a>
+                </div>
+                ${zoomLink}
+            </div>
+            `
+            displayed++;
+        }
     }
+    document.getElementById("events").innerHTML = eventList;
 }
 
 // HTML injection for advertisements (sidebar)
 export const adInjector = () => {
-    if (util.checkClass(`advert`)) {
-        const adPool = []
-        for (const ad of ads) {
-            if (((ad.start && ad.end) && (time.now >= ad.start && ad.end > time.now)) ||
-            ((ad.start || ad.end) && (time.now >= ad.start || ad.end > time.now)) ||
-            (!ad.start && !ad.end)) {
-                adPool.push(ad)
-            }
+    const adPool = []
+    for (const ad of ads) {
+        if (((ad.start && ad.end) && (time.now >= ad.start && ad.end > time.now)) ||
+        ((ad.start || ad.end) && (time.now >= ad.start || ad.end > time.now)) ||
+        (!ad.start && !ad.end)) {
+            adPool.push(ad)
         }
-        const ad = adPool[Math.floor(Math.random() * adPool.length)]
-        const adOutput = `
-        <a class="advert-img" href="${ad.imglink}" target="_blank" ${util.extchk(ad.imglink)}>
-            <picture>
-                <source srcset="img/promo/${ad.img}.webp" type="image/webp"/>
-                <img class="advert-img-inner" src="img/promo/${ad.img}.${ad.isgif ? "gif" : "jpeg"}" alt="${ad.imgalt}" type="image/${ad.isgif ? "gif" : "jpeg"}"/>
-            </picture>
-        </a>
-        <div class="advert-tag">Advertisement</div>
-        `
-        util.setClass(`advert`, adOutput)
     }
+    const ad = adPool[Math.floor(Math.random() * adPool.length)]
+    const adOutput = `
+    <a class="advert-img" href="${ad.imglink}" target="_blank" ${util.extchk(ad.imglink)}>
+        <picture>
+            <source srcset="img/promo/${ad.img}.webp" type="image/webp"/>
+            <img class="advert-img-inner" src="img/promo/${ad.img}.${ad.isgif ? "gif" : "jpeg"}" alt="${ad.imgalt}" type="image/${ad.isgif ? "gif" : "jpeg"}"/>
+        </picture>
+    </a>
+    <div class="advert-tag">Advertisement</div>
+    `
+    document.getElementById("ad").innerHTML = adOutput;
 }
 
 // Git data
 let tag = fs.readFileSync('src/data/_REV', 'utf8');
 export const rev = () => {
-    if (util.checkClass('version')) {
-        util.setClass('version', `Build ${tag} · <a href="/site-map">Site Map</a> · <a href="/privacy"> Privacy</a>`);
-    }
+    document.getElementById("git").innerHTML = `Build ${tag} · <a href="/site-map">Site Map</a> · <a href="/privacy"> Privacy</a>`;
 }

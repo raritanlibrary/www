@@ -1,8 +1,3 @@
-// Class checking functions
-export const checkClass = c => document.getElementsByClassName(c).length > 0;
-export const findClass = (c, n=0) => document.getElementsByClassName(c)[n];
-export const setClass = (c, str, n=0) => document.getElementsByClassName(c)[n].innerHTML = str;
-
 // Returns extra data based on existance of external website string
 export const extchk = str => str.match('^http') ? `rel="noopener"` : ``;
 
@@ -29,11 +24,9 @@ export const eventid = (str) => {
     // Reduce input string
     str = str.replace(/\W+|\d/g, '').toLowerCase();
     str = str.substring(0, 24).padEnd(24, 'a');
-
     // Convert string to binary
     let bin = ``;
     str.split('').forEach(char => bin += (char.charCodeAt() - 97).toString(2).padStart(5, '0'));
-
     // Convert number to Base64 and return it
     let output = ``;
     const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_';
