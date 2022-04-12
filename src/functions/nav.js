@@ -3,8 +3,8 @@ import * as util from './util';
 // Get an object with some important properties
 const getListenerElements = str => {
     return  {
-        "main": document.document.getElementById(`dropdown-${str}`),
-        "sub": document.document.getElementById(`sublinks-${str}`),
+        "main": document.getElementById(`dropdown-${str}`),
+        "sub": document.getElementById(`sublinks-${str}`),
         "arrow": document.querySelector(`#dropdown-${str} > div > svg`),    
     }
 }
