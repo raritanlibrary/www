@@ -160,7 +160,7 @@ const contentPrograms = () => {
     for (const event of data.events) {
         let eventDate, eventImg, zoomLink, eventTag;
         eventTag = zoomLink = eventImg = ``;
-        endTime = event.noendtime ? `` : ` - ${time.formatTime(time.addHours(event.dateName, event.length))}`;
+        endTime = event.noendtime || event.appointment ? `` : ` - ${time.formatTime(time.addHours(event.dateName, event.length))}`;
         if (event.date === 'tbd') {
             eventDate = `Date:&nbsp;TBD`;
         } else if (event.range) {
@@ -175,6 +175,8 @@ const contentPrograms = () => {
             }
         } else if (Array.isArray(event.date) && event.date.length === 1) {
             eventDate = `${time.fullDayTime(event.date[0])}${endTime}`;
+        } else if (event.appointment) {
+            eventDate = "By Appointment Only"
         } else {
             eventDate = `${time.fullDayTime(event.date)}${endTime}`;
         }
@@ -211,7 +213,7 @@ const contentPrograms = () => {
             </picture>
             `
         }
-        if (time.addHours(event.dateName, event.length) >= time.now) {
+        if (event.appointment || time.addHours(event.dateName, event.length) >= time.now) {
             eventList += `
             <div class="snippet">
                 ${eventImg}

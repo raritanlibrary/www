@@ -7,6 +7,7 @@
 #  length                from start, can also be range
 #                        date must be two
 #  noendtime             bool, set true to disable end time
+#  appointment           bool, set true if appointment only
 #  blurb                 for sidebar (shortened desc)
 #  desc                  for programs page
 #  eblast                extra detail for eblasts only
@@ -24,7 +25,7 @@
 - name: Chair Yoga with Breda
   title: Chair Yoga
   subtitle: with Breda
-  date: [2022-03-10 14:00:00 -5, 2022-03-24 14:00:00 -4, 2022-04-07 14:00:00 -4, 2022-04-21 14:00:00 -4]
+  date: [2022-04-21 14:00:00 -4]
   length: 1
   blurb: Join our popular &ldquo;Chair Yoga&rdquo; instructor, Breda, for a chair yoga session designed to strengthen muscles and improve flexibility. No prior yoga experience is necessary.
   desc: Join our popular &ldquo;Chair Yoga&rdquo; instructor, Breda, for a chair yoga session that will guide participants safely and effectively through a series of yoga movements which are designed to strengthen muscles and improve flexibility. Sessions will last approximately one hour, and no prior yoga experience is necessary. Please wear comfortable clothing to the class.
@@ -48,32 +49,6 @@
     name: NBFPL Website
     link: https://www.nbfpl.org/
 
-- name: NJ Makers Day 2022
-  title: NJ Makers Day 2022
-  subtitle: at Raritan Public Library
-  date: 2022-03-26 10:30:00 -4
-  length: 4
-  blurb: Raritan Public Library is excited to announce this year's NJ Makers Day. Join us for 3D printing showcases, coding workshops, and more on this special day!
-  desc: Raritan Public Library is excited to announce this year's NJ Makers Day. The Library will be hosting various activities for children and adults to showcase, highlight, and inspire STEM culture. Join us for 3D printing showcases, coding workshops, and more on this special day!
-  style: makersday
-  img: makersday2
-  imgalt: A headshot of a cyan-colored cartoon robot, the mascot of NJ Makers Day
-  formalt:
-    name: Makers Day information
-    link: makersday
-
-- name: "&ldquo;Young Tom Edison&rdquo;"
-  title: "&ldquo;Young Tom Edison&rdquo;"
-  subtitle: a Classic Movie Matinee
-  date: 2022-04-12 14:00:00 -4
-  length: 1.5
-  noendtime: true
-  blurb: "Mickey Rooney stars in this 1940 classic film as a young Tom Edison, exploring his scientific curiosity and mischievous experiments gone wrong. Registration is required. Refreshments are served. Running time: 82 minutes."
-  desc: "Mickey Rooney stars in this 1940 classic film as the boy &ldquo;Young Tom Edison&rdquo; who dreamed big...and became America's greatest inventor. The film traces Tom's scientific curiosity, his experiments which had gone wrong and how he became the scorn in his hometown. But Tom shows heroism in the face of danger and even invents a device to help a doctor save his mother's life. Find out if it is enough to win over his family and the townspeople who think he is addled. Refreshments are served. Running time: 82 minutes. Registration is required."
-  style: blue
-  img: youngedison2
-  imgalt: A black-and-white image of Fay Bainter and Mickey Rooney playing the roles of Nancy Edison and Tom Edison in Young Tom Edison
-
 - name: "A Visit With Thomas Edison: The Wizard of Menlo Park"
   title: A Visit With Thomas Edison
   subtitle: The Wizard of Menlo Park
@@ -85,3 +60,35 @@
   style: purple
   img: edison3
   imgalt: An image of re-enactor Robert Gleason portraying Thomas Edison
+
+- name: Switch Smash & Kart Hour
+  title: Smash & Kart Hour
+  subtitle: Nintendo Switch Games
+  date: 2022-05-14 11:00:00 -4
+  length: 1
+  blurb: Come play Super Smash Bros Ultimate or Mario Kart 8 with some fellow players at the library. Light refreshments will be provided. Registration is required.
+  desc: Come play Super Smash Bros Ultimate or Mario Kart 8 with some fellow players at the library. Enjoy a fun afternoon playing some exciting games on a big screen TV with even bigger sound! Bring a friend or two because the more players we have, the more fun the games will be. Light refreshments will be provided. Registration is required.
+  style: red
+  img: smashkart
+  imgalt: Super Smash Bros Ultimate and Mario Kart 8
+
+- name: Pokémon Go Meetup
+  title: Pokémon Go Meetup
+  subtitle: at Raritan Public Library
+  date: 2022-05-23 18:00:00 -4
+  length: 1.5
+  blurb: Come to the Library for a Pokémon Go meetup where trainers can battle, trade, or just chat about Pokémon! Light refreshments will be provided. Registration is required.
+  desc: The Library is excited to restart our monthly Pokémon Go meetups where trainers can battle, trade, or just chat about Pokémon Go. This is a great opportunity to swap Trainer Codes, test your skills against local trainers, or make a special trade. The Library is a Gym and also has 2 Pokéstops so you can restock your items while interacting with other players. Some attendees may even have a Nintendo Switch so you can refill a Meltan box if you need. Come make friends and catch &lsquo;em all! Light refreshments will be provided. Registration is required.
+  style: yellow
+  img: pokemon-go
+  imgalt: Pokemon go
+
+- name: 1-on-1 Computer Class Help
+  title: Computer Class Help
+  subtitle: Personal 1-on-1 Appointments
+  appointment: true
+  blurb: Learn to download files, set up an email address, safely browse the web, update programs, and more with a 1-on-1 
+  desc: Sometimes the digital world can be overwhelming, but your Library can help you make sense of it. Make an appointment with Brendan and he will help you out with any digital questions you might have. You will be able to learn to download files, set up an email address, safely browse the web, update programs, and other online or computer functions. We will take the time you need to learn these things. Call the library and ask for Brendan to make an appointment today. There is no charge for this program. If you have your own laptop please bring it with you, but the library has public laptops for use as well.
+  style: gray
+  img: pc-help
+  imgalt: Man using a laptop computer

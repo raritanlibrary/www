@@ -34,6 +34,8 @@ const eventParser = yaml => {
                     break;
                 }
             }
+        } else if (event.appointment) {
+            event.dateName =  event.dateSort = new Date(2e14);
         } else {
             event.dateName = event.dateSort = event.date;
         }
@@ -111,7 +113,11 @@ export const eventInjector = () => {
     for (const event of events) {
         let eventDate, eventTime, eventDateMobile;
         let zoomLink = ``;
-        if (displayed === 4 ) { break };
+        if (displayed === 4 ) {
+            break
+        } else if (event.appointment) {
+            continue
+        }
         endTime = event.noendtime ? `` : ` - ${time.formatTime(time.addHours(event.dateName, event.length))}`;
         if (event.date === 'tbd') {
             eventDate = `Date:&nbsp;TBD`;
