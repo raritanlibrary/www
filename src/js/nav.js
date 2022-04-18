@@ -60,7 +60,7 @@ export const sticky = () => {
         if (!xDown) { return }
         let xUp = e.touches[0].clientX;
         let xDiff = xDown - xUp;
-        if (Math.abs(xDiff) > 10) {
+        if (Math.abs(xDiff) > 10 && document.documentElement.scrollTop < 20) {
             const links = document.getElementById("links");
             const menuIcon = document.querySelector(".nav-toggle > svg");
             const main = document.querySelector(".main");

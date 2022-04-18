@@ -179,7 +179,7 @@ export const adInjector = () => {
     const adPool = []
     for (const ad of ads) {
         if (((ad.start && ad.end) && (time.now >= ad.start && ad.end > time.now)) ||
-        ((ad.start || ad.end) && (time.now >= ad.start || ad.end > time.now)) ||
+        ((!ad.start && ad.end) && (time.now >= ad.start || ad.end > time.now)) ||
         (!ad.start && !ad.end)) {
             adPool.push(ad)
         }
