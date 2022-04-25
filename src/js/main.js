@@ -243,7 +243,7 @@ const contentKids = () => {
         endTime = kid.noendtime ? `` : ` - ${time.formatTime(time.addHours(kid.dateName, kid.length))}`;
         if (kid.date === 'tbd') {
             kidDate = `Date:&nbsp;TBD`;
-        } else if (kid.daterange) {
+        } else if (kid.range) {
             kidDate = `${time.fullDate(kid.date[0])} - ${time.fullDate(kid.date[1])}`;
         } else if (Array.isArray(kid.date) && kid.date.length > 1) {
             if (kid.date[0].getDate() === kid.date[1].getDate()) {

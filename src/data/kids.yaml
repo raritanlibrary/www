@@ -71,3 +71,51 @@
   desc: Spring is in full bloom! The birds are singing, the breeze is blowing. Join Ms. Amy for a night of painting a wooden windchime to bring home and listening to spring stories while our windchimes dry.
   img: windchime
   imgalt: Cartoon illustration of birds
+
+- name: Birdhouse Craft
+  date: 2022-05-04 16:30:00 -4
+  length: 1
+  age: All ages
+  desc: Join Ms. Amy for a night of painting a birdhouse and adding lots of fun details to it! Perfect gift for Mother&rsquo;s Day or to just hang in your back yard!
+  img: birdhouse
+  imgalt: A green birdhouse beside a yellow birdhouse
+
+- name: The Hummingbird Studio Visits the Library
+  date: 2022-05-07 11:00:00 -4
+  length: 1
+  age: 4+
+  desc: Join Ms. Sarah, owner of the Hummingbird Studio in Raritan at the Raritan Public Library for a story and an art project! Explore your artistic talents as Ms. Sarah guides you in creating your very own masterpiece!
+  img: hummingbird
+  imgalt: Logo for The Hummingbird Studio
+
+- name: Ferdinand
+  date: 2022-05-11 16:30:00 -4
+  length: 1.75
+  age: All ages
+  desc: "April showers bring May flowers…what better time of year to watch our favorite bull enjoy his favorite part of nature...flowers of course! Visit the Raritan Public Library and see how Ferdinand&rsquo;s love of flowers may get him in a bit of trouble! Snacks will be served. Running time: 106 minutes."
+  img: ferdinand
+  imgalt: Promotional image used for the movie Ferdinand
+
+- name: Bingo and Books
+  date: 2022-05-18 16:30:00 -4
+  length: 0.5
+  age: All ages
+  desc: Need a little after school break before starting homework? Visit Ms. Amy for a chance to win a fun little prize playing bingo and stay for a couple of fun, after school stories.
+  img: bingo
+  imgalt: Bingo for kids
+
+- name: Lego Fun
+  date: 2022-05-25 16:30:00 -4
+  length: 0.75
+  age: All ages
+  desc: Stop in the library after school and show off your creative Lego skills! What better way to unwind after a long day of school! Fun for all ages!
+  img: lego
+  imgalt: A Spring-themed Lego set
+
+- name: "Children&rsquo;s May Giveaway - Diary of a Wimpy Kid: The Deep End"
+  date: [2022-05-02 10:00:00 -4, 2022-05-31 20:00:00 -4]
+  length: range
+  age: All ages
+  desc: Stop in the Children&rsquo;s Room of the Raritan Public Library for a chance to win your very own copy of Jeff Kinney&rsquo;s newest book! We will contact the winner at the end of May! Just in time for a great summer read!
+  img: deep-end
+  imgalt: "Front conver illustration of Diary of a Wimpy Kid: The Deep End, by Jeff Kinney"
