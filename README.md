@@ -73,7 +73,7 @@ npm run lighthouse
 This command generates webpage audits using Google Chrome's **Lighthouse** tool. The command will automatically generate both desktop and mobile audits for every relevant page in the `src` directory.
 
 ## **Issues and Contributing**
-Pull requests are encouraged by the Raritan Public Library to ensure our software is of the highest quality possible. If you would like to suggest major changes or restructuring of this repository, please [open an issue](https://github.com/raritanlibrary/www/issues/new). It is also strongly suggested you email us at [raritanlibrary54@aol.com](mailto:raritanlibrary54@aol.com).
+Pull requests are encouraged by the Raritan Public Library to ensure our software is of the highest quality possible. If you would like to suggest major changes or restructuring of this repository, please [open an issue](https://github.com/raritanlibrary/www/issues/new). It is also strongly suggested you email us at [sgunn@raritanlibray.org](mailto:sgunn@raritanlibray.org).
 
 ## **License**
 Please note that, while this project is made available under the [MIT License](LICENSE), any original written, visual, or otherwise presented content is copyrighted by the Raritan Public Library.

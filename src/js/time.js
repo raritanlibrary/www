@@ -80,7 +80,7 @@ export const datechunk = arr => {
         datestr = `${month(arr[splitter[i]])} `;
         for (let j = splitter[i]; j < splitter[i+1]; j++) {
             datestr += formatDate(arr[j]);
-            if (j < splitter[i+1]-1) { datestr += ` & ` }
+            if (j < splitter[i+1]-1) { datestr += `, ` }
         }
         output.push(datestr);
     }

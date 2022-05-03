@@ -25,7 +25,7 @@
 - name: Chair Yoga with Breda
   title: Chair Yoga
   subtitle: with Breda
-  date: [2022-04-21 14:00:00 -4]
+  date: [2022-05-17 10:30:00 -4, 2022-05-24 10:30:00 -4, 2022-05-31 10:30:00 -4, 2022-06-07 10:30:00 -4, 2022-06-14 10:30:00 -4, 2022-06-21 10:30:00 -4, 2022-06-28 10:30:00 -4]
   length: 1
   blurb: Join our popular &ldquo;Chair Yoga&rdquo; instructor, Breda, for a chair yoga session designed to strengthen muscles and improve flexibility. No prior yoga experience is necessary.
   desc: Join our popular &ldquo;Chair Yoga&rdquo; instructor, Breda, for a chair yoga session that will guide participants safely and effectively through a series of yoga movements which are designed to strengthen muscles and improve flexibility. Sessions will last approximately one hour, and no prior yoga experience is necessary. Please wear comfortable clothing to the class.
@@ -49,18 +49,6 @@
     name: NBFPL Website
     link: https://www.nbfpl.org/
 
-- name: "A Visit With Thomas Edison: The Wizard of Menlo Park"
-  title: A Visit With Thomas Edison
-  subtitle: The Wizard of Menlo Park
-  date: 2022-04-26 18:30:00 -4
-  length: 1.5
-  noendtime: true
-  blurb: "Come meet America's famous inventor, Thomas Edison, portrayed by re-enactor Robert Gleason from the American Historical Theatre in Philadelphia. Registration is required."
-  desc: "Come meet Thomas A. Edison, America's famous inventor portrayed by Robert Gleason, re-enactor from the American Historical Theatre in Philadelphia, PA. Learn about our American inventor, scientist, and businessman dubbed the &ldquo;Wizard of Menlo Park&rdquo; who developed many devices that greatly influenced life around the world, including the phonograph, the motion picture camera, and a long lasting practical electric light bulb. A question and answer session will follow. Registration is required."
-  style: purple
-  img: edison3
-  imgalt: An image of re-enactor Robert Gleason portraying Thomas Edison
-
 - name: Switch Smash & Kart Hour
   title: Smash & Kart Hour
   subtitle: Nintendo Switch Games
@@ -77,6 +65,7 @@
   subtitle: at Raritan Public Library
   date: 2022-05-23 18:00:00 -4
   length: 1.5
+  noendtime: true
   blurb: Come to the Library for a Pokémon Go meetup where trainers can battle, trade, or just chat about Pokémon! Light refreshments will be provided. Registration is required.
   desc: The Library is excited to restart our monthly Pokémon Go meetups where trainers can battle, trade, or just chat about Pokémon Go. This is a great opportunity to swap Trainer Codes, test your skills against local trainers, or make a special trade. The Library is a Gym and also has 2 Pokéstops so you can restock your items while interacting with other players. Some attendees may even have a Nintendo Switch so you can refill a Meltan box if you need. Come make friends and catch &lsquo;em all! Light refreshments will be provided. Registration is required.
   style: yellow
@@ -92,3 +81,15 @@
   style: gray
   img: pc-help
   imgalt: Man using a laptop computer
+
+- name: It's Birdie Time!
+  title: It's Birdie Time!
+  subtitle: a Birdhouse Craft
+  date: 2022-06-21 17:30:00 -4
+  length: 1.5
+  noendtime: true
+  blurb: Come join us in ainting a small indoor birdhouse and making a cone bird feeder. Registration is required.
+  desc: Come join us in ainting a small indoor birdhouse and making a cone bird feeder. Registration is required.
+  style: green
+  img: birdhouse
+  imgalt: Three painted birdhouses on a tree

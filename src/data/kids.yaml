@@ -71,3 +71,35 @@
   desc: Stop in the Children&rsquo;s Room of the Raritan Public Library for a chance to win your very own copy of Jeff Kinney&rsquo;s newest book! We will contact the winner at the end of May! Just in time for a great summer read!
   img: deep-end
   imgalt: "Front conver illustration of Diary of a Wimpy Kid: The Deep End, by Jeff Kinney"
+
+- name: Sing 2
+  date: 2022-06-04 11:00:00 -4
+  length: 3
+  age: All ages
+  desc: "Buster Moon and his all-star cast of performers get ready to launch a spectacular stage extravaganza. There's just one catch- he must find and convince the world's most reclusive rock star to join them. Join us at the Library for snacks and see if Buster Moon can pull this off! Running time: 110 minutes."
+  img: sing2
+  imgalt: Promotional poster for the movie Sing 2
+
+- name: Bedtime Stories with Ms. Amy
+  date: 2022-06-08 17:30:00 -4
+  length: 0.75
+  age: All ages
+  desc: Put on your coziest pj&rsquo;s, grab your favorite stuffed animal and head on down to the Raritan Public Library. Join Ms. Amy and friends for some fun stories and a light snack before bedtime. Pj&rsquo;s and stuffed animals are optional.
+  img: bedtime-stories
+  imgalt: Teddy bear asleep in bed
+
+- name: Fishbowl Craft and Card
+  date: 2022-06-15 17:00:00 -4
+  length: 1
+  age: All ages
+  desc: Join Ms. Amy for a night of painting an adorable wooden fishbowl craft, handmade by Raritan resident, Linda Paitakes. If you decide to make it as a gift, feel free to make a matching card to go along with it. Just in time to make for Daddy or Grandpa for Father&rsquo;s Day!
+  img: fishbowl
+  imgalt: Cartoon drawing of a goldfish inside a fishbowl 
+
+- name: The Center for Aquatic Sciences
+  date: 2022-06-18 11:00:00 -4
+  length: 1
+  age: All ages
+  desc: Join Ms. Amy in welcoming friends from the Center for Aquatic Sciences for our Summer Reading Kickoff! Learn about aquatic life and meet one of the aquariums animals!
+  img: aquatic
+  imgalt: Cartoon drawing of a large turtle
