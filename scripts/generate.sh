@@ -14,7 +14,7 @@ printf '%04d' $rev > src/data/_REV
 [[ ! -d "dist/img" ]] && mkdir "dist/img"
 
 # Copy + transform static images
-for static in "events" "kids" "news" "promo"; do
+for static in "news" "promo"; do
     [[ ! -d "dist/img/${static}" ]] && mkdir "dist/img/${static}"
     staticPath="src/img/${static}/*"
     for file in $staticPath; do
