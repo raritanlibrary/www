@@ -66,7 +66,7 @@
 
 - name: "Upcoming: Town-Wide Yard Sale"
   date: 2022-02-25
-  desc: "On <b>Saturday, May 7th</b>, Raritan will be holding its 3rd Annual Town-Wide Yard Sale. This Spring will be a perfect time to sell unused items. Please click on the link below for a directory of participating addresses. Rain date May 21st."
+  desc: "On <b>Saturday, May 14th</b>, Raritan will be holding its 3rd Annual Town-Wide Yard Sale. This Spring will be a perfect time to sell unused items. Please click on the link below for a directory of participating addresses."
   img: yardsale
   imgalt: Yard sale
   imglink: docs/events/YardSaleDirectory2022.pdf
