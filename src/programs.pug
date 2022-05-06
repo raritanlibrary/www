@@ -20,7 +20,18 @@ html(lang="en" color-mode="lite")
                     h2.h2-fo Programs
                     p.text.text-center To sign up for events, please use a provided sign-up form, or call us at #[b (908) 725-0413] during our open hours.
                     hr.hr
-                    .programs#programs
+                    .calendar
+                        h2.h2.spacer-plus#calendar-month
+                        .calendar-days
+                            for dotw in dotws
+                                .calendar-dotw
+                                    p.dotw #{dotw}
+                                    p.dotw-mobile #{dotw.slice(0, 3)}
+                        .calendar-weeks#calendar-weeks
+                            each week in arr(5)
+                                each day in arr(7)
+                                    - let dd = week*7 + day+1
+                                        .calendar-day #{dd}
                 .sidebar-right
                     include ./includes/sidebar-right.pug
             include ./includes/footer.pug

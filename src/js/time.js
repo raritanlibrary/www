@@ -1,4 +1,3 @@
-import * as util from './util';
 const fs = require('fs');
 const yaml = require('js-yaml');
 
@@ -21,24 +20,6 @@ export const msd = msh*24;
 // Add hours or days to a datetime object
 export const addHours = (d, h) => new Date(d.getTime() + h * msh);
 export const addDays = (d, dd) => new Date(d.getTime() + dd * msd);
-
-// Get the next day of the week
-export const getNextDotw = (d, which) => {
-    let day = new Date(new Date(d).setHours(0,0,0,0));
-    while (day.getDay() != which) {
-        day = addDays(day, 1);
-    }
-    return day;
-}
-
-// Get the next time (Thursday) a board meeting will happen
-export const getR = which => {
-    const monthDay = new Date(now.getFullYear(), now.getMonth(), 1);
-    let day = getNextDotw(monthDay, 4);
-    day = addDays(day, which*7);
-    day = addHours(day, 18); // 19 for DST
-    return day;
-}
 
 // Format a datetime into a string for dates
 export const formatDate = n => {

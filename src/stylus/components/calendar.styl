@@ -1,0 +1,42 @@
+.calendar
+    &-days
+        lexend(10px, var(--main))
+        background-color var(--alt)
+        user-select(none)
+        border-radius 12px 12px 0 0
+        display flex
+        flex-flow row nowrap
+        text-align center
+        align-items center
+    &-dotw
+        flex 1 0 13%
+        line-height 24px
+        &:not(:first-child)
+            border-left 2px solid var(--main)
+    &-weeks
+        display flex
+        flex-flow row wrap
+    &-day
+        flex 1 0 13%
+        height 150px
+        padding 6px
+        border-left 2px solid var(--border-c)
+        border-bottom 2px solid var(--border-c)
+        minion(20px, var(--alt), bold)
+        &:nth-child(7n)
+            border-right 2px solid var(--border-c)
+        &-grey
+            @extend .calendar-day
+            background-color var(--main3)
+            minion(20px, var(--alt2), bold)
+.dotw
+   @media screen and (min-width 950px) and (max-width 1200px)
+        display none
+   @media screen and (max-width 750px)
+        display none
+    &-mobile
+        display none
+        @media screen and (min-width 950px) and (max-width 1200px)
+            display block
+        @media screen and (max-width 750px)
+            display block

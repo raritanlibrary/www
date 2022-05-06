@@ -1,5 +1,4 @@
 import * as time from './time';
-import * as svg from './svg';
 import * as util from './util';
 const fs = require('fs');
 const yaml = require('js-yaml');

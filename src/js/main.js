@@ -155,6 +155,25 @@ const contentNews = () => {
 
 // Content to inject for programs page
 const contentPrograms = () => {
+    const curMonth = time.mm[time.now.getMonth()];
+    const curYear = time.now.getFullYear();
+    document.getElementById("calendar-month").innerHTML = `${curMonth} ${curYear}`;
+
+    // Get day of the week for the first day of the month
+    const monthFirst = new Date(time.now.getFullYear(), time.now.getMonth(), 1);
+    const monthFirstDay = (monthFirst).getDay();
+
+    // Add all days of the month, starting from Sunday
+    // Then count from that first day until the calendar is filled
+    let calDate = new Date(monthFirst.getTime() - time.msd * monthFirstDay);
+    let calIter = 0;
+    let calContent = ``;
+    while (!(calIter > 6 && time.now.getMonth() !== calDate.getMonth() && calDate.getDay() === 0)) {
+        calContent += `<div class="calendar-day${time.now.getMonth() !== calDate.getMonth() ? "-grey" : ""}">${calDate.getDate()}</div>`;
+        calDate = new Date(calDate.getTime() + time.msd);
+        calIter++;
+    }
+    document.getElementById("calendar-weeks").innerHTML = calContent;
     autoScroll();
 }
 
