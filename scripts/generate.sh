@@ -47,7 +47,11 @@ payload="client_id=$LIBCAL_ID&client_secret=$LIBCAL_SECRET&grant_type=client_cre
 tokenRaw=`curl -Ls -X POST "$url/oauth/token" -d "$payload"`
 token=`grep -oP '(?<=:")[\w]{32,}' <<< "$tokenRaw"`
 
+# Get proper date for API call
+year=$(date --date="$(date) - 45 day" +%Y)
+month=$(date --date="$(date) - 45 day" +%B)
+
 # Get and save events data to json file
-curl -Ls -X GET "$url/events?cal_id=16676&days=120&limit=500" -H "Authorization: Bearer $token" > dist/calendar.json
+curl -Ls -X GET "$url/events?cal_id=16676&days=160&limit=500&date=$year-$month-01" -H "Authorization: Bearer $token" > dist/calendar.json
 
 echo "Finished generation."

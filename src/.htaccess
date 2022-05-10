@@ -39,6 +39,9 @@ RedirectMatch 301   ^/printing$                             /policies#printing
 RedirectMatch 301   ^/ill$                                  /policies#ill
 RedirectMatch 301   ^/renewals$                             /policies#renewals
 RedirectMatch 301   ^/holds$                                /policies#holds
+RedirectMatch 301   ^/bookclub$                             /programs
+RedirectMatch 301   ^/kids$                                 /programs
+
 
 # DISABLE DIRECTORY INDEXES
 Options -Indexes

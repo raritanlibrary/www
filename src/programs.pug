@@ -28,10 +28,6 @@ html(lang="en" color-mode="lite")
                                     p.dotw #{dotw}
                                     p.dotw-mobile #{dotw.slice(0, 3)}
                         .calendar-weeks#calendar-weeks
-                            each week in arr(5)
-                                each day in arr(7)
-                                    - let dd = week*7 + day+1
-                                        .calendar-day #{dd}
                 .sidebar-right
                     include ./includes/sidebar-right.pug
             include ./includes/footer.pug

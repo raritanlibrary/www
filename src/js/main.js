@@ -158,18 +158,40 @@ const contentPrograms = () => {
     const curMonth = time.mm[time.now.getMonth()];
     const curYear = time.now.getFullYear();
     document.getElementById("calendar-month").innerHTML = `${curMonth} ${curYear}`;
-
     // Get day of the week for the first day of the month
     const monthFirst = new Date(time.now.getFullYear(), time.now.getMonth(), 1);
     const monthFirstDay = (monthFirst).getDay();
-
     // Add all days of the month, starting from Sunday
     // Then count from that first day until the calendar is filled
+    // Add events as you go through the calendar
     let calDate = new Date(monthFirst.getTime() - time.msd * monthFirstDay);
     let calIter = 0;
+    let dayClass = ``;
     let calContent = ``;
     while (!(calIter > 6 && time.now.getMonth() !== calDate.getMonth() && calDate.getDay() === 0)) {
-        calContent += `<div class="calendar-day${time.now.getMonth() !== calDate.getMonth() ? "-grey" : ""}">${calDate.getDate()}</div>`;
+        dayClass = time.now.getMonth() !== calDate.getMonth() ? "-grey" : (time.now.getDate() === calDate.getDate() ? "-now" : "")
+        calContent += ` 
+        <div class="calendar-day${dayClass}">
+            <p class="calendar-num${dayClass}">
+                ${calDate.getDate()}<span class="calendar-dotw-inner">${time.weekday(calDate)}</span>
+            </p>
+            `
+        for (const event of data.events) {
+            if (new Date(event.start).setHours(0,0,0,0) === calDate.setHours(0,0,0,0)) {
+                console.log(event);
+                let eventTitle = event.title.replace("Bridgewater-Raritan High School", "BRHS");
+                let eventTime = event.allday ? "All Day Event" : time.formatTime(new Date(event.start));
+                calContent += `
+                <a class="calendar-entry-${util.stylizer(event.category)}" href="${event.url.public}" target="_blank" rel="noopener">
+                    ${eventTitle}
+                    <p class="calendar-entry-${util.stylizer(event.category)}-time">
+                        ${eventTime}
+                    </p>
+                </a>
+                `
+            }
+        }
+        calContent += `</div>`
         calDate = new Date(calDate.getTime() + time.msd);
         calIter++;
     }
@@ -177,16 +199,10 @@ const contentPrograms = () => {
     autoScroll();
 }
 
-// Content to inject for kids page
-const contentKids = () => {
-    autoScroll();
-}
-
 const pageInjector = p => {
     if (p.includes('index') || p === '') { contentIndex() }
     else if (p.includes('news')) { contentNews() }
     else if (p.includes('programs')) { contentPrograms() }
-    else if (p.includes('kids')) { contentKids() }
     else if (p.includes('board')) { autoScroll() }
 }
 
