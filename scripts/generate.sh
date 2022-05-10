@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ -f .env ]; then
+    export $(cat .env | xargs)
+fi
+
 # Set program variables
 magick="/c/Program Files/ImageMagick/magick.exe"
 
@@ -34,5 +38,16 @@ done
 for static in "docs/events" "robots.txt" ".htaccess"; do
     [[ ! -d "dist/${static}" ]] && cp -R "src/${static}" "dist/${static}"
 done
+
+# Set variables for url and payload
+url="https://raritanlibrary.libcal.com/1.1"
+payload="client_id=$LIBCAL_ID&client_secret=$LIBCAL_SECRET&grant_type=client_credentials"
+
+# Get and parse oauth token
+tokenRaw=`curl -Ls -X POST "$url/oauth/token" -d "$payload"`
+token=`grep -oP '(?<=:")[\w]{32,}' <<< "$tokenRaw"`
+
+# Get and save events data to json file
+curl -Ls -X GET "$url/events?cal_id=16676&days=120&limit=500" -H "Authorization: Bearer $token" > dist/calendar.json
 
 echo "Finished generation."

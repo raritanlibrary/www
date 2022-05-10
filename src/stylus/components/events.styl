@@ -17,14 +17,12 @@ event-template(type)
         padding 8px
     &-title
         minion(20.1px, var(--main-text), bold)
-        letter-spacing -0.1px
-    &-subtitle
-        perpetua(17px, var(--main-text), bold, italic)
-        line-height 10px
+        letter-spacing -0.3px
+        text-wrap balance
     &-hr
         background var(--main-textC)
         border 0
-        margin 8px auto
+        margin 6px auto 8px
         height 1px
         max-width 300px
         @media screen and (max-width 949px)
@@ -46,7 +44,7 @@ event-template(type)
         @media screen and (max-width 949px)
             display none
     &-desc
-        perpetua(16px, var(unquote(--ev-text-+type)))
+        perpetua(15.5px, var(unquote(--ev-text-+type)))
         text-align justify
         text-align-last center
         @media screen and (max-width 949px)
@@ -70,34 +68,21 @@ event-template(type)
         justify-content flex-end
         gap 40px
 .event
+    spacer(0.5)
+    @media screen and (max-width 949px)
+        spacer(0)
     @media screen and (min-width 750px) and (max-width 949px)
         &:nth-child(n+3)
             display none
     @media screen and (max-width 749px)
         &:nth-child(n+2)
             display none
-    &-zoom
-        display block
-        spacer()
-        border-radius 12px
-        background-color var(--event-zoom)
-        text-align center
-        padding 6px 8px
-        transition background-color 0.2s ease-in-out
-        &:hover, &:focus
-            background-color var(--event-zoom-hover)
+    &-inner
         @media screen and (max-width 949px)
-            spacer(0)
-            padding 4px 8px
-            margin-top 6px
-        &-link
-            lato(16px, var(--alt-text), bold)
-        svg
-            position inline
-            fill var(--alt-text)
-            width 48px
-            margin-left 2px
-            margin-bottom -1px
+            display flex
+            flex-flow column wrap
+            justify-content center
+            height 103px
     &-more
         display block
         visibility hidden
@@ -114,31 +99,23 @@ event-template(type)
             margin-top 6px
         &-inner
             perpetua(18px, var(--alt-text), bold)
-    &-extend
-        spacer(1)
-        @media screen and (max-width 949px)
-            spacer(0)
-        &-inner
-            @media screen and (max-width 949px)
-                display flex
-                flex-flow column wrap
-                justify-content center
-                height 103px
     &-red
         event-template('red')
     &-orange
         event-template('orange')
     &-yellow
         event-template('yellow')
+    &-lime
+        event-template('lime')
     &-green
         event-template('green')
-    &-cyan, &-makersday
+    &-cyan
         event-template('cyan')
-    &-blue, &-meeting
+    &-blue
         event-template('blue')
     &-purple
         event-template('purple')
-    &-pink, &-yoga
+    &-pink
         event-template('pink')
     &-gray, &-grey
         event-template('gray')

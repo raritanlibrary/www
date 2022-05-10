@@ -217,7 +217,7 @@ access.preload();
 window.onload = () => {
     time.injector();
     if (!page.includes('programs')) {
-        //data.eventInjector();
+        data.eventInjector();
     };
     data.adInjector();
     pageInjector(page);

@@ -19,20 +19,19 @@ export const addClickListener = func => {
     window.addEventListener('click', func);
 }
 
-// Generate a unique event identifier based on a string
-export const eventid = (str) => {
-    // Reduce input string
-    str = str.replace(/\W+|\d/g, '').toLowerCase();
-    str = str.substring(0, 24).padEnd(24, 'a');
-    // Convert string to binary
-    let bin = ``;
-    str.split('').forEach(char => bin += (char.charCodeAt() - 97).toString(2).padStart(5, '0'));
-    // Convert number to Base64 and return it
-    let output = ``;
-    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_';
-    for (let i = 0; i < bin.length; i += 24) {
-        let n = parseInt(bin.substring(i, i + 6), 2);
-        output += chars[n];
+// Category-to-style parsing function
+export const stylizer = cat => {
+    cat = cat.length === 1 ? cat[0].name : "";
+    switch (cat) {
+        case "Computers & Technology":  return "red";
+        case "Movie":                   return "orange";
+        case "Health & Fitness":        return "yellow";
+        case "History":                 return "lime";
+        case "Book Club":               return "green";
+        case "Arts & Culture":          return "cyan";
+        case "Gaming":                  return "blue";
+        case "Storytime":               return "purple";
+        case "Craft Program":           return "purple";
+        default:                        return "gray";
     }
-    return output;
 }
