@@ -1,4 +1,3 @@
-import * as util from './util';
 const fs = require('fs');
 const yaml = require('js-yaml');
 
@@ -21,24 +20,6 @@ export const msd = msh*24;
 // Add hours or days to a datetime object
 export const addHours = (d, h) => new Date(d.getTime() + h * msh);
 export const addDays = (d, dd) => new Date(d.getTime() + dd * msd);
-
-// Get the next day of the week
-export const getNextDotw = (d, which) => {
-    let day = new Date(new Date(d).setHours(0,0,0,0));
-    while (day.getDay() != which) {
-        day = addDays(day, 1);
-    }
-    return day;
-}
-
-// Get the next time (Thursday) a board meeting will happen
-export const getR = which => {
-    const monthDay = new Date(now.getFullYear(), now.getMonth(), 1);
-    let day = getNextDotw(monthDay, 4);
-    day = addDays(day, which*7);
-    day = addHours(day, 18); // 19 for DST
-    return day;
-}
 
 // Format a datetime into a string for dates
 export const formatDate = n => {
@@ -85,6 +66,18 @@ export const datechunk = arr => {
         output.push(datestr);
     }
     return output;
+}
+
+// Parsing function for mobile calendar display
+export const flexMonth = month => {
+    daysInMonth = (new Date(now.getFullYear(), month + 1, 0)).getDate();
+    switch (daysInMonth) {
+        case 28: return [25, 26, 27, 28];
+        case 29: return [28, 29];
+        case 30: return [];
+        case 31: return [28, 29, 30, 31];
+        default: return [];
+    }
 }
 
 // Load hours data

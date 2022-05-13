@@ -1,100 +1,93 @@
 import * as time from './time';
-import * as svg from './svg';
 import * as util from './util';
 const fs = require('fs');
 const yaml = require('js-yaml');
 
-// Event parsing function
-const eventParser = yaml => {
-    yaml.forEach(event => {
-        event.tag = event.zoom && !event.tag ? "zoom" : false;
-        if (event.date === "tbd") {
-            event.dateName =  event.dateSort = new Date(1e14);
-            event.zoom = false;
-        } else if (event.length === "range") {
-            event.dateSort = event.date[0] < time.now ? time.now : event.date[0];
-            event.dateName = event.date[1];
-            event.range = true;
-            event.length = 1;
-        } else if (Array.isArray(event.date)) {
-            const numDays = event.date.length;
-            for (let i = 0; i < numDays; i++) {
-                let day = event.date[i];
-                if (time.addHours(day, event.length) < time.now && numDays !== 1) {
-                    event.date.shift();
-                    if (event.zoom) {
-                        event.zoom.shift();
-                    }
-                    i--;
-                } else {
-                    event.dateName = event.dateSort = day;
-                    if (event.zoom) {
-                        event.zoom = event.zoom[0];
-                    }
-                    break;
-                }
-            }
-        } else if (event.appointment) {
-            event.dateName =  event.dateSort = new Date(2e14);
-        } else {
-            event.dateName = event.dateSort = event.date;
+// Event data
+let eventData = fs.readFileSync('dist/calendar.json', 'utf8');
+export let events = JSON.parse(eventData).events;
+
+// Event parsing function (sidebar)
+const eventParserSidebar = data => {
+    let dupes = ["1-on-1 Computer Help", "1-on-1 Computer Class with Brendan"];
+    let out = []
+    data.forEach(entry => {
+        if (!dupes.includes(entry.title)) {
+            dupes.push(entry.title);
+            let event = {
+                "title": entry.title.replace("Bridgewater-Raritan High School", "BRHS"),
+                "date": [new Date(entry.start)].concat(entry.future_dates.map(({start}) => new Date(start))),
+                "length": entry.allday ? 24 : (new Date(entry.end) - new Date(entry.start)) / time.msh,
+                "range": entry.allday && entry.future_dates.length > 2,
+                "blurb": entry.description.replace(/<[^>]*>?/gm, ''),
+                "style": util.stylizer(entry.category),
+                "form": entry.url.public
+            };
+            event.enddate = event.range ? new Date(event.date[event.date.length - 1]) : new Date(entry.end);
+            event.datesort = (event.date[0] < time.now && event.length === "range") ? time.now : event.date[0];
+            out.push(event);
         }
     });
-    yaml = yaml.sort((a, b) => a.dateSort - b.dateSort);
+    out = out.sort((a, b) => a.datesort - b.datesort);
+    return out;
 }
 
-// Events data
-let eventData = fs.readFileSync('src/data/events.yaml', 'utf8');
-export let events = yaml.load(eventData);
+// Parsed event data for sidebar
+const sidebarData = eventParserSidebar(events);
 
-// Add board meeting if 2nd Thursday
-if (time.getR(1) < time.now) {
-    let boardObj = {
-        "name": "RPL Board of Trustees Meeting",
-        "title": "Board of Trustees",
-        "subtitle": `Meeting for ${time.month(time.now)} ${time.now.getFullYear()}`,
-        "date": time.getR(2),
-        "length": 1,
-        "noendtime": true,
-        "blurb": "The regular monthly meeting of the Raritan Public Library Board of Trustees will be held in-person at the Raritan Public Library.",
-        "desc": "The regular monthly meeting of the Raritan Public Library Board of Trustees will be held in-person at the Raritan Public Library.",
-        "style": "meeting",
-        "img": "meeting",
-        "imgalt": "Board Meeting",
-    };
-    events.push(boardObj);
+// HTML injection for program blurbs (sidebar)
+export const eventInjector = () => {
+    let displayed = 0;
+    let eventList = ``;
+    for (const event of sidebarData) {
+        let eventDate, eventTime, eventDateMobile;
+        console.log(event);
+        if (displayed === 4 ) {
+            break
+        }
+        if (event.range) {
+            eventDate = `Starting ${time.monthDay(event.date[0])}`;
+            eventTime = `through ${time.monthDay(event.enddate)}`;
+            eventDateMobile = `${eventDate.slice(9)} - ${eventTime.slice(8)}`;
+        } else if (event.date.length > 1) {
+            if (event.date[0].getDate() === event.date[1].getDate()) {
+                eventDate = time.fullDate(event.date[0]);
+                eventTime = `${time.formatTime(event.date[0])} and ${time.formatTime(event.date[1])}`;
+                eventDateMobile = time.monthDayTime(event.date[0]);
+            } else {
+                eventDate = `${time.weekday(event.date[0])}s at ${time.formatTime(event.date[0])}`;
+                eventTime = ``;
+                time.datechunk(event.date).forEach((chunk, i) => eventTime += i < event.date.length - 1 ? `${chunk}<br>` : chunk);
+                eventDateMobile = eventDate;
+            }
+        } else {
+            console.log(event.name, event.date)
+            eventDate = time.fullDate(event.date[0]);
+            eventTime = `${time.formatTime(event.date[0])} - ${time.formatTime(event.enddate)}`;
+            eventDateMobile = time.monthDayTime(event.date[0]);
+        }
+        if (event.enddate >= time.now) {
+            eventList += `
+            <div class="event">
+            <div class="event-${event.style}" style="background-image: url(./img/events/${event.img}.jpg);">
+                    <a class="event-${event.style}-link" href="${event.form}" target="_blank" rel="noopener">
+                        <div class="event-${event.style}-cover">
+                            <p class="event-${event.style}-title">${event.title}</p>
+                            <hr class="event-${event.style}-hr"/>
+                            <p class="event-${event.style}-date">${eventDate}</p>
+                            <p class="event-${event.style}-time">${eventTime}</p>
+                            <p class="event-${event.style}-date-mobile">${eventDateMobile}</p>
+                            <p class="event-${event.style}-desc">${event.blurb}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            `
+            displayed++;
+        }
+    }
+    document.getElementById("events").innerHTML = eventList;
 }
-
-// Events data (childrens programming)
-let kidsData = fs.readFileSync('src/data/kids.yaml', 'utf8');
-export let kids = yaml.load(kidsData);
-
-// Add next 2 Tuesdays/Thursdays for Storytime at the Library
-let storytimeDates = [];
-for (let i = 0; i < 2; i++) {
-    let day = time.getNextDotw(time.now, 2)
-    day = time.addDays(day, i*7);
-    day = time.addHours(day, 10.5);
-    storytimeDates.push(day);
-    day = time.addDays(day, 2);
-    storytimeDates.push(day);
-}
-let storytimeObj = {
-    "name": "Storytime at the Library",
-    "date": storytimeDates,
-    "dotws": "Tuesdays and Thursdays",
-    "length": 0.75,
-    "noendtime": true,
-    "age": "All ages",
-    "desc": "Join Ms. Amy every Tuesday and Thursday for songs, movement, stories, crafts and more!",
-    "img": "storytime",
-    "imgalt": "Children gathered around an open book",
-};
-kids.push(storytimeObj);
-
-// Parse all event data
-eventParser(events);
-eventParser(kids);
 
 // News data
 let newsData = fs.readFileSync('src/data/news.yaml', 'utf8');
@@ -104,81 +97,6 @@ news = news.sort((a, b) => b.date - a.date);
 // Advertisement data
 let adsData = fs.readFileSync('src/data/ads.yaml', 'utf8');
 let ads = yaml.load(adsData);
-
-// HTML injection for program blurbs (sidebar)
-export const eventInjector = () => {
-    let displayed = 0;
-    let eventList = ``;
-    let endTime;
-    for (const event of events) {
-        let eventDate, eventTime, eventDateMobile;
-        let zoomLink = ``;
-        if (displayed === 4 ) {
-            break
-        } else if (event.appointment) {
-            continue
-        }
-        endTime = event.noendtime ? `` : ` - ${time.formatTime(time.addHours(event.dateName, event.length))}`;
-        if (event.date === 'tbd') {
-            eventDate = `Date:&nbsp;TBD`;
-            eventTime = ``;
-            eventDateMobile = eventDate;
-        } else if (event.range) {
-            eventDate = `Starting ${time.monthDay(event.date[0])}`;
-            eventTime = `through ${time.monthDay(event.date[1])}`;
-            eventDateMobile = `${eventDate.slice(9)} - ${eventTime.slice(8)}`;
-        } else if (Array.isArray(event.date) && event.date.length > 1) {
-            if (event.date[0].getDate() === event.date[1].getDate()) {
-                eventDate = time.fullDate(event.date[0]);
-                eventTime = `${time.formatTime(event.date[0])} and ${time.formatTime(event.date[1])}`;
-                eventDateMobile = time.monthDayTime(event.date[0]);
-            } else {
-                let eventDotW = event.dotws ? event.dotws : `${time.weekday(event.date[0])}s`;
-                eventDate = `${eventDotW} at ${time.formatTime(event.date[0])}`;
-                eventTime = ``;
-                time.datechunk(event.date).forEach((chunk, i) => eventTime += i < event.date.length - 1 ? `${chunk}<br>` : chunk);
-                eventDateMobile = eventDate;
-            }
-        } else if (Array.isArray(event.date) && event.date.length === 1) {
-            eventDate = time.fullDate(event.date[0]);
-            eventTime = `${time.formatTime(event.date[0])}${endTime}`;
-            eventDateMobile = time.monthDayTime(event.date[0]);
-        } else {
-            eventDate = time.fullDate(event.date);
-            eventTime = `${time.formatTime(event.date)}${endTime}`;
-            eventDateMobile = time.monthDayTime(event.date);
-        }
-        if (event.zoom && (event.dateName.getTime() - time.msd <= time.now) && (time.addHours(event.dateName, event.length) >= time.now)) {
-            zoomLink = `
-            <a class="event-zoom-link" href="${event.zoom}" target="_blank" rel="noopener">
-                <div class="event-zoom"> Join now on ${svg.zoom}</div>
-            </a>
-            `
-        }
-        if (time.addHours(event.dateName, event.length) >= time.now) {
-            eventList += `
-            <div class="event${zoomLink ? "" : " event-extend"}">
-            <div class="event-${event.style}" style="background-image: url(./img/events/${event.img}.jpg);">
-                    <a class="event-${event.style}-link" href="programs#${util.eventid(event.name)}">
-                        <div class="event-${event.style}-cover${zoomLink ? "" : " event-extend-inner"}">
-                            <p class="event-${event.style}-title">${event.title}</p>
-                            <p class="event-${event.style}-subtitle">${event.subtitle}</p>
-                            <hr class="event-${event.style}-hr"/>
-                            <p class="event-${event.style}-date">${eventDate}</p>
-                            <p class="event-${event.style}-time">${eventTime}</p>
-                            <p class="event-${event.style}-date-mobile">${eventDateMobile}</p>
-                            <p class="event-${event.style}-desc">${event.blurb}</p>
-                        </div>
-                    </a>
-                </div>
-                ${zoomLink}
-            </div>
-            `
-            displayed++;
-        }
-    }
-    document.getElementById("events").innerHTML = eventList;
-}
 
 // HTML injection for advertisements (sidebar)
 export const adInjector = () => {

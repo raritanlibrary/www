@@ -155,160 +155,48 @@ const contentNews = () => {
 
 // Content to inject for programs page
 const contentPrograms = () => {
-    let eventList = ``;
-    let endTime;
-    for (const event of data.events) {
-        let eventDate, eventImg, zoomLink, eventTag;
-        eventTag = zoomLink = eventImg = ``;
-        endTime = event.noendtime || event.appointment ? `` : ` - ${time.formatTime(time.addHours(event.dateName, event.length))}`;
-        if (event.date === 'tbd') {
-            eventDate = `Date:&nbsp;TBD`;
-        } else if (event.range) {
-            eventDate = `${time.fullDate(event.date[0])} - ${time.fullDate(event.date[1])}`;
-        } else if (Array.isArray(event.date) && event.date.length > 1) {
-            if (event.date[0].getDate() === event.date[1].getDate()) {
-                eventDate = `${time.fullDate(event.date[0])}, ${time.formatTime(event.date[0])} and ${time.formatTime(event.date[1])}`;
-            } else {
-                let eventDotW = event.dotws ? event.dotws : `${time.weekday(event.date[0])}s`;
-                eventDate = `${eventDotW} at ${time.formatTime(event.date[0])}${endTime} <br>`;
-                event.date.forEach((day, i) =>  eventDate += i < event.date.length - 1 ? `${time.monthDay(day)},&nbsp;` : time.monthDay(day));
+    const curMonth = time.mm[time.now.getMonth()];
+    const curYear = time.now.getFullYear();
+    document.getElementById("calendar-month").innerHTML = `${curMonth} ${curYear}`;
+    // Get day of the week for the first day of the month
+    const monthFirst = new Date(time.now.getFullYear(), time.now.getMonth(), 1);
+    const monthFirstDay = (monthFirst).getDay();
+    // Add all days of the month, starting from Sunday
+    // Then count from that first day until the calendar is filled
+    // Add events as you go through the calendar
+    let calDate = new Date(monthFirst.getTime() - time.msd * monthFirstDay);
+    let calIter = 0;
+    let dayClass = ``;
+    let calContent = ``;
+    while (!(calIter > 6 && time.now.getMonth() !== calDate.getMonth() && calDate.getDay() === 0)) {
+        dayClass = time.now.getMonth() !== calDate.getMonth() ? "-grey" : (time.now.getDate() === calDate.getDate() ? "-now" : "")
+        extraClass = time.flexMonth(calDate.getMonth()).includes(calDate.getDate()) ? " calendar-flex-half" : "";
+        calContent += ` 
+        <div class="calendar-day${dayClass}${extraClass}">
+            <p class="calendar-num${dayClass}">
+                ${calDate.getDate()}<span class="calendar-dotw-inner">${time.weekday(calDate)}</span>
+            </p>
+            `
+        for (const event of data.events) {
+            if (new Date(event.start).setHours(0,0,0,0) === calDate.setHours(0,0,0,0)) {
+                console.log(event);
+                let eventTitle = event.title.replace("Bridgewater-Raritan High School", "BRHS");
+                let eventTime = event.allday ? "All Day Event" : time.formatTime(new Date(event.start));
+                calContent += `
+                <a class="calendar-entry-${util.stylizer(event.category)}" href="${event.url.public}" target="_blank" rel="noopener">
+                    ${eventTitle}
+                    <p class="calendar-entry-${util.stylizer(event.category)}-time">
+                        ${eventTime}
+                    </p>
+                </a>
+                `
             }
-        } else if (Array.isArray(event.date) && event.date.length === 1) {
-            eventDate = `${time.fullDayTime(event.date[0])}${endTime}`;
-        } else if (event.appointment) {
-            eventDate = "By Appointment Only"
-        } else {
-            eventDate = `${time.fullDayTime(event.date)}${endTime}`;
         }
-        if (event.tag === 'zoom') {
-            eventTag = `<div class="snippet-tag snippet-tag-virtual">Virtual</div>`;
-        }
-        if (event.form && ((event.dateName.getTime() - time.msd >= time.now) || event.range || (event.date === 'tbd'))) {
-            zoomLink = `
-            <a class="snippet-link" href="${event.form}" target="_blank" ${util.extchk(event.form)}>
-                <div class="snippet-link-inner">Sign-up form</div>
-            </a>
-            `
-        }
-        if (event.formalt) {
-            let formalt = event.formalt;
-            zoomLink += `
-            <a class="snippet-link" href="${formalt.link}" ${formalt.link !== 'makersday' ? `target="_blank"` : ``} ${util.extchk(formalt.link)}>
-                <div class="snippet-link-inner">${formalt.name}</div>
-            </a>
-            `
-        }
-        if (event.zoom && (event.dateName.getTime() - time.msd <= time.now) && (time.addHours(event.dateName, event.length) >= time.now)) {
-            zoomLink = `
-            <a class="snippet-zoom" href="${event.zoom}" target="_blank" rel="noopener">
-                <div class="snippet-zoom-inner"> Join now on ${svg.zoom}</div>
-            </a>
-            `
-        }
-        if (event.img && event.imgalt) {
-            eventImg = `
-            <picture>
-                <source srcset="img/events/${event.img}.webp" type="image/webp"/>
-                <img class="snippet-img" src="img/events/${event.img}.jpg" alt="${event.imgalt}" ${event.img === 'yoga' ? `style = "object-position: top;"` : ``} type="image/jpeg"/>
-            </picture>
-            `
-        }
-        if (event.appointment || time.addHours(event.dateName, event.length) >= time.now) {
-            eventList += `
-            <div class="snippet">
-                ${eventImg}
-                <div class="snippet-body" id="${util.eventid(event.name)}">
-                    <p class="h4-link inline" >${event.name}</p>${eventTag}
-                    <p class="comment-date">${eventDate}</p>
-                    <br>
-                    <p class="text">${event.desc}</p>
-                    ${zoomLink}
-                </div>
-            </div>
-            `
-        }
+        calContent += `</div>`
+        calDate = new Date(calDate.getTime() + time.msd);
+        calIter++;
     }
-    document.getElementById("programs").innerHTML = eventList;
-    autoScroll();
-}
-
-// Content to inject for kids page
-const contentKids = () => {
-    let kidList = ``;
-    let endTime;
-    for (const kid of data.kids) {
-        let kidDate, kidImg, zoomLink, kidTag;
-        kidTag = zoomLink = kidImg = ``;
-        //kid.form = "https://docs.google.com/forms/d/e/1FAIpQLSexzMC0KhtjIMRZT1yVBla-fFVZe69UB3f0g0KgkFFQaj5K_g/viewform"
-        endTime = kid.noendtime ? `` : ` - ${time.formatTime(time.addHours(kid.dateName, kid.length))}`;
-        if (kid.date === 'tbd') {
-            kidDate = `Date:&nbsp;TBD`;
-        } else if (kid.range) {
-            kidDate = `${time.fullDate(kid.date[0])} - ${time.fullDate(kid.date[1])}`;
-        } else if (Array.isArray(kid.date) && kid.date.length > 1) {
-            if (kid.date[0].getDate() === kid.date[1].getDate()) {
-                kidDate = `${time.fullDate(kid.date[0])}, ${time.formatTime(kid.date[0])} and ${time.formatTime(kid.date[1])}`;
-            } else {
-                let kidDotW = kid.dotws ? kid.dotws : `${time.weekday(kid.date[0])}s`;
-                kidDate = `${kidDotW} at ${time.formatTime(kid.date[0])}${endTime} <br>`;
-                kid.date.forEach((day, i) => {
-                    let kidTemp = time.monthDay(day) === "April 14th" ? "April 14th (craft only)" : time.monthDay(day);
-                    kidDate += i < kid.date.length - 1 ? `${kidTemp},&nbsp;` : kidTemp;
-                });
-            }
-        } else if (Array.isArray(kid.date) && kid.date.length === 1) {
-            kidDate = `${time.fullDayTime(kid.date[0])}${endTime}`;
-        } else {
-            kidDate = `${time.fullDayTime(kid.date)}${endTime}`;
-        }
-        kidTag = kid.tag === 'zoom' ? `<div class="snippet-tag snippet-tag-virtual">Virtual</div>` : ``;
-        if (kid.form && ((kid.dateName.getTime() - time.msd >= time.now) || kid.range || (kid.date === 'tbd'))) {
-            zoomLink = `
-            <a class="snippet-link" href="${kid.form}" target="_blank" ${util.extchk(kid.form)}>
-                <div class="snippet-link-inner">Sign-up form</div>
-            </a>
-            `
-        }
-        if (kid.formalt) {
-            let formalt = kid.formalt;
-            zoomLink += `
-            <a class="snippet-link" href="${formalt.link}" target="_blank" ${util.extchk(formalt.link)}>
-                <div class="snippet-link-inner">${formalt.name}</div>
-            </a>
-            `
-        }
-        if (kid.zoom && (kid.dateName.getTime() - time.msd <= time.now) && (time.addHours(kid.dateName, kid.length) >= time.now)) {
-            zoomLink = `
-            <a class="snippet-zoom" href="${kid.zoom}" target="_blank" rel="noopener">
-                <div class="snippet-zoom-inner"> Join now on ${svg.zoom}</div>
-            </a>
-            `
-        }
-        if (kid.img && kid.imgalt) {
-            kidImg = `
-            <picture>
-                <source srcset="img/kids/${kid.img}.webp" type="image/webp"/>
-                <img class="snippet-img" src="img/kids/${kid.img}.jpg" alt="${kid.imgalt}" type="image/jpeg"/>
-            </picture>
-            `
-        }
-        if (time.addHours(kid.dateName, kid.length) >= time.now) {
-            kidList += `
-            <div class="snippet">
-                ${kidImg}
-                <div class="snippet-body" id="${util.eventid(kid.name)}">
-                    <p class="h4-link inline" >${kid.name}</p>${kidTag}
-                    <p class="comment-date">${kidDate}</p>
-                    <p class="comment-date">${svg.people}${(kid.age).match("-|\\+") ? "Ages ": "" }${kid.age}</p>
-                    <br>
-                    <p class="text">${kid.desc}</p>
-                    ${zoomLink}
-                </div>
-            </div>
-            `
-        }
-    }
-    document.getElementById("kids").innerHTML = kidList;
+    document.getElementById("calendar-weeks").innerHTML = calContent;
     autoScroll();
 }
 
@@ -316,7 +204,6 @@ const pageInjector = p => {
     if (p.includes('index') || p === '') { contentIndex() }
     else if (p.includes('news')) { contentNews() }
     else if (p.includes('programs')) { contentPrograms() }
-    else if (p.includes('kids')) { contentKids() }
     else if (p.includes('board')) { autoScroll() }
 }
 

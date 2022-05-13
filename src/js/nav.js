@@ -34,7 +34,6 @@ const dropdownKeyLogic = (str, tab, e) => {
 // Uncheck on clicking/tabbing outside, flip arrows on desktop
 export const dropdown = () => {
     util.addClickListener(e => {
-        dropdownClickLogic("books", e);
         dropdownClickLogic("more", e);
     });
     window.addEventListener('keyup', e => {
@@ -44,7 +43,6 @@ export const dropdown = () => {
         } catch (error) {
             tabbed = document.activeElement.id;
         }
-        dropdownKeyLogic("books", tabbed, e);
         dropdownKeyLogic("more", tabbed, e);
     });
 }

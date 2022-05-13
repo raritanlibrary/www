@@ -30,8 +30,9 @@ script(type="module" src="./js/main.js")
 //- Variables /////////////////////////////////////////////////////////////////
 - const arr         = n => [...Array(n).keys()];
 - const extchk      = str => str.match('^http') ? true : false;
-- const months      = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-- const newsShort   = `${curYear}${months[curMonth-1]}`
+- const dotws       = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+- const months      = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+- const newsShort   = `${curYear}${months[curMonth-1]}`;
 - const newsMonth   = `${months[curMonth-1]} ${curYear}`;
 //- Mixins ////////////////////////////////////////////////////////////////////
 include ./_mixins.pug

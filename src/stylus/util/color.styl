@@ -25,16 +25,17 @@ er-alt-dark(c)
 er-text-dark(c)
     tint(saturate(c, -25%), 60%)
 // Events -----------------------------
-event-red                   = #f50000
-event-orange                = #f57c00
-event-yellow                = #fbC02d
-event-green                 = #6ab046
-event-cyan                  = #468a79
-event-blue                  = #5db0e1
-event-purple                = #b176e8
-event-pink                  = #e15dc9
-event-gray                  = #6a6a6a
-event-colors = 'red' 'orange' 'yellow' 'green' 'cyan' 'blue' 'purple' 'pink' 'gray'
+event-red                   = #f50000   // computers, tech
+event-orange                = #f57c00   // movie
+event-yellow                = #fbC02d   // health, fitness
+event-lime                  = #6ab046   // history
+event-green                 = #468a79   // book club
+event-cyan                  = #4dd0e1   // arts and culture
+event-blue                  = #448aff   // gaming
+event-purple                = #b176e8   // storytime
+event-pink                  = #e15dc9   // craft
+event-gray                  = #6a6a6a   // board meeting, lecture
+event-colors = 'red' 'orange' 'yellow' 'lime' 'green' 'cyan' 'blue' 'purple' 'pink' 'gray'
 ev(c)
     tint(c, 60%)
 ev-alt(c)
@@ -56,9 +57,12 @@ ev-text-dark(c)
     &[color-mode="lite"]
         --main                  #fff8e3
         --main2                 #e3dcc7
+        --main3                 #c7c0ab
+        --selection             #f0e1b9
         --alt                   #4b0c10
         --alt2                  #4b0c1055
         --alt3                  #4b0c1000
+        --alt4                  #4b0c10a7
         --alt-lighten           #7a181f
         --main-text             #000000
         --main-textA            #000000dd
@@ -87,9 +91,12 @@ ev-text-dark(c)
     &[color-mode="dark"]
         --main                  #101010
         --main2                 #101010
+        --main3                 #070707
+        --selection             #26241d
         --alt                   #d9c584
         --alt2                  #d9c58455
         --alt3                  #d9c58400
+        --alt4                  #d9c584a7
         --alt-lighten           #ab985b
         --main-text             #fffbec
         --main-textA            #fffbecdd
