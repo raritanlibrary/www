@@ -66,13 +66,13 @@
 
 - name: "Upcoming: Town-Wide Yard Sale"
   date: 2022-02-25
-  desc: "On <b>Saturday, May 14th</b>, Raritan will be holding its 3rd Annual Town-Wide Yard Sale. This Spring will be a perfect time to sell unused items. Please click on the link below for a directory of participating addresses."
+  desc: "On <b>Saturday, May 21st</b>, Raritan will be holding its 3rd Annual Town-Wide Yard Sale. This Spring will be a perfect time to sell unused items. Please click on the link below for a directory of participating addresses."
   img: yardsale
   imgalt: Yard sale
-  imglink: docs/events/YardSaleDirectory2022.pdf
+  imglink: docs/events/YardSaleDirectory2022_2.pdf
   buttons:
     - name: Directory
-      link: docs/events/YardSaleDirectory2022.pdf
+      link: docs/events/YardSaleDirectory2022_2.pdf
 
 - name: New Museum Pass to the Thomas Edison Center
   date: 2022-04-01

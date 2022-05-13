@@ -166,11 +166,10 @@ const contentPrograms = () => {
     // Add events as you go through the calendar
     let calDate = new Date(monthFirst.getTime() - time.msd * monthFirstDay);
     let calIter = 0;
-    let dayClass = ``;
     let calContent = ``;
     while (!(calIter > 6 && time.now.getMonth() !== calDate.getMonth() && calDate.getDay() === 0)) {
-        dayClass = time.now.getMonth() !== calDate.getMonth() ? "-grey" : (time.now.getDate() === calDate.getDate() ? "-now" : "")
-        extraClass = time.flexMonth(calDate.getMonth()).includes(calDate.getDate()) ? " calendar-flex-half" : "";
+        const dayClass = time.now.getMonth() !== calDate.getMonth() ? "-grey" : (time.now.getDate() === calDate.getDate() ? "-now" : "")
+        const extraClass = time.flexMonth(calDate.getMonth()).includes(calDate.getDate()) ? " calendar-flex-half" : "";
         calContent += ` 
         <div class="calendar-day${dayClass}${extraClass}">
             <p class="calendar-num${dayClass}">
