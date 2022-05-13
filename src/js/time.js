@@ -68,6 +68,18 @@ export const datechunk = arr => {
     return output;
 }
 
+// Parsing function for mobile calendar display
+export const flexMonth = month => {
+    daysInMonth = (new Date(now.getFullYear(), month + 1, 0)).getDate();
+    switch (daysInMonth) {
+        case 28: return [25, 26, 27, 28];
+        case 29: return [28, 29];
+        case 30: return [];
+        case 31: return [28, 29, 30, 31];
+        default: return [];
+    }
+}
+
 // Load hours data
 let hoursData = fs.readFileSync('src/data/hours.yaml', 'utf8');
 let hoursYaml = yaml.load(hoursData);

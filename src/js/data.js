@@ -9,7 +9,7 @@ export let events = JSON.parse(eventData).events;
 
 // Event parsing function (sidebar)
 const eventParserSidebar = data => {
-    let dupes = ["1-on-1 Computer Help"];
+    let dupes = ["1-on-1 Computer Help", "1-on-1 Computer Class with Brendan"];
     let out = []
     data.forEach(entry => {
         if (!dupes.includes(entry.title)) {

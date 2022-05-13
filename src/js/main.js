@@ -170,8 +170,9 @@ const contentPrograms = () => {
     let calContent = ``;
     while (!(calIter > 6 && time.now.getMonth() !== calDate.getMonth() && calDate.getDay() === 0)) {
         dayClass = time.now.getMonth() !== calDate.getMonth() ? "-grey" : (time.now.getDate() === calDate.getDate() ? "-now" : "")
+        extraClass = time.flexMonth(calDate.getMonth()).includes(calDate.getDate()) ? " calendar-flex-half" : "";
         calContent += ` 
-        <div class="calendar-day${dayClass}">
+        <div class="calendar-day${dayClass}${extraClass}">
             <p class="calendar-num${dayClass}">
                 ${calDate.getDate()}<span class="calendar-dotw-inner">${time.weekday(calDate)}</span>
             </p>
