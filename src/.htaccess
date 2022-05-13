@@ -23,6 +23,7 @@ RedirectMatch 301   ^/NoteworthyReads.htm$                  http://raritanpublic
 RedirectMatch 301   ^/pronunciator$                         http://learning.pronunciator.com/getstarted.php?library_id=7904
 RedirectMatch 301   ^/pronunciator.html$                    http://learning.pronunciator.com/getstarted.php?library_id=7904
 RedirectMatch 301   ^/Pronunciator.html$                    http://learning.pronunciator.com/getstarted.php?library_id=7904
+RedirectMatch 301   ^/digital$                              /resources
 RedirectMatch 301   ^/StarLedgerLoginInstructions.html$     /resources#newspapers
 RedirectMatch 301   ^/ebooks$                               /resources#ebooks
 RedirectMatch 301   ^/education$                            /resources#education
@@ -39,8 +40,9 @@ RedirectMatch 301   ^/printing$                             /policies#printing
 RedirectMatch 301   ^/ill$                                  /policies#ill
 RedirectMatch 301   ^/renewals$                             /policies#renewals
 RedirectMatch 301   ^/holds$                                /policies#holds
-RedirectMatch 301   ^/bookclub$                             /programs
-RedirectMatch 301   ^/kids$                                 /programs
+RedirectMatch 301   ^/bookclub$                             /events
+RedirectMatch 301   ^/kids$                                 /events
+RedirectMatch 301   ^/programs$                             /events
 
 
 # DISABLE DIRECTORY INDEXES

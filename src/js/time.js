@@ -84,28 +84,22 @@ export const flexMonth = month => {
 let hoursData = fs.readFileSync('src/data/hours.yaml', 'utf8');
 let hoursYaml = yaml.load(hoursData);
 const hours = hoursYaml.hours;
-const hoursPorch = hoursYaml.porch;
 const speHours = hours[7];
-const speHoursPorch = hoursPorch[7];
 const curHours = hours[dotw];
-const curHoursPorch = hoursPorch[dotw];
 let nextDay = dotw === 6 ? "next Monday" : "tomorrow";
-let nextHours = dotw === 6 ? hours[1] : hoursPorch[dotw+1];
+let nextHours = dotw === 6 ? hours[1] : hours[dotw+1];
 
 // Inject hours data
 export const injector = () => {
     // Sidebar
     for (let i = 1; i < 7; i++) {
         document.getElementById(`hours${i-1}`).innerHTML = hours[i];
-        document.getElementById(`porch${i-1}`).innerHTML = hoursPorch[i];
     }
     document.getElementById(`hours6`).innerHTML = hours[0];
-    document.getElementById(`porch6`).innerHTML = hoursPorch[0];
     // Footer
     const mainStr = (dotw === 0) || (speHours === "CLOSED") ? `The library is closed today.`
-    : `Open today · ${(!!speHours && !!speHoursPorch) ? speHours : curHours}`;
-    const otherStr = (dotw === 0) || (speHours === "CLOSED") ? `Open ${nextDay} · ${nextHours}`
-    : `Porchside Pickup · ${(!!speHours && !!speHoursPorch) ? speHoursPorch : curHoursPorch}`;
+    : `Open today · ${(!!speHours) ? speHours : curHours}`;
+    const otherStr = (dotw === 0) || (speHours === "CLOSED") ? `Open ${nextDay} · ${nextHours}` : "";
     document.getElementById("hours-footer-main").innerHTML = mainStr;
     document.getElementById("hours-footer-other").innerHTML = otherStr;
 }

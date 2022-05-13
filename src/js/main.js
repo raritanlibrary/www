@@ -64,8 +64,7 @@ const contentIndex = () => {
         ${newsImg}
             <div class="snippet-body">
                 <a class="h4-link" href="news#${data.news.length-displayed}">${post.name}</a>
-                <p class="comment-date">${time.fullDate(post.date)}, ${post.date.getFullYear()}</p>
-                <br>
+                <br><br>
                 <p class="text">${post.desc}</p>
                 ${newsLinks}
             </div>
@@ -114,7 +113,6 @@ const contentNews = () => {
         ${newsImg}
             <div class="snippet-body" id="${data.news.length-data.news.indexOf(post)}">
                 <p class="h4-link" >${post.name}</p>
-                <p class="comment-date">${time.fullDate(post.date)}, ${post.date.getFullYear()}</p>
                 <br>
                 <p class="text">${post.desc}</p>
                 ${newsLinks}
@@ -153,8 +151,8 @@ const contentNews = () => {
     }
 }
 
-// Content to inject for programs page
-const contentPrograms = () => {
+// Content to inject for events page
+const contentEvents = () => {
     const curMonth = time.mm[time.now.getMonth()];
     const curYear = time.now.getFullYear();
     document.getElementById("calendar-month").innerHTML = `${curMonth} ${curYear}`;
@@ -201,7 +199,7 @@ const contentPrograms = () => {
 const pageInjector = p => {
     if (p.includes('index') || p === '') { contentIndex() }
     else if (p.includes('news')) { contentNews() }
-    else if (p.includes('programs')) { contentPrograms() }
+    else if (p.includes('events')) { contentEvents() }
     else if (p.includes('board')) { autoScroll() }
 }
 
@@ -231,9 +229,7 @@ access.preload();
 
 window.onload = () => {
     time.injector();
-    if (!page.includes('programs')) {
-        data.eventInjector();
-    };
+    data.eventInjector();
     data.adInjector();
     pageInjector(page);
     access.hicontrast();
