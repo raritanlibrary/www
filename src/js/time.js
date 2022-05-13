@@ -70,7 +70,7 @@ export const datechunk = arr => {
 
 // Parsing function for mobile calendar display
 export const flexMonth = month => {
-    daysInMonth = (new Date(now.getFullYear(), month + 1, 0)).getDate();
+    const daysInMonth = (new Date(now.getFullYear(), month + 1, 0)).getDate();
     switch (daysInMonth) {
         case 28: return [25, 26, 27, 28];
         case 29: return [28, 29];

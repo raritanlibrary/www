@@ -41,7 +41,6 @@ export const eventInjector = () => {
     let eventList = ``;
     for (const event of sidebarData) {
         let eventDate, eventTime, eventDateMobile;
-        console.log(event);
         if (displayed === 4 ) {
             break
         }
@@ -61,7 +60,6 @@ export const eventInjector = () => {
                 eventDateMobile = eventDate;
             }
         } else {
-            console.log(event.name, event.date)
             eventDate = time.fullDate(event.date[0]);
             eventTime = `${time.formatTime(event.date[0])} - ${time.formatTime(event.enddate)}`;
             eventDateMobile = time.monthDayTime(event.date[0]);
@@ -69,7 +67,7 @@ export const eventInjector = () => {
         if (event.enddate >= time.now) {
             eventList += `
             <div class="event">
-            <div class="event-${event.style}" style="background-image: url(./img/events/${event.img}.jpg);">
+            <div class="event-${event.style}">
                     <a class="event-${event.style}-link" href="${event.form}" target="_blank" rel="noopener">
                         <div class="event-${event.style}-cover">
                             <p class="event-${event.style}-title">${event.title}</p>

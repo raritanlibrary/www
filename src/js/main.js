@@ -179,7 +179,6 @@ const contentPrograms = () => {
             `
         for (const event of data.events) {
             if (new Date(event.start).setHours(0,0,0,0) === calDate.setHours(0,0,0,0)) {
-                console.log(event);
                 let eventTitle = event.title.replace("Bridgewater-Raritan High School", "BRHS");
                 let eventTime = event.allday ? "All Day Event" : time.formatTime(new Date(event.start));
                 calContent += `
