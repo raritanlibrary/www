@@ -51,6 +51,9 @@
         @media screen and (min-width 1250px)
             &:nth-child(7n)
                 border-right 2px solid var(--border-c)
+        @media screen and (min-width 750px) and (max-width 950px)
+            &:nth-child(7n)
+                border-right 2px solid var(--border-c)
         &-grey
             @extend .calendar-day
             background-color var(--main3)
@@ -80,6 +83,31 @@
         display none
         @media screen and (min-width 950px) and (max-width 1250px)
             display inline
+        @media screen and (max-width 750px)
+            display inline
+    &-nav
+        display flex
+        flex-flow row nowrap
+        justify-content space-between
+        margin -12px 0 16px
+        minion(22px, var(--alt), bold)
+        txt-shadow()
+        @media screen and (max-width 424px)
+            minion(5.2vw, var(--alt), bold)
+        &-item
+            padding 8px
+            margin -8px
+            min-width 180px
+            cursor pointer
+            &:nth-child(2)
+                text-align right
+            @media screen and (max-width 424px)
+                min-width 42vw
+        &-grey
+            minion(22px, var(--main-textD), bold)
+            cursor default
+            @media screen and (max-width 424px)
+                minion(5.2vw, var(--main-textD), bold) 
 entry-template(type)
     display block
     spacer(0.25)

@@ -68,14 +68,53 @@ npm run commit
 ```
 This command commits your changes to the repository, then runs the `build` command.
 
+## **Other Useful Commands**
+Due to the nature of some software used on the server, you will need to run these commands in specific circumstances.
+
 ### **Run Lighthouse audit**
 ```
 npm run lighthouse
 ```
 This command generates webpage audits using Google Chrome's **Lighthouse** tool. The command will automatically generate both desktop and mobile audits for every relevant page in the `src` directory.
 
+### **Automatically update calendar.json**
+First, you'll need to create a script that retrieves the new data from the LibCal API. This snippet is taken and modified from the script in [`scripts/generate.sh`](scripts/generate.sh).
+```bash
+#!/bin/bash
+
+# API variables
+LIBCAL_ID=# your LibCal ID
+LIBCAL_SECRET=# your LibCal secret token
+
+# Set variables for url and payload
+url="https://raritanlibrary.libcal.com/1.1"
+payload="client_id=$LIBCAL_ID&client_secret=$LIBCAL_SECRET&grant_type=client_credentials"
+
+# Get and parse oauth token (avoid grep because cmd is strange)
+tokenRaw=`curl -Ls -X POST "$url/oauth/token" -d "$payload"`
+token=$(cut -c18-57 <<< "$tokenRaw")
+
+# Get proper date for API call
+year=$(date --date="$(date) - 45 day" +%Y)
+month=$(date --date="$(date) - 45 day" +%B)
+
+# Get and save events data to json file
+curl -Ls -X GET "$url/events?cal_id=16676&days=160&limit=500&date=$year-$month-01" -H "Authorization: Bearer $token" > #<CALENDAR_JSON_PATH>
+```
+
+Then, create a batch file on your Windows Server:
+```cmd
+@echo off
+"<SH.EXE_PATH>" -c "bash <SHELL_SCRIPT_PATH>"
+```
+
+Finally, run this command in an elevated instance of Command Prompt.
+```cmd
+schtasks /create /tn rpl_calendar_update /tr "<BATCH_FILE_PATH>" /sc minute /mo 30 /ru "<COMPUTER_NAME>\<USERNAME>"
+```
+
 ## **Issues and Contributing**
-Pull requests are encouraged by the Raritan Public Library to ensure our software is of the highest quality possible. If you would like to suggest major changes or restructuring of this repository, please [open an issue](https://github.com/raritanlibrary/www/issues/new). It is also strongly suggested you email us at [sgunning@raritanlibray.org](mailto:sgunning@raritanlibray.org).
+Pull requests are encouraged by the Raritan Public Library to ensure our software is of the highest quality possible. If you would like to suggest major changes or restructuring of this repository, please [open an issue](https://github.com/raritanlibrary/www/issues/new). It is also strongly suggested you email us at [info@raritanlibray.org](mailto:info@raritanlibray.org).
 
 ## **License**
 Please note that, while this project is made available under the [MIT License](LICENSE), any original written, visual, or otherwise presented content is copyrighted by the Raritan Public Library.

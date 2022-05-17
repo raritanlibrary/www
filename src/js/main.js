@@ -153,46 +153,46 @@ const contentNews = () => {
 
 // Content to inject for events page
 const contentEvents = () => {
-    const curMonth = time.mm[time.now.getMonth()];
-    const curYear = time.now.getFullYear();
-    document.getElementById("calendar-month").innerHTML = `${curMonth} ${curYear}`;
-    // Get day of the week for the first day of the month
-    const monthFirst = new Date(time.now.getFullYear(), time.now.getMonth(), 1);
-    const monthFirstDay = (monthFirst).getDay();
-    // Add all days of the month, starting from Sunday
-    // Then count from that first day until the calendar is filled
-    // Add events as you go through the calendar
-    let calDate = new Date(monthFirst.getTime() - time.msd * monthFirstDay);
-    let calIter = 0;
-    let calContent = ``;
-    while (!(calIter > 6 && time.now.getMonth() !== calDate.getMonth() && calDate.getDay() === 0)) {
-        const dayClass = time.now.getMonth() !== calDate.getMonth() ? "-grey" : (time.now.getDate() === calDate.getDate() ? "-now" : "")
-        const extraClass = time.flexMonth(calDate.getMonth()).includes(calDate.getDate()) ? " calendar-flex-half" : "";
-        calContent += ` 
-        <div class="calendar-day${dayClass}${extraClass}">
-            <p class="calendar-num${dayClass}">
-                ${calDate.getDate()}<span class="calendar-dotw-inner">${time.weekday(calDate)}</span>
-            </p>
-            `
-        for (const event of data.events) {
-            if (new Date(event.start).setHours(0,0,0,0) === calDate.setHours(0,0,0,0)) {
-                let eventTitle = event.title.replace("Bridgewater-Raritan High School", "BRHS");
-                let eventTime = event.allday ? "All Day Event" : time.formatTime(new Date(event.start));
-                calContent += `
-                <a class="calendar-entry-${util.stylizer(event.category)}" href="${event.url.public}" target="_blank" rel="noopener">
-                    ${eventTitle}
-                    <p class="calendar-entry-${util.stylizer(event.category)}-time">
-                        ${eventTime}
-                    </p>
-                </a>
-                `
+    data.programCalendar(time.now);
+    let curDay          = time.now.getDate();
+    let curMonth        = time.now.getMonth();
+    let curYear         = time.now.getFullYear();
+    let lastDate        = new Date(curYear, curMonth-1, 1);
+    let nextDate        = new Date(curYear, curMonth+1, 1);
+    let lastLimitRaw    = new Date(curYear, curMonth, curDay-45);
+    let lastLimit       = new Date(lastLimitRaw.getFullYear(), lastLimitRaw.getMonth(), 1);
+    let nextLimit       = new Date(curYear, curMonth+3, 1);
+    let disableLeft     = false;
+    let disableRight    = false;
+    util.addClickListener(e => {
+        const navLeft = document.getElementById("month-nav-left")
+        const navRight = document.getElementById("month-nav-right")
+        if (navLeft.contains(e.target) && !disableLeft) {
+            data.programCalendar(lastDate);
+            curMonth = lastDate.getMonth();
+            curYear = lastDate.getFullYear();
+            if (lastDate.getTime() === lastLimit.getTime()) {
+                navLeft.classList.add("calendar-nav-grey");
+                disableLeft = true;
             }
+            navRight.classList.remove("calendar-nav-grey");
+            disableRight = false;
+            lastDate = new Date(curYear, curMonth-1, 1);
+            nextDate = new Date(curYear, curMonth+1, 1);
+        } else if (navRight.contains(e.target) && !disableRight) {
+            data.programCalendar(nextDate);
+            curMonth = nextDate.getMonth();
+            curYear = nextDate.getFullYear();
+            if (nextDate.getTime() === nextLimit.getTime()) {
+                navRight.classList.add("calendar-nav-grey");
+                disableRight = true;
+            }
+            navLeft.classList.remove("calendar-nav-grey");
+            disableLeft = false;
+            lastDate = new Date(curYear, curMonth-1, 1);
+            nextDate = new Date(curYear, curMonth+1, 1);
         }
-        calContent += `</div>`
-        calDate = new Date(calDate.getTime() + time.msd);
-        calIter++;
-    }
-    document.getElementById("calendar-weeks").innerHTML = calContent;
+    })
     autoScroll();
 }
 

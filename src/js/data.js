@@ -87,6 +87,62 @@ export const eventInjector = () => {
     document.getElementById("events").innerHTML = eventList;
 }
 
+// HTML injection for event calendar
+export const programCalendar = dateTime => {
+    const curMonth      = dateTime.getMonth();
+    const curMonthName  = time.mm[curMonth];
+    const curYear       = dateTime.getFullYear();
+    const lastDate      = new Date(curYear, curMonth-1, 1);
+    const lastMonth     = lastDate.getMonth();
+    const lastMonthName = time.mm[lastMonth];
+    const lastYear      = lastDate.getFullYear();
+    const nextDate      = new Date(curYear, curMonth+1, 1);
+    const nextMonth     = nextDate.getMonth();
+    const nextMonthName = time.mm[nextMonth];
+    const nextYear      = nextDate.getFullYear();
+    document.getElementById("calendar-month").innerHTML = `${curMonthName} ${curYear}`;
+    document.getElementById("month-nav-left").innerHTML = `<< ${lastMonthName} ${lastYear}`;
+    document.getElementById("month-nav-right").innerHTML = `${nextMonthName} ${nextYear} >>`;
+    // Get day of the week for the first day of the month
+    const monthFirst = new Date(curYear, dateTime.getMonth(), 1);
+    const monthFirstDay = monthFirst.getDay();
+    // Add all days of the month, starting from Sunday
+    // Then count from that first day until the calendar is filled
+    // Add events as you go through the calendar
+    let calDate = new Date(curYear, dateTime.getMonth(), 1-monthFirstDay);
+    let calIter = 0;
+    let calContent = ``;
+    const simpleNow = new Date(time.now.getFullYear(), time.now.getMonth(), time.now.getDate());
+    while (!(calIter > 6 && dateTime.getMonth() !== calDate.getMonth() && calDate.getDay() === 0)) {
+        const dayClass = dateTime.getMonth() !== calDate.getMonth() ? "-grey" : (simpleNow.getTime() === calDate.getTime() ? "-now" : "")
+        const extraClass = time.flexMonth(calDate.getMonth()).includes(calDate.getDate()) ? " calendar-flex-half" : "";
+        calContent += ` 
+        <div class="calendar-day${dayClass}${extraClass}">
+            <p class="calendar-num${dayClass}">
+                ${calDate.getDate()}<span class="calendar-dotw-inner">${time.weekday(calDate)}</span>
+            </p>
+            `
+        for (const event of events) {
+            if (new Date(event.start).setHours(0,0,0,0) === calDate.setHours(0,0,0,0)) {
+                let eventTitle = event.title.replace("Bridgewater-Raritan High School", "BRHS");
+                let eventTime = event.allday ? "All Day Event" : time.formatTime(new Date(event.start));
+                calContent += `
+                <a class="calendar-entry-${util.stylizer(event.category)}" href="${event.url.public}" target="_blank" rel="noopener">
+                    ${eventTitle}
+                    <p class="calendar-entry-${util.stylizer(event.category)}-time">
+                        ${eventTime}
+                    </p>
+                </a>
+                `
+            }
+        }
+        calContent += `</div>`
+        calDate = new Date(calDate.getFullYear(), calDate.getMonth(), calDate.getDate()+1);
+        calIter++;
+    }
+    document.getElementById("calendar-weeks").innerHTML = calContent;
+}
+
 // News data
 let newsData = fs.readFileSync('src/data/news.yaml', 'utf8');
 export let news = yaml.load(newsData);
