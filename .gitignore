@@ -204,3 +204,6 @@ src/data/_REV
 
 # Dist zip
 www.*
+
+# LibCal calendar
+src/data/calendar.json

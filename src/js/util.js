@@ -1,3 +1,15 @@
+// Generate a request and response using a url and handling function
+export const req = async (url, resFunc) => {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url, false);
+    xhr.send(null);
+    if (xhr.status === 200) {
+        resFunc(xhr.responseText);
+    } else {
+        console.log("REQ ERROR");
+    }
+};
+
 // Returns extra data based on existance of external website string
 export const extchk = str => str.match('^http') ? `rel="noopener"` : ``;
 

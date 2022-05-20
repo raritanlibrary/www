@@ -4,6 +4,7 @@ import * as nav from './nav';
 import * as data from './data';
 import * as access from './access';
 import * as svg from './svg';
+import eventJson from 'url:../data/calendar.json';
 
 // Favicon mode
 if (window.matchMedia('(prefers-color-scheme:light)').matches) {
@@ -152,8 +153,8 @@ const contentNews = () => {
 }
 
 // Content to inject for events page
-const contentEvents = () => {
-    data.programCalendar(time.now);
+const contentEvents = res => {
+    data.programCalendar(res, time.now);
     let curDay          = time.now.getDate();
     let curMonth        = time.now.getMonth();
     let curYear         = time.now.getFullYear();
@@ -168,7 +169,7 @@ const contentEvents = () => {
         const navLeft = document.getElementById("month-nav-left")
         const navRight = document.getElementById("month-nav-right")
         if (navLeft.contains(e.target) && !disableLeft) {
-            data.programCalendar(lastDate);
+            data.programCalendar(res, lastDate);
             curMonth = lastDate.getMonth();
             curYear = lastDate.getFullYear();
             if (lastDate.getTime() === lastLimit.getTime()) {
@@ -180,7 +181,7 @@ const contentEvents = () => {
             lastDate = new Date(curYear, curMonth-1, 1);
             nextDate = new Date(curYear, curMonth+1, 1);
         } else if (navRight.contains(e.target) && !disableRight) {
-            data.programCalendar(nextDate);
+            data.programCalendar(res, nextDate);
             curMonth = nextDate.getMonth();
             curYear = nextDate.getFullYear();
             if (nextDate.getTime() === nextLimit.getTime()) {
@@ -199,7 +200,7 @@ const contentEvents = () => {
 const pageInjector = p => {
     if (p.includes('index') || p === '') { contentIndex() }
     else if (p.includes('news')) { contentNews() }
-    else if (p.includes('events')) { contentEvents() }
+    //else if (p.includes('events')) { contentEvents() }
     else if (p.includes('board')) { autoScroll() }
 }
 
@@ -226,10 +227,20 @@ if (page.includes('index')) {
 nav.dropdown();
 nav.sticky();
 access.preload();
+// Functions to load for the request
+const eventResFunc = async res => {
+    res = JSON.parse(res).events;
+    data.eventInjector(res);
+    if (page.includes('events')) { 
+        contentEvents(res);
+    }
+};
+
+// Load event data
+util.req(eventJson, eventResFunc);
 
 window.onload = () => {
     time.injector();
-    data.eventInjector();
     data.adInjector();
     pageInjector(page);
     access.hicontrast();

@@ -3,14 +3,10 @@ import * as util from './util';
 const fs = require('fs');
 const yaml = require('js-yaml');
 
-// Event data
-let eventData = fs.readFileSync('dist/calendar.json', 'utf8');
-export let events = JSON.parse(eventData).events;
-
 // Event parsing function (sidebar)
-const eventParserSidebar = data => {
+export const eventInjector = data => {
     let dupes = ["1-on-1 Computer Help", "1-on-1 Computer Class with Brendan"];
-    let out = []
+    let sidebarData = []
     data.forEach(entry => {
         if (!dupes.includes(entry.title)) {
             dupes.push(entry.title);
@@ -25,18 +21,11 @@ const eventParserSidebar = data => {
             };
             event.enddate = event.range ? new Date(event.date[event.date.length - 1]) : new Date(entry.end);
             event.datesort = (event.date[0] < time.now && event.length === "range") ? time.now : event.date[0];
-            out.push(event);
+            sidebarData.push(event);
         }
     });
-    out = out.sort((a, b) => a.datesort - b.datesort);
-    return out;
-}
-
-// Parsed event data for sidebar
-const sidebarData = eventParserSidebar(events);
-
-// HTML injection for program blurbs (sidebar)
-export const eventInjector = () => {
+    sidebarData = sidebarData.sort((a, b) => a.datesort - b.datesort);
+    // Begin injection
     let displayed = 0;
     let eventList = ``;
     for (const event of sidebarData) {
@@ -88,7 +77,7 @@ export const eventInjector = () => {
 }
 
 // HTML injection for event calendar
-export const programCalendar = dateTime => {
+export const programCalendar = (events, dateTime) => {
     const curMonth      = dateTime.getMonth();
     const curMonthName  = time.mm[curMonth];
     const curYear       = dateTime.getFullYear();
