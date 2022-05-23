@@ -8,7 +8,8 @@ export const eventInjector = data => {
     let dupes = ["1-on-1 Computer Help", "1-on-1 Computer Class with Brendan"];
     let sidebarData = []
     data.forEach(entry => {
-        if (!dupes.includes(entry.title)) {
+        let category = entry.category.length > 0 ? entry.category[0].name : entry.category;
+        if (!dupes.includes(entry.title) && category !== "Holiday") {
             dupes.push(entry.title);
             let event = {
                 "title": entry.title.replace("Bridgewater-Raritan High School", "BRHS"),

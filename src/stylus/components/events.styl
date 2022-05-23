@@ -9,6 +9,11 @@ event-template(type)
         border 2px solid lookup('event-'+type)
     @media screen and (max-width 949px)
         spacer(0)
+    @media screen and (min-width 750px) and (max-width 949px)
+        height 82px
+        display flex
+        flex-flow column nowrap
+        justify-content space-around
     &-cover
         background-color var(unquote(--ev-cover-+type))
         padding 8px
@@ -74,12 +79,6 @@ event-template(type)
     @media screen and (max-width 749px)
         &:nth-child(n+2)
             display none
-    &-inner
-        @media screen and (max-width 949px)
-            display flex
-            flex-flow column wrap
-            justify-content center
-            height 103px
     &-more
         display block
         visibility hidden

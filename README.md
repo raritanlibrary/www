@@ -98,8 +98,12 @@ token=$(cut -c18-57 <<< "$tokenRaw")
 year=$(date --date="$(date) - 45 day" +%Y)
 month=$(date --date="$(date) - 45 day" +%B)
 
+# Get current filename of calendar.json
+cd #<DIST_PATH>
+fname=$(find . -name "calendar.*.json")
+
 # Get and save events data to json file
-curl -Ls -X GET "$url/events?cal_id=16676&days=160&limit=500&date=$year-$month-01" -H "Authorization: Bearer $token" > #<CALENDAR_JSON_PATH>
+curl -Ls -X GET "$url/events?cal_id=16676&days=160&limit=500&date=$year-$month-01" -H "Authorization: Bearer $token" > "$fname"
 ```
 
 Then, create a batch file on your Windows Server:
@@ -114,7 +118,7 @@ schtasks /create /tn rpl_calendar_update /tr "<BATCH_FILE_PATH>" /sc minute /mo 
 ```
 
 ## **Issues and Contributing**
-Pull requests are encouraged by the Raritan Public Library to ensure our software is of the highest quality possible. If you would like to suggest major changes or restructuring of this repository, please [open an issue](https://github.com/raritanlibrary/www/issues/new). It is also strongly suggested you email us at [info@raritanlibray.org](mailto:info@raritanlibray.org).
+Pull requests are encouraged by the Raritan Public Library to ensure our software is of the highest quality possible. If you would like to suggest major changes or restructuring of this repository, please [open an issue](https://github.com/raritanlibrary/www/issues/new). It is also strongly suggested you email us at [info@raritanlibray.org](mailto:info@raritanlibray.org) with any additional questions or concerns.
 
 ## **License**
 Please note that, while this project is made available under the [MIT License](LICENSE), any original written, visual, or otherwise presented content is copyrighted by the Raritan Public Library.

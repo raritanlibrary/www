@@ -227,6 +227,7 @@ if (page.includes('index')) {
 nav.dropdown();
 nav.sticky();
 access.preload();
+
 // Functions to load for the request
 const eventResFunc = async res => {
     res = JSON.parse(res).events;
