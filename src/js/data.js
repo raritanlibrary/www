@@ -138,10 +138,6 @@ let newsData = fs.readFileSync('src/data/news.yaml', 'utf8');
 export let news = yaml.load(newsData);
 news = news.sort((a, b) => b.date - a.date);
 
-// Advertisement data
-let adsData = fs.readFileSync('src/data/ads.yaml', 'utf8');
-let ads = yaml.load(adsData);
-
 // HTML injection for advertisements (sidebar)
 export const adInjector = () => {
     const adPool = []

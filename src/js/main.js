@@ -242,7 +242,6 @@ util.req(eventJson, eventResFunc);
 
 window.onload = () => {
     time.injector();
-    data.adInjector();
     pageInjector(page);
     access.hicontrast();
     data.rev();
