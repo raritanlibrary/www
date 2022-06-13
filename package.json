@@ -5,15 +5,15 @@
   "dependencies": {
     "js-yaml": "^4.1.0",
     "pug": "^3.0.2",
-    "stylus": "^0.57.0"
+    "stylus": "^0.58.1"
   },
   "devDependencies": {
-    "@parcel/config-default": "^2.5.0",
-    "@parcel/transformer-image": "^2.5.0",
-    "@parcel/transformer-pug": "^2.5.0",
-    "@parcel/transformer-stylus": "^2.5.0",
-    "lighthouse": "^9.5.0",
-    "parcel": "^2.5.0",
+    "@parcel/config-default": "^2.6.0",
+    "@parcel/transformer-image": "^2.6.0",
+    "@parcel/transformer-pug": "^2.6.0",
+    "@parcel/transformer-stylus": "^2.6.0",
+    "lighthouse": "^9.6.2",
+    "parcel": "^2.6.0",
     "sharp": "^0.29.1"
   },
   "scripts": {
