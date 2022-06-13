@@ -24,11 +24,9 @@ RedirectMatch 301   ^/pronunciator$                         http://learning.pron
 RedirectMatch 301   ^/pronunciator.html$                    http://learning.pronunciator.com/getstarted.php?library_id=7904
 RedirectMatch 301   ^/Pronunciator.html$                    http://learning.pronunciator.com/getstarted.php?library_id=7904
 RedirectMatch 301   ^/digital$                              /resources
-RedirectMatch 301   ^/StarLedgerLoginInstructions.html$     /resources#newspapers
 RedirectMatch 301   ^/ebooks$                               /resources#ebooks
 RedirectMatch 301   ^/education$                            /resources#education
 RedirectMatch 301   ^/databases$                            /resources#databases
-RedirectMatch 301   ^/newspapers$                           /resources#newspapers
 RedirectMatch 301   ^/language$                             /resources#language
 RedirectMatch 301   ^/timeline$                             /history#timeline
 RedirectMatch 301   ^/map$                                  /contact#map
