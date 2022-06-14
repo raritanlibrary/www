@@ -70,7 +70,7 @@ mixin pass(name, href, img)
     .snippet: .snippet-body
         a(href=href target="_blank" rel="noopener")
             +picture(`passes/${img}.png`, `${name} logo`, "snippet-img")
-        h2.h2-sm.spacer-plus.left #{name}
+        a.h3-link.spacer-plus(href=href target="_blank" rel="noopener") #{name}
         block
 
 //- Craft showcase
@@ -85,7 +85,7 @@ mixin resource(name, href, img, crunch)
     .snippet: .snippet-body
         a(href=href target="_blank" rel="noopener")
             +picture(`resources/${img}.png`, `${name} logo`, "snippet-img")
-        h3(class=`spacer-plus left${crunch ? ` crunch-${crunch}`: ""}`) #{name}
+        a(class=`h3-link spacer-plus${crunch ? ` crunch-${crunch}`: ""}` href=href target="_blank" rel="noopener") #{name}
         block
 
 //- Site Map link
