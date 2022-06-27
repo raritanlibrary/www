@@ -70,6 +70,7 @@
   img: yardsale
   imgalt: Yard sale
   imglink: docs/events/YardSaleDirectory2022_2.pdf
+  hidden: true
   buttons:
     - name: Directory
       link: docs/events/YardSaleDirectory2022_2.pdf

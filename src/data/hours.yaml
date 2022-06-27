@@ -6,3 +6,18 @@ hours:
 - 10 AM - 8 PM
 - 10 AM - 5 PM
 - 10 AM - 3 PM
+
+holidays:
+- 01-01-2022 # New Year's Day
+- 02-21-2022 # President's Day
+- 04-15-2022 # Good Friday
+- 05-30-2022 # Memorial Day
+- 06-17-2022 # Juneteenth
+- 07-04-2022 # July 4th
+- 09-05-2022 # Labor Day
+- 10-10-2022 # Indigenous Peoples' Day
+- 11-11-2022 # Veterans' Day
+- 11-24-2022 # Thanksgiving
+- 11-25-2022 # Thanksgiving
+- 12-24-2022 # Christmas
+- 12-26-2022 # Christmas
