@@ -136,30 +136,13 @@ export const programCalendar = (events, dateTime) => {
 // News data
 let newsData = fs.readFileSync('src/data/news.yaml', 'utf8');
 export let news = yaml.load(newsData);
-news = news.sort((a, b) => b.date - a.date);
-
-// HTML injection for advertisements (sidebar)
-export const adInjector = () => {
-    const adPool = []
-    for (const ad of ads) {
-        if (((ad.start && ad.end) && (time.now >= ad.start && ad.end > time.now)) ||
-        ((!ad.start && ad.end) && (time.now >= ad.start || ad.end > time.now)) ||
-        (!ad.start && !ad.end)) {
-            adPool.push(ad)
-        }
+for (let i = 0; i < news.length; i++) {
+    if (news[i].hidden) {
+        news.splice(i, 1);
+        i--;
     }
-    const ad = adPool[Math.floor(Math.random() * adPool.length)]
-    const adOutput = `
-    <a class="advert-img" href="${ad.imglink}" target="_blank" ${util.extchk(ad.imglink)}>
-        <picture>
-            <source srcset="img/promo/${ad.img}.webp" type="image/webp"/>
-            <img class="advert-img-inner" src="img/promo/${ad.img}.${ad.isgif ? "gif" : "jpeg"}" alt="${ad.imgalt}" type="image/${ad.isgif ? "gif" : "jpeg"}"/>
-        </picture>
-    </a>
-    <div class="advert-tag">Advertisement</div>
-    `
-    document.getElementById("ad").innerHTML = adOutput;
 }
+news = news.sort((a, b) => b.date - a.date);
 
 // Git data
 let tag = fs.readFileSync('src/data/_REV', 'utf8');
