@@ -43,7 +43,7 @@ export const stylizer = cat => {
         case "Arts & Culture":          return "cyan";
         case "Gaming":                  return "blue";
         case "Storytime":               return "purple";
-        case "Craft Program":           return "purple";
+        case "Craft Program":           return "pink";
         default:                        return "gray";
     }
 }
