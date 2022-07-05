@@ -1,3 +1,4 @@
+import * as svg from './svg';
 const fs = require('fs');
 const yaml = require('js-yaml');
 
@@ -80,26 +81,55 @@ export const flexMonth = month => {
     }
 }
 
-// Load hours data
+// Load hours+holiday data
 let hoursData = fs.readFileSync('src/data/hours.yaml', 'utf8');
 let hoursYaml = yaml.load(hoursData);
 const hours = hoursYaml.hours;
-const speHours = hours[7];
+const holidays = hoursYaml.holidays;
 const curHours = hours[dotw];
-let nextDay = dotw === 6 ? "next Monday" : "tomorrow";
-let nextHours = dotw === 6 ? hours[1] : hours[dotw+1];
 
 // Inject hours data
 export const injector = () => {
+    // Holiday alerts
+    let holidayDays = []
+    holidays.forEach(holiday => {
+        const holidayStart = Array.isArray(holiday.date) ? addHours(holiday.date[0], 5) : addHours(holiday.date, 5);
+        const holidayEnd = Array.isArray(holiday.date) ? addHours(holiday.date[1], 29) : addHours(holiday.date, 29);
+        const holidayEndName = addHours(holidayEnd, -24)
+        const holidayStr = Array.isArray(holiday.date) ? `${fullDate(holidayStart)}</b> and <b>${fullDate(holidayEndName)}` : fullDate(holidayStart);
+        holidayDays.push(fullDate(holidayStart));
+        if (Array.isArray(holiday.date)) {
+            holidayDays.push(fullDate(holidayEndName));
+        }
+        if (holidayStart.getTime() - now.getTime() <= msd*14 && holidayEnd.getTime() - now.getTime() > 0) {
+            document.getElementById("closure-index").innerHTML = `
+            <div class="alert-info">
+                <div class="alert-info-logo">${svg.info}</div>
+                <div class="alert-info-text">
+                    <div class="alert-info-title">Attention</div>
+                    <div class="alert-info-desc">Raritan Public Library will be closed on <b>${holidayStr}</b> in observance of <b>${holiday.name}</b>. For more information about this closing, please contact the Library during our open hours by phone at <b>(908) 725-0413</b> or by email at <a class="link" href="mailto:info@raritanlibrary.org">info@raritanlibrary.org</a>.</div>
+                </div>
+            </div>`
+            document.getElementById("closure-sidebar").innerHTML = `
+            <p class="comment-dark">The Library will be closed <b>${holidayStr}</b> for <b>${holiday.name}</b>.</p>
+            <br>`
+        }
+    });
     // Sidebar
+    const startWeek = addDays(now , 1-dotw);
+    let sidebarHours = ``
     for (let i = 1; i < 7; i++) {
-        document.getElementById(`hours${i-1}`).innerHTML = hours[i];
+        let sidebarDay = addDays(startWeek, i-1);
+        let hoursDetail = holidayDays.includes(fullDate(sidebarDay)) ? "CLOSED" : hours[i];
+        sidebarHours += `<p><span class="hours-day">${ww[i].slice(0,3)}, ${month(sidebarDay).slice(0,3)} ${sidebarDay.getDate()}</span><span class="hours-detail">${hoursDetail}</span></p>`
     }
-    document.getElementById(`hours6`).innerHTML = hours[0];
+    sidebarHours += `<p><span class="hours-day">Sun, ${month(addDays(startWeek, 6)).slice(0,3)} ${addDays(startWeek, 6).getDate()}</span><span class="hours-detail">${hours[0]}</span></p>`
+    document.getElementById("hours").innerHTML = sidebarHours;
     // Footer
-    const mainStr = (dotw === 0) || (speHours === "CLOSED") ? `The library is closed today.`
-    : `Open today · ${(!!speHours) ? speHours : curHours}`;
-    const otherStr = (dotw === 0) || (speHours === "CLOSED") ? `Open ${nextDay} · ${nextHours}` : "";
+    let nextDay = dotw === 6 ? "next Monday" : "tomorrow";
+    let nextHours = dotw === 6 ? hours[1] : hours[dotw+1];
+    const mainStr = dotw === 0 ? `The library is closed today.` : `Open today · ${curHours}`;
+    const otherStr = dotw === 0 ? `Open ${nextDay} · ${nextHours}` : "";
     document.getElementById("hours-footer-main").innerHTML = mainStr;
     document.getElementById("hours-footer-other").innerHTML = otherStr;
 }

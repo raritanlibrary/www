@@ -8,14 +8,15 @@ hours:
 - 10 AM - 3 PM
 
 holidays:
-- {date: 01-01-2022, holiday: New Year's Day}
-- {date: 02-21-2022, holiday: President's Day}
-- {date: 04-15-2022, holiday: Good Friday}
-- {date: 05-30-2022, holiday: Memorial Day}
-- {date: 06-17-2022, holiday: Juneteenth}
-- {date: 07-04-2022, holiday: Independence Day}
-- {date: 09-05-2022, holiday: Labor Day}
-- {date: 10-10-2022, holiday: Columbus Day}
-- {date: 11-11-2022, holiday: Veterans' Day}
-- {date: [11-24-2022, 11-25-2022], holiday: Thanksgiving}
-- {date: [12-24-2022, 12-26-2022], holiday: Christmas}
+- {date: 2022-01-01, name: New Year's Day}
+- {date: 2022-02-21, name: President's Day}
+- {date: 2022-04-15, name: Good Friday}
+- {date: 2022-05-30, name: Memorial Day}
+- {date: 2022-06-17, name: Juneteenth}
+- {date: 2022-07-04, name: Independence Day}
+#- {date: [2022-07-02, 2022-07-05], name: My Holiday}
+- {date: 2022-09-05, name: Labor Day}
+- {date: 2022-10-10, name: Columbus Day}
+- {date: 2022-11-11, name: Veterans' Day}
+- {date: [2022-11-24, 2022-11-25], name: Thanksgiving}
+- {date: [2022-12-24, 2022-12-26], name: Christmas}
