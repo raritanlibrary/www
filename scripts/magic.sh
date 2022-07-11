@@ -1,5 +1,4 @@
 # Pure utility
-# Gallery --> -resize 400x400
 # Crafts  --> -resize 600x600 -auto-orient -thumbnail 300x150^ -gravity center -extent 300x150
 
 # Set program variables

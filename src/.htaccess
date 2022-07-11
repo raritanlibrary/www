@@ -13,7 +13,6 @@ RedirectMatch 301   ^/2018BoardMeetingMinutes.html$         /board
 RedirectMatch 301   ^/2019BoardofTrusteesMinutes.html$      /board
 RedirectMatch 301   ^/CurbsidePickUpInstructions.html$      /porchside-pickup
 RedirectMatch 301   ^/databases.html$                       /passes
-RedirectMatch 301   ^/inside.html$                          /gallery
 RedirectMatch 301   ^/links$                                /site-map
 RedirectMatch 301   ^/links.html$                           /site-map
 RedirectMatch 301   ^/tree.html$                            /site-map
