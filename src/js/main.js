@@ -40,7 +40,7 @@ const contentIndex = () => {
         let newsLinks, newsImg;
         newsImg = newsLinks = ``;
         if (post.hidden) { continue };
-        if (displayed === 3 ) { break };
+        if (displayed === 2 ) { break };
         if (post.img && post.imgalt) {
             newsImg = `
             <picture>

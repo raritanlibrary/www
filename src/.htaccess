@@ -40,7 +40,7 @@ RedirectMatch 301   ^/holds$                                /policies#holds
 RedirectMatch 301   ^/bookclub$                             /events
 RedirectMatch 301   ^/kids$                                 /events
 RedirectMatch 301   ^/programs$                             /events
-
+RedirectMatch 301   ^/employment$                           /jobs
 
 # DISABLE DIRECTORY INDEXES
 Options -Indexes
