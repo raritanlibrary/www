@@ -27,9 +27,8 @@ export const addClickListener = func => {
     let funcStr = func.toString();
     funcStr = funcStr.slice(funcStr.indexOf("{") + 1, funcStr.lastIndexOf("}"));
     const funcTouch = new Function(funcStr + "\n" + 'e.preventDefault()');
-    'ontouchstart' in document.documentElement
-    ? window.addEventListener('ontouchstart', funcTouch)
-    : window.addEventListener('click', func);
+    window.addEventListener('touchstart', funcTouch);
+    window.addEventListener('click', func);
 }
 
 // Category-to-style parsing function
