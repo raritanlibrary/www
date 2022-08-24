@@ -89,7 +89,7 @@ const holidays = hoursYaml.holidays;
 const curHours = hours[dotw];
 
 // Inject hours data
-export const injector = () => {
+export const injector = page => {
     // Holiday alerts
     let holidayDays = []
     holidays.forEach(holiday => {
@@ -102,14 +102,16 @@ export const injector = () => {
             holidayDays.push(fullDate(holidayEndName));
         }
         if (holidayStart.getTime() - now.getTime() <= msd*14 && holidayEnd.getTime() - now.getTime() > 0) {
-            document.getElementById("closure-index").innerHTML = `
-            <div class="alert-info">
-                <div class="alert-info-logo">${svg.info}</div>
-                <div class="alert-info-text">
-                    <div class="alert-info-title">Attention</div>
-                    <div class="alert-info-desc">Raritan Public Library will be closed on <b>${holidayStr}</b> in observance of <b>${holiday.name}</b>. For more information about this closing, please contact the Library during our open hours by phone at <b>(908) 725-0413</b> or by email at <a class="link" href="mailto:info@raritanlibrary.org">info@raritanlibrary.org</a>.</div>
-                </div>
-            </div>`
+            if (page.includes('home')) {
+                document.getElementById("closure-index").innerHTML = `
+                <div class="alert-info">
+                    <div class="alert-info-logo">${svg.info}</div>
+                    <div class="alert-info-text">
+                        <div class="alert-info-title">Attention</div>
+                        <div class="alert-info-desc">Raritan Public Library will be closed on <b>${holidayStr}</b> in observance of <b>${holiday.name}</b>. For more information about this closing, please contact the Library during our open hours by phone at <b>(908) 725-0413</b> or by email at <a class="link" href="mailto:info@raritanlibrary.org">info@raritanlibrary.org</a>.</div>
+                    </div>
+                </div>`
+            }
             document.getElementById("closure-sidebar").innerHTML = `
             <p class="comment-dark">The Library will be closed <b>${holidayStr}</b> for <b>${holiday.name}</b>.</p>
             <br>`
