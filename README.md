@@ -98,23 +98,38 @@ token=$(cut -c18-57 <<< "$tokenRaw")
 year=$(date --date="$(date) - 45 day" +%Y)
 month=$(date --date="$(date) - 45 day" +%B)
 
-# Get current filename of calendar.json
+# Go to www folder
 cd #<DIST_PATH>
-fname=$(find . -name "calendar.*.json")
+
+# Get old filename+md5 of calendar.json
+oldfile=$(find . -name "calendar.*.json")
+oldmd5=$(echo "${oldfile}" | cut -c12-19)
 
 # Get and save events data to json file
-curl -Ls -X GET "$url/events?cal_id=16676&days=160&limit=500&date=$year-$month-01" -H "Authorization: Bearer $token" > "$fname"
+curl -Ls -X GET "$url/events?cal_id=16676&days=160&limit=500&date=$year-$month-01" -H "Authorization: Bearer $token" > "calendar.new.json"
+
+# Check if MD5 hash is same or different
+newmd5=$(md5sum "calendar.new.json" | cut -c1-8)
+if [ $oldmd5 != $newmd5 ]; then
+    # Rename new events data with proper MD5 hash
+    mv "calendar.new.json" "calendar.${newmd5}.json"
+
+    # Find largest JavaScript file in www folder
+    js=$(du -sh *.js | sort -rh | head -n 1 | cut -c5-)
+
+    # Replace all instances of old hash with new hash
+    sed -i "s/calendar.${oldmd5}.json/calendar.${newmd5}.json/" "${js}"
+
+    # Delete old json
+    rm "${oldfile}"
+else
+    rm "calendar.new.json"
+fi
 ```
 
-Then, create a batch file on your Windows Server:
-```cmd
-@echo off
-"<SH.EXE_PATH>" -c "bash <SHELL_SCRIPT_PATH>"
+You can then create a cronjob so that this script will run every 30 minutes:
 ```
-
-Finally, run this command in an elevated instance of Command Prompt.
-```cmd
-schtasks /create /tn rpl_calendar_update /tr "<BATCH_FILE_PATH>" /sc minute /mo 30 /ru "<COMPUTER_NAME>\<USERNAME>"
+*/30 * * * * bash <SHELL_SCRIPT_PATH>
 ```
 
 ## **Issues and Contributing**

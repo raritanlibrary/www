@@ -52,7 +52,7 @@ Header set Cache-Control "public, max-age=31536000, immutable"
 <FilesMatch "\.(json|yaml)$">
 Header set Cache-Control "public, max-age=1800, must-revalidate"
 </FilesMatch>
-<FilesMatch "\.(html|css|js)$">
+<FilesMatch "\.(html|css|js|map)$">
 Header set Cache-Control "public, max-age=0, must-revalidate"
 </FilesMatch>
 

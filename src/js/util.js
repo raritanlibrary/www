@@ -6,7 +6,7 @@ export const req = async (url, resFunc) => {
     if (xhr.status === 200) {
         resFunc(xhr.responseText);
     } else {
-        console.log("REQ ERROR");
+        console.log(xhr);
     }
 };
 
