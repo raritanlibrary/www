@@ -241,7 +241,7 @@ const eventResFunc = async res => {
 util.req(eventJson, eventResFunc);
 
 window.onload = () => {
-    time.injector(page);
+    time.injector();
     pageInjector(page);
     access.hicontrast();
     data.rev();

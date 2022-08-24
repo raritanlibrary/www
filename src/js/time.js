@@ -89,7 +89,7 @@ const holidays = hoursYaml.holidays;
 const curHours = hours[dotw];
 
 // Inject hours data
-export const injector = page => {
+export const injector = () => {
     // Holiday alerts
     let holidayDays = []
     holidays.forEach(holiday => {
@@ -102,8 +102,9 @@ export const injector = page => {
             holidayDays.push(fullDate(holidayEndName));
         }
         if (holidayStart.getTime() - now.getTime() <= msd*14 && holidayEnd.getTime() - now.getTime() > 0) {
-            if (page.includes('home')) {
-                document.getElementById("closure-index").innerHTML = `
+            const holidayAlert = document.getElementById("closure-index");
+            if (holidayAlert) {
+                holidayAlert.innerHTML = `
                 <div class="alert-info">
                     <div class="alert-info-logo">${svg.info}</div>
                     <div class="alert-info-text">
