@@ -35,11 +35,13 @@ export const addClickListener = func => {
 export const stylizer = cat => {
     cat = cat.length === 1 ? cat[0].name : "";
     switch (cat) {
-        case "Computers & Technology":  return "red";
+        case "Holiday":                 return "red";
+        case "Computers & Technology":  return "red2";
         case "Movie":                   return "orange";
         case "Health & Fitness":        return "yellow";
         case "History":                 return "lime";
         case "Book Club":               return "green";
+        case "ESL":                     return "green2";
         case "Arts & Culture":          return "cyan";
         case "Gaming":                  return "blue";
         case "Storytime":               return "purple";
