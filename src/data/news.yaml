@@ -22,10 +22,6 @@
   desc: On <b>Saturday, June 5th</b>, Raritan will be holding its 2nd Annual Town-Wide Yard Sale. Please click on the link below for a directory of participating addresses. Rain date June 19th.
   img: yardsale
   imgalt: Yard sale
-  imglink: docs/events/YardSaleDirectory2021.pdf
-  buttons:
-    - name: Directory
-      link: docs/events/YardSaleDirectory2021.pdf
   hidden: true
 
 - name: Return to Regular Hours
@@ -69,11 +65,6 @@
   desc: "On <b>Saturday, May 21st</b>, Raritan will be holding its 3rd Annual Town-Wide Yard Sale. This Spring will be a perfect time to sell unused items. Please click on the link below for a directory of participating addresses."
   img: yardsale
   imgalt: Yard sale
-  imglink: docs/events/YardSaleDirectory2022_2.pdf
-  hidden: true
-  buttons:
-    - name: Directory
-      link: docs/events/YardSaleDirectory2022_2.pdf
 
 - name: New Museum Pass to the Thomas Edison Center
   date: 2022-04-01
