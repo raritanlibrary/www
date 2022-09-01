@@ -4,17 +4,11 @@ if [ -f .env ]; then
     export $(cat .env | xargs)
 fi
 
-# Set program variables
-p7zip="/c/Program Files/7-Zip/7z.exe"
-
-"$p7zip" a www.zip "dist\\"
-"$p7zip" rn www.zip dist www
 "C:\Program Files (x86)\WinSCP\WinSCP.com" << EOF
-open ssh://$u:@$h -privatekey=$k
-put -delete www.zip 
-rmdir www
-call cd c && unzip -o www.zip
-rm www.zip
+open ftp://$u:@$h -password=$p
+rmdir public_html
+put dist
+mv dist public_html
 EOF
 
 echo "╭───────────────────────────────────────────╮"
