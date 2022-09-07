@@ -32,50 +32,6 @@ const autoScroll = () => {
     }
 }
 
-// Content to inject for home page
-const contentIndex = () => {
-    let displayed = 0;
-    let newsList = ``;
-    for (const post of data.news) {
-        let newsLinks, newsImg;
-        newsImg = newsLinks = ``;
-        if (post.hidden) { continue };
-        if (displayed === 2 ) { break };
-        if (post.img && post.imgalt) {
-            newsImg = `
-            <picture>
-                <source srcset="img/news/${post.img}.webp" type="image/webp"/>
-                <img class="snippet-img" src="img/news/${post.img}.jpg" alt="${post.imgalt}" type="image/jpeg"/>
-            </picture>
-            `
-            newsImg = post.imglink ? `<a href="${post.imglink}" target="_blank" ${util.extchk(post.imglink)}>${newsImg}</a>` : newsImg;
-        }
-        if (post.buttons) {
-            for (const button of post.buttons) {
-                newsLinks += `
-                <a class="snippet-link" href="${button.link}" target="_blank" ${util.extchk(button.link)}">
-                    <div class="snippet-link-inner">${button.name}</div>
-                </a>
-                `
-            }
-        }
-        post.date = time.addHours(post.date, 5);
-        newsList += `
-        <div class="snippet">
-        ${newsImg}
-            <div class="snippet-body">
-                <a class="h4-link" href="news#${data.news.length-displayed}">${post.name}</a>
-                <br><br>
-                <p class="text">${post.desc}</p>
-                ${newsLinks}
-            </div>
-        </div>
-        `
-        displayed++;
-    }
-    document.getElementById("news-home").innerHTML = newsList;
-}
-
 // Content to inject for news page
 const contentNews = () => {
     let curYear, nextYear;
@@ -198,15 +154,11 @@ const contentEvents = res => {
 }
 
 const pageInjector = p => {
-    if (p.includes('index') || p === '') { contentIndex() }
-    else if (p.includes('news')) { contentNews() }
-    //else if (p.includes('events')) { contentEvents() }
+    if (p.includes('news')) { contentNews() }
     else if (p.includes('board')) { autoScroll() }
 }
 
-if (page.includes('index')) {
-    //
-} else if (page.includes('news')) {
+if (page.includes('news')) {
     const lastYear = data.news[0].date.getFullYear();
     const firstYear = data.news[data.news.length-1].date.getFullYear();
     for (let i = firstYear; i <= lastYear; i++) {
