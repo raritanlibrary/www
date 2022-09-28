@@ -88,6 +88,13 @@ mixin resource(name, href, img, crunch)
         a(class=`h3-link spacer-plus${crunch ? ` crunch-${crunch}`: ""}` href=href target="_blank" rel="noopener") #{name}
         block
 
+//- Resource, no image
+mixin resourceAlt(name, href, crunch)
+    .snippet-alt: .snippet-alt-body
+        a(href=href target="_blank" rel="noopener")
+        a(class=`h3-link spacer-plus${crunch ? ` crunch-${crunch}`: ""}` href=href target="_blank" rel="noopener") #{name}
+        block
+
 //- Site Map link
 mixin sitemap-link(name, href)
     if extchk(href)
