@@ -129,6 +129,8 @@ export const injector = () => {
     sidebarHours += `<p><span class="hours-day">Sun, ${month(addDays(startWeek, 6)).slice(0,3)} ${addDays(startWeek, 6).getDate()}</span><span class="hours-detail">${hours[0]}</span></p>`
     document.getElementById("hours").innerHTML = sidebarHours;
     // Footer
+    // not holiday, not "CLOSED"
+    holidays
     let nextDay = dotw === 6 ? "next Monday" : "tomorrow";
     let nextHours = dotw === 6 ? hours[1] : hours[dotw+1];
     const mainStr = dotw === 0 ? `The library is closed today.` : `Open today · ${curHours}`;

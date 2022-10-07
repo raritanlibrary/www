@@ -32,13 +32,13 @@ html(lang="en" color-mode="lite")
                     h2#minutes Meeting Minutes
                     p.comment-big.text-center.spacer-plus Months in grey denote Board Meetings that were not held during that month.
                     - const years = [2022, 2021, 2020, 2019]
-                    - const yearExclude = [[], [8], [3,4], []]
+                    - const yearExclude = [[7], [8], [3,4], []]
                     .meeting
                         for y, i in years
                             .meeting-wrapper
                                 h3.meeting-h3(id=`${y}`) #{y}
                                 .meeting-year
-                                    - let arrLen = i !== 0 ? 12 : 4;
+                                    - let arrLen = i !== 0 ? 12 : 8;
                                     for m in arr(arrLen)
                                         if !(yearExclude[i].includes(m+1))
                                             p.text #[a.link(href=`./docs/board/${y}${String(m+1).padStart(2, '0')}.pdf` target="_blank") #{months[m]}]

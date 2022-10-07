@@ -1,11 +1,11 @@
 hours:
-- CLOSED
+- CLOSED #12 PM - 4 PM
 - 10 AM - 8 PM
 - 10 AM - 8 PM
 - 10 AM - 8 PM
 - 10 AM - 8 PM
 - 10 AM - 5 PM
-- 10 AM - 3 PM
+- 10 AM - 5 PM
 
 holidays:
 - {date: 2022-01-01, name: New Year's Day}
@@ -14,9 +14,9 @@ holidays:
 - {date: 2022-05-30, name: Memorial Day}
 - {date: 2022-06-17, name: Juneteenth}
 - {date: 2022-07-04, name: Independence Day}
-#- {date: [2022-07-02, 2022-07-05], name: My Holiday}
+- {date: [2022-10-07, 2022-10-08], name: My Holiday}
 - {date: 2022-09-05, name: Labor Day}
-- {date: 2022-10-10, name: Columbus Day}
+#- {date: 2022-10-10, name: Columbus Day}
 - {date: 2022-11-11, name: Veterans' Day}
 - {date: [2022-11-24, 2022-11-25], name: Thanksgiving}
 - {date: [2022-12-24, 2022-12-26], name: Christmas}

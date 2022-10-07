@@ -5,12 +5,19 @@ const yaml = require('js-yaml');
 
 // Event parsing function (sidebar)
 export const eventInjector = data => {
-    let dupes = ["1-on-1 Computer Help", "1-on-1 Computer Class with Brendan"];
+    let dupes = [
+        "1-on-1 Computer Help",
+        "Brendan 1-on-1 Computer Help",
+        "Brendan 1-on-1 Computer Session",
+        "1-on-1 Computer Class with Brendan"
+    ];
     let sidebarData = []
     data.forEach(entry => {
         let category = entry.category.length > 0 ? entry.category[0].name : entry.category;
-        if (!dupes.includes(entry.title) && category !== "Holiday") {
-            dupes.push(entry.title);
+        if (!dupes.includes(entry.title) && !(entry.title).toLowerCase().includes("cancelled") && category !== "Holiday") {
+            if (entry.allday) {
+                dupes.push(entry.title);
+            }
             let event = {
                 "title": entry.title.replace("Bridgewater-Raritan High School", "BRHS"),
                 "date": [new Date(entry.start)].concat(entry.future_dates.map(({start}) => new Date(start))),
@@ -103,6 +110,12 @@ export const programCalendar = (events, dateTime) => {
     let calIter = 0;
     let calContent = ``;
     const simpleNow = new Date(time.now.getFullYear(), time.now.getMonth(), time.now.getDate());
+    let dupes = [
+        "1-on-1 Computer Help",
+        "Brendan 1-on-1 Computer Help",
+        "Brendan 1-on-1 Computer Session",
+        "1-on-1 Computer Class with Brendan"
+    ];
     while (!(calIter > 6 && dateTime.getMonth() !== calDate.getMonth() && calDate.getDay() === 0)) {
         const dayClass = dateTime.getMonth() !== calDate.getMonth() ? "-grey" : (simpleNow.getTime() === calDate.getTime() ? "-now" : "")
         const extraClass = time.flexMonth(calDate.getMonth()).includes(calDate.getDate()) ? " calendar-flex-half" : "";
@@ -113,7 +126,7 @@ export const programCalendar = (events, dateTime) => {
             </p>
             `
         for (const event of events) {
-            if (new Date(event.start).setHours(0,0,0,0) === calDate.setHours(0,0,0,0)) {
+            if (new Date(event.start).setHours(0,0,0,0) === calDate.setHours(0,0,0,0) && !dupes.includes(event.title) && !(event.title).toLowerCase().includes("cancelled")) {
                 let eventTitle = event.title.replace("Bridgewater-Raritan High School", "BRHS");
                 let eventTime = event.allday ? "All Day Event" : time.formatTime(new Date(event.start));
                 calContent += `
