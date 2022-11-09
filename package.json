@@ -8,13 +8,13 @@
     "stylus": "^0.59.0"
   },
   "devDependencies": {
-    "@parcel/config-default": "^2.7.0",
-    "@parcel/transformer-image": "^2.7.0",
-    "@parcel/transformer-pug": "^2.7.0",
-    "@parcel/transformer-stylus": "^2.7.0",
-    "lighthouse": "^9.6.7",
-    "parcel": "^2.7.0",
-    "sharp": "^0.29.1"
+    "@parcel/config-default": "^2.8.0",
+    "@parcel/transformer-image": "^2.8.0",
+    "@parcel/transformer-pug": "^2.8.0",
+    "@parcel/transformer-stylus": "^2.8.0",
+    "lighthouse": "^9.6.8",
+    "parcel": "^2.8.0",
+    "sharp": "^0.31.1"
   },
   "scripts": {
     "clear": "rm -rf dist && mkdir dist && rm -rf .parcel-cache",
