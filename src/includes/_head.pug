@@ -26,13 +26,13 @@ script(async src='https://www.google-analytics.com/analytics.js')
 script(type="module" src="./js/main.js")
 //- Newsletter dates //////////////////////////////////////////////////////////
 - const curYear     = 2022
-- const curMonth    = 4
+- const curMonth    = 12
 //- Variables /////////////////////////////////////////////////////////////////
 - const arr         = n => [...Array(n).keys()];
 - const extchk      = str => str.match('^http') ? true : false;
 - const dotws       = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 - const months      = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-- const newsShort   = `${curYear}${months[curMonth-1]}`;
-- const newsMonth   = `${months[curMonth-1]} ${curYear}`;
+- const dateShort   = `${months[curMonth-1]}-${curYear}`;
+- const dateMonth   = `${months[curMonth-1]} ${curYear}`;
 //- Mixins ////////////////////////////////////////////////////////////////////
 include ./_mixins.pug
