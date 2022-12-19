@@ -88,6 +88,14 @@ mixin resource(name, href, img, crunch)
         a(class=`h3-link spacer-plus${crunch ? ` crunch-${crunch}`: ""}` href=href target="_blank" rel="noopener") #{name}
         block
 
+//- Resource with tracking
+mixin resourceTrack(name, href, img, crunch)
+    .snippet: .snippet-body
+        a(href=href target="_blank")
+            +picture(`resources/${img}.png`, `${name} logo`, "snippet-img")
+        a(class=`h3-link spacer-plus${crunch ? ` crunch-${crunch}`: ""}` href=href target="_blank") #{name}
+        block
+
 //- Resource, no image
 mixin resourceAlt(name, href, crunch)
     .snippet-alt: .snippet-alt-body

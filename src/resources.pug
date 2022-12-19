@@ -5,6 +5,7 @@ html(lang="en" color-mode="lite")
         - const desc = "Explore exclusive internet resources made available to patrons by the Raritan Public Library."
         include ./includes/_head.pug
     body
+        include ./includes/ga.pug
         include ./includes/access.pug
         div.body
             include ./includes/header.pug
@@ -82,15 +83,15 @@ html(lang="en" color-mode="lite")
                         br
                     //- Language //////////////////////////////////////////////
                     h2.spacer-plus.left#language Language
-                    +resource("Pronunciator", "http://learning.pronunciator.com/getstarted.php?library_id=7904", "pronunciator", 3)
-                        p.text #[a.link(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank" rel="noopener") Pronunciator] is an online language-learning system free to our library patrons. With 80 of the world's most popular languages and ESL courses in 50 languages, it focuses on quickly building conversational skills through a suite of interactive content. Accessible from your #[a.link(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank" rel="noopener") browser], #[a.link(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank" rel="noopener") phone], or #[a.link(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank" rel="noopener") tablet].
+                    +resourceTrack("Pronunciator", "http://learning.pronunciator.com/getstarted.php?library_id=7904", "pronunciator", 3)
+                        p.text #[a.link(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank") Pronunciator] is an online language-learning system free to our library patrons. With 80 of the world's most popular languages and ESL courses in 50 languages, it focuses on quickly building conversational skills through a suite of interactive content. Accessible from your #[a.link(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank") browser], #[a.link(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank") phone], or #[a.link(href="http://learning.pronunciator.com/getstarted.php?library_id=7904" target="_blank") tablet].
                     +resource("Referencia Latina", `${ebsco}slrc`, "slrc")
                         p.text #[a.link(href=`${ebsco}slrc` target="_blank" rel="noopener") Referencia Latina] a comprehensive Spanish-language database, offers content from a variety of sources including 49,000 encyclopedia entries.
                         br
                     //- Education /////////////////////////////////////////////
                     h2.spacer-plus.left#education Education
-                    +resource("ABCMouse.com", "https://www.abcmouse.com", "abcmouse", 2)
-                        p.text #[a.link(href="https://www.abcmouse.com" target="_blank" rel="noopener") ABCmouse.com] is an award winning learning academy, helping children ages 2 through 7 learn to learn lessons in phonics, math, social studies, art, music, and much more. If you are interested in logging on to ABC Mouse at the library, please ask at the circulation desk or the Children's Librarian to assist you.
+                    +resourceTrack("ABCMouse.com", "https://www.abcmouse.com", "abcmouse", 2)
+                        p.text #[a.link(href="https://www.abcmouse.com" target="_blank") ABCmouse.com] is an award winning learning academy, helping children ages 2 through 7 learn to learn lessons in phonics, math, social studies, art, music, and much more. If you are interested in logging on to ABC Mouse at the library, please ask at the circulation desk or the Children's Librarian to assist you.
                     +resourceAlt("Academic Search Premier", `${ebscoAlt}aph`)
                         p.text #[a.link(href=`${ebscoAlt}aph` target="_blank" rel="noopener") Academic Search Premier] contains over 1000 journals on a host of subject matters and 75,000 videos from the Associated Press going back over 90 years.
                     +resourceAlt("ERIC", `${ebscoAlt}eric`)
