@@ -56,9 +56,10 @@
 - name: Introducing BingePass by hoopla
   date: 2021-12-17
   desc: hoopla is now offering digital magazine and education catalogs with <b>BingePass</b>! Use one of your monthly borrows to get unlimited access to a 50-magazine catalog and more for a whole week. The Binge Pass includes popular magazines such as <i>Cosmopolitan</i>, <i>Esquire</i>, <i>Reader's Digest</i>, <i>Sports Illustrated for Kids</i>, and many more to come in 2022. Also included is the <i>Great Courses Library Collection</i>&mdash; get access to features of more than 300 in-depth educational courses in a broad range of topics, taught by world-class instructors. Get a jumpstart on &ldquo;Understanding Investments&rdquo;, or work on inner Zen with &ldquo;Practicing Mindfulness&rdquo;.
-  img: bingepass
+  img: hoopla
   imgalt: hoopla
   imglink: https://www.hoopladigital.com/
+  hidden: true
 
 - name: "Upcoming: Town-Wide Yard Sale"
   date: 2022-02-25
@@ -73,3 +74,10 @@
   img: edison-center
   imgalt: Thomas Edison Center Logo
   imglink: https://www.menloparkmuseum.org/
+
+- name: hoopla Bonus Borrows - February 2023
+  date: 2023-02-01
+  desc: <a class="link" href="https://www.hoopladigital.com/" target="_blank" rel="noopener">hoopla</a> Bonus Borrows are back for the month of February! Library patrons can access audiobooks, eBooks, comics, and video titles from hoopla without using their borrows.
+  img: hoopla
+  imgalt: Hoopla Logo
+  imglink: https://www.hoopladigital.com/

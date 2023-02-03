@@ -32,6 +32,50 @@ const autoScroll = () => {
     }
 }
 
+// Content to inject for home page
+const contentIndex = () => {
+    let displayed = 0;
+    let newsList = ``;
+    for (const post of data.news) {
+        let newsLinks, newsImg;
+        newsImg = newsLinks = ``;
+        if (post.hidden) { continue };
+        if (displayed === 1 ) { break };
+        if (post.img && post.imgalt) {
+            newsImg = `
+            <picture>
+                <source srcset="img/news/${post.img}.webp" type="image/webp"/>
+                <img class="snippet-img" src="img/news/${post.img}.jpg" alt="${post.imgalt}" type="image/jpeg"/>
+            </picture>
+            `
+            newsImg = post.imglink ? `<a href="${post.imglink}" target="_blank" ${util.extchk(post.imglink)}>${newsImg}</a>` : newsImg;
+        }
+        if (post.buttons) {
+            for (const button of post.buttons) {
+                newsLinks += `
+                <a class="snippet-link" href="${button.link}" target="_blank" ${util.extchk(button.link)}">
+                    <div class="snippet-link-inner">${button.name}</div>
+                </a>
+                `
+            }
+        }
+        post.date = time.addHours(post.date, 5);
+        newsList += `
+        <div class="snippet">
+        ${newsImg}
+            <div class="snippet-body">
+                <a class="h4-link" href="news#${data.news.length-displayed}">${post.name}</a>
+                <br><br>
+                <p class="text">${post.desc}</p>
+                ${newsLinks}
+            </div>
+        </div>
+        `
+        displayed++;
+    }
+    document.getElementById("news-home").innerHTML = newsList;
+}
+
 // Content to inject for news page
 const contentNews = () => {
     let curYear, nextYear;
@@ -87,8 +131,8 @@ const contentNews = () => {
         newsOutput += `
         <div class="news-wrapper">
             <h2 class="news-h2" id="news-header-${curYear}">${curYear}</h2>
-            ${svg.arrow(newsList.indexOf(year) >= 2  ? " news-arrow-collapsed" : "", curYear)}
-            <div class="news-year${newsList.indexOf(year) >= 2  ? " news-year-collapsed" : ""}" id="news-year-${curYear}">
+            ${svg.arrow(newsList.indexOf(year) >= 1  ? " news-arrow-collapsed" : "", curYear)}
+            <div class="news-year${newsList.indexOf(year) >= 1  ? " news-year-collapsed" : ""}" id="news-year-${curYear}">
                 ${year}
             </div>
         </div>
@@ -154,7 +198,8 @@ const contentEvents = res => {
 }
 
 const pageInjector = p => {
-    if (p.includes('news')) { contentNews() }
+    if (p.includes('index') || p === '') { contentIndex() }
+    else if (p.includes('news')) { contentNews() }
     else if (p.includes('board')) { autoScroll() }
 }
 
