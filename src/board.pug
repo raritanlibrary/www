@@ -39,7 +39,7 @@ html(lang="en" color-mode="lite")
                             .meeting-wrapper
                                 h3.meeting-h3(id=`${y}`) #{y}
                                 .meeting-year
-                                    - let arrLen = i >= 2 ? 12 : (i === 0 ? 0 : 8);
+                                    - let arrLen = i !== 0 ? 12 : 0;
                                     for m in arr(arrLen)
                                         if !(yearExclude[i].includes(m+1))
                                             p.text #[a.link(href=`./docs/board/${y}${String(m+1).padStart(2, '0')}.pdf` target="_blank") #{months[m]}]
