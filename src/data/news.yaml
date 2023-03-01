@@ -81,3 +81,18 @@
   img: hoopla
   imgalt: Hoopla Logo
   imglink: https://www.hoopladigital.com/
+  hidden: true
+
+- name: "Upcoming: Town-Wide Yard Sale"
+  date: 2023-03-01
+  desc: On <b>Saturday, May 6th</b>, Raritan will be holding its 4th Annual Town-Wide Yard Sale. Please click on the link below for a registration form and instructions. This Spring will be a perfect time to sell unused items. Rain date May 20th.
+  #Please click on the link below for a directory of participating addresses. Rain date May 20th.
+  img: yardsale
+  imgalt: Yard sale
+  imglink: docs/events/YardSaleRegistration2023.pdf
+  #imglink: docs/events/YardSaleDirectory2023.pdf
+  buttons:
+    - name: Registration form
+      link: docs/events/YardSaleRegistration2023.pdf
+    #- name: Directory
+    #  link: docs/events/YardSaleDirectory2023.pdf
