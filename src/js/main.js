@@ -227,7 +227,7 @@ access.preload();
 
 // Functions to load for the request
 const eventResFunc = async res => {
-    res = JSON.parse(res).events;
+    res = res.events;
     data.eventInjector(res);
     if (page.includes('events')) { 
         contentEvents(res);
