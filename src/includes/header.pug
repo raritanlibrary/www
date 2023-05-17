@@ -1,27 +1,16 @@
 header.nav
-    a.logo(href="/") Raritan Public Library
-    a.logo-alt(href="/") #[span.logo-alt-large Raritan] Public Library
+    a.logo(href="/") Raritan<br>Public<br>Library
     div.nav-toggle#nav-toggle
         include ../img/icons/list.svg
-    ul.links#links
-        li.links-item: a(href="http://catalog.raritanlibrary.org/" target="_blank" rel="noopener") Catalog
-        li.links-item: a(href="/events") Event Calendar
-        li.links-item: a(href="/news") News
-        li.links-item: a(href="/resources") eBooks &amp; Digital
-        li.links-item: a(href="/passes") Museum Passes
-        li.links-item-hidden: a(href="/history") Library History
-        li.links-item-hidden: a(href="https://www.digifind-it.com/raritan" target="_blank" rel="noopener") Raritan News Archives
-        li.links-item-hidden: a(href="http://www.raritan-online.com/jb-online-menu.htm" target="_blank" rel="noopener") Basilone Archives
-        li.links-item-hidden: a(href="/jobs") Employment Opportunities
-        li.links-item-hidden: a(href="/board") Board of Trustees
-        li.links-item: a(href="/policies") Policies
-        li.links-item: a(href="/contact") Contact
-        li.links-item.links-dropdown#dropdown-more(tabindex="0")
-            div.sublinks-main More
-                include ../img/icons/dropdown.svg
-            ul.sublinks#sublinks-more
-                li.sublinks-item: a(href="/history") Library History
-                li.sublinks-item.sublinks-double: a(href="https://www.digifind-it.com/raritan" target="_blank" rel="noopener") Raritan News Archives
-                li.sublinks-item.sublinks-double: a(href="http://www.raritan-online.com/jb-online-menu.htm" target="_blank" rel="noopener") Basilone Archives
-                li.sublinks-item.sublinks-double: a(href="/jobs") Employment Opportunities
-                li.sublinks-item.sublinks-double: a(href="/board") Board of Trustees
+    nav.links#links
+        a.links-item(href="http://catalog.raritanlibrary.org/" target="_blank" rel="noopener") Catalog
+        a.links-item(href="/events") Events
+        a.links-item(href="/resources") eBooks & Digital
+        a.links-item(href="/passes") Museum Passes
+        a.links-item-more(href="/history") Library History
+        a.links-item-more(href="https://www.digifind-it.com/raritan" target="_blank" rel="noopener") Raritan News Archives
+        a.links-item-more(href="http://www.raritan-online.com/jb-online-menu.htm" target="_blank" rel="noopener") Basilone Archives
+        //a.links-item-more(href="/jobs") Employment
+        a.links-item-more(href="/board") Board of Trustees
+        a.links-item(href="/policies") Policies
+        a.links-item(href="/contact") Contact

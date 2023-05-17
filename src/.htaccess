@@ -7,16 +7,13 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
 ErrorDocument 403   /403
 ErrorDocument 404   /404
-RedirectMatch 301   ^/2016LibraryBoardMinutes.html$         /board
-RedirectMatch 301   ^/2017BoardMinutes.html$                /board
-RedirectMatch 301   ^/2018BoardMeetingMinutes.html$         /board
-RedirectMatch 301   ^/2019BoardofTrusteesMinutes.html$      /board
-RedirectMatch 301   ^/CurbsidePickUpInstructions.html$      /porchside-pickup
 RedirectMatch 301   ^/databases.html$                       /passes
 RedirectMatch 301   ^/links$                                /site-map
 RedirectMatch 301   ^/links.html$                           /site-map
 RedirectMatch 301   ^/tree.html$                            /site-map
 RedirectMatch 301   ^/tree$                                 /site-map
+RedirectMatch 301   ^/news.html$                            /
+RedirectMatch 301   ^/news$                                 /
 RedirectMatch 301   ^/NewE-BooksApp.html$                   /resources#ebooks
 RedirectMatch 301   ^/NoteworthyReads.htm$                  http://raritanpubliclibrarybooks.blogspot.com/
 RedirectMatch 301   ^/pronunciator$                         http://learning.pronunciator.com/getstarted.php?library_id=7904

@@ -146,17 +146,6 @@ export const programCalendar = (events, dateTime) => {
     document.getElementById("calendar-weeks").innerHTML = calContent;
 }
 
-// News data
-let newsData = fs.readFileSync('src/data/news.yaml', 'utf8');
-export let news = yaml.load(newsData);
-for (let i = 0; i < news.length; i++) {
-    if (news[i].hidden) {
-        news.splice(i, 1);
-        i--;
-    }
-}
-news = news.sort((a, b) => b.date - a.date);
-
 // Git data
 let tag = fs.readFileSync('src/data/_REV', 'utf8');
 export const rev = () => {

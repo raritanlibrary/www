@@ -1,210 +1,38 @@
+nItems = 10
+
 .nav
-    position relative
-    grad-background-image("left, #c00000 -40%, #4b0c10 50%, #c00000 140%", 'banner.png')
-    background-position 0% 0%
-    background-blend-mode multiply
-    padding 4px 22px 12px
-    grid-area h
-    user-select(none)
-    @media screen and (max-width 749px)
-        grad-background-image("left, #c00000 -40%, #4b0c10 50%, #c00000 140%", 'banner-1000.png')
-    &-check
-        display none
+    background-color var(--lite)
     &-toggle
         cursor pointer
         fill nav-main
         svg
             position absolute
-            width 50px
+            width 40px
             top 22px
-            right 20px
+            right 12px
             transition color 0.2s ease-in-out, transform 0.4s ease-out
-            @media screen and (max-width 424px)
-                width 35px
-                top 21px
-        @media screen and (min-width 750px)
-            display none
+.enlarge
+    svg
+        width 52px
 .logo
+    lexend-mega(16px, var(--dark), bold)
+    text-transform uppercase
+    padding 12px 16px
     display block
-    lexend(50px, nav-main)
-    text-align center
-    margin 4px 0 8px
-    letter-spacing -1px
-    transition color 0.2s ease-in-out, transform 0.4s ease-out
-    &:hover, &:focus
-        color saturate(nav-main, 50%)
-        transform scale(1.02)
-    &-alt
-        display none
-    @media screen and (min-width 750px) and (max-width 949px)
-        lexend(38px, nav-main)
-        margin 4px 0 0
-    @media screen and (min-width 425px) and (max-width 749px)
-        display none
-        &-alt
-            &-large
-                display inline-block
-                lexend(43px, nav-main)
-                margin -4px 0 0 -3.25px
-            lexend(22px, nav-main)
-            line-height 16px
-            text-align left
-            margin 4px 0 0
-            display inline-block
-            max-width 300px
-    @media screen and (max-width 424px)
-        display none
-        &-alt
-            &-large
-                display inline-block
-                lexend(30px, nav-main)
-                margin 0 0 0 -2px
-            lexend(15.4px, nav-main)
-            line-height 12px
-            text-align left
-            margin 4px 0 0
-            display inline-block
-            max-width 200px
 .links
     display flex
-    flex-flow row wrap
-    justify-self center
-    justify-content space-around
-    min-width 860px
-    max-width 1280px
-    margin -4px auto
-    padding 0 20px
-    svg
-        transition transform 0.4s cubic-bezier(0, 0.55, 0.45, 1)
-        display inline
-        width 14px
-        fill white
-        margin-left 6px
-        @media screen and (min-width 750px) and (max-width 949px)
-            width 11px
-            margin-left 4px
-    &-item, &-item-hidden
-        max-width 175px
-        list-style none
-        text-align center
-        position relative
-        border-radius 12px
-        transition background 0.2s ease-in-out
-        padding 6px 3px
-        &:hover, &:focus
-            background nav-mainB
-        &-hidden
-            display none
-            @media screen and (max-width 749px)
-                display inline
-        & a
-            minion(18px, white)
-            padding 6px 12px
-            @media screen and (min-width 750px) and (max-width 949px)
-                minion(15.5px, white)
-                padding 6px 8px
-                max-width 120px
-            @media screen and (max-width 749px)
-                minion(18px, white)
-                // 11 = /42 ... 12 = /47 ... 15 = /61 ... 16 = /73
-                padding calc((2 * 100vh - 700px) / 47) 20px
-                display flex
-                justify-content flex-end
-        @media screen and (min-width 750px) and (max-width 949px)
-            padding 6px 3px
-        @media screen and (max-width 749px)
-            text-align right
-            minion(18px, white)
-            max-width unset
-            border-radius 0
-            padding 0
-    &-dropdown
-        cursor pointer
-        @media screen and (max-width 749px)
-            display none
-    @media screen and (min-width 750px) and (max-width 949px)
-        min-width auto
-        max-width 860px
-        margin 4px auto -4px
-        padding 0 3px
-    @media screen and (max-width 749px)
-        padding 0
-        margin 0 auto
-        display flex
-        position absolute
-        z-index 1
-        background-color dropdowns
-        height calc(100vh - 90px)
-        bottom calc(-100vh + 90px)
-        text-align right
-        right -240px
-        flex-flow column
-        justify-content space-around
-        align-items stretch
-        min-width auto
-        width 240px
-        max-width auto
-        transition right 0.4s cubic-bezier(0.33, 1, 0.68, 1)
-    @media screen and (max-width 424px)
-        height calc(100vh - 73px)
-        bottom calc(-100vh + 73px)
-    &-open
-        display flex
-        right 0
-.sublinks
-    z-index 1
-    position absolute
-    top 40px
-    display flex
     flex-flow column wrap
-    justify-self center
-    justify-content space-around
-    width 150px
-    left 50%
-    background-color dropdowns
-    bx-shadow()
-    transform translate(-50%) scaleY(0)
-    transform-origin top left;
-    transition transform 0.2s ease-out
-    &-main
-        minion(18px, white)
-        padding 0px 12px
-        @media screen and (min-width 750px) and (max-width 949px)
-            position relative
-            top 4px
-            minion(15.5px, white)
-            padding 0 8px
+    align-content end
     &-item
-        list-style none
-        text-align center
-        transition background 0.2s ease-in-out
-        height 50px
-        &:hover, &:focus
-            background nav-mainB
-        & a
-            display block
-            minion(18px, white)
-            height 50px
-            padding 18px 18px 0
-            @media screen and (min-width 750px) and (max-width 949px)
-                minion(15px, white)
-                padding 18px 8px 0
-    @media screen and (min-width 750px) and (max-width 949px)
-        top 39px
-        width 120px
-    @media screen and (max-width 749px)
-        visibility hidden
-    &-down
-        transform translate(-50%) scaleY(1)
-        @media screen and (max-width 749px)
-            transform translate(0) scaleY(1)
-.rotate180
-    transform rotate(-180deg)
-.enlarge
-    transform scale(1.2)
-.sublinks-double
-    height 60px
-    & a
-        padding 14px 18px 0
-        @media screen and (min-width 750px) and (max-width 949px)
-            padding 16px 8px 0
+        lexend(16px, var(--lite), bold)
+        text-decoration none
+        background-color var(--dark-lite)
+        padding "calc(-20px/2 - 0.8px/4*((%s-1)/%s) + (100vh - 84px)/%s/2)" % (nItems nItems nItems) 16px
+        width 250px
+        text-align right
+        &:not(:last-child)
+            border-bottom 1px solid var(--neutral)
+        &:hover
+            background-color var(--neutral)
+        &-more
+            @extends .links-item

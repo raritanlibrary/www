@@ -12,7 +12,7 @@ export const preload = () => {
 const toggleMode = type => {
     const root = document.documentElement;
     const access = document.getElementById("access");
-    const all = document.querySelectorAll("* :not(b):not(i):not(sup):not(svg):not(path):not(.newsletter-decor):not(.event-zoom)");
+    const all = document.querySelectorAll("* :not(b):not(i):not(sup):not(svg):not(path):not(.newsletter-decor)");
     const addRemove = type === "dark" ? "add" : "remove";
     access.classList[addRemove]("darkmodeon");
     all.forEach(element => element.style.transition = "all 0.2s ease-in-out");

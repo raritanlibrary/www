@@ -6,33 +6,17 @@ load-font(name, file, w=normal, st=normal)
         src url("../fonts/" + file + ".woff2")
         font-display swap
 
-load-font("Lexend Mega", "lexend-mega")
+load-font("Lexend", "lexend")
+load-font("Lexend", "lexend_bold", bold)
 load-font("Lexend Mega", "lexend-mega_bold", bold)
-load-font("Minion Pro", "minion-pro")
-load-font("Minion Pro", "minion-pro_bold", bold)
-load-font("Perpetua", "perpetua")
-load-font("Perpetua", "perpetua_bold", bold)
-load-font("Perpetua", "perpetua_italic",, italic)
-load-font("Perpetua", "perpetua_bold-italic", bold, italic)
-load-font("Lato", "lato_bold", bold)
 
-lexend(sz, c=black, w=bold)
+lexend(sz, c=black, w=normal, st=normal)
+    font sz "Lexend", Arial, sans-serif
+    color c
+    font-weight w
+    letter-spacing -0.045em
+lexend-mega(sz, c=black, w=bold, st=normal)
     font sz "Lexend Mega", Arial, sans-serif
-    text-transform uppercase
     color c
     font-weight w
-    /**/
-minion(sz, c=black, w=normal)
-    font sz "Minion Pro", serif
-    color c
-    font-weight w
-    line-height sz
-perpetua(sz, c=black, w=normal, st=normal, h=1.1)
-    font sz "Perpetua", serif
-    color c
-    font-weight w
-    font-style st
-    line-height sz*h
-lato(sz, c=black)
-    font sz "Lato", Arial, sans-serif
-    color c
+    letter-spacing -0.16em
