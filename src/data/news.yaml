@@ -88,7 +88,8 @@
   desc: On <b>Saturday, May 6th</b>, Raritan will be holding its 4th Annual Town-Wide Yard Sale. This Spring will be a perfect time to sell unused items. Please click on the link below for a directory of participating addresses. Rain date May 20th.
   img: yardsale
   imgalt: Yard sale
-  imglink: docs/events/YardSaleDirectory2023.pdf
-  buttons:
-    - name: Directory
-      link: docs/events/YardSaleDirectory2023.pdf
+  hidden: true
+  # imglink: docs/events/YardSaleDirectory2023.pdf
+  # buttons:
+  #   - name: Directory
+  #     link: docs/events/YardSaleDirectory2023.pdf
