@@ -107,11 +107,11 @@ if [ $oldmd5 != $newmd5 ]; then
     # Rename new events data with proper MD5 hash
     mv "calendar.new.json" "calendar.${newmd5}.json"
 
-    # Find largest JavaScript file in www folder
-    js=$(du -sh *.js | sort -rh | head -n 1 | cut -c5-)
-
     # Replace all instances of old hash with new hash
-    sed -i "s/calendar.${oldmd5}.json/calendar.${newmd5}.json/" "${js}"
+    for i in *.js?(.map); do
+        [ -f "$i" ] || break
+        sed -i "s/calendar.${oldmd5}.json/calendar.${newmd5}.json/" "${i}"
+    done
 
     # Delete old json
     rm "${oldfile}"
