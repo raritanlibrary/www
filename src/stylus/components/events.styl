@@ -49,6 +49,8 @@ event-template(type)
         perpetua(15.5px, var(unquote(--ev-text-+type)))
         text-align justify
         text-align-last center
+        text-overflow ellipsis
+        overflow hidden
         @media screen and (max-width 949px)
             display none
         &-filler
@@ -72,7 +74,7 @@ event-template(type)
 .event
     spacer(0.5)
     @media screen and (min-width 950px)
-        min-width 100%
+        width 100%
     @media screen and (max-width 949px)
         spacer(0)
     @media screen and (min-width 750px) and (max-width 949px)
