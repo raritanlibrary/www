@@ -21,16 +21,6 @@ If you are running Windows, we will need **WinSCP** in order to communicate with
 ```
 If you are using macOS or a Linux distribution, you can modify these scripts to use **`ssh`** rather than WinSCP.
 
-### **ImageMagick**
-In order to generate some static content, we will need to download **ImageMagick** to use in the command line. You can download the [installer for Windows](https://imagemagick.org/script/download.php), or if you are using Ubuntu or Debian, run the following command:
-```
-apt-get install imagemagick
-```
-Then, run the following command to ensure it is installed correctly:
-```
-magick
-```
-
 ### **Environment variables**
 Once you have the repository downloaded and necessary programs installed, you'll need to set up an `.env` file with the following variables before running any scripts.
 - **`h`** - The hostname for the SSH server to connect to
@@ -108,7 +98,7 @@ if [ $oldmd5 != $newmd5 ]; then
     mv "calendar.new.json" "calendar.${newmd5}.json"
 
     # Replace all instances of old hash with new hash
-    for i in *.js?(.map); do
+    for i in *.{js,js.map}; do
         [ -f "$i" ] || break
         sed -i "s/calendar.${oldmd5}.json/calendar.${newmd5}.json/" "${i}"
     done

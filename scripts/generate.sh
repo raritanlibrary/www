@@ -4,9 +4,6 @@ if [ -f .env ]; then
     export $(cat .env | xargs)
 fi
 
-# Set program variables
-magick="/c/Program Files/ImageMagick/magick.exe"
-
 echo "Generating static files..."
 
 # Generate git data
