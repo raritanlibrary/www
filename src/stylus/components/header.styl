@@ -1,4 +1,5 @@
-nItems = 10
+nItems      = 9
+linksWidth  = 220
 
 .nav
     background-color var(--lite)
@@ -12,23 +13,27 @@ nItems = 10
             right 12px
             transition color 0.2s ease-in-out, transform 0.4s ease-out
 .enlarge
-    svg
-        width 52px
+    transform scale(1.2)
 .logo
     lexend-mega(16px, var(--dark), bold)
     text-transform uppercase
     padding 12px 16px
     display block
+    max-width 120px
 .links
     display flex
+    position absolute
     flex-flow column wrap
     align-content end
+    right "-%spx" % (linksWidth)
+    z-index 1
+    transition right 0.4s cubic-bezier(0.33, 1, 0.68, 1)
     &-item
         lexend(16px, var(--lite), bold)
         text-decoration none
         background-color var(--dark-lite)
-        padding "calc(-20px/2 - 0.8px/4*((%s-1)/%s) + (100vh - 84px)/%s/2)" % (nItems nItems nItems) 16px
-        width 250px
+        padding "calc(-20px/2 - 0.8px/4*((%s - 1)/%s) + (100vh - 87px)/%s/2)" % (nItems nItems nItems) 16px
+        width "%spx" % (linksWidth)
         text-align right
         &:not(:last-child)
             border-bottom 1px solid var(--neutral)
@@ -36,3 +41,5 @@ nItems = 10
             background-color var(--neutral)
         &-more
             @extends .links-item
+    &-open
+        right 0

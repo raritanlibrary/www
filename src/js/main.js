@@ -3,6 +3,7 @@ import * as util from './util';
 import * as nav from './nav';
 import * as data from './data';
 import * as access from './access';
+import * as carousel from './carousel';
 import * as svg from './svg';
 import eventJson from 'url:../data/calendar.json';
 
@@ -83,12 +84,12 @@ const pageInjector = p => {
 
 nav.dropdown();
 nav.sticky();
-access.preload();
+//access.preload();
 
 // Functions to load for the request
 const eventResFunc = async res => {
     res = res.events;
-    data.eventInjector(res);
+    //data.eventInjector(res);
     if (page.includes('events')) { 
         contentEvents(res);
     }
@@ -100,6 +101,6 @@ util.req(eventJson, eventResFunc);
 window.onload = () => {
     time.injector();
     pageInjector(page);
-    access.hicontrast();
-    data.rev();
+    //access.hicontrast();
+    //data.rev();
 };

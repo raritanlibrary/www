@@ -34,7 +34,7 @@ const dropdownKeyLogic = (str, tab, e) => {
 // Uncheck on clicking/tabbing outside, flip arrows on desktop
 export const dropdown = () => {
     util.addClickListener(e => {
-        dropdownClickLogic("more", e);
+        //dropdownClickLogic("more", e);
     });
     window.addEventListener('keyup', e => {
         let tabbed;
@@ -43,7 +43,7 @@ export const dropdown = () => {
         } catch (error) {
             tabbed = document.activeElement.id;
         }
-        dropdownKeyLogic("more", tabbed, e);
+        //dropdownKeyLogic("more", tabbed, e);
     });
 }
 
@@ -68,7 +68,7 @@ export const sticky = () => {
                 menuIcon.classList.contains("enlarge") && (xDiff < 0),
                 [links, "links-open"],
                 [menuIcon, "enlarge"],
-                [main, "main-darken", "freeze"],
+                [main, "darken", "freeze"],
                 [page, "freeze"]                
             )
         }
@@ -86,8 +86,8 @@ export const sticky = () => {
             !links.contains(e.target) && menuIcon.classList.contains("enlarge"),
             [links, "links-open"],
             [menuIcon, "enlarge"],
-            [main, "main-darken", "freeze"],
-            [access, "access-darken"],
+            [main, "darken", "freeze"],
+            //[access, "access-darken"],
             [page, "freeze"]
         )
     })
