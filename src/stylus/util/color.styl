@@ -5,14 +5,10 @@ crit            = #ff5252
 alert-colors = 'inf' 'att' 'crit'
 er(c)
     tint(c, 30%)
-er-alt(c)
-    tint(c, 10%)
 er-text(c)
     shade(c, 70%)
 er-dark(c)
     shade(c, 90%)
-er-alt-dark(c)
-    shade(saturate(c, -40%), 50%)
 er-text-dark(c)
     tint(saturate(c, -25%), 60%)
 // Events -----------------------------
@@ -52,7 +48,7 @@ ev-text-dark(c)
         --accent                #0a4dbc
         --lite                  #ffffff
         --neutral               #565656
-        --dark-lite             #262626
+        --neutral-dark          #262626
         --dark                  #000000
         for col, i in alert-colors
             --er-{col} er(lookup(col))
@@ -69,7 +65,7 @@ ev-text-dark(c)
         --accent                #0a4dbc
         --lite                  #ffffff
         --neutral               #565656
-        --dark-lite             #262626
+        --neutral-dark          #262626
         --dark                  #000000
         --map                   invert(95%) hue-rotate(180deg)
         for col, i in alert-colors
@@ -82,3 +78,10 @@ ev-text-dark(c)
             --ev-hover-{col} ev-hover-dark(lookup('event-'+col))
             --ev-text-{col} ev-text-dark(lookup('event-'+col))
             --ev-cover-{col} rgba(ev-dark(lookup('event-'+col)), 0.6)
+// Shortcuts ---------------------------
+accent-lite     = var(--accent-lite)
+accent          = var(--accent)
+lite            = var(--lite)
+neutral         = var(--neutral)
+neutral-dark    = var(--neutral-dark)
+dark            = var(--dark)

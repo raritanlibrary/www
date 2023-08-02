@@ -2,6 +2,7 @@
   "name": "www",
   "version": "1.0.0",
   "description": "A website for Raritan Public Library.",
+  "browserslist": ">= 0.1% in US, last 3 years, not dead",
   "dependencies": {
     "js-yaml": "^4.1.0",
     "pug": "^3.0.2",

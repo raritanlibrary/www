@@ -3,7 +3,7 @@ import * as util from './util';
 import * as nav from './nav';
 import * as data from './data';
 import * as access from './access';
-import * as carousel from './carousel';
+import * as hero from './hero';
 import * as svg from './svg';
 import eventJson from 'url:../data/calendar.json';
 
@@ -103,4 +103,10 @@ window.onload = () => {
     pageInjector(page);
     //access.hicontrast();
     //data.rev();
+};
+
+if (!url.includes('.html') && !url.includes('#') && url !== 'http://localhost:1234/') {
+    window.location.href = url + '.html'
+} else if (!url.includes('.html') && url.includes('#')) {
+    window.location.href = url.split("#")[0] + '.html#' + url.split("#")[1]
 };

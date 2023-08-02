@@ -11,9 +11,11 @@ html(lang="en" color-mode="lite")
             main.main
                 +alert("info")
                     span Raritan Public Library will be closed on <b>Holiday</b> in observance of <b>Holiday</b>.
-                .slider
-                    each v, i in ['mountain', 'cars', 'night', 'city']
-                        img.slide(src=`https://source.unsplash.com/random?landscape,${v}`)
-                    .btn.btn-next <<
-                    .btn.btn-prev >>
+                .hero
+                    each v, i in ['test-hero', 'two', 'three', 'four', 'X']
+                        picture.hero-slide
+                            source(srcset=`./img/hero/${v}.png?as=webp` alt="" type="image/webp")
+                            img(src=`./img/hero/${v}.png?as=jpeg` alt="" type="image/jpeg")
+                    .hero-nav-prev: include ./img/icons/caret-left.svg
+                    .hero-nav-next: include ./img/icons/caret-right.svg
             //include ./includes/footer.pug
