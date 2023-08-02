@@ -277,3 +277,19 @@ ol
         @media screen and (min-width 425px) and (max-width 510px)
             minion(35px, var(--alt), bold)
             letter-spacing -2px
+.bb-temp
+    margin-right 32px
+    @media screen and (min-width 950px) and (max-width 1083px)
+        margin-right 0
+    @media screen and (max-width 749px)
+        margin-right 0
+    &-inner
+        width 100%
+        height unset
+.news
+    display flex
+    flex-flow row no-wrap
+    @media screen and (min-width 950px) and (max-width 1083px)
+        flex-flow column wrap
+    @media screen and (max-width 749px)
+        flex-flow column wrap
