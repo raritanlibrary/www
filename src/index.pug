@@ -12,10 +12,16 @@ html(lang="en" color-mode="lite")
                 +alert("info")
                     span Raritan Public Library will be closed on <b>Holiday</b> in observance of <b>Holiday</b>.
                 .hero
-                    each v, i in ['test-hero', 'two', 'three', 'four', 'X']
-                        picture.hero-slide
-                            source(srcset=`./img/hero/${v}.png?as=webp` alt="" type="image/webp")
-                            img(src=`./img/hero/${v}.png?as=jpeg` alt="" type="image/jpeg")
-                    .hero-nav-prev: include ./img/icons/caret-left.svg
-                    .hero-nav-next: include ./img/icons/caret-right.svg
+                    - const heroImages = ['test-hero', 'two', 'three', 'four', 'X'];
+                    .hero-content#hero-content
+                        each v, i in heroImages
+                            picture.hero-slide(id=`hero-slide-${i}`)
+                                source(srcset=`./img/hero/${v}.png?as=webp` alt="" type="image/webp")
+                                img(src=`./img/hero/${v}.png?as=jpeg` alt="" type="image/jpeg")
+                    .hero-nav
+                        .hero-nav-item#hero-prev: include ./img/icons/caret-left.svg
+                        .hero-nav-item#hero-next: include ./img/icons/caret-right.svg
+                    .hero-select
+                        each v, i in heroImages
+                            .hero-select-item(class=`${i === 0 ? 'hero-select-current' : ''}` id=`hero-dot-${i}`): include ./img/icons/dot.svg
             //include ./includes/footer.pug

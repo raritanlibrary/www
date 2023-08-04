@@ -1,36 +1,54 @@
 hero-size = 90
 
-.hero
-    height 220px
-    background-color accent
+hero-flex(align, justify)
+    position absolute
     display flex
     flex-flow row nowrap
-    overflow hidden
-    align-items center
+    width 100%
+    align-self align
+    justify-content justify
+    &-item
+        z-index 1
+        cursor pointer
+        user-select none
+        opacity 0.4
+        transition all 0.2s cube-out
+        &:hover
+            opacity 1
+            transform scale(1.3)
+        svg
+            width 24px
+            fill lite
+
+.hero
+    display flex
+    flex-flow row nowrap
+    &-content
+        display flex
+        flex-flow row nowrap
+        height 54vw
+        background-color accent
+        overflow hidden
+        align-items center
     &-slide
-        transition all 0.4s cubic-bezier(0.33, 1, 0.68, 1)
+        user-select none
         img, source
             margin-left "%svw" % ( (100 - hero-size) / 4 )
             width "%svw" % (hero-size)
     &-nav
-        position absolute
-        padding 24px
-        margin 0 -20px
-        border none
-        z-index 1
-        cursor pointer
-        user-select none
-        svg
-            width 24px
-            fill lite
-            opacity 0.5
-        &:active
-            transform scale(1.1)
-        &:hover
+        hero-flex(center, space-between)
+        &-item
+            padding 24px
+            margin 0 -20px
+    &-select
+        hero-flex(flex-end, center)
+        &-item
+            padding 2px 0px
+        &-current
             opacity 1
-        &-prev
-            @extends .hero-nav
-            left 0
-        &-next
-            @extends .hero-nav
-            right 0
+            transform scale(1.3)
+
+.shift
+    transform translateX(-100%)
+    &-transition
+        transition transform 0.4s cube-out
