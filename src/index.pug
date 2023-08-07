@@ -4,24 +4,31 @@ html(lang="en" color-mode="lite")
         - const home = true
         - const desc = "Discover the Raritan Public Library online to explore information on books, digital resources, media, and more."
         include ./includes/_head.pug
-    body
+    body.body
         //include ./includes/access.pug
-        div.body
-            include ./includes/header.pug
-            main.main
-                +alert("info")
-                    span Raritan Public Library will be closed on <b>Holiday</b> in observance of <b>Holiday</b>.
-                .hero
-                    - const heroImages = ['test-hero', 'two', 'three', 'four', 'X'];
-                    .hero-content#hero-content
-                        each v, i in heroImages
-                            picture.hero-slide(id=`hero-slide-${i}`)
-                                source(srcset=`./img/hero/${v}.png?as=webp` alt="" type="image/webp")
-                                img(src=`./img/hero/${v}.png?as=jpeg` alt="" type="image/jpeg")
-                    .hero-nav
-                        .hero-nav-item#hero-prev: include ./img/icons/caret-left.svg
-                        .hero-nav-item#hero-next: include ./img/icons/caret-right.svg
-                    .hero-select
-                        each v, i in heroImages
-                            .hero-select-item(class=`${i === 0 ? 'hero-select-current' : ''}` id=`hero-dot-${i}`): include ./img/icons/dot.svg
+        include ./includes/header.pug
+        main.main
+            +alert("info")
+                span Raritan Public Library will be closed on <b>Holiday</b> in observance of <b>Holiday</b>.
+            .hero
+                - const heroImages = ['test-hero', 'two', 'three', 'four', 'X'];
+                .hero-content#hero-content
+                    each v, i in heroImages
+                        picture.hero-slide(id=`hero-slide-${i}`)
+                            source(srcset=`./img/hero/${v}.png?as=webp` alt="" type="image/webp")
+                            img(src=`./img/hero/${v}.png?as=jpeg` alt="" type="image/jpeg")
+                .hero-nav
+                    .hero-nav-item#hero-prev: include ./img/icons/caret-left.svg
+                    .hero-nav-item#hero-next: include ./img/icons/caret-right.svg
+                .hero-select#hero-select
+                    each v, i in heroImages
+                        .hero-select-item(class=`${i === 0 ? 'hero-select-current' : ''}` id=`hero-dot-${i}`): include ./img/icons/dot.svg
+            .content
+                .news
+                    h1 Spotlight
+                    p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam eligendi nostrum, dolor repellat blanditiis necessitatibus! Minima explicabo voluptates tempore asperiores illo aut cumque ducimus, non officiis consequatur repellendus corporis ullam?
+                .events
+                    h1 Upcoming Events
+                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, repudiandae expedita magni cum cumque distinctio possimus, mollitia perferendis eius blanditiis qui voluptas iure eos. Ipsum, perspiciatis animi nemo voluptatem a quia iure magni praesentium sed nulla mollitia temporibus inventore assumenda facilis aperiam ab quaerat quasi, aliquid quo. Iusto neque, fugiat reiciendis incidunt veritatis nesciunt sed, veniam quos ut quis assumenda.
+
             //include ./includes/footer.pug

@@ -6,6 +6,9 @@ export const req = async (url, resFunc) => {
     .catch(err => console.log(err));
 };
 
+// Corrected modulo function
+export const mod = (n, m) => ((n % m) + m) % m;
+
 // Returns extra data based on existance of external website string
 export const extchk = str => str.match('^http') ? `rel="noopener"` : ``;
 

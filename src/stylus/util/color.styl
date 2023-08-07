@@ -46,6 +46,7 @@ ev-text-dark(c)
     &[color-mode="lite"]
         --accent-lite           #5587da
         --accent                #0a4dbc
+        --accent-dark           #022295
         --lite                  #ffffff
         --neutral               #565656
         --neutral-dark          #262626
@@ -62,7 +63,8 @@ ev-text-dark(c)
             --ev-cover-{col} rgba(ev(lookup('event-'+col)), 0.6)
     &[color-mode="dark"]
         --accent-lite           #5587da
-        --accent                #0a4dbc
+        --accent                #0e68ff
+        --accent-dark           #053ffb
         --lite                  #ffffff
         --neutral               #565656
         --neutral-dark          #262626
@@ -81,6 +83,7 @@ ev-text-dark(c)
 // Shortcuts ---------------------------
 accent-lite     = var(--accent-lite)
 accent          = var(--accent)
+accent-dark     = var(--accent-dark)
 lite            = var(--lite)
 neutral         = var(--neutral)
 neutral-dark    = var(--neutral-dark)
