@@ -89,7 +89,7 @@ nav.sticky();
 // Functions to load for the request
 const eventResFunc = async res => {
     res = res.events;
-    //data.eventInjector(res);
+    data.eventInjector(res);
     if (page.includes('events')) { 
         contentEvents(res);
     }

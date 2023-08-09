@@ -17,11 +17,12 @@ linksWidth  = 220
     transform scale(1.2)
 
 .logo
-    lexend-mega(16px, dark, bold)
-    text-transform uppercase
     padding 12px 16px
     display block
-    max-width 120px
+    svg
+        position relative
+        height 60px
+        left -8px
 
 .links
     display flex
@@ -31,6 +32,7 @@ linksWidth  = 220
     right "-%spx" % (linksWidth)
     z-index 1
     transition right 0.4s cube-out
+    user-select none
     &-item
         lexend(16px, lite, bold)
         text-decoration none

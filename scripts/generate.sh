@@ -37,4 +37,7 @@ month=$(date --date="$(date) - 45 day" +%B)
 # Get and save events data to json file
 curl -Ls -X GET "$url/events?cal_id=16676&days=160&limit=500&date=$year-$month-01" -H "Authorization: Bearer $token" > src/data/calendar.json
 
+# Download all event images into dist/img/events
+#grep -oP '"id":(\d+),"title"|"featured_image":"(.*?)",' src/data/calendar.json
+
 echo "Finished generation."

@@ -3,7 +3,7 @@ import * as util from './util';
 const fs = require('fs');
 const yaml = require('js-yaml');
 
-// Event parsing function (sidebar)
+// Event parsing function (truncated)
 export const eventInjector = data => {
     let dupes = [
         "1-on-1 Computer Help",
@@ -11,7 +11,7 @@ export const eventInjector = data => {
         "Brendan 1-on-1 Computer Session",
         "1-on-1 Computer Class with Brendan"
     ];
-    let sidebarData = []
+    let truncatedData = []
     data.forEach(entry => {
         let category = entry.category.length > 0 ? entry.category[0].name : entry.category;
         if (!dupes.includes(entry.title) && !(entry.title).toLowerCase().includes("cancelled") && category !== "Holiday") {
@@ -23,65 +23,53 @@ export const eventInjector = data => {
                 "date": [new Date(entry.start)].concat(entry.future_dates.map(({start}) => new Date(start))),
                 "length": entry.allday ? 24 : (new Date(entry.end) - new Date(entry.start)) / time.msh,
                 "range": entry.allday && entry.future_dates.length > 2,
-                "blurb": entry.description.replace(/<[^>]*>?/gm, ''),
-                "style": util.stylizer(entry.category),
+                "category": category,
+                "image": entry.featured_image,
                 "form": entry.url.public
             };
             event.enddate = event.range ? new Date(event.date[event.date.length - 1]) : new Date(entry.end);
+            event.schedule = `https://calendar.google.com/calendar/render?action=TEMPLATE&dates=${time.formatISOAlt(event.date[0])}%2F${time.formatISOAlt(event.enddate)}&location=Raritan%20Public%20Library&text=${encodeURIComponent(event.title)}`
             event.datesort = (event.date[0] < time.now && event.length === "range") ? time.now : event.date[0];
-            sidebarData.push(event);
+            truncatedData.push(event);
         }
     });
-    sidebarData = sidebarData.sort((a, b) => a.datesort - b.datesort);
+    truncatedData = truncatedData.sort((a, b) => a.datesort - b.datesort);
+    
     // Begin injection
     let displayed = 0;
     let eventList = ``;
-    for (const event of sidebarData) {
-        let eventDate, eventTime, eventDateMobile;
-        if (displayed === 4 ) {
+    for (const event of truncatedData) {
+        let eventDateTime = time.shortDate(event.date[0]);
+        if (displayed === 5 ) {
             break
         }
         if (event.range) {
-            eventDate = `Starting ${time.monthDay(event.date[0])}`;
-            eventTime = `through ${time.monthDay(event.enddate)}`;
-            eventDateMobile = `${eventDate.slice(9)} - ${eventTime.slice(8)}`;
-        } else if (event.date.length > 1) {
-            if (event.date[0].getDate() === event.date[1].getDate()) {
-                eventDate = time.fullDate(event.date[0]);
-                eventTime = `${time.formatTime(event.date[0])} and ${time.formatTime(event.date[1])}`;
-                eventDateMobile = time.monthDayTime(event.date[0]);
-            } else {
-                eventDate = `${time.weekday(event.date[0])}s at ${time.formatTime(event.date[0])}`;
-                eventTime = ``;
-                time.datechunk(event.date).forEach((chunk, i) => eventTime += i < event.date.length - 1 ? `${chunk}<br>` : chunk);
-                eventDateMobile = eventDate;
-            }
+            eventDateTime += ` - ${time.shortDate(event.enddate)}`;
+        } else if (event.date.length > 1 && event.date[0].getDate() === event.date[1].getDate()) {
+            eventDateTime += ` | ${time.formatTime(event.date[0])} and ${time.formatTime(event.date[1])}`;
         } else {
-            eventDate = time.fullDate(event.date[0]);
-            eventTime = `${time.formatTime(event.date[0])} - ${time.formatTime(event.enddate)}`;
-            eventDateMobile = time.monthDayTime(event.date[0]);
+            eventDateTime += ` | ${time.formatTime(event.date[0])}`;
         }
         if (event.enddate >= time.now) {
             eventList += `
             <div class="event">
-            <div class="event-${event.style}">
-                    <a class="event-${event.style}-link" href="${event.form}" target="_blank" rel="noopener">
-                        <div class="event-${event.style}-cover">
-                            <p class="event-${event.style}-title">${event.title}</p>
-                            <hr class="event-${event.style}-hr"/>
-                            <p class="event-${event.style}-date">${eventDate}</p>
-                            <p class="event-${event.style}-time">${eventTime}</p>
-                            <p class="event-${event.style}-date-mobile">${eventDateMobile}</p>
-                            <p class="event-${event.style}-desc">${event.blurb}</p>
+                <div class="event-category">${event.category}</div>
+                <div class="event-main">
+                    <img class="event-image"src="${event.image}">
+                    <div class="event-info">
+                        <h2 class="event-header" href="${event.form}" target="_blank" rel="noopener">${event.title}</h2>
+                        <div class="event-datetime">${eventDateTime}</div>
+                        <div class="event-action">
+                            <a class="event-register" href="${event.form}" target="_blank" rel="noopener">Register</a>
+                            <a class="event-schedule" href="${event.schedule}" target="_blank" rel="noopener">Add to calendar</a>
                         </div>
-                    </a>
+                    </div>
                 </div>
-            </div>
-            `
+            </div>`
             displayed++;
         }
     }
-    document.getElementById("events").innerHTML = eventList;
+    document.getElementById("upcoming").innerHTML = eventList;
 }
 
 // HTML injection for event calendar
@@ -100,9 +88,11 @@ export const programCalendar = (events, dateTime) => {
     document.getElementById("calendar-month").innerHTML = `${curMonthName} ${curYear}`;
     document.getElementById("month-nav-left").innerHTML = `<< ${lastMonthName} ${lastYear}`;
     document.getElementById("month-nav-right").innerHTML = `${nextMonthName} ${nextYear} >>`;
+    
     // Get day of the week for the first day of the month
     const monthFirst = new Date(curYear, dateTime.getMonth(), 1);
     const monthFirstDay = monthFirst.getDay();
+    
     // Add all days of the month, starting from Sunday
     // Then count from that first day until the calendar is filled
     // Add events as you go through the calendar
@@ -135,8 +125,7 @@ export const programCalendar = (events, dateTime) => {
                     <p class="calendar-entry-${util.stylizer(event.category)}-time">
                         ${eventTime}
                     </p>
-                </a>
-                `
+                </a>`
             }
         }
         calContent += `</div>`

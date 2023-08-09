@@ -3,6 +3,7 @@
 @require './util/motion'
 @require './util/reset'
 @require './components/alert'
+@require './components/event'
 @require './components/header'
 @require './components/hero'
 @require './components/scrollbar'
@@ -21,11 +22,11 @@ html
     margin 16px
 
 h1
-    lexend-mega(24px, accent)
+    lexend-mega(28px, accent)
     margin-bottom 4px
 
 p
-    lexend(18px)
+    lexend(16px)
     margin-bottom 16px
 
 b
@@ -33,3 +34,7 @@ b
 
 .darken
     filter brightness(40%)
+
+.freeze
+    overflow-y hidden
+    user-select none

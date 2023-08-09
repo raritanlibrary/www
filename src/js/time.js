@@ -12,7 +12,9 @@ export const mm = ["January", "February", "March", "April", "May", "June", "July
 
 // Return day of the week or month name based on a datetime object
 export const weekday = t => ww[t.getDay()];
+export const weekdayShort = t => `${weekday(t).slice(0,3)}.`;
 export const month = t => mm[t.getMonth()];
+export const monthShort = t => `${month(t).slice(0,3)}.`;
 
 // Millisecond shortcuts (milliseconds * seconds * minutes...)
 export const msh = 36e5;
@@ -41,11 +43,13 @@ export const formatTime = d => {
     return `${h}:${m} ${dd}`;
 }
 
+// Format a datetime into a string yyyymmddThhmmssZ (for calendar links)
+export const formatISOAlt = date => date.toISOString().replace(/\d+Z/, 'Z').replaceAll(/[^\dTZ]+/g, '');
+
 // Shortcuts to combine stringified datetimes
 export const monthDay = t => `${month(t)} ${formatDate(t)}`;
+export const shortDate = t => `${weekdayShort(t)} ${month(t)} ${t.getDate()}`;
 export const fullDate = t => `${weekday(t)}, ${monthDay(t)}`;
-export const monthDayTime = t => `${monthDay(t)} at ${formatTime(t)}`;
-export const fullDayTime = t => `${fullDate(t)}, ${formatTime(t)}`;
 
 // Formats multiple dates into a string, chunked by month
 export const datechunk = arr => {
