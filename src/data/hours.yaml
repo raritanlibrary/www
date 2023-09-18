@@ -1,11 +1,11 @@
 hours:
 - CLOSED
-- 10 AM - 8 PM
-- 10 AM - 8 PM
-- 10 AM - 8 PM
-- 10 AM - 8 PM
-- 10 AM - 5 PM
-- 10 AM - 3 PM
+- 9 AM - 8 PM
+- 9 AM - 8 PM
+- 9 AM - 8 PM
+- 9 AM - 8 PM
+- 9 AM - 5 PM
+- 9 AM - 2 PM
 
 holidays:
 - {date: 2023-01-02, name: New Year's Day}
