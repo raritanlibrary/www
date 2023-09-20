@@ -18,10 +18,6 @@ RedirectMatch 301   ^/links.html$                           /site-map
 RedirectMatch 301   ^/tree.html$                            /site-map
 RedirectMatch 301   ^/tree$                                 /site-map
 RedirectMatch 301   ^/NewE-BooksApp.html$                   /resources#ebooks
-RedirectMatch 301   ^/NoteworthyReads.htm$                  http://raritanpubliclibrarybooks.blogspot.com/
-RedirectMatch 301   ^/pronunciator$                         http://learning.pronunciator.com/getstarted.php?library_id=7904
-RedirectMatch 301   ^/pronunciator.html$                    http://learning.pronunciator.com/getstarted.php?library_id=7904
-RedirectMatch 301   ^/Pronunciator.html$                    http://learning.pronunciator.com/getstarted.php?library_id=7904
 RedirectMatch 301   ^/digital$                              /resources
 RedirectMatch 301   ^/ebooks$                               /resources#ebooks
 RedirectMatch 301   ^/education$                            /resources#education
