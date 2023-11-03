@@ -205,5 +205,6 @@ src/data/_REV
 # Dist zip
 www.*
 
-# LibCal calendar
+# LibCal calendar & hashcache
 src/data/calendar.json
+src/data/hashcache.json

@@ -4,7 +4,7 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 
 // Event parsing function (truncated)
-export const eventInjector = data => {
+export const eventInjector = (data, cache) => {
     let dupes = [
         "1-on-1 Computer Help",
         "Brendan 1-on-1 Computer Help",
@@ -12,6 +12,17 @@ export const eventInjector = data => {
         "1-on-1 Computer Class with Brendan"
     ];
     let truncatedData = []
+
+    // Transpose cache
+    cacheByID = {}
+    Object.keys(cache).forEach(key => {
+        const arr = cache[key];
+        arr.forEach(id => {
+            cacheByID[id] = key;
+        })
+    })
+
+    // Initial pass
     data.forEach(entry => {
         let category = entry.category.length > 0 ? entry.category[0].name : entry.category;
         if (!dupes.includes(entry.title) && !(entry.title).toLowerCase().includes("cancelled") && category !== "Holiday") {
@@ -24,7 +35,7 @@ export const eventInjector = data => {
                 "length": entry.allday ? 24 : (new Date(entry.end) - new Date(entry.start)) / time.msh,
                 "range": entry.allday && entry.future_dates.length > 2,
                 "category": category,
-                "image": entry.featured_image,
+                "image": cacheByID[entry.id],
                 "form": entry.url.public
             };
             event.enddate = event.range ? new Date(event.date[event.date.length - 1]) : new Date(entry.end);
@@ -50,12 +61,15 @@ export const eventInjector = data => {
         } else {
             eventDateTime += ` | ${time.formatTime(event.date[0])}`;
         }
-        if (event.enddate >= time.now) {
+        if (event.enddate >= time.now && event.category !== 'Reading Program') {
             eventList += `
             <div class="event">
                 <div class="event-category">${event.category}</div>
                 <div class="event-main">
-                    <img class="event-image"src="${event.image}">
+                    <picture class="event-image">
+                        <source srcset="img/events/${event.image}.webp" alt="${event.title}" type="image/webp">
+                        <img src="img/events/${event.image}.jpg" alt="${event.title}" type="image/jpeg">
+                    </picture>
                     <div class="event-info">
                         <h2 class="event-header" href="${event.form}" target="_blank" rel="noopener">${event.title}</h2>
                         <div class="event-datetime">${eventDateTime}</div>

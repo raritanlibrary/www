@@ -6,6 +6,7 @@ import * as access from './access';
 import * as hero from './hero';
 import * as svg from './svg';
 import eventJson from 'url:../data/calendar.json';
+import hashCache from 'url:../data/hashcache.json';
 
 // Favicon mode
 if (window.matchMedia('(prefers-color-scheme:light)').matches) {
@@ -89,13 +90,14 @@ nav.sticky();
 // Functions to load for the request
 const eventResFunc = async res => {
     res = res.events;
-    data.eventInjector(res);
+    const cache = await fetch(hashCache).then(x => x.json());
+    data.eventInjector(res, cache);
     if (page.includes('events')) { 
         contentEvents(res);
     }
 };
 
-// Load event data
+// Load event/hashcache data
 util.req(eventJson, eventResFunc);
 
 window.onload = () => {
