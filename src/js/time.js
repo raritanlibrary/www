@@ -94,9 +94,10 @@ export const injector = () => {
     let holidayDays = []
     holidays.forEach(holiday => {
         const holidayStart = Array.isArray(holiday.date) ? addHours(holiday.date[0], 5) : addHours(holiday.date, 5);
-        const holidayEnd = Array.isArray(holiday.date) ? addHours(holiday.date[1], 29) : addHours(holiday.date, 29);
+        const holidayEnd = Array.isArray(holiday.date) ? addHours(holiday.date[holiday.date.length-1], 29) : addHours(holiday.date, 29);
         const holidayEndName = addHours(holidayEnd, -24)
-        const holidayStr = Array.isArray(holiday.date) ? `${fullDate(holidayStart)}</b> and <b>${fullDate(holidayEndName)}` : fullDate(holidayStart);
+        const holidayStr = Array.isArray(holiday.date) ? `${fullDate(holidayStart)}</b> to <b>${fullDate(holidayEndName)}` : fullDate(holidayStart);
+        const holidayPrefix = Array.isArray(holiday.date) ? 'from' : 'on'
         holidayDays.push(fullDate(holidayStart));
         if (Array.isArray(holiday.date)) {
             holidayDays.push(fullDate(holidayEndName));
@@ -109,7 +110,7 @@ export const injector = () => {
                     <div class="alert-info-logo">${svg.info}</div>
                     <div class="alert-info-text">
                         <div class="alert-info-title">Attention</div>
-                        <div class="alert-info-desc">Raritan Public Library will be closed on <b>${holidayStr}</b> in observance of <b>${holiday.name}</b>. For more information about this closing, please contact the Library during our open hours by phone at <b>(908) 725-0413</b> or by email at <a class="link" href="mailto:info@raritanlibrary.org">info@raritanlibrary.org</a>.</div>
+                        <div class="alert-info-desc">Raritan Public Library will be closed ${holidayPrefix} <b>${holidayStr}</b> in observance of <b>${holiday.name}</b>. For more information about this closing, please contact the Library during our open hours by phone at <b>(908) 725-0413</b> or by email at <a class="link" href="mailto:info@raritanlibrary.org">info@raritanlibrary.org</a>.</div>
                     </div>
                 </div>`
             }
