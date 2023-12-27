@@ -14,6 +14,7 @@ load-font("Perpetua", "perpetua")
 load-font("Perpetua", "perpetua_bold", bold)
 load-font("Perpetua", "perpetua_italic",, italic)
 load-font("Perpetua", "perpetua_bold-italic", bold, italic)
+load-font("Lato", "lato",)
 load-font("Lato", "lato_bold", bold)
 
 lexend(sz, c=black, w=bold)
@@ -33,6 +34,7 @@ perpetua(sz, c=black, w=normal, st=normal, h=1.1)
     font-weight w
     font-style st
     line-height sz*h
-lato(sz, c=black)
+lato(sz, c=black, w=normal)
     font sz "Lato", Arial, sans-serif
     color c
+    font-weight w

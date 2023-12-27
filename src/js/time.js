@@ -90,19 +90,30 @@ const curHours = hours[dotw];
 
 // Inject hours data
 export const injector = () => {
-    // Holiday alerts
+    // Holiday alerts, modal
     let holidayDays = []
+    let earlyCloseDays = {}
+    let modalContent = '<h3 class="modal-header">Holiday Hours</h3>';
     holidays.forEach(holiday => {
         const holidayStart = Array.isArray(holiday.date) ? addHours(holiday.date[0], 5) : addHours(holiday.date, 5);
         const holidayEnd = Array.isArray(holiday.date) ? addHours(holiday.date[holiday.date.length-1], 29) : addHours(holiday.date, 29);
         const holidayEndName = addHours(holidayEnd, -24)
         const holidayStr = Array.isArray(holiday.date) ? `${fullDate(holidayStart)}</b> to <b>${fullDate(holidayEndName)}` : fullDate(holidayStart);
         const holidayPrefix = Array.isArray(holiday.date) ? 'from' : 'on'
-        holidayDays.push(fullDate(holidayStart));
+        let earlyClosing = '';
+        // Alerts
         if (Array.isArray(holiday.date)) {
-            holidayDays.push(fullDate(holidayEndName));
+            holiday.date.forEach(date => holidayDays.push(fullDate(addHours(date, 5))));
+        } else {
+            holidayDays.push(fullDate(holidayStart));
         }
-        if (holidayStart.getTime() - now.getTime() <= msd*14 && holidayEnd.getTime() - now.getTime() > 0) {
+        if (holiday.modHours) {
+            const earlyCloseDate = addHours(holiday.modHours.date, 5);
+            earlyClosing = `The library will also be closing early on <b>${fullDate(earlyCloseDate)}</b> at <b>${holiday.modHours.time.split(" - ")[1]}</b>.`;
+            earlyCloseDays[fullDate(earlyCloseDate)] = holiday.modHours.time;
+        }
+        const closureSidebar = document.getElementById("closure-sidebar");
+        if (holidayStart.getTime() - now.getTime() <= msd*14 && holidayEnd.getTime() - now.getTime() > 0 && closureSidebar.innerHTML === '') {
             const holidayAlert = document.getElementById("closure-index");
             if (holidayAlert) {
                 holidayAlert.innerHTML = `
@@ -110,32 +121,52 @@ export const injector = () => {
                     <div class="alert-info-logo">${svg.info}</div>
                     <div class="alert-info-text">
                         <div class="alert-info-title">Attention</div>
-                        <div class="alert-info-desc">Raritan Public Library will be closed ${holidayPrefix} <b>${holidayStr}</b> in observance of <b>${holiday.name}</b>. For more information about this closing, please contact the Library during our open hours by phone at <b>(908) 725-0413</b> or by email at <a class="link" href="mailto:info@raritanlibrary.org">info@raritanlibrary.org</a>.</div>
+                        <div class="alert-info-desc">Raritan Public Library will be closed ${holidayPrefix} <b>${holidayStr}</b> in observance of <b>${holiday.name}</b>. ${earlyClosing} For more information about this closing, please contact the Library during our open hours by phone at <b>(908) 725-0413</b> or by email at <a class="link" href="mailto:info@raritanlibrary.org">info@raritanlibrary.org</a>.</div>
                     </div>
                 </div>`
             }
-            document.getElementById("closure-sidebar").innerHTML = `
+            closureSidebar.innerHTML = `
             <p class="comment-dark">The Library will be closed <b>${holidayStr}</b> for <b>${holiday.name}</b>.</p>
             <br>`
         }
+        // Modal
+        modalContent += `<div class="modal-item"><b class="modal-item-main">${holiday.name}</b><div class="modal-item-inner">`
+        if (holiday.modHours) {
+            const earlyCloseDate = addHours(holiday.modHours.date, 5);
+            modalContent += `<p><span class="modal-text-a">${fullDate(earlyCloseDate)}</span><span class="modal-text-b">${holiday.modHours.time}</span></p>`
+        }
+        if (Array.isArray(holiday.date)) {
+            holiday.date.forEach(day => {
+                const dayName = addHours(day, 5)
+                modalContent += `<p><span class="modal-text-a">${fullDate(dayName)}</span><span class="modal-text-b">CLOSED</span></p>`
+            })
+        } else {
+            modalContent += `<p><span class="modal-text-a">${fullDate(holidayStart)}</span><span class="modal-text-b">CLOSED</span></p>`
+        }
+        modalContent += '</div></div>'
     });
+    
     // Sidebar
     const startWeek = addDays(now , 1-dotw);
+    console.log(holidayDays);
     let sidebarHours = ``
     for (let i = 1; i < 7; i++) {
         let sidebarDay = addDays(startWeek, i-1);
         let hoursDetail = holidayDays.includes(fullDate(sidebarDay)) ? "CLOSED" : hours[i];
+        hoursDetail = Object.keys(earlyCloseDays).includes(fullDate(sidebarDay)) ? earlyCloseDays[fullDate(sidebarDay)] : hours[i];
         sidebarHours += `<p><span class="hours-day">${ww[i].slice(0,3)}, ${month(sidebarDay).slice(0,3)} ${sidebarDay.getDate()}</span><span class="hours-detail">${hoursDetail}</span></p>`
     }
     sidebarHours += `<p><span class="hours-day">Sun, ${month(addDays(startWeek, 6)).slice(0,3)} ${addDays(startWeek, 6).getDate()}</span><span class="hours-detail">${hours[0]}</span></p>`
     document.getElementById("hours").innerHTML = sidebarHours;
+    
     // Footer
-    // not holiday, not "CLOSED"
-    holidays
     let nextDay = dotw === 6 ? "next Monday" : "tomorrow";
     let nextHours = dotw === 6 ? hours[1] : hours[dotw+1];
     const mainStr = dotw === 0 ? `The library is closed today.` : `Open today · ${curHours}`;
     const otherStr = dotw === 0 ? `Open ${nextDay} · ${nextHours}` : "";
     document.getElementById("hours-footer-main").innerHTML = mainStr;
     document.getElementById("hours-footer-other").innerHTML = otherStr;
+
+    // Modal
+    document.getElementById("modal").innerHTML = modalContent;
 }

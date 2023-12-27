@@ -9,6 +9,7 @@
 @require './components/calendar'
 @require './components/events'
 @require './components/header'
+@require './components/modal'
 @require './components/footer'
 @require './components/scrollbar'
 @require './components/sidebar'
@@ -149,6 +150,9 @@ ol
         flex-flow column nowrap
     @media screen and (max-width 749px)
         &-darken
+            filter brightness(40%)
+    @media screen and (min-width 950px)
+        &-darken-modal
             filter brightness(40%)
 .center
     flex-grow 1

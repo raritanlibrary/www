@@ -83,6 +83,7 @@ const pageInjector = p => {
 
 nav.dropdown();
 nav.sticky();
+nav.modalOpen();
 access.preload();
 
 // Functions to load for the request

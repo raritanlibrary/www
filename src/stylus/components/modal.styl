@@ -1,0 +1,40 @@
+.modal
+    z-index 2
+    background-color white
+    position absolute
+    padding 24px
+    lato(14px)
+    flex-flow column wrap
+    justify-content space-between
+    min-width 500px
+    min-height 520px
+    gap 8px
+    top 25vh
+    left calc(50vw - 250px)
+    border-radius 8px
+    display none
+    @media screen and (min-width 950px)
+        &-open
+            display flex
+    &-header
+        lato(48px,, bold)
+        margin-bottom 12px
+        text-shadow none
+    &-item
+        display flex
+        flex-flow row wrap
+        justify-content space-between
+        &-main
+            align-self center
+        &-inner
+            display flex
+            flex-flow column wrap
+    &-text
+        &-a
+            display inline-block
+            width 180px
+        &-b
+            display inline-block
+            text-align right
+            width 120px
+            font-weight bold

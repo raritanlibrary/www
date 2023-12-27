@@ -92,3 +92,20 @@ export const sticky = () => {
         )
     })
 }
+
+// Darken when opening modal
+export const modalOpen = () => {
+    util.addClickListener(e => {
+        const targetLink = document.getElementById("hours-holiday");
+        const modal = document.getElementById("modal");
+        const main = document.querySelector(".main");
+        const access = document.querySelector(".access");
+        util.toggleClasses(
+            targetLink.contains(e.target) && !modal.classList.contains("modal-open"),
+            !modal.contains(e.target) && modal.classList.contains("modal-open"),
+            [modal, "modal-open"],
+            [main, "main-darken-modal"],
+            [access, "access-darken-modal"],
+        )
+    })
+}

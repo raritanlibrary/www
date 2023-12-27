@@ -59,7 +59,7 @@
             perpetua(17px, var(--link-text-hover), bold,, 0)
 .hours
     margin auto
-    spacer(1.5)
+    spacer(0.25)
     text-align justify
     width max-content
     &-day
@@ -68,6 +68,14 @@
         width 114px
     &-detail
         perpetua(18px,  var(--main-text))
+    &-holiday
+        perpetua(16px, var(--link-text), bold)
+        position relative
+        transition all 0.4s ease-out
+        center-underline(1px, 4px)
+        cursor pointer
+        &:hover, &:focus
+            perpetua(17px, var(--link-text-hover), bold,, 0)
 .crafts
     display flex
     flex-flow column wrap
