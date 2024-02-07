@@ -13,6 +13,8 @@ html(lang="en" color-mode="lite")
                 .sidebar-left
                     include ./includes/sidebar-left.pug
                 .center
+                    +alert("critical", "System Maintenance Notice")
+                        p The Raritan Public Library catalog system will be down for maintenance from #[b Monday, February 12th] to #[b Thursday, February 15th]. #[b #[u You MUST have your library card to check out items]]. For more information, please contact the Library during our open hours by phone at #[b (908) 725-0413] or by email at #[a.link(href="mailto:info@raritanlibrary.org") info@raritanlibrary.org].
                     .closure-index#closure-index
                     - const imgAlt = ["The homestead of the Raritan Public Library","Bookshelves inside the Raritan Public Library","The reading room at the Raritan Public Library", "The Raritan Public Library Children's Room", "The outdoor gazebo at the Raritan Public Library"]
                     .slideshow
