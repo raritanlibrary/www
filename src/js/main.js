@@ -104,5 +104,5 @@ window.onload = () => {
     time.injector();
     pageInjector(page);
     //access.hicontrast();
-    //data.rev();
+    data.devInfo();
 };

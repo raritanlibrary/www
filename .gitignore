@@ -199,8 +199,9 @@ $RECYCLE.BIN/
 # Lighthouse reports
 reports
 
-# Sample revision tag
+# Dev tags
 src/data/_REV
+src/data/_ID
 
 # Dist zip
 www.*

@@ -8,8 +8,9 @@ html(lang="en" color-mode="lite")
         //include ./includes/access.pug
         include ./includes/header.pug
         main.main
-            +alert("info")
-                span Raritan Public Library will be closed on <b>Holiday</b> in observance of <b>Holiday</b>.
+            #systemwide-alerts
+                +alert("info")
+                    span Raritan Public Library will be closed on <b>Holiday</b> in observance of <b>Holiday</b>.
             .hero
                 - const heroImages = ['test-hero', 'two', 'three', 'four', 'X'];
                 .hero-content#hero-content
@@ -24,13 +25,22 @@ html(lang="en" color-mode="lite")
                     each v, i in heroImages
                         .hero-select-item(class=`${i === 0 ? 'hero-select-current' : ''}` id=`hero-dot-${i}`): include ./img/icons/dot.svg
             .content
-                .news
+                //-.content-block#news
                     h1 Spotlight
-                    p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam eligendi nostrum, dolor repellat blanditiis necessitatibus! Minima explicabo voluptates tempore asperiores illo aut cumque ducimus, non officiis consequatur repellendus corporis ullam?
-                .events
+                    h2 A New Look
+                    p Raritan Public Library is now a member of the #[a(href="https://www.mainlib.org/") Main Library Alliance], a network of over 50 public libraries located in north-central New Jersey. Discover over 3,000,000 items in our new collection.
+                .content-block
                     h1 Upcoming Events
                     #upcoming
-                .events
+                //-.content-block#arrivals
                     h1 New &amp; Noteworthy
                     #books
-            //include ./includes/footer.pug
+                .content-block
+                    h1 Resources
+                    - const quickLinks = ['hoopla'];
+                    .quicklinks#quicklinks
+                        each v, i in quickLinks
+                            picture.quicklinks-img
+                                source(srcset=`./img/resources/${v}.png?as=webp` alt="" type="image/webp")
+                                img(src=`./img/resources/${v}.png?as=jpeg` alt="" type="image/jpeg")
+            include ./includes/footer.pug

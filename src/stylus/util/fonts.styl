@@ -9,6 +9,10 @@ load-font(name, file, w=normal, st=normal)
 load-font("Lexend", "lexend")
 load-font("Lexend", "lexend_bold", bold)
 load-font("Lexend Mega", "lexend-mega_bold", bold)
+load-font("Lato", "lato")
+load-font("Lato", "lato_bold", bold)
+load-font("Lato", "lato_italic",, italic)
+load-font("Lato", "lato_bold-italic", bold, italic)
 
 lexend(sz, c=black, w=normal, st=normal)
     font sz "Lexend", Arial, sans-serif
@@ -20,3 +24,8 @@ lexend-mega(sz, c=black, w=bold, st=normal)
     color c
     font-weight w
     letter-spacing -0.16em
+lato(sz, c=black, w=normal, st=normal)
+    font sz "Lato", Arial, sans-serif
+    color c
+    font-weight w
+    font-style st

@@ -7,8 +7,8 @@ fi
 echo "Generating static files..."
 
 # Generate git data
-rev=$(git rev-list --count main)
-printf '%04d' $rev > src/data/_REV
+git rev-list --count main > src/data/_REV
+git rev-parse HEAD > src/data/_ID
 
 # Make necessary folders
 [[ ! -d "dist/docs" ]] && mkdir "dist/docs"

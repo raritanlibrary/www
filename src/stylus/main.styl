@@ -4,8 +4,10 @@
 @require './util/reset'
 @require './components/alert'
 @require './components/event'
+@require './components/footer'
 @require './components/header'
 @require './components/hero'
+@require './components/resources'
 @require './components/scrollbar'
 
 html
@@ -25,11 +27,20 @@ h1
     lexend-mega(28px, accent)
     margin-bottom 8px
 
+h2
+    lexend-mega(20px, accent)
+    margin-bottom 8px
+
 p
     lexend(16px)
     margin-bottom 16px
 
 b
+    font-weight bold
+
+a
+    color accent-lite
+    text-decoration underline
     font-weight bold
 
 .darken
