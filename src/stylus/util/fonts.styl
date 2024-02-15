@@ -1,31 +1,35 @@
 load-font(name, file, w=normal, st=normal)
-    @font-face
-        font-family name
-        font-style st
-        font-weight w
-        src url("../fonts/" + file + ".woff2")
-        font-display swap
+  @font-face
+    font-family name
+    font-style st
+    font-weight w
+    src url("../fonts/" + file + ".woff2")
+    font-display swap
 
 load-font("Lexend", "lexend")
 load-font("Lexend", "lexend_bold", bold)
 load-font("Lexend Mega", "lexend-mega_bold", bold)
+
+lexend(sz, c=black, w=normal, st=normal)
+  font sz "Lexend", Arial, sans-serif
+  color c
+  font-weight w
+  letter-spacing -0.045em
+lexend-mega(sz, c=black, w=bold, st=normal)
+  font sz "Lexend Mega", Arial, sans-serif
+  color c
+  font-weight w
+  letter-spacing -0.16em
+
+/*
 load-font("Lato", "lato")
 load-font("Lato", "lato_bold", bold)
 load-font("Lato", "lato_italic",, italic)
 load-font("Lato", "lato_bold-italic", bold, italic)
 
-lexend(sz, c=black, w=normal, st=normal)
-    font sz "Lexend", Arial, sans-serif
-    color c
-    font-weight w
-    letter-spacing -0.045em
-lexend-mega(sz, c=black, w=bold, st=normal)
-    font sz "Lexend Mega", Arial, sans-serif
-    color c
-    font-weight w
-    letter-spacing -0.16em
 lato(sz, c=black, w=normal, st=normal)
-    font sz "Lato", Arial, sans-serif
-    color c
-    font-weight w
-    font-style st
+  font sz "Lato", Arial, sans-serif
+  color c
+  font-weight w
+  font-style st
+*/

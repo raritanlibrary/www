@@ -8,13 +8,21 @@ footer.footer
             include ../img/icons/twitter.svg
     .footer-info
         .footer-contact
-            h2 Contact
-            p #[b L] 54 E Somerset St., Raritan, NJ 08869
-            p #[b E] info@raritanlibrary.org
-            p #[b P] (908) 725-0413 
-            p #[b F] (908) 725-1832
+            h2.footer-heading Contact
+            p.footer-contact-method
+                include ../img/icons/location.svg
+                span 54 E Somerset St.<br>Raritan, NJ 08869
+            p.footer-contact-method
+                include ../img/icons/mail.svg
+                span info@raritanlibrary.org
+            p.footer-contact-method
+                include ../img/icons/phone.svg
+                span (908) 725-0413
+            p.footer-contact-method
+                include ../img/icons/fax.svg
+                span (908) 725-1832
         .footer-hours
-            h2 Hours
+            h2.footer-heading Hours
             p #[b Monday]       #[span 9 AM - 8 PM]
             p #[b Tuesday]      #[span 9 AM - 8 PM]
             p #[b Wednesday]    #[span 9 AM - 8 PM]

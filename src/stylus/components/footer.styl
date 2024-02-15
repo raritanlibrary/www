@@ -1,47 +1,44 @@
 .footer
-    display flex
-    flex-flow column nowrap
-    background-color accent
-    align-items center
-    padding 16px
-    gap 8px
-    p
-        margin-bottom 0
-    h2
-        text-align center
-        color lite
-    &-socials
-        display flex
-        flex-flow row wrap
-        gap 12px
-        margin-bottom -8px
-        &-link
-            width calc(32px+16px)
-            fill lite
-            padding 8px
-    &-info
-        display flex
-        flex-flow row nowrap
-        & > *
-            width 100%
-    &-contact
-        display flex
-        flex-flow column nowrap
-        p
-            lexend(14px, lite)
-            margin-bottom 12px
-    &-hours
-        p   
-            lexend(14px, lite)
-            display flex
-            flex-flow row nowrap
-            justify-content space-between
-.copyright
-    lexend-mega(14px, lite)
-    letter-spacing -0.12em
-    text-transform uppercase
-.version
-    lexend(12px, accent-lite)
+  flex(dir: column, align: start, x-align: center, gap: 12px)
+  background-color accent
+  padding 16px
+  p
+    margin-bottom 0
+  &-heading
     text-align center
-    a
-        lexend(12px, lite)
+    color lite
+    margin-bottom 4px
+  &-socials
+    flex(wrapping: wrap, align: start, gap: 12px)
+    margin-bottom -8px
+    &-link
+      width calc(32px+16px)
+      fill lite
+      padding 8px
+  &-info
+    flex(align: space-around, gap: 16px)
+  &-contact
+    flex(dir: column, gap: 8px)
+    &-method
+      flex(align: start, gap: 8px)
+      lexend(13px, lite)
+      letter-spacing -0.025em
+      svg
+        position relative
+        fill lite
+        width 16px
+
+  &-hours
+    p   
+      lexend(13px, lite)
+      letter-spacing -0.025em
+      flex(align: space-between, gap: 16px)
+.copyright
+  lexend-mega(14px, lite)
+  letter-spacing -0.12em
+  text-transform uppercase
+.version
+  lexend(12px, accent-lite)
+  text-align center
+  a
+    lexend(12px, lite)

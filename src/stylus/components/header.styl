@@ -2,50 +2,47 @@ nItems      = 9
 linksWidth  = 220
 
 .nav
-    background-color lite
-    &-toggle
-        cursor pointer
-        fill nav-main
-        svg
-            position absolute
-            width 40px
-            top 22px
-            right 12px
-            transition color 0.2s ease-in-out, transform 0.4s ease-out
+  background-color lite
+  &-toggle
+    cursor pointer
+    fill nav-main
+    svg
+      position absolute
+      width 40px
+      top 22px
+      right 12px
+      transition color 0.2s ease-in-out, transform 0.4s ease-out
 
 .enlarge
-    transform scale(1.2)
+  transform scale(1.2)
 
 .logo
-    padding 12px 16px
-    display block
-    svg
-        position relative
-        height 60px
-        left -8px
+  padding 12px 16px
+  display block
+  svg
+    position relative
+    height 60px
+    left -8px
 
 .links
-    display flex
-    position absolute
-    flex-flow column wrap
-    align-content end
-    right "-%spx" % (linksWidth)
-    z-index 1
-    transition right 0.4s cube-out
-    user-select none
-    &-item
-        lexend(16px, lite, bold)
-        text-decoration none
-        background-color neutral-dark
-        padding "calc(-20px/2 - 0.8px/4*((%s - 1)/%s) + (100vh - 87px)/%s/2)" % (nItems nItems nItems) 16px
-        width "%spx" % (linksWidth)
-        text-align right
-        &:not(:last-child)
-            border-bottom 1px solid neutral
-        &:hover
-            background-color neutral
-        &-more
-            @extends .links-item
-    &-open
-        right 0
-        display flex
+  flex(dir: column, wrapping: wrap)
+  position absolute
+  right "-%spx" % (linksWidth)
+  z-index 1
+  transition right 0.4s cube-out
+  user-select none
+  &-item
+    lexend(16px, lite, bold)
+    text-decoration none
+    background-color neutral-dark
+    padding "calc(-20px/2 - 0.8px/4*((%s - 1)/%s) + (100vh - 87px)/%s/2)" % (nItems nItems nItems) 16px
+    width "%spx" % (linksWidth)
+    text-align right
+    &:not(:last-child)
+      border-bottom 1px solid neutral
+    &:hover
+      background-color neutral
+    &-more
+      @extends .links-item
+  &-open
+    right 0
