@@ -20,19 +20,14 @@ html(lang="en" color-mode="lite")
                     - const ebscoAlt = `${ebsco}ehost&defaultdb=`
                     //- eBooks ////////////////////////////////////////////////
                     h2.spacer-plus.left#ebooks eBooks
-                    +resource("cloudLibrary", "https://ebook.yourcloudlibrary.com/library/raritanpl/Featured", "cloudlibrary", 3)
-                        p.text The #[a.link(href="https://ebook.yourcloudlibrary.com/library/raritanpl/Featured" target="_blank" rel="noopener") cloudLibrary] book service includes all of the books available in our current eBook collection, new ones purchased directly for our own Cloud Library, and existing eBooks inventories from various libraries throughout New Jersey. Check out up to 5 titles, and keep them all for up to 21 days!
+                    +resource("Libby", "https://libbyapp.com", "libby")
+                        p.text Use your Raritan Library Online Catalog login to access over 30,000 eBooks and eAudiobooks on #[a.link(href="https://libbyapp.com" target="_blank" rel="noopener") Libby] for free. Accessible from your browser, #[a.link(href="https://apps.apple.com/us/app/libby-by-overdrive/id1076402606" target="_blank" rel="noopener") phone], #[a.link(href="https://apps.apple.com/us/app/libby-by-overdrive/id1076402606" target="_blank" rel="noopener") tablet], or #[a.link(href="https://www.amazon.com/OverDrive-Inc-Libby-by/dp/B072K3231D" target="_blank" rel="noopener") Kindle device].
                     +resource("hoopla", "https://www.hoopladigital.com/", "hoopla")
                         p.text #[a.link(href="https://www.hoopladigital.com/" target="_blank" rel="noopener") hoopla] digital services include over 500,000 eBooks, Audiobooks, Movies, TV shows, CDs, Comics, and Graphic novels. Accessible from your browser or Smart device.
                         br
                         p.text #[b NEW for December 2021:] #[i Try #[b BingePass] to access a comprehensive 50-magazine catalog and the Great Courses Library Collection!]
                         br
                         p.comment.spacer-plus Please note our library is not part of the Somerset County Library system.
-                    +resource("Axis360", "https://raritan.axis360.baker-taylor.com/", "axis")
-                        p.text Use your Raritan Library Online Catalog login to access over 1,500 eBooks and eAudiobooks on #[a.link(href="https://raritan.axis360.baker-taylor.com/" target="_blank" rel="noopener") Axis 360] for free. Accessible from your browser, #[a.link(href="https://apps.apple.com/us/app/axis-360/id903001147" target="_blank" rel="noopener") phone], #[a.link(href="https://apps.apple.com/us/app/axis-360/id903001147" target="_blank" rel="noopener") tablet], or #[a.link(href="https://www.amazon.com/Baker-Taylor-Inc-Axis-360/dp/B00N59G3ZE" target="_blank" rel="noopener") Kindle device].
-                        br
-                        p.comment.spacer-plus This service is made possible through the Coronavirus Aid, Relief, and Economic Security (CARES) Act and will be available until October 14th, 2023.
-                        br
                     //- Databases /////////////////////////////////////////////
                     h2.spacer-plus.left#databases Databases
                     +resource("NoveList", `${ebsco}novelist`, "novelist")
@@ -83,6 +78,9 @@ html(lang="en" color-mode="lite")
                         br
                     //- Language //////////////////////////////////////////////
                     h2.spacer-plus.left#language Language
+                    +resource("Mango Languages", `https://raritan.aspendiscovery.org/mango/man00000100/AccessOnline?index=0`, "mango")
+                        p.text #[a.link(href=`https://raritan.aspendiscovery.org/mango/man00000100/AccessOnline?index=0` target="_blank" rel="noopener") Mango Languages] is an online language and culture learning resource that offers access to over 70 foreign languages and 21 English courses taught completely in the user's native language. In addition to traditional language courses, Mango also offers the opportunity to learn through foreign film with Mango Premiere™ and access to a variety of specialty mini courses, like Pirate, Medical Spanish, and romance courses.
+                        br
                     +resource("Referencia Latina", `${ebsco}slrc`, "slrc")
                         p.text #[a.link(href=`${ebsco}slrc` target="_blank" rel="noopener") Referencia Latina] a comprehensive Spanish-language database, offers content from a variety of sources including 49,000 encyclopedia entries.
                         br

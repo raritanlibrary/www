@@ -13,8 +13,6 @@ html(lang="en" color-mode="lite")
                 .sidebar-left
                     include ./includes/sidebar-left.pug
                 .center
-                    +alert("critical", "System Maintenance Notice")
-                        p The Raritan Public Library catalog system will be down for maintenance from #[b Monday, February 12th] to #[b Thursday, February 15th]. #[b #[u You MUST have your library card to check out items]]. For more information, please contact the Library during our open hours by phone at #[b (908) 725-0413] or by email at #[a.link(href="mailto:info@raritanlibrary.org") info@raritanlibrary.org].
                     .closure-index#closure-index
                     - const imgAlt = ["The homestead of the Raritan Public Library","Bookshelves inside the Raritan Public Library","The reading room at the Raritan Public Library", "The Raritan Public Library Children's Room", "The outdoor gazebo at the Raritan Public Library"]
                     .slideshow
@@ -23,15 +21,18 @@ html(lang="en" color-mode="lite")
                     h1.welcome Welcome
                     p.text.spacer-plus Welcome to the Raritan Public Library! Explore our website to find out information on our books, graphic novels, eBooks and other digital resources, magazines, videos, DVDs, recorded books, CDs, museum pass programs, and our policies. For books not available in our library we also offer an inter-library loan service. In addition, we sponsor many activities such as book clubs for adults and teens, story times for children, movie nights and many educational and entertaining programs. We encourage you to visit our library to see its rustic and historical features. The Raritan Public Library, once the Frelinghuysen Homestead, is registered as a historic site. The carpeting and window treatments are designed to match the time period in which the structure was built. We also feature a museum dedicated to the Raritan WWII hero Sgt. John Basilone. So come curl up with a good book in our cozy library. We look forward to seeing you!
                     hr.hr
-                    //- h2.h2 News
+                    h2.h2 News
                         .spacer-plus
                         .news
-                            picture.bb-temp
-                                source.bb-temp-inner(srcset=`./img/misc/hoopla-bb.jpg?as=webp` type="image/webp")
-                                img.bb-temp-inner.image(src=`./img/misc/hoopla-bb.jpg` alt="hoopla Bonus Borrows Are Here" type="image/jpeg")
-                            .news-inner
-                                h3.h3.left August Bonus Borrows
-                                p.text #[a.link(href="https://go.midwesttape.com/e/279222/oopla-utm-content-bb-aug23-all/25rp4b/1524725691?h=PtqS9Af-b7DIYrZ5edjQin17u0aOWovLYATe77PmrWg") Bonus Borrows are back!] From August 1 - 31, patrons can access select #[a.link(href="https://go.midwesttape.com/e/279222/hoopla-utm-content-bb-aug23-ab/25rp4f/1524725691?h=PtqS9Af-b7DIYrZ5edjQin17u0aOWovLYATe77PmrWg") audiobooks], #[a.link(href="https://go.midwesttape.com/e/279222/hoopla-utm-content-bb-aug23-eb/25rp4j/1524725691?h=PtqS9Af-b7DIYrZ5edjQin17u0aOWovLYATe77PmrWg") eBooks], #[a.link(href="https://go.midwesttape.com/e/279222/pla-utm-content-bb-aug23-comic/25rp4m/1524725691?h=PtqS9Af-b7DIYrZ5edjQin17u0aOWovLYATe77PmrWg") comics], and #[a.link(href="https://go.midwesttape.com/e/279222/pla-utm-content-bb-aug23-video/25rp4q/1524725691?h=PtqS9Af-b7DIYrZ5edjQin17u0aOWovLYATe77PmrWg") videos] from hoopla Digital without using their monthly Instant borrows, and at no cost to libraries.
+                            .snippet.left
+                                picture
+                                    source(srcset=`./img/misc/yardsale.png?as=webp` type="image/webp")
+                                    img.snippet-img(src=`./img/misc/yardsale.png?as=jpeg` alt="Yard Sale" type="image/jpeg")
+                                .snippet-body
+                                    h3.h3.left Upcoming: Town-Wide Yard Sale
+                                    p.text On #[b Saturday, May 4th], Raritan will be holding its 5th Annual Town-Wide Yard Sale. Please click on the link below for a registration form and instructions. This Spring will be a perfect time to sell unused items. Rain date May 18th.
+                                    a.snippet-link(href='docs/events/YardSaleRegistration2024.pdf' target='_blank')
+                                        .snippet-link-inner Directory
                 .sidebar-right
                     include ./includes/sidebar-right.pug
             include ./includes/footer.pug
