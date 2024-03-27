@@ -1,0 +1,44 @@
+extends ./templates/default.pug
+
+block meta
+    - const title = "Board of Trustees"
+    - const desc = "Explore information regarding the Raritan Public Library's Board of Trustees."
+
+block content
+    .hero
+        .hero-content#hero-content
+            picture.hero-static
+                source(srcset=`./img/hero/x.png?as=webp` alt="" type="image/webp")
+                img(src=`./img/hero/x.png?as=jpeg` alt="" type="image/jpeg")
+    .content
+        h1.access Board of Trustees
+        p Board of Trustees meetings are held on the third Thursday of each month at 7 PM in the Raritan Public Library.
+        h2 Members
+        .member
+            +member("Donald Esposito", "President")
+            +member("Jane Fidacaro", "Vice President")
+            +member("Adam Petroski", "Director")
+            +member("Jim Foohey", "Treasurer")
+            +member("Laura Hnasko", "Secretary")
+            +member("Michael Pepe", "Superintendent Alternate")
+            +member("Adele Goetsch")
+            +member("Zachary Bray")
+            +member("Ann Marie Mead")
+            +member("Nicolas Carra", "Mayor")
+        h2 Meeting Minutes
+        p Months in grey denote Board meetings not held during that month.
+        p To request access to meeting minutes before 2021, please #[a(href="/contact") contact us] at your earliest convenience.
+        - const years = [2023, 2022, 2021]
+        - const yearExclude = [[], [7], [8]]
+        .meeting
+            for y, i in years
+                .meeting-outer
+                    h3.meeting-header(id=`${y}`) #{y}
+                    .meeting-inner
+                        - let arrLen = i !== 0 ? 12 : 12;
+                        for m in arr(arrLen)
+                            p
+                                if !(yearExclude[i].includes(m+1))
+                                    a(href=`./docs/board/${y}${String(m+1).padStart(2, '0')}.pdf` target="_blank") #{months[m]}
+                                else
+                                    b.greyout #{months[m]}

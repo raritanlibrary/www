@@ -1,0 +1,16 @@
+extends ./templates/default.pug
+
+block meta
+    - const noindex = true
+    - const title = "404 Not Found"
+    - const desc = "Raritan Public Library couldn't find anything on this part of the website."
+
+block content
+    .content
+        .status
+            h1 404
+            h2 Not found
+        p.center #[b We didn't find anything on this part of the website.]
+        p.center The page you are looking for may have been moved, or may not exist.
+        p.center If you feel something is missing, or need assistance navigating this website, please #[a(href="/contact") contact us] or view our #[a(href="/site-map") site map].
+        div.action: a(href="/") Return to the homepage

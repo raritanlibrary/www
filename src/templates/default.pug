@@ -1,0 +1,18 @@
+doctype html
+html(lang="en" color-mode="lite")
+    head
+        block meta
+        include ../includes/head.pug
+    body.body
+        //include ../includes/access.pug
+        include ../includes/nav.pug
+        main.main
+            form.search#search()
+                .search-icon: include ../img/icons/search.svg
+                input.search-bar#query(type="search" placeholder="Search our catalog" autocomplete="off")
+                button.search-enter(type="submit")
+                    include ../img/icons/arrow-right.svg
+            .alerts#systemwide-alerts
+                include ../includes/alerts.pug
+            block content
+        include ../includes/footer.pug

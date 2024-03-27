@@ -1,0 +1,16 @@
+{   
+    "New Year's Day":   {"isHoliday": true, "dates": {"2024-01-01": "CLOSED"}},
+    "President's Day":  {"isHoliday": true, "dates": {"2024-02-19": "CLOSED"}},
+    "Good Friday":      {"isHoliday": true, "dates": {"2024-03-29": "CLOSED"}},
+    "Memorial Day":     {"isHoliday": true, "dates": {"2024-05-27": "CLOSED"}},
+    "Juneteenth":       {"isHoliday": true, "dates": {"2024-06-19": "CLOSED"}},
+    "Independence Day": {"isHoliday": true, "dates": {"2024-07-04": "CLOSED"}},
+    "Labor Day":        {"isHoliday": true, "dates": {"2024-09-02": "CLOSED"}},
+    "Columbus Day":     {"isHoliday": true, "dates": {"2024-10-14": "CLOSED"}},
+    "Veterans' Day":    {"isHoliday": true, "dates": {"2024-11-11": "CLOSED"}},
+    "Thanksgiving":     {"isHoliday": true, "dates": {"2024-11-27": "9 AM - 5 PM",
+                                                      "2024-11-28": "CLOSED",
+                                                      "2024-11-29": "CLOSED"}},
+    "Christmas":        {"isHoliday": true, "dates": {"2024-12-24": "CLOSED",
+                                                      "2024-12-25": "CLOSED"}}
+}

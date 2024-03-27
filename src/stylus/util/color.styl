@@ -8,9 +8,9 @@ er(c)
 er-text(c)
   shade(c, 70%)
 er-dark(c)
-  shade(c, 90%)
+  shade(c, 85%)
 er-text-dark(c)
-  tint(saturate(c, -25%), 60%)
+  tint(saturate(c, -15%), 60%)
 // Events -----------------------------
 event-crimson   = #b71c1c   // computers, tech
 event-red       = #e53935   // holidays
@@ -61,25 +61,25 @@ ev-text-dark(c)
       --ev-hover-{col} ev-hover(lookup('event-'+col))
       --ev-text-{col} ev-text(lookup('event-'+col))
       --ev-cover-{col} rgba(ev(lookup('event-'+col)), 0.6)
-    &[color-mode="dark"]
-      --accent-lite           #5587da
-      --accent                #0e68ff
-      --accent-dark           #053ffb
-      --lite                  #ffffff
-      --neutral               #565656
-      --neutral-dark          #262626
-      --dark                  #000000
-      --map                   invert(95%) hue-rotate(180deg)
-    for col, i in alert-colors
-      --er-{col} er-dark(lookup(col))
-      --er-alt-{col} er-alt-dark(lookup(col))
-      --er-text-{col} er-text-dark(lookup(col))
-    for col, i in event-colors
-      --ev-{col} ev-dark(lookup('event-'+col))
-      --ev-alt-{col} ev-alt-dark(lookup('event-'+col))
-      --ev-hover-{col} ev-hover-dark(lookup('event-'+col))
-      --ev-text-{col} ev-text-dark(lookup('event-'+col))
-      --ev-cover-{col} rgba(ev-dark(lookup('event-'+col)), 0.6)
+  &[color-mode="dark"]
+    --accent-lite           #a2c2f5
+    --accent                #4287f5
+    --accent-dark           #6888fd
+    --lite                  #101010
+    --neutral               #9F9F9F
+    --neutral-dark          #262626
+    --dark                  #f7f7f7
+    --map                   invert(95%) hue-rotate(180deg)
+  for col, i in alert-colors
+    --er-{col} er-dark(lookup(col))
+    --er-alt-{col} er-alt-dark(lookup(col))
+    --er-text-{col} er-text-dark(lookup(col))
+  for col, i in event-colors
+    --ev-{col} ev-dark(lookup('event-'+col))
+    --ev-alt-{col} ev-alt-dark(lookup('event-'+col))
+    --ev-hover-{col} ev-hover-dark(lookup('event-'+col))
+    --ev-text-{col} ev-text-dark(lookup('event-'+col))
+    --ev-cover-{col} rgba(ev-dark(lookup('event-'+col)), 0.6)
 // Shortcuts ---------------------------
 accent-lite     = var(--accent-lite)
 accent          = var(--accent)

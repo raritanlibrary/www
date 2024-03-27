@@ -1,0 +1,19 @@
+extends ./templates/default.pug
+
+block meta
+    - const noindex = true
+    - const title = "Privacy & Terms"
+    - const desc = "Privacy & Terms of the Raritan Public Library's website."
+
+block content
+    .content
+        h1 Privacy &amp; Terms
+        h2 Preamble
+        p Raritan Public Library strives to provide the highest level of information protection to all Library patrons and guests. This Privacy Policy contains types of information that is collected and recorded and how it is used by the Raritan Public Library. By using this website, you hereby consent to this Privacy Policy and agree to its terms.
+        h2 Your Data
+        p Raritan Public Library retains no personal and/or identifiable data on this website, accessible from raritanlibrary.org. Raritan Public Library will not share and/or sell any information with any third party except as required pursuant to the provisions of a valid court order or dispute resolution.
+        h2 Usage Reports
+        p To improve the usefulness of the Raritan Public Library website for patrons and guests, anonymous statistical information is automatically collected through website usage reports. The information collected by these usage reports includes (but is not limited to) internet protocol (IP) addresses, browser types, access timestamps, and referred and browsed pages. This information may be used for analyzing trends and gathering demographic information, but this information is not linked to anything that is personally identifiable.
+        p The Raritan Public Library also uses #[a.external(href="https://umami.is/") Umami] as a secondary method for usage reporting. Umami collects the same information as listed in the section above.
+        h2 Contact
+        p If you have questions or concerns about the details of this Privacy Policy, please #[a(href="/contact") contact us] for more information.

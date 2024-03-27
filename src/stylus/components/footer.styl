@@ -1,5 +1,5 @@
 .footer
-  flex(dir: column, align: start, x-align: center, gap: 12px)
+  flex(dir: column, align: start, x-align: center, gap: 16px)
   background-color accent
   padding 16px
   p
@@ -7,28 +7,33 @@
   &-heading
     text-align center
     color lite
-    margin-bottom 4px
+    margin-bottom 0
   &-socials
     flex(wrapping: wrap, align: start, gap: 12px)
-    margin-bottom -8px
+    margin-bottom -16px
     &-link
       width calc(32px+16px)
       fill lite
       padding 8px
   &-info
-    flex(align: space-around, gap: 16px)
+    flex(wrapping: wrap, align: space-around, gap: 16px 0)
+    width 100%
   &-contact
     flex(dir: column, gap: 8px)
     &-method
       flex(align: start, gap: 8px)
       lexend(13px, lite)
       letter-spacing -0.025em
+      a
+        lexend(13px, lite)
       svg
         position relative
         fill lite
-        width 16px
-
+        width 14px
+        top 1px
   &-hours
+    h2
+      margin-bottom 4px
     p   
       lexend(13px, lite)
       letter-spacing -0.025em

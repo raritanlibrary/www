@@ -23,11 +23,11 @@ export const toggleClasses = (addCondition, removeCondition, ...pairs) => {
 
 // Adds an event listener with full touch/click coverage
 export const addClickListener = func => {
-    let funcStr = func.toString();
-    funcStr = funcStr.slice(funcStr.indexOf("{") + 1, funcStr.lastIndexOf("}"));
-    const funcTouch = new Function(funcStr + "\n" + 'e.preventDefault()');
-    window.addEventListener('touchstart', funcTouch);
-    window.addEventListener('click', func);
+    if ('ontouchstart' in window) {
+        window.addEventListener('touchstart', func);
+    } else {
+        window.addEventListener('click', func);
+    }
 }
 
 // Category-to-style parsing function

@@ -3,12 +3,19 @@
 @require './util/mixins'
 @require './util/reset'
 @require './components/alert'
+@require './components/calendar'
 @require './components/event'
 @require './components/footer'
 @require './components/header'
 @require './components/hero'
 @require './components/resources'
 @require './components/scrollbar'
+@require './components/status'
+@require './pages/board'
+@require './pages/contact'
+@require './pages/history'
+@require './pages/policies'
+@require './pages/site-map'
 
 html
   scroll-behavior smooth
@@ -19,29 +26,38 @@ html
   transition 0.2s filter ease-in-out
   overflow-x:hidden
   background-color lite
+  min-height calc(100vh - 86px - 245px - 32px)
 
 .content
-  margin 16px
+  margin 16px 16px 24px
 
 h1
-  lexend-mega(28px, accent)
+  lexend-mega(32px, accent)
   margin-bottom 8px
 
 h2
-  lexend-mega(20px, accent)
+  lexend-mega(24px, accent)
   margin-bottom 8px
+
+h3
+  lexend-mega(20px, accent)
+  margin-bottom 4px
 
 p
   lexend(16px)
   margin-bottom 16px
+  text-align justify
 
 b
   font-weight bold
 
 a
   color accent-lite
-  text-decoration underline
+  //text-decoration underline
   font-weight bold
+
+.center
+  text-align center
 
 .darken
   filter brightness(40%)
@@ -49,3 +65,42 @@ a
 .freeze
   overflow-y hidden
   user-select none
+
+.action
+  background-color accent
+  padding 4px 8px
+  user-select none
+  max-width fit-content
+  margin 0 auto
+  & a
+    lexend(14px, lite)
+    text-decoration none
+  &-nocenter
+    @extends .action
+    margin 0
+
+.external::after
+  content "🡥"
+  position relative
+  font-size 0.7em
+  top -2px
+  left 1px
+
+.access
+  display none
+
+.greyout
+  color neutral
+
+.h2-alt
+  @extends .event-header
+
+.comment
+  @extends .event-datetime
+
+.extend
+    margin-bottom 32px
+  &-small
+    margin-bottom 8px
+  &-none
+    margin-bottom 0px

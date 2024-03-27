@@ -1,0 +1,68 @@
+extends ./templates/default.pug
+
+block meta
+    - const noindex = true
+    - const title = "Site Map"
+    - const desc = "A site map for Raritan Public Library."
+
+block content
+    .content
+        h1 Site Map
+        .sitemap
+            .sitemap-outer
+                h2 Our Library
+                .sitemap-inner
+                    h3 Registration &amp; Events
+                    +sitemap-link("Catalog", "/catalog")
+                    +sitemap-link("Event Calendar", "/events")
+                    +sitemap-link("Patron Registration", "/register")
+                    +sitemap-link("ESL Classes", "/esl")
+                    +sitemap-link("NJ Makers Day", "/makersday")
+                .sitemap-inner
+                    h3 Resources
+                    +sitemap-link("eBooks & Digital", "/resources")
+                    +sitemap-link("Museum Passes", "/passes")
+                    +sitemap-link("Magazines", "/magazines")
+                .sitemap-inner
+                    h3 Our History
+                    +sitemap-link("Frelinghuysen House History", "/history")
+                    +sitemap-link("Raritan News Archives", "https://www.digifind-it.com/raritan/")
+                    +sitemap-link("Basilone Archives", "http://www.raritan-online.com/jb-online-menu.htm")
+                .sitemap-inner
+                    h3 About Us
+                    +sitemap-link("Homepage", "/")
+                    +sitemap-link("About Us", "/about")
+                    +sitemap-link("Contact Information", "/contact")
+                    +sitemap-link("Library Policies", "/policies")
+                    +sitemap-link("Main Library Alliance", "https://www.mainlib.org/")
+                    +sitemap-link("Work With Us", "/jobs")
+                    +sitemap-link("Board of Trustees", "/board")
+                    +sitemap-link("Privacy & Terms", "/privacy")
+            .sitemap-outer
+                h2 More Links
+                .sitemap-inner
+                    h3 Government
+                    +sitemap-link("Raritan Borough", "http://www.raritanboro.org/")
+                    +sitemap-link("Somerset County", "https://www.co.somerset.nj.us/")
+                    +sitemap-link("NJ Legislature", "https://www.njleg.state.nj.us/")
+                    +sitemap-link("US House of Representatives", "https://www.house.gov/")
+                    +sitemap-link("US Senate", "https://www.senate.gov/")
+                .sitemap-inner
+                    h3 Education
+                    +sitemap-link("CIA World Factbook", "https://www.cia.gov/the-world-factbook/")
+                    +sitemap-link("DMV Practice Test", "https://www.epermittest.com/new-jersey/nj-practice-permit-test")
+                    +sitemap-link("Driver's Education", "https://www.epermittest.com/new-jersey/drivers-education")
+                .sitemap-inner
+                    h3 Libraries &amp; Museums
+                    +sitemap-link("Library of Congress", "https://www.loc.gov/")
+                    +sitemap-link("New York Public Library", "https://www.nypl.org/")
+                    +sitemap-link("Ellis Island", "https://www.statueofliberty.org/ellis-island/")
+                    +sitemap-link("Smithsonian Institute", "https://www.si.edu/")
+                    +sitemap-link("Metropolitan Museum Art", "https://www.metmuseum.org/")
+                .sitemap-inner
+                    h3 Miscellaneous
+                    +sitemap-link("PBS", "https://www.pbs.org/")
+                    +sitemap-link("Resource Somerset", "https://sites.google.com/site/ls62344/")
+                    +sitemap-link("YALSA's Book Awards", "http://www.ala.org/yalsa/booklistsawards/booklistsbook")
+                    +sitemap-link("Somerset County GIS Information", "https://somerset.maps.arcgis.com/home/index.html")
+                    +sitemap-link("Fuel Economy Guide", "https://www.fueleconomy.gov/")

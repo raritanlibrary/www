@@ -1,0 +1,21 @@
+extends ./templates/default.pug
+
+block meta
+    - const title = "Event Calendar"
+    - const desc = "Discover exclusive programs and upcoming events, only at Raritan Public Library."
+
+block content
+    .hero
+        .hero-content#hero-content
+            picture.hero-static
+                source(srcset=`./img/hero/x.png?as=webp` alt="" type="image/webp")
+                img(src=`./img/hero/x.png?as=jpeg` alt="" type="image/jpeg")
+    .content
+        h1.access Events
+        .calendar
+            .calendar-header#calendar-month
+            .calendar-nav
+                .calendar-action#calendar-nav-back
+                .calendar-action#calendar-nav-next
+            .calendar-days
+            .calendar-weeks#calendar-weeks

@@ -48,17 +48,17 @@ const contentEvents = res => {
     let disableLeft     = false;
     let disableRight    = false;
     util.addClickListener(e => {
-        const navLeft = document.getElementById("month-nav-left")
-        const navRight = document.getElementById("month-nav-right")
+        const navLeft = document.getElementById("calendar-nav-back")
+        const navRight = document.getElementById("calendar-nav-next")
         if (navLeft.contains(e.target) && !disableLeft) {
             data.programCalendar(res, lastDate);
             curMonth = lastDate.getMonth();
             curYear = lastDate.getFullYear();
             if (lastDate.getTime() === lastLimit.getTime()) {
-                navLeft.classList.add("calendar-nav-grey");
+                navLeft.classList.add("calendar-action-grey");
                 disableLeft = true;
             }
-            navRight.classList.remove("calendar-nav-grey");
+            navRight.classList.remove("calendar-action-grey");
             disableRight = false;
             lastDate = new Date(curYear, curMonth-1, 1);
             nextDate = new Date(curYear, curMonth+1, 1);
@@ -67,10 +67,10 @@ const contentEvents = res => {
             curMonth = nextDate.getMonth();
             curYear = nextDate.getFullYear();
             if (nextDate.getTime() === nextLimit.getTime()) {
-                navRight.classList.add("calendar-nav-grey");
+                navRight.classList.add("calendar-action-grey");
                 disableRight = true;
             }
-            navLeft.classList.remove("calendar-nav-grey");
+            navLeft.classList.remove("calendar-action-grey");
             disableLeft = false;
             lastDate = new Date(curYear, curMonth-1, 1);
             nextDate = new Date(curYear, curMonth+1, 1);
@@ -79,7 +79,22 @@ const contentEvents = res => {
     autoScroll();
 }
 
+// Search bar
+const search = () => {
+    const searchForm = document.getElementById('search');
+    searchForm.addEventListener("submit", e => {
+        let keyword = document.getElementById('query').value;
+        e.preventDefault();
+        if (keyword !== '') {
+            keyword.replace(' ', '+');
+            window.location.replace(`https://raritan.aspendiscovery.org/Union/Search?view=list&lookfor=${keyword}&searchIndex=Keyword&searchSource=local`);
+            return false;
+        }
+    });
+}
+
 const pageInjector = p => {
+    if (p === '') { hero.hero() }
     if (p.includes('board')) { autoScroll() }
 }
 
@@ -105,4 +120,5 @@ window.onload = () => {
     pageInjector(page);
     //access.hicontrast();
     data.devInfo();
+    search();
 };

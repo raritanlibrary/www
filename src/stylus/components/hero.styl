@@ -30,6 +30,10 @@ hero-flex(align, justify)
     img, source
       margin-left "%svw" % ( (100 - hero-size) / 4 )
       width "%svw" % (hero-size)
+  &-static
+    user-select none
+    img, source
+      width 100%
   &-nav
     hero-flex(center, space-between)
     &-item

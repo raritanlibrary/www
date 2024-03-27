@@ -1,0 +1,27 @@
+.timeline
+  list-style none
+  margin 12px 0 12px 8px
+  &-entry
+    border-left 4px solid accent-lite
+    position relative
+    padding-left 16px
+    padding-bottom 4px
+    &:before
+      content ''
+      width 20px
+      height 20px
+      background accent
+      border-radius 50%
+      position absolute
+      left -12px
+    &:last-child
+      border 0px
+      padding-bottom 0
+      position relative
+      left 4px
+      bottom 2px
+  &-title
+    position relative
+    top -3px
+    margin-bottom 0px
+    letter-spacing -0.1em

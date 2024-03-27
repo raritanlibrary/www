@@ -1,4 +1,4 @@
-.event
+.event, .snippet
   margin-bottom 16px
   &-category
     lexend(12px, accent-lite, bold)
@@ -17,11 +17,29 @@
   &-datetime
     lexend(14px, neutral)
     margin-bottom 8px
+    text-align left
+  &-misc
+    margin-bottom 8px
+    p
+      lexend(14px, neutral)
+      margin-bottom 0
+      text-align left
+      svg
+        position relative
+        fill dark
+        width 16px
+        top 3.5px
+        margin-right 4px
   &-action
     flex(wrapping: wrap, align: start, gap: 4px 8px)
-  &-register, &-schedule
-    lexend(14px, lite)
-    background-color accent
-    padding 4px 8px
-    user-select none
-    text-decoration none
+    a
+      lexend(14px, lite)
+      background-color accent
+      padding 4px 8px
+      user-select none
+      text-decoration none
+    &s-altview
+      flex(wrapping: wrap, align: start, gap: 4px 8px)
+  // modifiers
+  &-extend
+    margin-bottom 32px

@@ -5,12 +5,7 @@ const yaml = require('js-yaml');
 
 // Event parsing function (truncated)
 export const eventInjector = (data, cache) => {
-    let dupes = [
-        "1-on-1 Computer Help",
-        "Brendan 1-on-1 Computer Help",
-        "Brendan 1-on-1 Computer Session",
-        "1-on-1 Computer Class with Brendan"
-    ];
+    let dupes = [];
     let truncatedData = []
 
     // Transpose cache
@@ -25,7 +20,7 @@ export const eventInjector = (data, cache) => {
     // Initial pass
     data.forEach(entry => {
         let category = entry.category.length > 0 ? entry.category[0].name : entry.category;
-        if (!dupes.includes(entry.title) && !(entry.title).toLowerCase().includes("cancelled") && category !== "Holiday") {
+        if (!dupes.includes(entry.title) && ['cancel', 'brendan', '1-on-1'].some(x => !(entry.title).toLowerCase().includes(x)) && category !== "Holiday") {
             if (entry.allday) {
                 dupes.push(entry.title);
             }
@@ -74,8 +69,8 @@ export const eventInjector = (data, cache) => {
                         <h2 class="event-header" href="${event.form}" target="_blank" rel="noopener">${event.title}</h2>
                         <div class="event-datetime">${eventDateTime}</div>
                         <div class="event-action">
-                            <a class="event-register" href="${event.form}" target="_blank" rel="noopener">Register</a>
-                            <a class="event-schedule" href="${event.schedule}" target="_blank" rel="noopener">Add to calendar</a>
+                            <a href="${event.form}" target="_blank" rel="noopener">Register</a>
+                            <a href="${event.schedule}" target="_blank" rel="noopener">Add to calendar</a>
                         </div>
                     </div>
                 </div>
@@ -83,7 +78,12 @@ export const eventInjector = (data, cache) => {
             displayed++;
         }
     }
-    document.getElementById("upcoming").innerHTML = eventList;
+
+    // Check for div
+    const upcomingDiv = document.getElementById("upcoming");
+    if (upcomingDiv) {
+        upcomingDiv.innerHTML = eventList;
+    }
 }
 
 // HTML injection for event calendar
@@ -100,8 +100,8 @@ export const programCalendar = (events, dateTime) => {
     const nextMonthName = time.mm[nextMonth];
     const nextYear      = nextDate.getFullYear();
     document.getElementById("calendar-month").innerHTML = `${curMonthName} ${curYear}`;
-    document.getElementById("month-nav-left").innerHTML = `<< ${lastMonthName} ${lastYear}`;
-    document.getElementById("month-nav-right").innerHTML = `${nextMonthName} ${nextYear} >>`;
+    document.getElementById("calendar-nav-back").innerHTML = `🡐 ${lastMonthName} ${lastYear}`;
+    document.getElementById("calendar-nav-next").innerHTML = `${nextMonthName} ${nextYear} 🡒`;
     
     // Get day of the week for the first day of the month
     const monthFirst = new Date(curYear, dateTime.getMonth(), 1);
@@ -121,26 +121,23 @@ export const programCalendar = (events, dateTime) => {
         "1-on-1 Computer Class with Brendan"
     ];
     while (!(calIter > 6 && dateTime.getMonth() !== calDate.getMonth() && calDate.getDay() === 0)) {
+        const filteredEvents = events.filter(event => new Date(event.start).setHours(0,0,0,0) === calDate.setHours(0,0,0,0) && ['cancel', 'brendan', '1-on-1'].some(x => !(event.title).toLowerCase().includes(x)));
         const dayClass = dateTime.getMonth() !== calDate.getMonth() ? "-grey" : (simpleNow.getTime() === calDate.getTime() ? "-now" : "")
-        const extraClass = time.flexMonth(calDate.getMonth()).includes(calDate.getDate()) ? " calendar-flex-half" : "";
+        const hideEmpty = filteredEvents.length === 0 || calDate.getDate() < simpleNow.getDate() ? " calendar-day-empty" : "";
         calContent += ` 
-        <div class="calendar-day${dayClass}${extraClass}">
-            <p class="calendar-num${dayClass}">
-                ${calDate.getDate()}<span class="calendar-dotw-inner">${time.weekday(calDate)}</span>
-            </p>
-            `
-        for (const event of events) {
-            if (new Date(event.start).setHours(0,0,0,0) === calDate.setHours(0,0,0,0) && !dupes.includes(event.title) && !(event.title).toLowerCase().includes("cancelled")) {
-                let eventTitle = event.title.replace("Bridgewater-Raritan High School", "BRHS");
-                let eventTime = event.allday ? "All Day Event" : time.formatTime(new Date(event.start));
-                calContent += `
-                <a class="calendar-entry-${util.stylizer(event.category)}" href="${event.url.public}" target="_blank" rel="noopener">
-                    ${eventTitle}
-                    <p class="calendar-entry-${util.stylizer(event.category)}-time">
-                        ${eventTime}
-                    </p>
-                </a>`
-            }
+        <div class="calendar-day${dayClass}${hideEmpty}">
+            <div class="calendar-num">
+                <span class="calendar-num-dotw">${time.weekday(calDate)}</span>
+                <span class="calendar-num-date">${time.mm[calDate.getMonth()]} ${calDate.getDate()}</span>
+            </div>`
+        for (const event of filteredEvents) {
+            let eventTitle = event.title;
+            let eventTime = event.allday ? "All Day Event" : `${time.formatTime(new Date(event.start))} - ${time.formatTime(new Date(event.end))}`;
+            calContent += `
+            <a class="calendar-entry-${util.stylizer(event.category)}" href="${event.url.public}" target="_blank" rel="noopener">
+                <span class="calendar-entry-${util.stylizer(event.category)}-time">${eventTime}</span>
+                <span>${eventTitle}</span>
+            </a>`
         }
         calContent += `</div>`
         calDate = new Date(calDate.getFullYear(), calDate.getMonth(), calDate.getDate()+1);

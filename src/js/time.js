@@ -1,6 +1,6 @@
 import * as svg from './svg';
 const fs = require('fs');
-const yaml = require('js-yaml');
+import holidays from '../data/holidays.json';
 
 // Current time
 export const now = new Date();
@@ -85,60 +85,45 @@ export const flexMonth = month => {
     }
 }
 
-// Load hours+holiday data
-let hoursData = fs.readFileSync('src/data/hours.yaml', 'utf8');
-let hoursYaml = yaml.load(hoursData);
-const hours = hoursYaml.hours;
-const holidays = hoursYaml.holidays;
-const curHours = hours[dotw];
-
-// Inject hours data
+// Inject holiday data
 export const injector = () => {
     // Holiday alerts
-    let holidayDays = []
-    holidays.forEach(holiday => {
-        const holidayStart = Array.isArray(holiday.date) ? addHours(holiday.date[0], 5) : addHours(holiday.date, 5);
-        const holidayEnd = Array.isArray(holiday.date) ? addHours(holiday.date[1], 29) : addHours(holiday.date, 29);
-        const holidayEndName = addHours(holidayEnd, -24)
-        const holidayStr = Array.isArray(holiday.date) ? `${fullDate(holidayStart)}</b> and <b>${fullDate(holidayEndName)}` : fullDate(holidayStart);
-        holidayDays.push(fullDate(holidayStart));
-        if (Array.isArray(holiday.date)) {
-            holidayDays.push(fullDate(holidayEndName));
+    const holidayKeys = Object.keys(holidays);
+    holidayKeys.forEach(holiday => {
+        const isHoliday = holidays[holiday].isHoliday;
+        const holidayDates = holidays[holiday].dates;
+        const dateKeys = Object.keys(holidayDates);
+        // Get closing days
+        let closings = dateKeys.filter(x => holidayDates[x] === 'CLOSED');
+        // Get modified schedules
+        let modDates = {...holidayDates};
+        Object.keys(modDates).forEach(x => {if (closings.includes(x)) delete modDates[x]});
+        // Prepare alert string (closings)
+        let closeStr, modStr;
+        if (closings.length > 0) {
+            const closeStart    = addHours(new Date(closings[0]), 5);
+            const closeEnd      = addHours(new Date(closings[closings.length-1]), 29);
+            const closeEndName  = addHours(new Date(closeEnd), -24)
+            closeStr = `be closed ${closings.length > 1 ? `from <b>${fullDate(closeStart)}</b> to <b>${fullDate(closeEndName)}</b>` : `on <b>${fullDate(closeStart)}</b>`}`;
         }
-        if (holidayStart.getTime() - now.getTime() <= msd*14 && holidayEnd.getTime() - now.getTime() > 0) {
-            const holidayAlert = document.getElementById("closure-index");
-            if (holidayAlert) {
-                holidayAlert.innerHTML = `
-                <div class="alert-info">
-                    <div class="alert-info-logo">${svg.info}</div>
-                    <div class="alert-info-text">
-                        <div class="alert-info-title">Attention</div>
-                        <div class="alert-info-desc">Raritan Public Library will be closed on <b>${holidayStr}</b> in observance of <b>${holiday.name}</b>. For more information about this closing, please contact the Library during our open hours by phone at <b>(908) 725-0413</b> or by email at <a class="link" href="mailto:info@raritanlibrary.org">info@raritanlibrary.org</a>.</div>
-                    </div>
-                </div>`
-            }
-            document.getElementById("closure-sidebar").innerHTML = `
-            <p class="comment-dark">The Library will be closed <b>${holidayStr}</b> for <b>${holiday.name}</b>.</p>
-            <br>`
+        // Prepare alert string (delays/early closings)
+        // Handles only one modified schedule for now.
+        if (Object.keys(modDates).length > 0) {
+            const modKey = Object.keys(modDates)[0];
+            const modDay = addHours(new Date(modKey), 5);
+            const [modOpen, modClose] = modDates[modKey].split(' - ');
+            modStr = `${modOpen !== '9 AM' ? `open at <b>${modOpen}` : `close at <b>${modClose}`}</b> on <b>${fullDate(modDay)}</b>`;
+        }
+        // Concat + inject string
+        const holidayStart  = addHours(new Date(dateKeys[0]), 5);
+        const holidayEnd    = addHours(new Date(dateKeys[dateKeys.length-1]), -24);
+        const alerts = document.getElementById("systemwide-alerts");
+        if (alerts && holidayStart.getTime() - now.getTime() <= msd*14 && holidayEnd.getTime() - now.getTime() > 0) {
+            alerts.innerHTML = `${alerts.innerHTML}
+            <div class="alert-info">
+                ${svg.info}
+                <span>Raritan Public Library will ${closeStr ? closeStr : modStr} ${isHoliday ? 'in observance of' : 'for'} <b>${holiday}</b>. ${modStr ? `The Library will also ${modStr}.` : ``}</span>
+            </div>`
         }
     });
-    // Sidebar
-    const startWeek = addDays(now , 1-dotw);
-    let sidebarHours = ``
-    for (let i = 1; i < 7; i++) {
-        let sidebarDay = addDays(startWeek, i-1);
-        let hoursDetail = holidayDays.includes(fullDate(sidebarDay)) ? "CLOSED" : hours[i];
-        sidebarHours += `<p><span class="hours-day">${ww[i].slice(0,3)}, ${month(sidebarDay).slice(0,3)} ${sidebarDay.getDate()}</span><span class="hours-detail">${hoursDetail}</span></p>`
-    }
-    sidebarHours += `<p><span class="hours-day">Sun, ${month(addDays(startWeek, 6)).slice(0,3)} ${addDays(startWeek, 6).getDate()}</span><span class="hours-detail">${hours[0]}</span></p>`
-    //document.getElementById("hours").innerHTML = sidebarHours;
-    // Footer
-    // not holiday, not "CLOSED"
-    //holidays
-    let nextDay = dotw === 6 ? "next Monday" : "tomorrow";
-    let nextHours = dotw === 6 ? hours[1] : hours[dotw+1];
-    const mainStr = dotw === 0 ? `The library is closed today.` : `Open today · ${curHours}`;
-    const otherStr = dotw === 0 ? `Open ${nextDay} · ${nextHours}` : "";
-    //document.getElementById("hours-footer-main").innerHTML = mainStr;
-    //document.getElementById("hours-footer-other").innerHTML = otherStr;
 }

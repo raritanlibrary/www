@@ -45,7 +45,7 @@ done
 # Use the hashcache to generate new images
 hashCacheJSON="{"
 for i in "${!hashCache[@]}"; do
-    hashCacheJSON+="\"$i\":[${hashCache[$i]::-1}], "
+    hashCacheJSON+="\"$i\":[${hashCache[$i]}], "
     cacheMatch=$(find -name "${hashCache[$i]:0:8}.*")
     magick convert "$cacheMatch" -gravity center -crop 1:1 -resize 300x300 "dist/img/events/$i.jpg";
     magick convert "dist/img/events/$i.jpg" -quality 80 -define webp:alpha-quality=80 -define webp:method=6 "dist/img/events/$i.webp";

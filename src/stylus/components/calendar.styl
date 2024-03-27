@@ -1,0 +1,46 @@
+entry-template(type)
+  flex(dir: column)
+  spacer(0.25)
+  border-left 8px solid rgba(lookup('event-'+type), 1)
+  padding 8px
+  background-color rgba(lookup('event-'+type), 0.3)
+  lexend(16px, var(--main-text), bold)
+  margin 4px 0
+  &-time
+    lexend(14px, unquote(ev-text-+type))
+    margin-bottom 0
+
+.calendar
+  &-header
+    lexend-mega(32px, accent)
+    margin-bottom 8px
+    text-align center
+  &-nav
+    flex(align: space-between)
+    margin-bottom 16px
+  &-action
+    background-color accent
+    padding 4px 8px
+    user-select none
+    max-width fit-content
+    lexend(14px, lite)
+    text-decoration none
+    &-grey
+      background-color neutral
+  &-weeks
+    flex(dir: column, align: center, gap: 8px)
+  &-day
+    margin-bottom 8px
+    &-grey, &-empty
+      display none
+  &-num
+    flex(dir: column, align: center, x-align: start)
+    &-dotw
+      lexend(16px, neutral, bold)
+      margin-bottom -4px
+    &-date
+      lexend-mega(24px, accent)
+  &-entry
+    for col, i in event-colors
+      &-{col}
+        entry-template(col)

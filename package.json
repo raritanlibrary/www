@@ -4,17 +4,16 @@
   "description": "A website for Raritan Public Library.",
   "browserslist": ">= 0.1% in US, last 3 years, not dead",
   "dependencies": {
-    "js-yaml": "^4.1.0",
     "pug": "^3.0.2",
     "stylus": "^0.62.0"
   },
   "devDependencies": {
-    "@parcel/config-default": "^2.10.3",
-    "@parcel/transformer-image": "^2.10.3",
-    "@parcel/transformer-pug": "^2.10.3",
-    "@parcel/transformer-stylus": "^2.10.3",
-    "lighthouse": "^11.4.0",
-    "parcel": "^2.10.3",
+    "@parcel/config-default": "^2.7.0",
+    "@parcel/transformer-image": "^2.7.0",
+    "@parcel/transformer-pug": "^2.7.0",
+    "@parcel/transformer-stylus": "^2.7.0",
+    "lighthouse": "^11.6.0",
+    "parcel": "^2.7.0",
     "sharp": "^0.31.1"
   },
   "scripts": {

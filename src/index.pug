@@ -1,46 +1,54 @@
-doctype html
-html(lang="en" color-mode="lite")
-    head
-        - const home = true
-        - const desc = "Discover the Raritan Public Library online to explore information on books, digital resources, media, and more."
-        include ./includes/_head.pug
-    body.body
-        //include ./includes/access.pug
-        include ./includes/header.pug
-        main.main
-            #systemwide-alerts
-                +alert("info")
-                    span Raritan Public Library will be closed on <b>Holiday</b> in observance of <b>Holiday</b>.
-            .hero
-                - const heroImages = ['test-hero', 'two', 'three', 'four', 'X'];
-                .hero-content#hero-content
-                    each v, i in heroImages
-                        picture.hero-slide(id=`hero-slide-${i}`)
-                            source(srcset=`./img/hero/${v}.png?as=webp` alt="" type="image/webp")
-                            img(src=`./img/hero/${v}.png?as=jpeg` alt="" type="image/jpeg")
-                .hero-nav
-                    .hero-nav-item#hero-prev: include ./img/icons/caret-left.svg
-                    .hero-nav-item#hero-next: include ./img/icons/caret-right.svg
-                .hero-select#hero-select
-                    each v, i in heroImages
-                        .hero-select-item(class=`${i === 0 ? 'hero-select-current' : ''}` id=`hero-dot-${i}`): include ./img/icons/dot.svg
-            .content
-                //-.content-block#news
-                    h1 Spotlight
-                    h2 A New Look
-                    p Raritan Public Library is now a member of the #[a(href="https://www.mainlib.org/") Main Library Alliance], a network of over 50 public libraries located in north-central New Jersey. Discover over 3,000,000 items in our new collection.
-                .content-block
-                    h1 Upcoming Events
-                    #upcoming
-                //-.content-block#arrivals
-                    h1 New &amp; Noteworthy
-                    #books
-                .content-block
-                    h1 Resources
-                    - const quickLinks = ['hoopla'];
-                    .quicklinks#quicklinks
-                        each v, i in quickLinks
-                            picture.quicklinks-img
-                                source(srcset=`./img/resources/${v}.png?as=webp` alt="" type="image/webp")
-                                img(src=`./img/resources/${v}.png?as=jpeg` alt="" type="image/jpeg")
-            include ./includes/footer.pug
+extends ./templates/default.pug
+
+block meta
+    - const home = true
+    - const desc = "Discover the Raritan Public Library online to explore information on books, digital resources, media, and more."
+
+block content
+    -
+        const heroImages = [
+            {name: "test-hero",  alt: ""},
+            {name: "two",        alt: ""},
+            {name: "three",      alt: ""},
+            {name: "four",       alt: ""},
+            {name: "X",          alt: ""},
+        ];
+        const quickLinks = [
+            {name: "hoopla",  alt: "hoopla digital",        link: "https://www.hoopladigital.com/"},
+            {name: "cr",      alt: "Consumer Reports",      link: "https://search.ebscohost.com/login.aspx?authtype=ip,cpid&custid=s8971388&groupid=main&site=crcro&return=y"},
+            //{name: "wsj",     alt: "Wall Street Journal",   link: ""},
+            {name: "mango",   alt: "Mango Languages",       link: "https://connect.mangolanguages.com/raritanlibrary/start"},
+            {name: "libby",   alt: "Libby",                 link: "https://libbyapp.com"},
+        ];
+    .hero
+
+        .hero-content#hero-content
+            each v, i in heroImages
+                picture.hero-slide(id=`hero-slide-${i}`)
+                    source(srcset=`./img/hero/${v.name}.png?as=webp` alt=v.alt type="image/webp")
+                    img(src=`./img/hero/${v.name}.png?as=jpeg` alt=v.alt type="image/jpeg")
+        .hero-nav
+            .hero-nav-item#hero-prev: include ./img/icons/caret-left.svg
+            .hero-nav-item#hero-next: include ./img/icons/caret-right.svg
+        .hero-select#hero-select
+            each v, i in heroImages
+                .hero-select-item(class=`${i === 0 ? 'hero-select-current' : ''}` id=`hero-dot-${i}`): include ./img/icons/dot.svg
+    .content
+        //-.content-block#news
+            h1 Spotlight
+            h2 A New Look
+            p Raritan Public Library is now a member of the #[a(href="https://www.mainlib.org/") Main Library Alliance], a network of over 50 public libraries located in north-central New Jersey. Discover over 3,000,000 items in our new collection.
+        .content-block
+            h1 Upcoming Events
+            #upcoming
+        //-.content-block#arrivals
+            h1 New &amp; Noteworthy
+            #books
+        .content-block
+            h1 Resources
+            .quicklinks#quicklinks
+                each v, i in quickLinks
+                    a(href=v.link)
+                        picture.quicklinks-img
+                            source(srcset=`./img/resources/${v.name}.png?as=webp` alt=v.alt type="image/webp")
+                            img(src=`./img/resources/${v.name}.png?as=jpeg` alt=v.alt type="image/jpeg")

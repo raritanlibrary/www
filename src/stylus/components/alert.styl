@@ -12,7 +12,10 @@ alert(type)
     fill bgtext
     width 1em
     top 2px
-    margin-right 6px
+    if type == 'inf'
+      margin-right -2px
+    else
+      margin-right 6px
 
 .alert-info
   alert('inf')

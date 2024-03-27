@@ -1,0 +1,98 @@
+//- Single-source picture
+mixin picture(image, alt, c)
+    picture(class=c)
+        source(srcset=` ./img/${image}?as=webp` type="image/webp")
+        img(src=`./img/${image}?as=jpeg` alt=alt type="image/jpeg")
+
+//- Dual-source picture
+mixin picture-multi(image, image2, alt, c)
+    picture(class=c)
+        source(media="(min-width:500px)" srcset=`./img/${image}?as=webp` type="image/webp")
+        source(srcset=`./img/${image2}?as=webp` type="image/webp")
+        source(media="(min-width:500px)" srcset=`./img/${image}?as=jpeg` type="image/jpeg")
+        img(src=`./img/${image2}?as=jpeg` alt=alt type="image/jpeg")
+
+//- General alerts
+mixin alert(type, desc)
+    div(class=`alert-${type}`)
+        if type === "info"
+            include ../img/icons/info.svg
+            block
+        else
+            include ../img/icons/alert.svg
+            block
+
+//- Board member
+mixin member(name, title)
+    p.member-entry #[b #{name}] #[span #{title}]
+
+//- History page timeline entry
+mixin timeline(date, desc)
+    li.timeline-entry
+        h3.timeline-title #{date}
+        p #{desc}
+
+//- Makers Day event
+mixin makers-event(title, img, imgalt, time, location, ages, signup, links)
+    .snippet-extend
+        .snippet-main
+            +picture(`makers/${img}.png`, imgalt, "snippet-image")
+            .snippet-info
+                h2.snippet-header #{title}
+                .snippet-misc
+                    p
+                        include ../img/icons/time.svg
+                        span #{time}
+                    p
+                        include ../img/icons/location.svg
+                        span #{location}
+                    p
+                        include ../img/icons/people.svg
+                        span #{ages}
+                    p
+                        include ../img/icons/form.svg
+                        span #{signup}
+        p.extend-small
+            block
+        if links
+            .snippet-actions-altview
+                for link in links 
+                    div.snippet-action: a.external(href=`${link.href}` target="_blank" rel="noopener") #{link.desc}
+
+//- Museum Passes
+mixin pass(name, img, location, ages, type, link)
+    .snippet-extend
+        .snippet-main
+            +picture(`passes/${img}.png`, `${name} logo`, "snippet-image")
+            .snippet-info
+                h2.snippet-header #{name}
+                .snippet-misc
+                    p #{type}
+                    br
+                    p
+                        include ../img/icons/location.svg
+                        span #{location}
+                    p
+                        include ../img/icons/people.svg
+                        span #{ages}
+        p.extend-small
+            block
+        div.snippet-action
+            a.external(href=`${link}` target="_blank" rel="noopener") #{link.split('/')[2]}
+
+//- Resource
+mixin resource(name, link)
+    .snippet-extend
+        .snippet-info
+            h2.snippet-header #{name}
+            p.extend-none
+                block
+        div.snippet-action
+            a.external(href=`${link}` target="_blank" rel="noopener") #{name}
+
+//- Site Map link
+mixin sitemap-link(name, href)
+        if extchk(href)
+            p: a.external(href=href target="_blank" rel="noopener") #{name}
+        else
+            p: a(href=href) #{name}

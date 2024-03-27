@@ -1,9 +1,0 @@
-//- General alerts
-mixin alert(type, desc)
-    div(class=`alert-${type}`)
-        if type === "info"
-            include ../img/icons/info.svg
-            block
-        else
-            include ../img/icons/alert.svg
-            block

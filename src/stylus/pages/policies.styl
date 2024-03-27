@@ -1,0 +1,20 @@
+.policies
+  counter-reset olcount
+  margin-left 32px
+  &-item
+    counter-increment olcount
+    lexend(16px)
+    margin-bottom 16px
+    text-align justify
+    &:before
+      content "[" counter(olcount) "]"
+      lexend(20px, dark, bold)
+      margin 0 8px 0 -32px
+      display inline
+
+.print-info
+  margin-bottom 8px
+  p
+    flex(flow: nowrap, align: space-between, gap: 16px)
+    width 250px
+    margin-bottom 0

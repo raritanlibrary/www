@@ -1,0 +1,50 @@
+extends ./templates/default.pug
+
+block meta
+    - const title = "Policies"
+    - const desc = "Read information regarding our in-house policies at the Raritan Public Library."
+
+block content
+    .hero
+        .hero-content#hero-content
+            picture.hero-static
+                source(srcset=`./img/hero/x.png?as=webp` alt="" type="image/webp")
+                img(src=`./img/hero/x.png?as=jpeg` alt="" type="image/jpeg")
+    .content
+        h1.access Policies
+        h2#standards Standards
+        p The following summarizes provisions of the Raritan Public Library Standards of Acceptable Behavior. This summary is provided for your convenience; however, the full Standards document which includes borrowing privileges, loan periods, and overdue fines and fees #[a(href="docs/policies_202203.pdf" target="_blank" rel="noopener") can be found here].
+        p #[b To maintain personal safety and preserve a peaceful and pleasant environment, please do not:]
+        ol.policies
+            li.policies-item Leave any child under the age of 10 without adult supervison. If a child is left unattended at Library closing time, the librarian will attempt to contact the parents. If, after 15 minutes, the child has not been picked up, the Raritan Police may be called to assist.
+            li.policies-item Smoke, use of alcohol or any drug constituting a controlled dangerous substance on Library property or display behavior of being intoxicated in the Library.
+            li.policies-item Fail to wear proper attire, including shoes and shirts. Patrons whose bodily hygiene is offensive as to constitute a nuisance or health threat to other patrons shall be requested to leave the Library.
+            li.policies-item Bring animals, insects or other living organisms into the Library, except service animals to assist patrons with disabilities.
+            li.policies-item Harass Library patrons or staff, verbally, physically or sexually.
+            li.policies-item Carry any instrument that could reasonably and commonly be classified as a weapon or a dangerous instrument, or could be reasonably used as means of aggression or defense against another, into or on the property of the Library, unless authorized by law to do so. Any person authorized to carry a weapon must notify Library staff of that fact.
+            li.policies-item Engage in any behavior that presents an imminent danger to the life and/or safety of others, including intentional non-emergency activation of alarmed exits or fire alarms.
+            li.policies-item Misuse the restrooms. No person shall use the restroom facilities other than for ordinary and usual use. Bathing and laundering clothes are specifically not permitted.                
+        h2#computers Computers / Internet Use
+        p Time limit on the library's computers is 1 hour per day, per person. Patrons are requested to sign a log book with their name, town of residency, and time of day.
+        p Library staff reserves the right to terminate any session due to inappropriate content.
+        p Any user under the age of 18 must have a parent/guardian's signature on the Children's Registration Form for Internet Access. The signed form is kept on file at the circulation desk for future reference.
+        p Adult patrons can borrow a laptop computer within the Library premises, provided they are a patron in good standing and presents a photo ID.
+        h2#dvds DVD Policy
+        p You must be 18 years of age to check out DVDs from the adult collection. Children can borrow DVDs from our juvenile collection. 
+        p There is a loan period of 14 days. DVDs may be renewed twice. Fines are $1 per day per DVD.
+        p All overdue materials must be returned before any DVDs can be checked out.
+        h2 Miscellaneous
+        h3#printing Printing Services
+        .print-info
+            p #[b Greyscale (Letter)] #[span $0.15/page]
+            p #[b Greyscale (Legal)] #[span $0.25/page]
+            p #[b Color (Letter)] #[span $0.50/page]
+            p #[b Faxing] #[span $1.00/page]
+            p #[b Scanning] #[span Free]
+        p Our policies on 3D printing can be found in #[a.link(href="docs/3d-printing_202209.pdf") this document].
+        h3#ill Inter-Library Loan (ILL)
+        p ILL books and audiobooks can be borrowed from anywhere from 1-3 weeks, depending on the loaning library. Renewals are not guaranteed and only made by special request. Requests are subject to the availability from other libraries.
+        h3#renewals Renewals
+        p Renewals can be done in person, by phone (phone messages do not apply), or online for all materials. Renewals cannot be made on materials that are on hold for other patrons. Only two renewals per item applies.
+        h3#holds Holds
+        p Holds can be placed on books, audiobooks, CDs, DVDs and magazines. Holds can be done by phone, in person, or online. The held material will go back into circulation if it has not been picked up before 1 year.
