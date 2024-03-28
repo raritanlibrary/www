@@ -37,15 +37,13 @@ const autoScroll = () => {
 // Content to inject for events page
 const contentEvents = res => {
     data.programCalendar(res, time.now);
-    let curDay          = time.now.getDate();
     let curMonth        = time.now.getMonth();
     let curYear         = time.now.getFullYear();
     let lastDate        = new Date(curYear, curMonth-1, 1);
     let nextDate        = new Date(curYear, curMonth+1, 1);
-    let lastLimitRaw    = new Date(curYear, curMonth, curDay-45);
-    let lastLimit       = new Date(lastLimitRaw.getFullYear(), lastLimitRaw.getMonth(), 1);
+    let lastLimit       = new Date(curYear, curMonth, 1);
     let nextLimit       = new Date(curYear, curMonth+3, 1);
-    let disableLeft     = false;
+    let disableLeft     = true;
     let disableRight    = false;
     util.addClickListener(e => {
         const navLeft = document.getElementById("calendar-nav-back")
@@ -118,7 +116,8 @@ util.req(eventJson, eventResFunc);
 window.onload = () => {
     time.injector();
     pageInjector(page);
-    //access.hicontrast();
+    access.toggleTheme();
+    access.toTop();
     data.devInfo();
     search();
 };

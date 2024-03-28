@@ -11,10 +11,10 @@ export const preload = () => {
 // Toggle light/dark mode
 const toggleMode = type => {
     const root = document.documentElement;
-    const access = document.getElementById("access");
-    const all = document.querySelectorAll("* :not(b):not(i):not(sup):not(svg):not(path):not(.newsletter-decor)");
+    const themeButton = document.getElementById("theme");
+    const all = document.querySelectorAll("* :not(b):not(span):not(i):not(sup):not(path):not(svg)");
     const addRemove = type === "dark" ? "add" : "remove";
-    access.classList[addRemove]("darkmodeon");
+    themeButton.classList[addRemove]("darkmodeon");
     all.forEach(element => element.style.transition = "all 0.2s ease-in-out");
     root.setAttribute("color-mode", type);
     localStorage.setItem("color-mode", type);
@@ -22,16 +22,47 @@ const toggleMode = type => {
 }
 
 // Send toggle function to event listener to execute it
-export const hicontrast = () => {
-    const access = document.getElementById("access");
+export const toggleTheme = () => {
+    const themeButton = document.getElementById("theme");
     if (localStorage.getItem("color-mode") === "dark") {
-        access.classList.add("darkmodeon");
+        themeButton.classList.add("darkmodeon");
     }
     util.addClickListener(e => {
-        if (access.contains(e.target) && !access.classList.contains("darkmodeon")) {
+        if (themeButton.contains(e.target) && !themeButton.classList.contains("darkmodeon")) {
             toggleMode("dark");
-        } else if (access.contains(e.target) && access.classList.contains("darkmodeon")) {
+        } else if (themeButton.contains(e.target) && themeButton.classList.contains("darkmodeon")) {
             toggleMode("lite");
+        }
+    });
+}
+
+// Back to top button
+export const toTop = () => {
+    const html = document.documentElement;
+    const body = document.body;
+    const upButton = document.getElementById("totop");
+    // Appear when 20% below top
+    document.addEventListener('scroll', e => {
+        const element = body.scrollHeight - body.clientHeight === 0 ? html : body;
+        const maxScroll = element.scrollHeight - element.clientHeight;
+        const ratio = element.scrollTop / maxScroll;
+        if (maxScroll / element.clientHeight >= 1) {
+            if (element.scrollTop >= (maxScroll * 0.2 + 120)) {
+                upButton.style.top = 'calc(100vh - 60px)'
+            } else if (ratio >= 0.2) {
+                upButton.style.top = `calc(100vh - ${(element.scrollTop - maxScroll * 0.2) / 2}px)`
+            } else {
+                upButton.style.top = '100vh'
+            }
+        } else {
+            upButton.style.top = '100vh'
+        }
+    });
+    // Scroll to top on click
+    util.addClickListener(e => {
+        if (upButton.contains(e.target)) {
+            html.scrollTop = 0; // chrome/ff/ie/opera
+            body.scrollTop = 0; // safari
         }
     });
 }

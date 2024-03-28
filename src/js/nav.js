@@ -79,7 +79,7 @@ export const sticky = () => {
         const menu = document.getElementById("nav-toggle");
         const menuIcon = document.querySelector(".nav-toggle > svg");
         const main = document.querySelector(".main");
-        const access = document.querySelector(".access");
+        const themeButton = document.getElementById("theme");
         const page = document.querySelector("html");
         util.toggleClasses(
             menu.contains(e.target) && !menuIcon.classList.contains("enlarge"),
@@ -87,7 +87,7 @@ export const sticky = () => {
             [links, "links-open"],
             [menuIcon, "enlarge"],
             [main, "darken", "freeze"],
-            //[access, "access-darken"],
+            [themeButton, "theme-darken"],
             [page, "freeze"]
         )
     })

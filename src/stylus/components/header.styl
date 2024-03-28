@@ -5,7 +5,7 @@ linksWidth  = 220
   background-color lite
   &-toggle
     cursor pointer
-    fill nav-main
+    fill dark
     svg
       position absolute
       width 40px
@@ -20,6 +20,12 @@ linksWidth  = 220
   padding 12px 16px
   display block
   width 60%
+  &-text
+    fill dark
+  &-st0
+    fill fixed-accent
+  &-st1
+    fill accent-slite
   svg
     position relative
     height 60px
@@ -36,6 +42,7 @@ linksWidth  = 220
     lexend(16px, lite, bold)
     text-decoration none
     background-color neutral-dark
+    color fixed-lite
     padding "calc(-20px/2 - 0.8px/4*((%s - 1)/%s) + (100vh - 87px)/%s/2)" % (nItems nItems nItems) 16px
     width "%spx" % (linksWidth)
     text-align right
@@ -54,28 +61,25 @@ linksWidth  = 220
   position relative
   &-icon
     position absolute
-    left 8px
-    top 7px
-    width 15px
-    fill dark
+    left 9px
+    top 8px
+    width 19px
+    fill #000000
   &-enter
     position absolute
-    right 0
-    top 0
-    padding 3px 7px
-    border-top 2px solid dark
-    border-bottom 2px solid dark
-    border-right 2px solid dark
-    border-left 0
-    background-color accent
+    right 1px
+    top 1px
+    padding 4px 8px
+    border 0
+    background-color transparent
     svg
       margin-top 3px
-      width 15px
-      fill lite
+      width 19px
+      fill #0a4dbc
   &-bar
     width 100%
-    padding 4px 28px 6px 28px
-    border 2px solid dark
-    lexend(14px, dark)
+    padding 4px 32px 6px 32px
+    border 2px solid #000000
+    lexend(18px, #000000)
     &::placeholder
-      color neutral
+      color #565656

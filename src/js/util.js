@@ -45,6 +45,6 @@ export const stylizer = cat => {
         case "Gaming":                  return "blue";
         case "Storytime":               return "purple";
         case "Craft Program":           return "pink";
-        default:                        return "gray";
+        default:                        return "grey";
     }
 }

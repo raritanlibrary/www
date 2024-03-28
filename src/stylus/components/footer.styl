@@ -1,19 +1,19 @@
 .footer
   flex(dir: column, align: start, x-align: center, gap: 16px)
-  background-color accent
+  background-color fixed-accent
   padding 16px
   p
     margin-bottom 0
   &-heading
     text-align center
-    color lite
+    color fixed-lite
     margin-bottom 0
   &-socials
     flex(wrapping: wrap, align: start, gap: 12px)
     margin-bottom -16px
     &-link
       width calc(32px+16px)
-      fill lite
+      fill fixed-lite
       padding 8px
   &-info
     flex(wrapping: wrap, align: space-around, gap: 16px 0)
@@ -22,28 +22,28 @@
     flex(dir: column, gap: 8px)
     &-method
       flex(align: start, gap: 8px)
-      lexend(13px, lite)
+      lexend(13px, fixed-lite)
       letter-spacing -0.025em
       a
-        lexend(13px, lite)
+        lexend(13px, fixed-lite)
       svg
         position relative
-        fill lite
+        fill fixed-lite
         width 14px
         top 1px
   &-hours
     h2
       margin-bottom 4px
     p   
-      lexend(13px, lite)
+      lexend(13px, fixed-lite)
       letter-spacing -0.025em
       flex(align: space-between, gap: 16px)
 .copyright
-  lexend-mega(14px, lite)
+  lexend-mega(14px, fixed-lite)
   letter-spacing -0.12em
   text-transform uppercase
 .version
-  lexend(12px, accent-lite)
+  lexend(12px, fixed-accent-lite)
   text-align center
   a
-    lexend(12px, lite)
+    lexend(12px, fixed-lite)
