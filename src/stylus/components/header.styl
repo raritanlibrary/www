@@ -12,6 +12,13 @@ linksWidth  = 220
       top 22px
       right 12px
       transition color 0.2s ease-in-out, transform 0.4s ease-out
+  +tablet()
+    margin 0 8px
+    &-toggle
+      svg
+        width 50px
+        top 28px
+        right 20px
 
 .enlarge
   transform scale(1.2)
@@ -19,7 +26,7 @@ linksWidth  = 220
 .logo
   padding 12px 16px
   display block
-  width 60%
+  width 40%
   &-text
     fill dark
   &-st0
@@ -30,6 +37,8 @@ linksWidth  = 220
     position relative
     height 60px
     left -8px
+    +tablet()
+      height 80px
 
 .links
   flex(dir: column, wrapping: wrap)
@@ -54,6 +63,15 @@ linksWidth  = 220
       @extends .links-item
   &-open
     right 0
+  +tablet()
+    linksWidth = 280
+    right "-%spx" % (linksWidth)
+    &-item
+      font-size 18px
+      padding "calc(-23px/2 - 0.8px/4*((%s - 1)/%s) + (100vh - 107px)/%s/2)" % (nItems nItems nItems) 16px
+      width "%spx" % (linksWidth)
+    &-open
+      right 0
 
 .search
   flex()
@@ -83,3 +101,19 @@ linksWidth  = 220
     lexend(18px, #000000)
     &::placeholder
       color #565656
+  +tablet()
+    margin 0 24px 16px
+    &-icon
+      left 12px
+      top 12px
+      width 24px
+    &-enter
+      right 2px
+      top 1px
+      padding 4px 12px
+      svg
+        margin-top 8px
+        width 24px
+    &-bar
+      padding 9px 44px 12px 44px
+      font-size 20px

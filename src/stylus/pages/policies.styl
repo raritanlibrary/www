@@ -11,6 +11,12 @@
       lexend(20px, dark, bold)
       margin 0 8px 0 -32px
       display inline
+  +tablet()
+    &-item
+      font-size 18px
+      &:before
+        font-size 24px
+        margin 0 8px 0 -36px
 
 .print-info
   margin-bottom 8px
@@ -18,3 +24,6 @@
     flex(flow: nowrap, align: space-between, gap: 16px)
     width 250px
     margin-bottom 0
+  +tablet()
+    p
+      width 400px

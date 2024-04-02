@@ -41,14 +41,25 @@ export const toTop = () => {
     const html = document.documentElement;
     const body = document.body;
     const upButton = document.getElementById("totop");
+    // Calc height
+    const width = util.getWidth();
+    console.log(width);
+    let height = 60;
+    if (width > 1368) {
+        height = 0;
+    } else if (width >= 768) {
+        height = 0;
+    } else if (width >= 500) {
+        height = 76;
+    }
     // Appear when 20% below top
     document.addEventListener('scroll', e => {
         const element = body.scrollHeight - body.clientHeight === 0 ? html : body;
         const maxScroll = element.scrollHeight - element.clientHeight;
         const ratio = element.scrollTop / maxScroll;
         if (maxScroll / element.clientHeight >= 1) {
-            if (element.scrollTop >= (maxScroll * 0.2 + 120)) {
-                upButton.style.top = 'calc(100vh - 60px)'
+            if (element.scrollTop >= (maxScroll * 0.2 + height * 2)) {
+                upButton.style.top = `calc(100vh - ${height}px)`
             } else if (ratio >= 0.2) {
                 upButton.style.top = `calc(100vh - ${(element.scrollTop - maxScroll * 0.2) / 2}px)`
             } else {

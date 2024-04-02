@@ -38,12 +38,33 @@
       lexend(13px, fixed-lite)
       letter-spacing -0.025em
       flex(align: space-between, gap: 16px)
+  +tablet()
+    &-socials
+      margin-bottom -24px
+    &-contact
+      &-method
+        font-size 16px
+        a
+          font-size 16px
+  &-hours
+    p   
+      font-size 16px
+      letter-spacing -0.025em
+
 .copyright
   lexend-mega(14px, fixed-lite)
   letter-spacing -0.12em
   text-transform uppercase
+  +tablet()
+    font-size 16px
+    letter-spacing -0.1em
+
 .version
   lexend(12px, fixed-accent-lite)
   text-align center
   a
     lexend(12px, fixed-lite)
+  +tablet()
+    font-size 14px
+    a
+      font-size 14px

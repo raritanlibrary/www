@@ -9,6 +9,14 @@ entry-template(type)
   &-time
     lexend(14px, unquote(ev-text-+type))
     margin-bottom 0
+  +laptop()
+    padding 4px
+    font-size 13px
+    border-left-width 4px
+    margin 2px 0
+    &-time
+      font-size 11px
+      margin-bottom -2px
 
 .calendar
   &-header
@@ -31,6 +39,8 @@ entry-template(type)
     flex(dir: column, align: center, gap: 8px)
   &-day
     margin-bottom 8px
+    &-now
+      @extends .calendar-day
     &-grey, &-empty
       display none
   &-num
@@ -44,3 +54,37 @@ entry-template(type)
     for col, i in event-colors
       &-{col}
         entry-template(col)
+  +tablet()
+    &-header
+      font-size 40px
+    &-action
+      font-size 18px
+    &-day, &-day-now
+      width 48.5%
+    &-num
+      &-date
+        font-size 26px
+    &-weeks
+      flex(dir: row, wrapping: wrap, align: space-between, gap: 8px)
+      &::after
+        content ""
+        flex auto
+
+/*
+  +laptop()
+    &-header
+      font-size 40px
+    &-weeks
+      flex(dir: row, wrapping: wrap, align: center, gap: 0px)
+    &-day
+      flex-direction column
+      max-width 14%
+      border-left 2px solid accent
+      border-bottom 2px solid accent
+      padding 8px
+      &-now, &-grey, &-empty
+        @extends .calendar-day
+    &-num
+      &-dotw
+        display none
+*/

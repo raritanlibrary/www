@@ -31,23 +31,33 @@ html
 
 .content
   margin 16px 16px 24px
+  +tablet()
+    margin 24px 24px 32px
 
 h1
   lexend-mega(32px, accent)
   margin-bottom 8px
+  +tablet()
+    font-size 40px
 
 h2
   lexend-mega(24px, accent)
   margin-bottom 8px
+  +tablet()
+    font-size 32px
 
 h3
   lexend-mega(20px, accent)
   margin-bottom 4px
+  +tablet()
+    font-size 26px
 
 p
   lexend(16px, dark)
   margin-bottom 16px
   text-align justify
+  +tablet()
+    font-size 18px
 
 b
   font-weight bold
@@ -76,6 +86,8 @@ a
   & a
     lexend(14px, lite)
     text-decoration none
+    +tablet()
+      font-size 16px
   &-nocenter
     @extends .action
     margin 0
@@ -85,7 +97,11 @@ a
   position relative
   font-size 0.7em
   top -2px
-  left 1px
+  left 2px
+  margin-right 2px
+  +tablet()
+    left 3px
+    margin-right 3px
 
 .access
   display none

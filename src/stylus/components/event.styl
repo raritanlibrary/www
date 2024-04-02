@@ -43,3 +43,29 @@
   // modifiers
   &-extend
     margin-bottom 32px
+  // breakpoints
+  +tablet()
+    width 48.5%
+    &-category
+      font-size 16px
+    &-image
+      source, img
+        width 136px
+        min-width 136px
+    &-header
+      font-size 18px
+    &-datetime
+      font-size 16px
+    &-misc
+      p
+        font-size 16px
+    &-action
+      gap 6px 8px
+      a
+        font-size 16px
+      &s-altview
+        gap 6px 8px
+
+#upcoming
+  +tablet()
+    flex(dir: row, wrapping: wrap, align: space-between, gap: 8px)

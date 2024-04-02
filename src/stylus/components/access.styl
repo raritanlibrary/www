@@ -15,10 +15,16 @@
   svg
     fill fixed-lite
     width 22px
-
+  &-darken
+    filter brightness(40%)
+  +tablet()
+    top 63.5vh
+    padding 14px 10px
+    svg
+      width 32px
 .totop
   position fixed
-  top 100vh //calc(100vh - 60px)
+  top 100vh
   left calc(100vw - 60px)
   display flex
   justify-content center
@@ -32,3 +38,8 @@
   svg
     fill fixed-lite
     width 28px
+  +tablet()
+    left calc(100vw - 76px)
+    padding 12px
+    svg
+      width 36px

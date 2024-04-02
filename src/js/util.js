@@ -48,3 +48,12 @@ export const stylizer = cat => {
         default:                        return "grey";
     }
 }
+
+// Get width of window
+export const getWidth = () => {
+    return Math.max(
+        document.body.offsetWidth,
+        document.documentElement.offsetWidth,
+        document.documentElement.clientWidth
+    );
+}
