@@ -12,10 +12,13 @@ block content
                 img(src=`./img/hero/x.png?as=jpeg` alt="" type="image/jpeg")
     .content
         h1.access Events
+        .calendar-header#calendar-month
+        .calendar-nav
+            .calendar-action.calendar-action-grey#calendar-nav-back
+            .calendar-action#calendar-nav-next
         .calendar
-            .calendar-header#calendar-month
-            .calendar-nav
-                .calendar-action.calendar-action-grey#calendar-nav-back
-                .calendar-action#calendar-nav-next
             .calendar-days
+                for dotw in dotws
+                    .calendar-dotw
+                        span #{dotw}
             .calendar-weeks#calendar-weeks

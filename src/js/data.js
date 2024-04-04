@@ -19,7 +19,7 @@ export const eventInjector = (data, cache) => {
 
     // Initial pass
     data.forEach(entry => {
-        let category = entry.category.length > 0 ? entry.category[0].name : 'Event';
+        let category = entry.category.length > 0 ? entry.category[0].name : 'Other Program';
         if (!dupes.includes(entry.title) && ['cancel', 'brendan', '1-on-1'].some(x => !(entry.title).toLowerCase().includes(x)) && category !== "Holiday") {
             if (entry.allday) {
                 dupes.push(entry.title);
@@ -46,7 +46,7 @@ export const eventInjector = (data, cache) => {
     let eventList = ``;
     for (const event of truncatedData) {
         let eventDateTime = time.shortDate(event.date[0]);
-        if (displayed === 5 ) {
+        if (displayed === 6) {
             break
         }
         if (event.range) {
@@ -114,12 +114,6 @@ export const programCalendar = (events, dateTime) => {
     let calIter = 0;
     let calContent = ``;
     const simpleNow = new Date(time.now.getFullYear(), time.now.getMonth(), time.now.getDate());
-    let dupes = [
-        "1-on-1 Computer Help",
-        "Brendan 1-on-1 Computer Help",
-        "Brendan 1-on-1 Computer Session",
-        "1-on-1 Computer Class with Brendan"
-    ];
     while (!(calIter > 6 && dateTime.getMonth() !== calDate.getMonth() && calDate.getDay() === 0)) {
         const filteredEvents = events.filter(event => new Date(event.start).setHours(0,0,0,0) === calDate.setHours(0,0,0,0) && ['cancel', 'brendan', '1-on-1'].some(x => !(event.title).toLowerCase().includes(x)));
         const dayClass = dateTime.getMonth() !== calDate.getMonth() ? "-grey" : (simpleNow.getTime() === calDate.getTime() ? "-now" : "")
@@ -128,7 +122,7 @@ export const programCalendar = (events, dateTime) => {
         <div class="calendar-day${dayClass}${hideEmpty}">
             <div class="calendar-num">
                 <span class="calendar-num-dotw">${time.weekday(calDate)}</span>
-                <span class="calendar-num-date">${time.mm[calDate.getMonth()]} ${calDate.getDate()}</span>
+                <span class="calendar-num-date"><span class="calendar-num-date-month">${time.mm[calDate.getMonth()]}</span> ${calDate.getDate()}</span>
             </div>`
         for (const event of filteredEvents) {
             let eventTitle = event.title;

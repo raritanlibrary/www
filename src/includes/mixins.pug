@@ -93,6 +93,6 @@ mixin resource(name, link)
 //- Site Map link
 mixin sitemap-link(name, href)
         if extchk(href)
-            p: a.external(href=href target="_blank" rel="noopener") #{name}
+            p: a.external.link(href=href target="_blank" rel="noopener") #{name}
         else
-            p: a(href=href) #{name}
+            p: a.link(href=href) #{name}

@@ -1,7 +1,7 @@
 .footer
   flex(dir: column, align: start, x-align: center, gap: 16px)
   background-color fixed-accent
-  padding 16px
+  padding 24px 16px
   p
     margin-bottom 0
   &-heading
@@ -10,11 +10,15 @@
     margin-bottom 0
   &-socials
     flex(wrapping: wrap, align: start, gap: 12px)
+    margin-top -8px
     margin-bottom -16px
     &-link
       width calc(32px+16px)
       fill fixed-lite
       padding 8px
+      animate(transform)
+      &:hover, &:focus
+        transform scale(1.2)
   &-info
     flex(wrapping: wrap, align: space-around, gap: 16px 0)
     width 100%
@@ -26,6 +30,7 @@
       letter-spacing -0.025em
       a
         lexend(13px, fixed-lite)
+        underline(fixed-lite)
       svg
         position relative
         fill fixed-lite
@@ -41,15 +46,17 @@
   +tablet()
     &-socials
       margin-bottom -24px
+    &-info
+      flex(wrapping: wrap, align: center, gap: 64px)
     &-contact
       &-method
         font-size 16px
         a
           font-size 16px
-  &-hours
-    p   
-      font-size 16px
-      letter-spacing -0.025em
+    &-hours
+      p   
+        font-size 16px
+        letter-spacing -0.025em
 
 .copyright
   lexend-mega(14px, fixed-lite)
@@ -64,6 +71,7 @@
   text-align center
   a
     lexend(12px, fixed-lite)
+    underline(fixed-lite)
   +tablet()
     font-size 14px
     a

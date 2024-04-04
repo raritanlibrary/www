@@ -27,7 +27,7 @@ block content
             +member("Nicolas Carra", "Mayor")
         h2 Meeting Minutes
         p Months in grey denote Board meetings not held during that month.
-        p To request access to meeting minutes before 2021, please #[a(href="/contact") contact us] at your earliest convenience.
+        p To request access to meeting minutes before 2021, please #[a.link(href="/contact") contact us] at your earliest convenience.
         - const years = [2023, 2022, 2021]
         - const yearExclude = [[], [7], [8]]
         .meeting
@@ -39,6 +39,6 @@ block content
                         for m in arr(arrLen)
                             p
                                 if !(yearExclude[i].includes(m+1))
-                                    a(href=`./docs/board/${y}${String(m+1).padStart(2, '0')}.pdf` target="_blank") #{months[m]}
+                                    a.link(href=`./docs/board/${y}${String(m+1).padStart(2, '0')}.pdf` target="_blank") #{months[m]}
                                 else
                                     b.greyout #{months[m]}

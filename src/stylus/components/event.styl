@@ -38,6 +38,9 @@
       padding 4px 8px
       user-select none
       text-decoration none
+      animate(background-color)
+      &:hover, &:focus
+        background-color accent-dark
     &s-altview
       flex(wrapping: wrap, align: start, gap: 4px 8px)
   // modifiers
@@ -65,6 +68,13 @@
         font-size 16px
       &s-altview
         gap 6px 8px
+  +laptop()
+    &-image
+      source, img
+        width 156px
+        min-width 156px
+    &-header
+      font-size 20px
 
 #upcoming
   +tablet()

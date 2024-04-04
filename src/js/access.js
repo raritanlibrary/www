@@ -43,12 +43,11 @@ export const toTop = () => {
     const upButton = document.getElementById("totop");
     // Calc height
     const width = util.getWidth();
-    console.log(width);
     let height = 60;
     if (width > 1368) {
         height = 0;
     } else if (width >= 768) {
-        height = 0;
+        height = 84;
     } else if (width >= 500) {
         height = 76;
     }

@@ -1,49 +1,46 @@
 import * as util from './util';
 
 // Get an object with some important properties
-const getListenerElements = str => {
-    return  {
-        "main": document.getElementById(`dropdown-${str}`),
-        "sub": document.getElementById(`sublinks-${str}`),
-        "arrow": document.querySelector(`#dropdown-${str} > div > svg`),    
-    }
+const moreLinks = {
+    "main": document.getElementById(`more`),
+    "sub": document.getElementById(`more-content`),
+    "arrow": document.querySelector(`#more > svg`)
 }
 
 // Conditional for clicking dropdowns
-const dropdownClickLogic = (str, e) => {
-    const obj = getListenerElements(str);
+const dropdownClickLogic = e => {
     util.toggleClasses(
-        obj.main.contains(e.target) && !obj.sub.classList.contains("sublinks-down"),
-        !obj.sub.contains(e.target) && obj.sub.classList.contains("sublinks-down"),
-        [obj.sub, "sublinks-down"],
-        [obj.arrow, "rotate180"]
+        moreLinks.main.contains(e.target) && !moreLinks.sub.classList.contains("more-links-down"),
+        !moreLinks.sub.contains(e.target) && moreLinks.sub.classList.contains("more-links-down"),
+        [moreLinks.sub, "more-links-down"],
+        [moreLinks.arrow, "rotate180"]
     )
 }
 
 // Conditional for dropdowns via keyboard input
-const dropdownKeyLogic = (str, tab, e) => {
-    const obj = getListenerElements(str);
+const dropdownKeyLogic = (tab, e) => {
     util.toggleClasses(
-        e.key === "Tab" && (tab === `dropdown-${str}` || tab === `sublinks-${str}`) && !obj.sub.classList.contains("sublinks-down"),
-        e.key === "Tab" && (tab !== `sublinks-${str}`) && obj.sub.classList.contains("sublinks-down"),
-        [obj.sub, "sublinks-down"],
-        [obj.arrow, "rotate180"]
+        e.key === "Tab" && tab === `more` && !moreLinks.sub.classList.contains("more-links-down"),
+        e.key === "Tab" && tab !== `more` && moreLinks.sub.classList.contains("more-links-down"),
+        [moreLinks.sub, "more-links-down"],
+        [moreLinks.arrow, "rotate180"]
     )
 }
 
 // Uncheck on clicking/tabbing outside, flip arrows on desktop
 export const dropdown = () => {
     util.addClickListener(e => {
-        //dropdownClickLogic("more", e);
+        dropdownClickLogic(e);
     });
     window.addEventListener('keyup', e => {
         let tabbed;
+        console.log(document.activeElement.id || document.activeElement.parentElement.parentElement.id);
         try {
             tabbed = document.activeElement.id || document.activeElement.parentElement.parentElement.id;
         } catch (error) {
             tabbed = document.activeElement.id;
         }
-        //dropdownKeyLogic("more", tabbed, e);
+        dropdownKeyLogic(tabbed, e);
     });
 }
 

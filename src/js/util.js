@@ -23,7 +23,7 @@ export const toggleClasses = (addCondition, removeCondition, ...pairs) => {
 
 // Adds an event listener with full touch/click coverage
 export const addClickListener = func => {
-    if ('ontouchstart' in window) {
+    if (window.hasOwnProperty('ontouchstart')) {
         window.addEventListener('touchstart', func);
     } else {
         window.addEventListener('click', func);

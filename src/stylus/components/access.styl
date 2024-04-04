@@ -12,6 +12,7 @@
   border-bottom 2px solid fixed-lite
   cursor pointer
   z-index 2
+  shadow()
   svg
     fill fixed-lite
     width 22px
@@ -22,6 +23,13 @@
     padding 14px 10px
     svg
       width 32px
+  +laptop()
+    top 82vh
+    animate(background-color)
+    &:hover
+      background-color fixed-accent-dark
+    &-darken
+      filter none
 .totop
   position fixed
   top 100vh
@@ -35,6 +43,7 @@
   border 2px solid fixed-lite
   cursor pointer
   z-index 1
+  shadow()
   svg
     fill fixed-lite
     width 28px
@@ -43,3 +52,8 @@
     padding 12px
     svg
       width 36px
+  +laptop()
+    left calc(100vw - 92px)
+    animate(background-color)
+    &:hover
+      background-color fixed-accent-dark

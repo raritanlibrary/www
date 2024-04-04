@@ -8,6 +8,31 @@ flex(dir=row, wrapping=nowrap, align=center, x-align=stretch, gap=0)
 
 // Motion
 cube-out = cubic-bezier(0.33, 1, 0.68, 1)
+animate(property, length=0.3s, ease=cube-out)
+  transition property length ease
+
+underline(col=lite, h=1px, b=1px, w=100%)
+  position relative
+  &::before
+    content ''
+    position absolute
+    width 0%
+    height h
+    bottom b
+    left 0
+    background-color col
+    visibility hidden
+    transition all 0.2s cube-out
+  &:hover, &:focus
+    &::before
+      visibility visible
+      width w
+      left 0
+      right 50%
+
+// Aesthetic
+shadow()
+  box-shadow 0 0 1px rgba(black, 0.08), 0 4px 8px rgba(black, 0.1)
 
 // Breakpoints
 tablet()
@@ -19,5 +44,9 @@ laptop()
     {block}
 
 standard()
-  @media screen and (min-width 1368px)
+  @media screen and (min-width 1150px)
+    {block}
+
+content-limit()
+  @media screen and (min-width 1338px)
     {block}

@@ -1,13 +1,16 @@
 entry-template(type)
   flex(dir: column)
   spacer(0.25)
-  border-left 8px solid rgba(lookup('event-'+type), 1)
+  border-left 8px solid var(unquote(--ev-+type))
   padding 8px
-  background-color rgba(lookup('event-'+type), 0.3)
+  background-color var(unquote(--ev-alt-+type))
   lexend(16px, dark, bold)
   margin 4px 0
+  animate(background-color)
+  &:hover, &:focus
+    background-color var(unquote(--ev-hover-+type))
   &-time
-    lexend(14px, unquote(ev-text-+type))
+    lexend(14px, var(unquote(--ev-text-+type)))
     margin-bottom 0
   +laptop()
     padding 4px
@@ -17,6 +20,14 @@ entry-template(type)
     &-time
       font-size 11px
       margin-bottom -2px
+  +standard()
+    padding 4px
+    font-size 16px
+    border-left-width 6px
+    margin 4px 0
+    &-time
+      font-size 12px
+      margin-bottom 0
 
 .calendar
   &-header
@@ -32,7 +43,10 @@ entry-template(type)
     user-select none
     max-width fit-content
     lexend(14px, lite)
-    text-decoration none
+    cursor pointer
+    animate(background-color)
+    &:hover, &:focus
+      background-color accent-dark
     &-grey
       background-color neutral
   &-weeks
@@ -54,11 +68,15 @@ entry-template(type)
     for col, i in event-colors
       &-{col}
         entry-template(col)
+  &-days
+    display none
   +tablet()
     &-header
       font-size 40px
+      letter-spacing -0.12em
     &-action
       font-size 18px
+      font-weight bold
     &-day, &-day-now
       width 48.5%
     &-num
@@ -69,22 +87,46 @@ entry-template(type)
       &::after
         content ""
         flex auto
-
-/*
   +laptop()
-    &-header
-      font-size 40px
     &-weeks
       flex(dir: row, wrapping: wrap, align: center, gap: 0px)
-    &-day
+      border-right 2px solid accent
+    &-day,
+    &-day-now, &-day-grey, &-day-empty
+      display flex
       flex-direction column
-      max-width 14%
+      flex-basis 14.28%
+      min-width 14.28%
       border-left 2px solid accent
       border-bottom 2px solid accent
-      padding 8px
-      &-now, &-grey, &-empty
-        @extends .calendar-day
+      padding 4px 8px
+      margin-bottom 0
+      min-height 150px
+    &-day-now
+      background-color rgba(fixed-accent-lite, 0.3)
+    &-day-grey
+      background-color rgba(fixed-neutral, 0.3)
+      filter contrast(60%)
     &-num
+      &-date
+        font-size 22px
+        margin-bottom 2px
+        &-month
+          display none
       &-dotw
         display none
-*/
+    &-days
+      flex(dir: row, wrapping: wrap, align: flex-start, gap: 0px)
+      background-color accent
+    &-dotw
+      lexend-mega(16px, lite)
+      flex-basis calc(14.28% - 0.2px)
+      min-width calc(14.28% - 0.2px)
+      text-align center
+      padding 4px
+      &:not(:first-child)
+        border-left 2px solid lite
+  +standard()
+    &-day,
+    &-day-now, &-day-grey, &-day-empty
+      padding 6px 10px

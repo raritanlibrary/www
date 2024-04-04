@@ -24,33 +24,44 @@ html
   overflow-x hidden
 
 .main
-  transition 0.2s filter ease-in-out
+  transition filter 0.2s ease-in-out
   overflow-x:hidden
   background-color lite
-  min-height calc(100vh - 86px - 245px - 32px)
+  min-height calc(100vh - 87px - 287px)
+  +tablet()
+    min-height calc(100vh - 106px - 321px)
 
 .content
   margin 16px 16px 24px
+  max-width 1280px
   +tablet()
     margin 24px 24px 32px
+  +content-limit()
+    margin 24px auto 32px
 
 h1
   lexend-mega(32px, accent)
   margin-bottom 8px
   +tablet()
     font-size 40px
+  +laptop()
+    margin-bottom 16px
 
 h2
   lexend-mega(24px, accent)
   margin-bottom 8px
   +tablet()
     font-size 32px
+  +laptop()
+    margin-bottom 16px
 
 h3
   lexend-mega(20px, accent)
   margin-bottom 4px
   +tablet()
     font-size 26px
+  +laptop()
+    margin-bottom 8px
 
 p
   lexend(16px, dark)
@@ -72,10 +83,15 @@ a
 
 .darken
   filter brightness(40%)
+  +laptop()
+    filter none
 
 .freeze
   overflow-y hidden
   user-select none
+  +laptop()
+    overflow-y auto
+    user-select auto
 
 .action
   background-color accent
@@ -83,6 +99,9 @@ a
   user-select none
   max-width fit-content
   margin 0 auto
+  animate(background-color)
+  &:hover, &:focus
+    background-color accent-dark
   & a
     lexend(14px, lite)
     text-decoration none
@@ -92,16 +111,20 @@ a
     @extends .action
     margin 0
 
-.external::after
-  content "🡥"
-  position relative
-  font-size 0.7em
-  top -2px
-  left 2px
-  margin-right 2px
-  +tablet()
-    left 3px
-    margin-right 3px
+.link
+  underline(accent-lite)
+
+.external
+  &::after
+    content "🡥"
+    position relative
+    font-size 0.7em
+    top -2px
+    left 2px
+    margin-right 2px
+    +tablet()
+      left 3px
+      margin-right 3px
 
 .access
   display none
@@ -121,3 +144,10 @@ a
     margin-bottom 8px
   &-none
     margin-bottom 0px
+
+.container
+  +laptop()
+    flex(dir: row, wrapping: wrap, align: space-between, gap: 16px)
+    &-inner
+      &-50
+        flex-basis 48%

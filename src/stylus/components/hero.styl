@@ -10,7 +10,7 @@ hero-flex(align, justify)
     cursor pointer
     user-select none
     opacity 0.4
-    transition all 0.2s cube-out
+    animate(all, 0.2s)
     &:hover
       opacity 1
       transform scale(1.3)
@@ -23,7 +23,9 @@ hero-flex(align, justify)
   &-content
     flex(align: start, x-align: center)
     height 54vw
-    background-color fixed-accent
+    width 100%
+    //background-color fixed-accent
+    background linear-gradient(0deg, fixed-accent 0%, fixed-accent-slite 200%);
     overflow hidden
   &-slide
     user-select none
@@ -49,9 +51,9 @@ hero-flex(align, justify)
   +tablet()
     &-content
       height 44vw
-    &-slide
+    hero-size = 80
+    &-slide, &-static
       img, source
-        hero-size = 80
         margin-left "%svw" % ( (100 - hero-size) / 4 )
         width "%svw" % (hero-size)
     &-nav
@@ -63,6 +65,26 @@ hero-flex(align, justify)
         padding 4px 0px
         svg
           width 28px
+  +laptop()
+    &-content
+      height 30vw
+    hero-size = 60
+    &-slide, &-static
+      img, source
+        margin-left "%svw" % ( (100 - hero-size) / 4 )
+        width "%svw" % (hero-size)
+    &-nav
+      &-item
+        padding 36px 80px
+        margin 0 -60px
+  +standard()
+    &-content
+      height 344px
+    hero-size = 688
+    &-slide, &-static
+      img, source
+        margin-left calc((100vw - 688px) / 4 )
+        width "%spx" % (hero-size)
 
 .shift
-  transition transform 0.4s cube-out
+  animate(transform, 0.4s)

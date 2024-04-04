@@ -26,19 +26,19 @@ event-pink      = #f06292   // craft
 event-grey      = #616161   // board meeting, lecture, community organization
 event-colors    = 'crimson' 'red' 'orange' 'yellow' 'lime' 'green' 'teal' 'cyan' 'blue' 'purple' 'pink' 'grey'
 ev(c)
-  tint(c, 60%)
+  c
 ev-alt(c)
-  tint(c, 40%)
+  tint(c, 60%)
 ev-hover(c)
-  tint(saturate(c, 300%), 40%)
+  tint(saturate(c, 70%), 30%)
 ev-text(c)
   shade(saturate(c, 300%), 70%)
 ev-dark(c)
-  shade(c, 90%)
+  shade(c, 20%)
 ev-alt-dark(c)
   shade(saturate(c, -50%), 70%)
 ev-hover-dark(c)
-  shade(saturate(c, 300%), 60%)
+  shade(saturate(c, 40%), 40%)
 ev-text-dark(c)
   tint(saturate(c, -25%), 60%)
 // Fixed ------------------------------
@@ -47,7 +47,9 @@ fixed-accent-slite            = #1f6bdb
 fixed-accent                  = #0a4dbc
 fixed-accent-dark             = #022295
 fixed-lite                    = #ffffff
+fixed-transparent             = alpha(fixed-lite, 0.85)
 fixed-neutral                 = #565656
+fixed-neutral-transparent     = alpha(fixed-neutral, 0.3)
 fixed-neutral-dark            = #262626
 fixed-dark                    = #000000
 // Variable ---------------------------
@@ -57,10 +59,13 @@ fixed-dark                    = #000000
     --accent-slite            fixed-accent-slite 
     --accent                  fixed-accent      
     --accent-dark             fixed-accent-dark 
-    --lite                    fixed-lite        
-    --neutral                 fixed-neutral     
+    --lite                    fixed-lite
+    --transparent             fixed-transparent
+    --neutral                 fixed-neutral
+    --neutral-transparent     fixed-neutral-transparent
     --neutral-dark            fixed-neutral-dark
-    --dark                    fixed-dark        
+    --dark                    fixed-dark
+    --map                     none
     for col, i in alert-colors
       --er-{col} er(lookup(col))
       --er-alt-{col} er-alt(lookup(col))
@@ -77,10 +82,12 @@ fixed-dark                    = #000000
     --accent                #0099ff
     --accent-dark           #6888fd
     --lite                  #141414
+    --transparent           alpha(#141414, 0.92)
     --neutral               #9F9F9F
+    --neutral-transparent   alpha(#9F9F9F, 0.3)
     --neutral-dark          #262626
-    --dark                  #f7f7f7
-    --map                   invert(95%) hue-rotate(180deg)
+    --dark                  #f0f0f0
+    --map                   invert(97%) hue-rotate(180deg)
   for col, i in alert-colors
     --er-{col} er-dark(lookup(col))
     --er-alt-{col} er-alt-dark(lookup(col))
@@ -92,11 +99,13 @@ fixed-dark                    = #000000
     --ev-text-{col} ev-text-dark(lookup('event-'+col))
     --ev-cover-{col} rgba(ev-dark(lookup('event-'+col)), 0.6)
 // Shortcuts ---------------------------
-accent-lite     = var(--accent-lite)
-accent-slite    = var(--accent-slite)
-accent          = var(--accent)
-accent-dark     = var(--accent-dark)
-lite            = var(--lite)
-neutral         = var(--neutral)
-neutral-dark    = var(--neutral-dark)
-dark            = var(--dark)
+accent-lite         = var(--accent-lite)
+accent-slite        = var(--accent-slite)
+accent              = var(--accent)
+accent-dark         = var(--accent-dark)
+lite                = var(--lite)
+lite-transparent    = var(--transparent)
+neutral             = var(--neutral)
+neutral-transparent = var(--neutral-transparent)
+neutral-dark        = var(--neutral-dark)
+dark                = var(--dark)

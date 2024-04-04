@@ -1,11 +1,22 @@
 .quicklinks
   flex(wrapping: wrap, align: space-between, gap: 8px)
+  a
+    line-height 0
+    animate(filter)
+    &:hover, &:focus
+      filter brightness(80%)
   &-img
     margin auto
     img
       width 44vw
   +tablet()
-    gap 16px 8px
+    gap 3vw 8px
     &-img
       img
-        width 30vw
+        width 29vw
+  +standard()
+    gap 24px
+    &-img
+      img
+        width 22vw
+        max-width 300px

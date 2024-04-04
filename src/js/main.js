@@ -98,7 +98,7 @@ const pageInjector = p => {
 
 nav.dropdown();
 nav.sticky();
-//access.preload();
+access.preload();
 
 // Functions to load for the request
 const eventResFunc = async res => {

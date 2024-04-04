@@ -37,7 +37,7 @@ block content
         //-.content-block#news
             h1 Spotlight
             h2 A New Look
-            p Raritan Public Library is now a member of the #[a(href="https://www.mainlib.org/") Main Library Alliance], a network of over 50 public libraries located in north-central New Jersey. Discover over 3,000,000 items in our new collection.
+            p Raritan Public Library is now a member of the #[a.external.link(href="https://www.mainlib.org/" target="_blank" rel="noopener") Main Library Alliance], a network of over 50 public libraries located in north-central New Jersey. Discover over 3,000,000 items in our new collection.
         .content-block
             h1 Upcoming Events
             #upcoming
@@ -48,7 +48,7 @@ block content
             h1 Resources
             .quicklinks#quicklinks
                 each v, i in quickLinks
-                    a(href=v.link)
+                    a(href=v.link target="_blank" rel="noopener")
                         picture.quicklinks-img
                             source(srcset=`./img/resources/${v.name}.png?as=webp` alt=v.alt type="image/webp")
                             img(src=`./img/resources/${v.name}.png?as=jpeg` alt=v.alt type="image/jpeg")

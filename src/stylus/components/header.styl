@@ -13,12 +13,16 @@ linksWidth  = 220
       right 12px
       transition color 0.2s ease-in-out, transform 0.4s ease-out
   +tablet()
-    margin 0 8px
+    padding 0 8px
     &-toggle
       svg
         width 50px
         top 28px
         right 20px
+  +laptop()
+    flex(dir: row, wrapping: nowrap, align: space-between, gap: 2vw)
+    &-toggle
+      display none
 
 .enlarge
   transform scale(1.2)
@@ -26,13 +30,15 @@ linksWidth  = 220
 .logo
   padding 12px 16px
   display block
-  width 40%
   &-text
     fill dark
   &-st0
     fill fixed-accent
   &-st1
     fill accent-slite
+  animate(transform)
+  &:hover, &:focus
+    transform scale(1.07) translateX(0.2vw)
   svg
     position relative
     height 60px
@@ -45,8 +51,9 @@ linksWidth  = 220
   position absolute
   right "-%spx" % (linksWidth)
   z-index 1
-  transition right 0.4s cube-out
+  animate(right, 0.4s)
   user-select none
+  max-width 842px
   &-item
     lexend(16px, lite, bold)
     text-decoration none
@@ -55,12 +62,16 @@ linksWidth  = 220
     padding "calc(-20px/2 - 0.8px/4*((%s - 1)/%s) + (100vh - 87px)/%s/2)" % (nItems nItems nItems) 16px
     width "%spx" % (linksWidth)
     text-align right
+    animate(background-color)
     &:not(:last-child)
       border-bottom 1px solid neutral
-    &:hover
+    &:hover, &:focus
       background-color neutral
     &-more
       @extends .links-item
+  &-more
+    @extends .links-item
+    display none
   &-open
     right 0
   +tablet()
@@ -72,6 +83,62 @@ linksWidth  = 220
       width "%spx" % (linksWidth)
     &-open
       right 0
+  +laptop()
+    flex(dir: row, wrapping: nowrap, align: space-between, x-align: center)
+    position static
+    margin-right 8px
+    width 75%
+    &-item
+      lexend(20px, dark, bold)
+      background-color transparent
+      width max-content
+      padding 4px 8px
+      border-radius 4px
+      &:hover, &:focus
+        background-color neutral-transparent
+      &:not(:last-child)
+        border-width 0
+      &-more
+        display none
+    &-more
+      flex(dir: row, wrapping: nowrap, gap: 4px)
+      cursor pointer
+      position relative
+      svg
+        width 14px
+        fill dark
+        animate(transform)
+      &-links
+        flex(dir: column, gap: 8px)
+        width max-content
+        position absolute
+        top calc(100% + 8px)
+        right 0
+        background-color lite-transparent
+        backdrop-filter blur(2px)
+        border-radius 4px
+        padding 0 8px
+        z-index 1
+        shadow()
+        height 0
+        overflow hidden
+        transition height 0.3s cube-out, padding 0.3s cube-out
+        &-item
+          lexend(16px, dark, bold)
+          padding 8px 12px
+          border-radius 4px
+          animate(background-color)
+          &:hover, &:focus
+            background-color neutral-transparent
+    &-open
+      right 0
+
+.rotate180
+  transform rotate(-180deg) translateY(-2px)
+
+.more-links-down
+  height 184px
+  padding 8px
 
 .search
   flex()
@@ -90,6 +157,11 @@ linksWidth  = 220
     padding 4px 8px
     border 0
     background-color transparent
+    cursor pointer
+    animate(transform)
+    &:hover, &:focus
+      transform scale(1.2)
+      outline none
     svg
       margin-top 3px
       width 19px
@@ -99,8 +171,12 @@ linksWidth  = 220
     padding 4px 32px 6px 32px
     border 2px solid #000000
     lexend(18px, #000000)
+    animate(border-color)
     &::placeholder
       color #565656
+    &:focus
+      border-color accent
+      outline none
   +tablet()
     margin 0 24px 16px
     &-icon
