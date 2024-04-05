@@ -22,13 +22,11 @@
     "images": "bash ./scripts/images.sh",
     "pre-dev": "bash ./scripts/htmlhack.sh",
     "post-dev": "bash ./scripts/cleanup.sh",
-    "push-git": "bash ./scripts/push.sh",
     "push-test": "npm run build && bash ./scripts/deploy-test.sh",
-    "push-serv": "bash ./scripts/ssh.sh",
     "dev": "npm run gen && npm run pre-dev && parcel src/*.pug && npm run post-dev",
     "redev": "npm run clear && npm run gen && npm run pre-dev && npm run images && parcel src/*.pug && npm run post-dev",
-    "build": "npm run clear && npm run gen && parcel build src/*.pug && npm run images && npm run push-serv",
-    "commit": "npm run push-git && npm run build",
+    "build": "npm run clear && npm run gen && parcel build src/*.pug && npm run images",
+    "commit": "bash ./scripts/push.sh && npm run build && bash ./scripts/ssh.sh",
     "lighthouse": "bash ./scripts/lighthouse.sh"
   }
 }

@@ -9,7 +9,7 @@ export const eventInjector = (data, cache) => {
     let truncatedData = []
 
     // Transpose cache
-    cacheByID = {}
+    const cacheByID = {}
     Object.keys(cache).forEach(key => {
         const arr = cache[key];
         arr.forEach(id => {

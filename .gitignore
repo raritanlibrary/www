@@ -209,6 +209,3 @@ www.*
 # LibCal calendar & hashcache
 src/data/calendar.json
 src/data/hashcache.json
-
-# Other
-scripts/deploy-test.sh
