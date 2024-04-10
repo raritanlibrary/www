@@ -27,6 +27,18 @@ hero-flex(align, justify)
     //background-color fixed-accent
     background linear-gradient(0deg, fixed-accent 0%, fixed-accent-slite 200%);
     overflow hidden
+  &-wrapper
+    position relative
+  &-link
+    position absolute
+    display inline-block
+    margin auto
+    top 0
+    bottom 0
+    height calc(54vw * 0.8)
+    left "%svw" % ( (100 - hero-size) / 2 )
+    width "%svw" % (hero-size)
+    z-index 10
   &-slide
     user-select none
     img, source
@@ -38,7 +50,9 @@ hero-flex(align, justify)
       width 100%
   &-nav
     hero-flex(center, space-between)
+    pointer-events none
     &-item
+      pointer-events auto
       padding 24px
       margin 0 -20px
   &-select
@@ -52,6 +66,10 @@ hero-flex(align, justify)
     &-content
       height 44vw
     hero-size = 80
+    &-link
+      height calc(44vw * 0.8)
+      left "%svw" % ( (100 - hero-size) / 2 )
+      width "%svw" % (hero-size)
     &-slide, &-static
       img, source
         margin-left "%svw" % ( (100 - hero-size) / 4 )
@@ -69,6 +87,10 @@ hero-flex(align, justify)
     &-content
       height 30vw
     hero-size = 60
+    &-link
+      height calc(30vw * 0.8)
+      left "%svw" % ( (100 - hero-size) / 2 )
+      width "%svw" % (hero-size)
     &-slide, &-static
       img, source
         margin-left "%svw" % ( (100 - hero-size) / 4 )
@@ -81,9 +103,13 @@ hero-flex(align, justify)
     &-content
       height 344px
     hero-size = 688
+    &-link
+      height calc(344px * 0.8)
+      left calc((100vw - 688px) / 2)
+      width "%spx" % (hero-size)
     &-slide, &-static
       img, source
-        margin-left calc((100vw - 688px) / 4 )
+        margin-left calc((100vw - 688px) / 4)
         width "%spx" % (hero-size)
 
 .shift

@@ -8,8 +8,8 @@ block content
     .hero
         .hero-content#hero-content
             picture.hero-static
-                source(srcset=`./img/hero/five.png?as=webp` alt="" type="image/webp")
-                img(src=`./img/hero/five.png?as=jpeg` alt="" type="image/jpeg")
+                source(srcset=`./img/hero/resources.png?as=webp` alt=title type="image/webp")
+                img(src=`./img/hero/resources.png` alt=title type="image/png")
     .content
         h1.access Resources
         p Resources made available by the Raritan Public Library require a library card. If you are a library card holder, patron of the Library, or are looking to register for a library card, please #[a.link(href="/contact") contact us] for more information on how to access these resources.
@@ -19,18 +19,12 @@ block content
         .container
             .container-inner-50
                 //- eBooks ////////////////////////////////////////////////
-                h2#ebooks eBooks
+                h2#ebooks eBooks &amp; Magazines
                 +resource("Libby", "https://libbyapp.com")
                     span Use your Raritan Library Online Catalog login to access over 30,000 eBooks and eAudiobooks on Libby for free. Accessible from your browser, phone, tablet, or  Kindle device.
-                +resource("hoopla", "https://www.hoopladigital.com/")
-                    span hoopla digital services include over 500,000 eBooks, Audiobooks, Movies, TV shows, CDs, Comics, and Graphic novels. Accessible from your browser or Smart device.
-                    p.comment Please note our library is not part of the Somerset County Library system.
-            .container-inner-50
-                //- Magazines ////////////////////////////////////////////////
-                h2#magazines Magazines
                 +resource("Consumer Reports", "https://search.ebscohost.com/login.aspx?authtype=ip,cpid&custid=s8971388&groupid=main&site=crcro&return=y")
                     span Get unbiased ratings and reviews for 9000+ products and services from Consumer Reports, plus trusted advice and in-depth reporting on what matters most.
-            .container-inner-50
+
                 //- Databases /////////////////////////////////////////////
                 h2#databases Databases
                 +resource("NoveList", `${ebsco}novelist`)
@@ -94,3 +88,9 @@ block content
                     span Health Source: Nursing/Academic Edition is a trusted full-text database covering nursing and allied health topics, including pediatric nursing, critical care, mental health, nursing management, medical law and more.
                 +resource("Peterson's Test and Career Prep", `https://galesupport.com/njgeo`)
                     span Use Peterson's Test and Career Prep to search thousands of college and graduate schools, identify scholarships, take practice tests, create resumes, and explore careers.
+                
+                //- More //////////////////////////////////
+                h2#more More
+                +resource("hoopla", "https://www.hoopladigital.com/")
+                    span hoopla digital services include over 500,000 eBooks, Audiobooks, Movies, TV shows, CDs, Comics, and Graphic novels. Accessible from your browser or Smart device.
+                    p.comment Please note our library is not part of the Somerset County Library system.

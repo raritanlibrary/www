@@ -7,26 +7,47 @@ block meta
 block content
     -
         const heroImages = [
-            {name: "test-hero",  alt: ""},
-            {name: "two",        alt: ""},
-            {name: "three",      alt: ""},
-            {name: "four",       alt: ""},
-            {name: "five",       alt: ""},
+            {
+                name: "main-intro",
+                alt: "A brand-new library experience. Our updated catalog includes three million books, movies, and more items- our largest selection yet. Made possible by the Main Library Alliance.",
+                link: "https://raritan.aspendiscovery.org/"
+            },
+            {
+                name: "book-club",
+                alt: "By Raritan, for Raritan. Join in on engaging discussion with our two in-house book clubs.",
+                link: "https://raritanlibrary.libcal.com/calendar?cid=16676&t=d&d=0000-00-00&cal=16676&ct=59051&inc=0"
+            },
+            {
+                name: "kids-programs",
+                alt: "Something fun for everyone. After-school programs crafted for kids, Pre-K to teen.",
+                link: "https://raritanlibrary.libcal.com/calendar?cid=16676&t=d&d=0000-00-00&cal=16676&audience=5308,5311,5309&inc=0"
+            },
+            {
+                name: "chair-yoga", 
+                alt: "Join Breda Ryan-Blake for our weekly chair yoga sessions, Tuesdays at 10:30 AM.",
+                link: "https://raritanlibrary.libcal.com/calendars?t=d&q=Yoga&cid=-1&cal=-1&inc=0"
+            },
+            {
+                name: "mahjong",
+                alt: "Get your game on. Learn and play Mahjong with fellow Raritan neighbors, every Thursday at 1 PM.",
+                link: "https://raritanlibrary.libcal.com/calendars?t=d&q=Mahjong&cid=-1&cal=-1&inc=0"
+            },
         ];
         const quickLinks = [
-            {name: "hoopla",  alt: "hoopla digital",        link: "https://www.hoopladigital.com/"},
+            {name: "libby",   alt: "Libby",                 link: "https://libbyapp.com"},
+            //{name: "hoopla",  alt: "hoopla digital",        link: "https://www.hoopladigital.com/"},
             {name: "cr",      alt: "Consumer Reports",      link: "https://search.ebscohost.com/login.aspx?authtype=ip,cpid&custid=s8971388&groupid=main&site=crcro&return=y"},
             //{name: "wsj",     alt: "Wall Street Journal",   link: ""},
             {name: "mango",   alt: "Mango Languages",       link: "https://connect.mangolanguages.com/raritanlibrary/start"},
-            {name: "libby",   alt: "Libby",                 link: "https://libbyapp.com"},
         ];
     .hero
-
         .hero-content#hero-content
             each v, i in heroImages
-                picture.hero-slide(id=`hero-slide-${i}`)
-                    source(srcset=`./img/hero/${v.name}.png?as=webp` alt=v.alt type="image/webp")
-                    img(src=`./img/hero/${v.name}.png?as=jpeg` alt=v.alt type="image/jpeg")
+                .hero-wrapper
+                    a.hero-link(href=v.link target="_blank" rel="noopener")
+                    picture.hero-slide(id=`hero-slide-${i}`)
+                        source(srcset=`./img/hero/${v.name}.png?as=webp` alt=v.alt type="image/webp")
+                        img(src=`./img/hero/${v.name}.png?as=jpeg` alt=v.alt type="image/jpeg")
         .hero-nav
             .hero-nav-item#hero-prev: include ./img/icons/caret-left.svg
             .hero-nav-item#hero-next: include ./img/icons/caret-right.svg

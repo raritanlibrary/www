@@ -8,13 +8,6 @@ import * as svg from './svg';
 import eventJson from 'url:../data/calendar.json';
 import hashCache from 'url:../data/hashcache.json';
 
-// Favicon mode
-if (window.matchMedia('(prefers-color-scheme:light)').matches) {
-    document.getElementById('fav-dark').remove();
-} else {
-    document.getElementById('fav-light').remove();
-}
-
 // Get page details
 const url = window.location.href
 let page;

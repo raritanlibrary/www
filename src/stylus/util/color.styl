@@ -8,9 +8,9 @@ er(c)
 er-text(c)
   shade(c, 70%)
 er-dark(c)
-  shade(saturate(c, -25%), 70%)
+  shade(saturate(c, -75%), 78%)
 er-text-dark(c)
-  tint(saturate(c, -10%), 65%)
+  tint(saturate(c, 20%), 60%)
 // Events -----------------------------
 event-crimson   = #b71c1c   // computers, tech
 event-red       = #e53935   // holidays
@@ -42,10 +42,11 @@ ev-hover-dark(c)
 ev-text-dark(c)
   tint(saturate(c, -25%), 60%)
 // Fixed ------------------------------
-fixed-accent-lite             = #347cf4
-fixed-accent-slite            = #1f6bdb
-fixed-accent                  = #0a4dbc
-fixed-accent-dark             = #022295
+fixed-accent-lite             = #ba0044
+fixed-accent-slite            = #9d003d
+fixed-accent                  = #7c002e
+fixed-accent-dark             = #5f0014
+fixed-link                    = #0a4dbc
 fixed-lite                    = #ffffff
 fixed-transparent             = alpha(fixed-lite, 0.85)
 fixed-neutral                 = #565656
@@ -55,10 +56,11 @@ fixed-dark                    = #000000
 // Variable ---------------------------
 :root
   &[color-mode="lite"]
-    --accent-lite             fixed-accent-lite 
+    --accent-lite             fixed-accent-lite
     --accent-slite            fixed-accent-slite 
-    --accent                  fixed-accent      
-    --accent-dark             fixed-accent-dark 
+    --accent                  fixed-accent
+    --accent-dark             fixed-accent-dark
+    --link                    fixed-link
     --lite                    fixed-lite
     --transparent             fixed-transparent
     --neutral                 fixed-neutral
@@ -77,10 +79,11 @@ fixed-dark                    = #000000
       --ev-text-{col} ev-text(lookup('event-'+col))
       --ev-cover-{col} rgba(ev(lookup('event-'+col)), 0.6)
   &[color-mode="dark"]
-    --accent-lite           #4eb8ff
-    --accent-slite          #0099ff
-    --accent                #0099ff
-    --accent-dark           #6888fd
+    --accent-lite           #e1e1e1
+    --accent-slite          #ba0044
+    --accent                #e2b77d
+    --accent-dark           #ffd740
+    --link                  #40c4ff
     --lite                  #141414
     --transparent           alpha(#141414, 0.92)
     --neutral               #9F9F9F
@@ -103,6 +106,7 @@ accent-lite         = var(--accent-lite)
 accent-slite        = var(--accent-slite)
 accent              = var(--accent)
 accent-dark         = var(--accent-dark)
+link                = var(--link)
 lite                = var(--lite)
 lite-transparent    = var(--transparent)
 neutral             = var(--neutral)

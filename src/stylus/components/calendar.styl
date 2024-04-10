@@ -49,6 +49,9 @@ entry-template(type)
       background-color accent-dark
     &-grey
       background-color neutral
+      cursor auto
+      &:hover, &:focus
+        background-color neutral
   &-weeks
     flex(dir: column, align: center, gap: 8px)
   &-day
@@ -103,7 +106,7 @@ entry-template(type)
       margin-bottom 0
       min-height 150px
     &-day-now
-      background-color rgba(fixed-accent-lite, 0.3)
+      background-color rgba(#ffd740, 0.3)
     &-day-grey
       background-color rgba(fixed-neutral, 0.3)
       filter contrast(60%)

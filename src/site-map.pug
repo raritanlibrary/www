@@ -7,7 +7,7 @@ block meta
 
 block content
     .content
-        h1 Site Map
+        h1.center Site Map
         .sitemap
             .sitemap-outer
                 h2 Our Library
@@ -15,14 +15,14 @@ block content
                     h3 Registration &amp; Events
                     +sitemap-link("Catalog", "/catalog")
                     +sitemap-link("Event Calendar", "/events")
-                    +sitemap-link("Patron Registration", "/register")
-                    +sitemap-link("ESL Classes", "/esl")
+                    //-+sitemap-link("Patron Registration", "/register")
+                    //-+sitemap-link("ESL Classes", "/esl")
                     +sitemap-link("NJ Makers Day", "/makersday")
                 .sitemap-inner
                     h3 Resources
                     +sitemap-link("eBooks & Digital", "/resources")
                     +sitemap-link("Museum Passes", "/passes")
-                    +sitemap-link("Magazines", "/magazines")
+                    //-+sitemap-link("Magazines", "/magazines")
                 .sitemap-inner
                     h3 Our History
                     +sitemap-link("Frelinghuysen House History", "/history")
@@ -31,7 +31,7 @@ block content
                 .sitemap-inner
                     h3 About Us
                     +sitemap-link("Homepage", "/")
-                    +sitemap-link("About Us", "/about")
+                    //-+sitemap-link("About Us", "/about")
                     +sitemap-link("Contact Information", "/contact")
                     +sitemap-link("Library Policies", "/policies")
                     +sitemap-link("Main Library Alliance", "https://www.mainlib.org/")
