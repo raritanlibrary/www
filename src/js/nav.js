@@ -34,7 +34,6 @@ export const dropdown = () => {
     });
     window.addEventListener('keyup', e => {
         let tabbed;
-        console.log(document.activeElement.id || document.activeElement.parentElement.parentElement.id);
         try {
             tabbed = document.activeElement.id || document.activeElement.parentElement.parentElement.id;
         } catch (error) {

@@ -20,7 +20,7 @@ export const eventInjector = (data, cache) => {
     // Initial pass
     data.forEach(entry => {
         let category = entry.category.length > 0 ? entry.category[0].name : 'Other Program';
-        if (!dupes.includes(entry.title) && ['cancel', 'brendan', '1-on-1'].some(x => !(entry.title).toLowerCase().includes(x)) && category !== "Holiday") {
+        if (!dupes.includes(entry.title) && !['cancel', 'brendan', '1-on-1'].some(x => (entry.title).toLowerCase().includes(x)) && category !== "Holiday") {  
             if (entry.allday) {
                 dupes.push(entry.title);
             }
@@ -115,7 +115,7 @@ export const programCalendar = (events, dateTime) => {
     let calContent = ``;
     const simpleNow = new Date(time.now.getFullYear(), time.now.getMonth(), time.now.getDate());
     while (!(calIter > 6 && dateTime.getMonth() !== calDate.getMonth() && calDate.getDay() === 0)) {
-        const filteredEvents = events.filter(event => new Date(event.start).setHours(0,0,0,0) === calDate.setHours(0,0,0,0) && ['cancel', 'brendan', '1-on-1'].some(x => !(event.title).toLowerCase().includes(x)));
+        const filteredEvents = events.filter(event => new Date(event.start).setHours(0,0,0,0) === calDate.setHours(0,0,0,0) && !['cancel', 'brendan', '1-on-1'].some(x => (event.title).toLowerCase().includes(x)));
         const dayClass = dateTime.getMonth() !== calDate.getMonth() ? "-grey" : (simpleNow.getTime() === calDate.getTime() ? "-now" : "")
         const hideEmpty = filteredEvents.length === 0 || (calDate.getMonth() === simpleNow.getMonth() & calDate.getDate() < simpleNow.getDate()) ? " calendar-day-empty" : "";
         calContent += ` 
