@@ -25,7 +25,7 @@
     "push-test": "npm run build && bash ./scripts/deploy-test.sh",
     "dev": "npm run gen && npm run pre-dev && parcel src/*.pug && npm run post-dev",
     "redev": "npm run clear && npm run gen && npm run pre-dev && npm run images && parcel src/*.pug && npm run post-dev",
-    "build": "npm run clear && npm run gen && parcel build src/*.pug && npm run images",
+    "build": "npm run clear && npm run gen && npm run images && parcel build src/*.pug",
     "commit": "bash ./scripts/push.sh && npm run build && bash ./scripts/ssh.sh",
     "lighthouse": "bash ./scripts/lighthouse.sh"
   }
