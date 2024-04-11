@@ -144,5 +144,5 @@ export const programCalendar = (events, dateTime) => {
 let rev = fs.readFileSync('src/data/_REV', 'utf8');
 let sha5 = fs.readFileSync('src/data/_ID', 'utf8');
 export const devInfo = () => {
-    document.getElementById("git").innerHTML = `<a href="/site-map">Site Map</a> · <a href="/privacy"> Privacy</a> · v2.${String(rev-321).padStart(3, '0')} (${sha5.slice(0,7)}) `;
+    document.getElementById("git").innerHTML = `<a href="/site-map">Site Map</a> · <a href="/privacy"> Privacy</a> · v2.${String(rev-346).padStart(3, '0')} (${sha5.slice(0,7)}) `;
 }
