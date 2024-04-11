@@ -28,14 +28,14 @@ block content
         h2 Meeting Minutes
         p Months in grey denote Board meetings not held during that month.
         p To request access to meeting minutes before 2021, please #[a.link(href="/contact") contact us] at your earliest convenience.
-        - const years = [2023, 2022, 2021]
-        - const yearExclude = [[], [7], [8]]
+        - const years = [2024, 2023, 2022, 2021]
+        - const yearExclude = [[], [], [7], [8]]
         .meeting
             for y, i in years
                 .meeting-outer
                     h3.meeting-header(id=`${y}`) #{y}
                     .meeting-inner
-                        - let arrLen = i !== 0 ? 12 : 12;
+                        - let arrLen = i !== 0 ? 12 : 1;
                         for m in arr(arrLen)
                             p
                                 if !(yearExclude[i].includes(m+1))
