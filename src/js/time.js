@@ -73,20 +73,22 @@ export const datechunk = arr => {
     return output;
 }
 
-// Parsing function for mobile calendar display
-export const flexMonth = month => {
-    const daysInMonth = (new Date(now.getFullYear(), month + 1, 0)).getDate();
-    switch (daysInMonth) {
-        case 28: return [25, 26, 27, 28];
-        case 29: return [28, 29];
-        case 30: return [];
-        case 31: return [28, 29, 30, 31];
-        default: return [];
-    }
-}
-
 // Inject holiday data
 export const injector = () => {
+    // Prune expired alerts
+    const alerts = document.getElementById("alerts");
+    if (alerts) {
+        const alertList = Array.from(alerts.children);
+        let prunedAlerts = ``;
+        alertList.forEach(alert => {
+            const expiry = Number(alert.dataset.expires);
+            if (expiry > now.getTime() || isNaN(expiry)) {
+                prunedAlerts += alert.outerHTML;
+            }
+        })
+        alerts.innerHTML = prunedAlerts;
+    }
+
     // Holiday alerts
     const holidayKeys = Object.keys(holidays);
     holidayKeys.forEach(holiday => {
@@ -117,7 +119,6 @@ export const injector = () => {
         // Concat + inject string
         const holidayStart  = addHours(new Date(dateKeys[0]), 5);
         const holidayEnd    = addHours(new Date(dateKeys[dateKeys.length-1]), -24);
-        const alerts = document.getElementById("systemwide-alerts");
         if (alerts && holidayStart.getTime() - now.getTime() <= msd*14 && holidayEnd.getTime() - now.getTime() > 0) {
             alerts.innerHTML = `${alerts.innerHTML}
             <div class="alert-info">

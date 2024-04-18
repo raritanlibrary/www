@@ -13,8 +13,8 @@ mixin picture-multi(image, image2, alt, c)
         img(src=`./img/${image2}?as=jpeg` alt=alt type="image/jpeg")
 
 //- General alerts
-mixin alert(type, desc)
-    div(class=`alert-${type}`)
+mixin alert(type)
+    div(class=`alert-${type}`)&attributes(attributes)
         if type === "info"
             include ../img/icons/info.svg
             block
