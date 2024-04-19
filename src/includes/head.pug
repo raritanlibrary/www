@@ -34,13 +34,13 @@ meta(name="format-detection" content="email=no")
 link(rel="icon" href="./img/favicon.svg" type="image/svg+xml")
 link(rel="stylesheet", href="./stylus/main.styl")
 script if (/*@cc_on!@*/false || !!document.documentMode) window.location.href = '/update.html';
+if process.env.NODE_ENV === 'production'
+    script(defer src="https://analytics.us.umami.is/script.js" data-website-id="8d6c106f-dc1b-46fa-a030-a7f7b9077a4b")
 script(type="module" src="./js/main.js")
 //- Variables /////////////////////////////////////////////////////////////////
 - const arr         = n => [...Array(n).keys()];
 - const extchk      = str => str.match('^http') ? true : false;
 - const dotws       = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 - const months      = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-- const dateShort   = `${months[curMonth-1]}-${curYear}`;
-- const dateMonth   = `${months[curMonth-1]} ${curYear}`;
 //- Mixins ////////////////////////////////////////////////////////////////////
 include ./mixins.pug

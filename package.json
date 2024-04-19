@@ -20,13 +20,11 @@
     "clear": "rm -rf dist && mkdir dist && rm -rf .parcel-cache",
     "gen": "bash ./scripts/generate.sh",
     "images": "bash ./scripts/images.sh",
-    "pre-dev": "bash ./scripts/htmlhack.sh",
-    "post-dev": "bash ./scripts/cleanup.sh",
-    "push-test": "npm run build && bash ./scripts/deploy-test.sh",
-    "dev": "npm run gen && npm run pre-dev && parcel src/*.pug && npm run post-dev",
-    "redev": "npm run clear && npm run gen && npm run pre-dev && npm run images && parcel src/*.pug && npm run post-dev",
+    "dev": "npm run gen && parcel src/*.pug",
+    "redev": "npm run clear && npm run gen && npm run images && parcel src/*.pug",
     "build": "npm run clear && npm run gen && npm run images && parcel build src/*.pug",
-    "commit": "bash ./scripts/push.sh && npm run build && bash ./scripts/ssh.sh",
+    "deploy": "bash ./scripts/push.sh && npm run build && bash ./scripts/ssh.sh",
+    "deploy-test": "npm run build && bash ./scripts/deploy-test.sh",
     "lighthouse": "bash ./scripts/lighthouse.sh"
   }
 }
