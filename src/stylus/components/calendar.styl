@@ -30,6 +30,7 @@ entry-template(type)
       margin-bottom 0
 
 .calendar
+  min-height calc(100vh - 87px)
   &-header
     lexend-mega(32px, accent)
     margin-bottom 8px
@@ -91,6 +92,7 @@ entry-template(type)
         content ""
         flex auto
   +laptop()
+    min-height 778px
     &-weeks
       flex(dir: row, wrapping: wrap, align: center, gap: 0px)
       border-right 2px solid accent

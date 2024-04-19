@@ -3,6 +3,7 @@ linksWidth  = 220
 
 .nav
   background-color lite
+  flex(row, nowrap, space-between, center)
   &-toggle
     cursor pointer
     fill dark
@@ -38,9 +39,7 @@ linksWidth  = 220
     fill fixed-accent-slite
   animate(transform)
   &:hover, &:focus
-    transform scale(1.07) translateX(2vw)
-    +laptop()
-      transform scale(1.07) translateX(0.2vw)
+    transform scale(1.07) translateX(0.2vw)
   svg
     position relative
     height 60px
