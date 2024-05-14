@@ -81,14 +81,17 @@ mixin pass(name, img, location, ages, type, link)
             a.external(href=`${link}` target="_blank" rel="noopener") #{link.split('/')[2]}
 
 //- Resource
-mixin resource(name, link)
+mixin resource(name, link, tracker)
     .snippet-extend
         .snippet-info
             h2.snippet-header #{name}
             p.extend-none
                 block
         div.snippet-action
-            a.external(href=`${link}` target="_blank" rel="noopener") #{name}
+            if tracker
+                a.external(href=`${link}` target="_blank" rel="noopener" data-umami-event=tracker) #{name}
+            else
+                a.external(href=`${link}` target="_blank" rel="noopener") #{name}
 
 //- Site Map link
 mixin sitemap-link(name, href)
