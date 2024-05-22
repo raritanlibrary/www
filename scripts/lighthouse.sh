@@ -15,7 +15,7 @@ for file in ./src/*; do
            echo "Generating reports for index.html..."
            lighthouse "https://raritanlibrary.org" --quiet=true --chrome-flags="--headless" --output=html --preset=desktop --output-path=reports/$timestamp/desktop/$fname.html
            lighthouse "https://raritanlibrary.org" --quiet=true --chrome-flags="--headless" --output=html --output-path=reports/$timestamp/mobile/$fname.html
-        elif [[ $fname != "$" ]] && [[ $fname != "robots" ]]; then
+        elif [[ $fname != "$" ]] && [[ $fname != "update" ]] && [[ $fname != "robots" ]]; then
            echo "Generating reports for ${fname}.html..."
            lighthouse "https://raritanlibrary.org/${fname}" --quiet=true --chrome-flags="--headless" --output=html --preset=desktop --output-path=reports/$timestamp/desktop/$fname.html
            lighthouse "https://raritanlibrary.org/${fname}" --quiet=true --chrome-flags="--headless" --output=html --output-path=reports/$timestamp/mobile/$fname.html

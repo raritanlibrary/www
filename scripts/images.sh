@@ -55,4 +55,4 @@ done
 echo "${hashCacheJSON::-2}}" > src/data/hashcache.json
 rm -rf "dist/img/events/tmp"
 
-echo "Finished generation."
+echo "Finished."

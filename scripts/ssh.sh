@@ -11,9 +11,12 @@ put dist
 mv dist public_html
 EOF
 
-echo "╭───────────────────────────────────────────╮"
-echo "│ Build $(cat src/data/_REV) pushed to server successfully. │"
-echo "│        https://raritanlibrary.org/        │"
-echo "╰───────────────────────────────────────────╯"
+rev=$(cat src/data/_REV)
+v2=$(printf "v2.%03d" $(($rev - 346)))
+
+echo "╭─────────────────────────────────────────────╮"
+echo "│ Build $v2 pushed to server successfully. │"
+echo "│         https://raritanlibrary.org/         │"
+echo "╰─────────────────────────────────────────────╯"
 
 exit 0
