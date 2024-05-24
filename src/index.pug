@@ -11,7 +11,8 @@ block content
                 name: "main-intro",
                 alt: "A brand-new library experience. Our updated catalog includes three million books, movies, and more items- our largest selection yet. Made possible by the Main Library Alliance.",
                 aria: "Explore our new catalog",
-                link: "https://raritan.aspendiscovery.org/"
+                link: "https://raritan.aspendiscovery.org/",
+                tracker: "catalog-hero"
             },
             {
                 name: "book-club",
@@ -54,7 +55,10 @@ block content
         .hero-content#hero-content
             each v, i in heroImages
                 .hero-wrapper
-                    a.hero-link(href=v.link target="_blank" rel="noopener" aria-label=v.aria)
+                    if v.tracker
+                        a.hero-link(href=v.link target="_blank" rel="noopener" aria-label=v.aria data-umami-event=v.tracker)
+                    else 
+                        a.hero-link(href=v.link target="_blank" rel="noopener" aria-label=v.aria)
                     picture.hero-slide(id=`hero-slide-${i}`)
                         source(srcset=`./img/hero/${v.name}.png?as=webp` alt=v.alt type="image/webp")
                         img(src=`./img/hero/${v.name}.png?as=jpeg` alt=v.alt type="image/jpeg")

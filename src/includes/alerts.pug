@@ -1,4 +1,27 @@
-+alert("att")(data-expires="1714831200000")
-    span The Raritan Public Library will open at 10 AM from <b>Thursday, April 25th</b> through <b>Saturday, May 4th</b>.
-//-+alert("att")(data-expires="1714831200000")
-    span Raritan Public Library will be closed on <b>Tuesday, February 13th</b> due to <b>inclement weather</b>.
+//----------------------- DOCUMENTATION (DO NOT EDIT) -----------------------//
+
+    Alert type - goes in the first set of quotes
+        There are 3 types of alerts that correlate to different icon + color schemes:
+            "inf" (info)      - blue; used for low-priority situations and normal closings such as holidays.
+            "att" (attention) - yellow; medium-priority alerts, used for far-in-advance delays/early closings and irregular closings such as staff training days.
+            "crit" (critical) - red; high-priority alerts, used for unplanned emergency closings/delays.
+    Data expiration tag - goes in the second set of quotes
+        Specifies when the alert should stop being shown to end users.
+        Formatted in MM/DD/YYYY format, optionally with hh:mm to set the time of expiration.
+            If the time value is omitted, the alert will expire at 8:00 PM of the specified date.
+            If the value is omitted completely, the alert will not expire until removed manually.
+    Span field - follows the "span" below the indented alert tag
+        THIS FIELD MUST BE INDENTED FOLLOWING THE ALERT TAG IN ORDER TO FUNCTION PROPERLY.
+        This is the message that will be displayed inside the alert.
+        Formatted in plain text and/or HTML.
+        You can use <b>SomeMessageInBold</b> or #[b SomeMessageInBold] to make text bold.
+
+    Example code:
+
+    alert("att")(data-expires="02/03/24 11:59 PM")
+        span Raritan Public Library will be closed on #[b Tuesday, February 3rd] due to #[b inclement weather].
+
+//---------------------------------------------------------------------------//
+
+//-alert("att")(data-expires="02/03/24 11:59 PM")
+    span Raritan Public Library will be closed on #[b Tuesday, February 3rd] due to #[b inclement weather].

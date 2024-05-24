@@ -14,38 +14,39 @@ block content
         h1.access Resources
         p Resources made available by the Raritan Public Library require a library card. If you are a library card holder, patron of the Library, or are looking to register for a library card, please #[a.link(href="/contact") contact us] for more information on how to access these resources.
        
+        //- eBooks ////////////////////////////////////////////////
+        h2#ebooks eContent
         .container
-            .container-inner-50
-                //- eBooks ////////////////////////////////////////////////
-                h2#ebooks eContent
-                +resource("Libby", "https://libbyapp.com/library/mainlib")
-                    span Use your Raritan Library Online Catalog login to access over 40,000 eBooks and eAudiobooks on Libby for free. Accessible from your browser, phone, tablet, or Kindle device.
-                +resource("Wall Street Journal", "https://raritan.aspendiscovery.org/WallStreetJournal")
-                    span Get breaking news and analysis from the U.S. and around the world with exclusive access to the Wall Street Journal.
-                    p.comment Please note that access does not include use of the WSJ mobile app.
-                +resource("Consumer Reports", "https://search.ebscohost.com/login.aspx?authtype=ip,cpid&custid=s8971388&groupid=main&site=crcro&return=y")
-                    span Get unbiased ratings and reviews for 9000+ products and services from Consumer Reports, plus trusted advice and in-depth reporting on what matters most.
+            +resource("libby", "Libby", "https://libbyapp.com/library/mainlib")
+                span Use your Raritan Library Online Catalog login to access over 40,000 eBooks and eAudiobooks on Libby for free. Accessible from your browser, phone, tablet, or Kindle device.
+            +resource("wsj", "Wall Street Journal", "https://raritan.aspendiscovery.org/WallStreetJournal")
+                span Get breaking news and analysis from the U.S. and around the world with exclusive access to the Wall Street Journal.
+                p.comment Please note that access does not include use of the WSJ mobile app.
+            +resource("cr", "Consumer Reports", "https://search.ebscohost.com/login.aspx?authtype=ip,cpid&custid=s8971388&groupid=main&site=crcro&return=y")
+                span Get unbiased ratings and reviews for 9000+ products and services from Consumer Reports, plus trusted advice and in-depth reporting on what matters most.
 
-                //- Databases /////////////////////////////////////////////
-                h2#databases Databases
-                +resource("JerseyClicks", "https://www.njstatelib.org/services_for_libraries/statewide_services/jerseyclicks/")
-                    span JerseyClicks is a statewide electronic resources program offered by the New Jersey State Library, funded by the Institute of Museum &amp; Library Services (IMLS) Library Services and Technology Act (LSTA) and the New Jersey Library Network. The program offers a selection of eminent databases for college &amp; k-12 students, public libraries, state government and New Jersey residents, free of cost. JerseyClicks provides access to over 20 databases, which cover a host of topics and academic pursuits.
-                +resource("HeritageQuest", "https://www.heritagequestonline.com/hqoweb/library/do/login/ipbarcode?aid=37019")
-                    span Discover your amazing  family history with HeritageQuest, powered by #[a.link.external(href="https://www.ancestry.com/" target="_blank" rel="noopener") Ancestry.com]. Access an essential collection of genealogical and historical sources with coverage dating back to the 1700s.
+        //- Databases /////////////////////////////////////////////
+        h2#databases Databases
+        .container
+            +resource("jerseyclicks", "JerseyClicks", "https://www.njstatelib.org/services_for_libraries/statewide_services/jerseyclicks/")
+                span JerseyClicks is a statewide electronic resources program offered by the New Jersey State Library. The program offers access to over 20 databases for college &amp; k-12 students, public libraries, state government and New Jersey residents, free of cost.
+            +resource("hq", "HeritageQuest", "https://www.heritagequestonline.com/hqoweb/library/do/login/ipbarcode?aid=37019")
+                span Discover your amazing  family history with HeritageQuest, powered by #[a.link.external(href="https://www.ancestry.com/" target="_blank" rel="noopener") Ancestry.com]. Access an essential collection of genealogical and historical sources with coverage dating back to the 1700s.
 
-            .container-inner-50                
-                //- Language //////////////////////////////////////////////
-                h2#language Language
-                +resource("Mango Languages", `https://connect.mangolanguages.com/raritanlibrary/start`)
-                    span Mango Languages is an online language and culture learning resource that offers access to over 70 foreign languages and 21 English courses taught completely in the user's native language. In addition to traditional language courses, Mango also offers the opportunity to learn through foreign film with Mango Premiere™ and access to a variety of specialty mini courses, like Pirate, Medical Spanish, and romance courses.
+        //- Language //////////////////////////////////////////////
+        h2#language Language
+        .container
+            +resource("mango", "Mango Languages", `https://connect.mangolanguages.com/raritanlibrary/start`)
+                span Mango Languages is an online language and culture learning resource that offers access to over 70 foreign languages and 21 English courses taught completely in the user's native language. Mango also offers the opportunity to learn through foreign films with Mango Premiere™ and access to a variety of specialty mini courses.
 
-                //- Education /////////////////////////////////////////////
-                h2#education Education
-                +resource("Northstar Digital Literacy", "https://www.digitalliteracyassessment.org/launch-from/16037-QJPB-raritan-public-library")
-                    span Northstar Digital Literacy defines basic skills needed to perform tasks on computers and online. Online, self-guided modules assess the ability of individuals to perform tasks based on these skills.
-                +resource("TumbleBooks", "https://www.tumblebooklibrary.com/home.aspx")
-                    span Tumblebooks is a curated database of children's eBooks, animated and talking picture books, audiobooks, puzzles and games.
-                +resource("ABCMouse.com", "https://www.abcmouse.com", "ABCMouse.com")
-                    span ABCmouse.com is an award winning learning academy, helping children ages 2 through 7 learn to learn lessons in phonics, math, social studies, art, music, and much more. If you are interested in logging on to ABC Mouse at the library, please ask at the circulation desk or the Children's Librarian to assist you.
-                +resource("Peterson's Test and Career Prep", `https://link.gale.com/apps/PTCP?u=nj_raritan_ct`)
-                    span Use Peterson's Test and Career Prep to search thousands of college and graduate schools, identify scholarships, take practice tests, create resumes, and explore careers.
+        //- Education /////////////////////////////////////////////
+        h2#education Education
+        .container
+            +resource("northstar", "Northstar Digital Literacy", "https://www.digitalliteracyassessment.org/launch-from/16037-QJPB-raritan-public-library")
+                span Northstar Digital Literacy defines basic skills needed to perform tasks on computers and online. Online, self-guided modules assess the ability of individuals to perform tasks based on these skills.
+            +resource("tumblebooks", "TumbleBooks", "https://www.tumblebooklibrary.com/home.aspx")
+                span Tumblebooks is a curated database of children's eBooks, animated and talking picture books, audiobooks, puzzles and games.
+            +resource("abcmouse", "ABCMouse.com", "https://www.abcmouse.com", "abcmouse")
+                span ABCmouse.com is an award winning learning academy, helping children ages 2 through 7 learn to learn lessons in phonics, math, social studies, art, music, and much more.
+            +resource("ptcp", "Peterson's Test and Career Prep", `https://link.gale.com/apps/PTCP?u=nj_raritan_ct`)
+                span Use Peterson's Test and Career Prep to search thousands of college and graduate schools, identify scholarships, take practice tests, create resumes, and explore careers.

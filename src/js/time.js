@@ -79,14 +79,19 @@ export const injector = () => {
     const alerts = document.getElementById("alerts");
     if (alerts) {
         const alertList = Array.from(alerts.children);
-        let prunedAlerts = ``;
+        let activeAlerts = ``;
         alertList.forEach(alert => {
-            const expiry = Number(alert.dataset.expires);
-            if (expiry > now.getTime() || isNaN(expiry)) {
-                prunedAlerts += alert.outerHTML;
+            const expiryTag = alert.dataset.expires;
+            if (expiryTag === "" || expiryTag === undefined) {
+                activeAlerts += alert.outerHTML;
+            } else {
+                const expiry = expiryTag.includes(":") ? new Date(expiryTag) : new Date(`${expiryTag} 8:00 PM`);
+                if (expiry > now.getTime()) {
+                    activeAlerts += alert.outerHTML;
+                }
             }
         })
-        alerts.innerHTML = prunedAlerts;
+        alerts.innerHTML = activeAlerts;
     }
 
     // Holiday alerts

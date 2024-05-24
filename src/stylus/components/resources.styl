@@ -21,3 +21,42 @@
       img
         width 22vw
         max-width 300px
+
+.resource
+  margin-bottom 32px
+  flex(column, gap: 16px)
+  &-image
+    source, img
+      width 100%
+  &-header
+    lexend(20px, dark, bold)
+    margin-top -6px
+    margin-bottom 0
+  &-action
+    flex(wrapping: wrap, align: start, gap: 4px 8px)
+    a
+      lexend(14px, lite)
+      background-color accent
+      padding 4px 8px
+      user-select none
+      text-decoration none
+      animate(background-color)
+      &:hover, &:focus
+        background-color accent-dark
+  // breakpoints
+  +tablet()
+    flex(row, gap: 16px)
+    &-image
+      source, img
+        width 35vw
+        max-width 330px
+    &-header
+      font-size 18px
+    &-action
+      gap 6px 8px
+      a
+        font-size 16px
+  +laptop()
+    flex(row, x-align: center, gap: 16px)
+    &-header
+      font-size 20px

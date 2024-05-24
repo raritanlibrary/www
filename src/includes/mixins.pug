@@ -81,21 +81,33 @@ mixin pass(name, img, location, ages, type, link)
             a.external(href=`${link}` target="_blank" rel="noopener") #{link.split('/')[2]}
 
 //- Resource
-mixin resource(name, link, tracker)
-    .snippet-extend
-        .snippet-info
-            h2.snippet-header #{name}
+mixin resource(img, name, link, tracker)
+    .resource
+        if tracker
+            a(href=`${link}` target="_blank" rel="noopener" data-umami-event=tracker)
+                +picture(`resources/${img}.png`, name, "resource-image")
+        else
+            a(href=`${link}` target="_blank" rel="noopener")
+                +picture(`resources/${img}.png`, name, "resource-image")
+        .resource-info
+            h3.resource-header #{name}
             p.extend-none
                 block
-        div.snippet-action
-            if tracker
-                a.external(href=`${link}` target="_blank" rel="noopener" data-umami-event=tracker) #{name}
-            else
-                a.external(href=`${link}` target="_blank" rel="noopener") #{name}
+            .resource-action
+                if tracker
+                    a.external(href=`${link}` target="_blank" rel="noopener" data-umami-event=tracker) #{name}
+                else
+                    a.external(href=`${link}` target="_blank" rel="noopener") #{name}
 
 //- Site Map link
-mixin sitemap-link(name, href)
+mixin sitemap-link(name, href, tracker)
         if extchk(href)
-            p: a.external.link(href=href target="_blank" rel="noopener") #{name}
+            if tracker
+                p: a.external.link(href=href target="_blank" rel="noopener" data-umami-event=tracker) #{name}
+            else
+                p: a.external.link(href=href target="_blank" rel="noopener") #{name}
         else
-            p: a.link(href=href) #{name}
+            if tracker
+                p: a.link(href=href data-umami-event=tracker) #{name}
+            else
+                p: a.link(href=href) #{name}
