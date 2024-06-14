@@ -51,6 +51,7 @@ linksWidth  = 220
   flex(dir: column, wrapping: wrap)
   position absolute
   right "-%spx" % (linksWidth)
+  top 86.4px
   z-index 1
   animate(right, 0.4s)
   user-select none
@@ -78,6 +79,7 @@ linksWidth  = 220
   +tablet()
     linksWidth = 280
     right "-%spx" % (linksWidth)
+    top 106.4px
     &-item
       font-size 18px
       padding "calc(-23px/2 - 0.8px/4*((%s - 1)/%s) + (100vh - 107px)/%s/2)" % (nItems nItems nItems) 16px

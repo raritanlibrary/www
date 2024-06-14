@@ -3,6 +3,8 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        if process.env.NODE_ENV === 'production'
+            script(defer src="https://analytics.us.umami.is/script.js" data-website-id="8d6c106f-dc1b-46fa-a030-a7f7b9077a4b")
         link#fav-light(rel="icon" href="./img/favicon.svg" type="image/svg+xml")
         style .a {width: 64px; padding: 4px 16px;}
             | .b {font-size: xx-large; padding: 4px 16px; text-decoration: none;}
@@ -24,6 +26,6 @@ html(lang="en")
                 +trtd("Google Chrome", "chrome", "https://www.google.com/chrome/")
                 +trtd("Opera", "opera", "https://www.opera.com/")
         p If you need assistance from the Library, please contact us by phone
-            | <br> at #[b (908) 725-0413], or by email at #[a(href="mailto:info@raritanlibray.org") info@raritanlibray.org].
+            | <br> at #[b (908) 725-0413], or by email at #[a(href="mailto:info@raritanlibrary.org") info@raritanlibrary.org].
         hr
         p.copyright © #{new Date().getFullYear()} Raritan Public Library

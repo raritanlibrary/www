@@ -126,7 +126,7 @@ You can then create a cronjob so that this script will run every 30 minutes:
 ```
 
 ## **Issues and Contributing**
-Pull requests are encouraged by the Raritan Public Library to ensure our software is of the highest quality possible. If you would like to suggest major changes or restructuring of this repository, please [open an issue](https://github.com/raritanlibrary/www/issues/new). It is also strongly suggested you email us at [info@raritanlibray.org](mailto:info@raritanlibray.org) with any additional questions or concerns.
+Pull requests are encouraged by the Raritan Public Library to ensure our software is of the highest quality possible. If you would like to suggest major changes or restructuring of this repository, please [open an issue](https://github.com/raritanlibrary/www/issues/new). It is also strongly suggested you email us at [info@raritanlibrary.org](mailto:info@raritanlibrary.org) with any additional questions or concerns.
 
 ## **License**
 Please note that, while this project is made available under the [MIT License](LICENSE), any original written, visual, or otherwise presented content is copyrighted by the Raritan Public Library.
