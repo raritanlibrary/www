@@ -7,7 +7,7 @@ const biJson = JSON.parse(_biJson);
 export const authors = () => {
     // Slide information
     const container = document.getElementById('bookit');
-    displayNum = 10;
+    const displayNum = 10;
 
     const author = () => {
         const id = util.getRandomInt(199);
