@@ -57,7 +57,7 @@ mixin makers-event(title, img, imgalt, time, location, ages, signup, links)
         if links
             .snippet-actions-altview
                 for link in links 
-                    div.snippet-action: a.external(href=`${link.href}` target="_blank" rel="noopener") #{link.desc}
+                    .snippet-action: a.external(href=`${link.href}` target="_blank" rel="noopener") #{link.desc}
 
 //- Museum Passes
 mixin pass(name, img, location, ages, type, link)
@@ -77,7 +77,7 @@ mixin pass(name, img, location, ages, type, link)
                         span #{ages}
         p.extend-small
             block
-        div.snippet-action
+        .snippet-action
             a.external(href=`${link}` target="_blank" rel="noopener") #{link.split('/')[2]}
 
 //- Resource

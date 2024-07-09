@@ -1,0 +1,26 @@
+extends ./templates/default.pug
+
+block meta
+    - const title = "BookIt!"
+    - const desc = "Discover Raritan Public Library's exclusive BookIt! reservation program."
+
+block content
+    //-.hero
+        .hero-content#hero-content
+            picture.hero-static
+                source(srcset=`./img/hero/five.png?as=webp` alt="" type="image/webp")
+                img(src=`./img/hero/five.png` alt="" type="image/png")
+    .content
+        h1 BookIt!
+        p.spacer-plus The #[b BookIt!] service is an exclusive perk to Raritan Public Library cardholders.
+        p We love readers. Many of you are avid readers of multiple authors, and we understand how easy it is to lose track of which author released a new book.
+        p #[b Book It!] is an automatic, set-it-and-forget-it service that ensures you never miss the next book by your favorite author.
+        h2 How it works
+        p #[b Step 1:] Log into the #[b BookIt!] Portal. You'll need your Raritan Public Library card number and the associated email address. If you are setting your #[b BookIt!] preferences for the first time, you will be prompted to create an account.
+        p #[b Step 2:] Select your favorite authors.
+        p #[b Step 3:] We will place holds on new books by these authors for you. We will notify you when each copy is available for pickup. This service applies to every new book printed by every author on your list!
+        h2.extend-none Explore our authors
+        p #[span.comment Currently the Library is not accepting author suggestions.]
+        .bookit-wrapper#bookit
+        h2.center Ready to BookIt?
+        .action-big: a.external(href="https://web.miniextensions.com/4hPhNeaQxCu79ybCIo05" target="_blank" rel="noopener" data-umami-event="bookit-infopage") Sign up / log in

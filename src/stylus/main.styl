@@ -4,6 +4,7 @@
 @require './util/reset'
 @require './components/access'
 @require './components/alert'
+@require './components/bookit'
 @require './components/calendar'
 @require './components/event'
 @require './components/footer'
@@ -109,6 +110,14 @@ a
   &-nocenter
     @extends .action
     margin 0
+  &-big
+    @extends .action
+    padding 8px 24px
+    & a
+      font-size 18px
+      font-weight bold
+      +tablet()
+        font-size 22px
 
 .link
   underline(link)
@@ -138,7 +147,7 @@ a
   @extends .event-datetime
 
 .extend
-    margin-bottom 32px
+  margin-bottom 32px
   &-small
     margin-bottom 8px
   &-none

@@ -4,6 +4,7 @@ import * as nav from './nav';
 import * as data from './data';
 import * as access from './access';
 import * as hero from './hero';
+import * as bookit from './bookit';
 import * as svg from './svg';
 import eventJson from 'url:../data/calendar.json';
 import hashCache from 'url:../data/hashcache.json';
@@ -85,7 +86,12 @@ const search = () => {
 }
 
 const pageInjector = p => {
-    if (p === '') { hero.hero() }
+    if (p === '') { 
+        hero.hero();
+    }
+    if (p === '' || p === 'bookit') {
+        bookit.authors();
+    }
     if (p.includes('board')) { autoScroll() }
 }
 
@@ -93,7 +99,7 @@ nav.dropdown();
 nav.sticky();
 access.preload();
 
-// Functions to load for the request
+// Load event/hashcache data
 const eventResFunc = async res => {
     res = res.events;
     const cache = await fetch(hashCache).then(x => x.json());
@@ -102,8 +108,6 @@ const eventResFunc = async res => {
         contentEvents(res);
     }
 };
-
-// Load event/hashcache data
 util.req(eventJson, eventResFunc);
 
 window.onload = () => {

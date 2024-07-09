@@ -7,6 +7,15 @@ echo "Generating image files..."
 [[ ! -d "dist/img" ]] && mkdir "dist/img"
 [[ ! -d "dist/img/events" ]] && mkdir "dist/img/events"
 [[ ! -d "dist/img/events/tmp" ]] && mkdir "dist/img/events/tmp"
+[[ ! -d "dist/img/bookit" ]] && mkdir "dist/img/bookit"
+
+# Generate BookIt images
+for file in src/img/bookit/*; do
+    file=$(basename -- "$file")
+    fname=${file%.*}
+    cp "src/img/bookit/$file" "dist/img/bookit/$file"
+    "$magick" "src/img/bookit/$fname.jpg" -quality 80 "dist/img/bookit/$fname.webp"
+done
 
 # Parse the JSON file we're using to download the images
 eventImagesRaw=( $(grep -oP '(?<="id":)(\d+)(?=,"title")|(?<="featured_image":")(.*?)(?=")' "src/data/calendar.json") )

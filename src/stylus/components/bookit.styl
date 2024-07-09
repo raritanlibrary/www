@@ -1,0 +1,15 @@
+.bookit
+  &-wrapper
+    margin-bottom 16px
+    height 135px
+    user-select none
+    +laptop()
+      height 165px
+  &-img
+    position absolute
+    animate(transform, 12s, linear)
+    img
+      width 180px
+      margin-right 16px // use this and not gap so we don't hardcode values in JS
+      +laptop()
+        width 220px
