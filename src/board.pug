@@ -35,7 +35,7 @@ block content
                 .meeting-outer
                     h3.meeting-header(id=`${y}`) #{y}
                     .meeting-inner
-                        - let arrLen = i !== 0 ? 12 : 3;
+                        - let arrLen = i !== 0 ? 12 : 9;
                         for m in arr(arrLen)
                             p
                                 if !(yearExclude[i].includes(m+1))
