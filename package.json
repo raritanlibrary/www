@@ -4,15 +4,16 @@
   "description": "A website for Raritan Public Library.",
   "browserslist": ">= 0.1% in US, last 3 years, not dead",
   "devDependencies": {
-    "@parcel/config-default": "^2.13.0",
-    "@parcel/transformer-image": "^2.13.0",
-    "@parcel/transformer-pug": "^2.13.0",
-    "@parcel/transformer-stylus": "^2.13.0",
-    "lighthouse": "^12.2.2",
-    "parcel": "^2.13.0",
+    "@parcel/config-default": "^2.13.3",
+    "@parcel/transformer-image": "^2.13.3",
+    "@parcel/transformer-pug": "^2.13.3",
+    "@parcel/transformer-stylus": "^2.13.3",
+    "lighthouse": "^12.3.0",
+    "parcel": "^2.13.3",
     "pug": "^3.0.3",
     "sharp": "^0.33.5",
-    "stylus": "^0.64.0"
+    "stylus": "^0.64.0",
+    "svgo": "^3.3.2"
   },
   "scripts": {
     "clear": "rm -rf dist && mkdir dist && rm -rf .parcel-cache",
