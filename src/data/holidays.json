@@ -1,9 +1,9 @@
 {   
-    "New Year's Day":   {"isHoliday": true, "dates": {"2025-01-01": "CLOSED"}},
+    "New Year's Day":   {"isHoliday": true, "dates": {"2024-12-31": "9 AM - 4:30 PM",
+                                                      "2025-01-01": "CLOSED"}},
     "President's Day":  {"isHoliday": true, "dates": {"2025-02-17": "CLOSED"}},
     "Good Friday":      {"isHoliday": true, "dates": {"2025-04-18": "CLOSED"}},
     "Memorial Day":     {"isHoliday": true, "dates": {"2025-05-26": "CLOSED"}},
-    "Juneteenth":       {"isHoliday": true, "dates": {"2025-06-20": "CLOSED"}},
     "Independence Day": {"isHoliday": true, "dates": {"2025-07-04": "CLOSED"}},
     "Labor Day":        {"isHoliday": true, "dates": {"2025-09-01": "CLOSED"}},
     "Columbus Day":     {"isHoliday": true, "dates": {"2025-10-13": "CLOSED"}},
@@ -11,6 +11,7 @@
     "Thanksgiving":     {"isHoliday": true, "dates": {"2025-11-26": "9 AM - 4:30 PM",
                                                       "2025-11-27": "CLOSED",
                                                       "2025-11-28": "CLOSED"}},
-    "Christmas":        {"isHoliday": true, "dates": {"2025-12-24": "CLOSED",
+    "Christmas":        {"isHoliday": true, "dates": {"2025-12-23": "9 AM - 4:30 PM",
+                                                      "2025-12-24": "CLOSED",
                                                       "2025-12-25": "CLOSED"}}
 }
