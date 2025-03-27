@@ -89,7 +89,7 @@ const pageInjector = p => {
     if (p === '') { 
         hero.hero();
     }
-    if (p === '' || p === 'bookit') {
+    if (p === 'bookit') {
         bookit.authors();
     }
     if (p.includes('board')) { autoScroll() }
