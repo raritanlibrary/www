@@ -3,7 +3,7 @@ const fs = require('fs');
 import holidays from '../data/holidays.json';
 
 // Current time
-export const now = new Date();
+export const now = new Date("March 10 2025");
 export const dotw = now.getDay();
 
 // Days of the week and month names

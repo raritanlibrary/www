@@ -4,7 +4,7 @@ hash=$(git rev-parse --short HEAD)
 branch=$(git rev-parse --abbrev-ref HEAD)
 
 # Add CNAME
-echo 'new.raritanlibrary.org' >> dist/CNAME
+echo 'rpl.cering.dev' >> dist/CNAME
 
 # Check if clean
 if [[ $(git status --porcelain) ]]; then

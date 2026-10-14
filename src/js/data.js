@@ -62,7 +62,6 @@ export const eventInjector = (data, cache) => {
                 <div class="event-category">${event.category}</div>
                 <div class="event-main">
                     <picture class="event-image">
-                        <source srcset="img/events/${event.image}.webp" alt="${event.title}" type="image/webp">
                         <img src="img/events/${event.image}.jpg" alt="${event.title}" type="image/jpeg">
                     </picture>
                     <div class="event-info">

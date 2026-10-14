@@ -1,4 +1,7 @@
+> ***The current version of this repository is made available for archival purposes only, and is no longer reflective of Raritan Public Library's current services or mission. Please visit [raritanlibrary.org](https://raritanlibrary.org/) for up-to-date library information.***
+
 # **Raritan Public Library Website Source**
+
 This repository contains the source code for Raritan Public Library's website.
 
 ## **Installation**

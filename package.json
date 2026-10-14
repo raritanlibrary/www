@@ -18,12 +18,12 @@
   "scripts": {
     "clear": "rm -rf dist && mkdir dist && rm -rf .parcel-cache",
     "gen": "bash ./scripts/generate.sh",
-    "images": "bash ./scripts/images.sh",
+    "images": "bash ./scripts/images-alt.sh",
     "dev": "npm run gen && parcel src/*.pug",
     "redev": "npm run clear && npm run gen && npm run images && parcel src/*.pug",
     "build": "npm run clear && npm run gen && npm run images && parcel build src/*.pug",
-    "deploy": "bash ./scripts/push.sh && npm run build && bash ./scripts/ssh.sh",
-    "deploy-test": "npm run build && bash ./scripts/deploy-test.sh",
+    "deploy": "npm run build && bash ./scripts/deploy-test.sh",
+    "deploy-old": "bash ./scripts/push.sh && npm run build && bash ./scripts/ssh.sh",
     "lighthouse": "bash ./scripts/lighthouse.sh"
   }
 }

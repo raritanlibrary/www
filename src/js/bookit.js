@@ -12,8 +12,7 @@ export const authors = () => {
     const author = () => {
         const id = util.getRandomInt(199);
         return `<picture class="bookit-img">
-            <source src="img/bookit/${id}.webp" alt="${biJson[id].name}" type="image/webp">
-            <img src="img/bookit/${id}.jpg" alt="${biJson[id].name}" type="image/jpeg">
+            <img src="/img/bookit/${id}.jpg" alt="${biJson[id].name}" type="image/jpeg">
         </picture>`
     }
 

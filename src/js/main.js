@@ -88,6 +88,7 @@ const search = () => {
 const pageInjector = p => {
     if (p === '') { 
         hero.hero();
+        bookit.authors();
     }
     if (p === 'bookit') {
         bookit.authors();
